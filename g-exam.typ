@@ -362,7 +362,7 @@
           let __group = __read_localization_value(read_lang_data: __read_lang_data, field: "group", localization: localization)
           let __date = __read_localization_value(read_lang_data: __read_lang_data, field: "date", localization: localization)
 
-          let localization-lang-data = (
+          let __localization_lang_data = (
                 grade-table-queston: __grade_table_queston,
                 grade-table-total: __grade_table_total,
                 grade-table-points: __grade_table_points,
@@ -376,7 +376,7 @@
                 date: __date,
               )
 
-          __localization.update(localization-lang-data)
+          __localization.update(__localization_lang_data)
         }
       }
     }
