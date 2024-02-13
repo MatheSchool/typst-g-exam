@@ -1,33 +1,41 @@
 #import "@preview/oxifmt:0.2.0": strfmt
 
-#let question-number = counter("question-number")
-#let question-point = state("question-point", 0)
-#let question-point-position-state = state("question-point-position", left)
-#let localization = state("localization",
-  (
+#let __question_number = counter("question-number")
+#let __question_point = state("question-point", 0)
+#let __question_point-position-state = state("question-point-position", left)
+
+
+#let __localization = state("localization")
+
+#let __default_localization = (
     grade-table-queston: "Question",
     grade-table-total: "total",
     grade-table-points: "points",
     grade-table-calification: "calification",
     point: "point",
     points: "points",
-    page: "Page"
-  ))
+    page: "Page",
+    family-name: "Surname *1",
+    personal-name: "Name *1",
+    group: "Group *1",
+    date: "Date *1"
+  )
 
-#let student-data(
-  languaje: "en",
+#let __student_data(
   show-line-two: true
 ) = {
-  [Apellidos: #box(width: 2fr, repeat[.]) Nombre: #box(width:1fr, repeat[.])]
-  if show-line-two {
-    v(1pt)
-    align(right, [Grupo: #box(width:2.5cm, repeat[.]) Fecha: #box(width:3cm, repeat[.])])
-  }
-}
+    locate(loc => {
+      [#__localization.final(loc).family-name: #box(width: 2fr, repeat[.]) #__localization.final(loc).personal-name: #box(width:1fr, repeat[.])]
+      if show-line-two {
+        v(1pt)
+        align(right, [#__localization.final(loc).group: #box(width:2.5cm, repeat[.]) #__localization.final(loc).date: #box(width:3cm, repeat[.])])
+      }
+    }
+  )
+} 
 
-#let grade-table-header(
-  decimal-separator: ".",
-  languaje: "en"
+#let __grade_table_header(
+  decimal-separator: "."
 ) = {
       locate(loc => {        
         let end-question-locations = query(<end-question-localization>, loc)
@@ -43,12 +51,12 @@
 
         let total-point = 0
         if end-question-locations.len() > 0 { 
-          total-point = end-question-locations.map(ql => question-point.at(ql.location())).sum()
+          total-point = end-question-locations.map(ql => __question_point.at(ql.location())).sum()
         }
 
         let points = ()
         if end-question-locations.len() > 0 {
-          points =  end-question-locations.map(ql => question-point.at(ql.location()))
+          points =  end-question-locations.map(ql => __question_point.at(ql.location()))
         }
       
         let point-row = columns-number.map(n => {
@@ -91,7 +99,7 @@
   )
 }
 
-#let question-numbering = (..args) => {
+#let __question_numbering = (..args) => {
   let nums = args.pos()
   if nums.len() == 1 {
     numbering("1. ", nums.last())
@@ -104,7 +112,7 @@
   }
 }
 
-#let paint-tab = (point: none) => {
+#let __paint_tab = (point: none) => {
   if point != none {
     let label-point = "puntos"
     if point == 1 {
@@ -116,20 +124,20 @@
 }
 
 #let g-question(point: none, body) = {
-  question-number.step(level: 1) 
+  __question_number.step(level: 1) 
   
   [#hide[]<end-question-localization>]
-  question-point.update(p => 
+  __question_point.update(p => 
     {
       if point == none { 0 }
       else { point }
     })
   
   locate(loc => {
-    let question-point-position = question-point-position-state.final(loc)
+    let __question_point-position = __question_point-position-state.final(loc)
   
-    if question-point-position == left {
-      [#question-number.display(question-numbering) #paint-tab(point:point) #h(0.3em)]
+    if __question_point-position == left {
+      [#__question_number.display(__question_numbering) #paint-tab(point:point) #h(0.3em)]
       [
         #body \ \
       ]
@@ -139,8 +147,8 @@
         #place(right, 
           dx: 14%,
           float: false,
-          [#h(0.7em) #paint-tab(point: point)]) 
-        #question-number.display(question-numbering) 
+          [#h(0.7em) #__paint_tab(point: point)]) 
+        #__question_number.display(__question_numbering) 
         #body \ \
       ]
     }
@@ -149,18 +157,18 @@
 }
 
 #let g-subquestion(point: none, body) = {
-  question-number.step(level: 2)
+  __question_number.step(level: 2)
 
   let subquestion-point = 0
   if point != none { subquestion-point = point }
-  question-point.update(p => p + subquestion-point )
+  __question_point.update(p => p + subquestion-point )
 
   locate(loc => {
-      let question-point-position = question-point-position-state.final(loc)
+      let question-point-position = __question_point-position-state.final(loc)
     
       if question-point-position == left {
         [ \ ]
-        [#h(14pt) #question-number.display(question-numbering) #paint-tab(point: point) #h(0.3em)]
+        [#h(14pt) #__question_number.display(__question_numbering) #paint-tab(point: point) #h(0.3em)]
         [
           #body \ \
         ]
@@ -170,8 +178,8 @@
           #place(right, 
             dx: 14%,
             float: false,
-            [#h(0.7em) #paint-tab(point: point)]) 
-          #question-number.display(question-numbering) 
+            [#h(0.7em) #__paint_tab(point: point)]) 
+          #__question_number.display(__question_numbering) 
           #body \ \
         ]
       }
@@ -179,7 +187,7 @@
   )
 }
 
-#let show-clarifications = (clarifications: none) => {
+#let __show_clarifications = (clarifications: none) => {
   if clarifications != none {
     let clarifications-content = []
     if type(clarifications) == "content" {
@@ -229,6 +237,19 @@
     content: none,
     model: none
   ),
+  localization: (
+    grade-table-queston: none,
+    grade-table-total: none,
+    grade-table-points: none,
+    grade-table-calification: none,
+    point: none,
+    points: none,
+    page: none,
+    family-name: none,
+    personal-name: none,
+    group: none,
+    date: none
+  ),
   // date: none auto datetime,
   date: none,
   keywords: none,
@@ -241,7 +262,7 @@
   body,
 ) = {
   
-  let show-watermark = (
+  let __show_watermark = (
       author: (
           name: none,
           email: none,
@@ -281,14 +302,87 @@
         )
   }
 
-  let document-name = ""
-  if exam-info.at("name", default: none) != none { document-name += " " + exam-info.name }
-  if exam-info.at("content", default: none) != none { document-name += " " + exam-info.content }
-  if exam-info.at("number", default: none) != none { document-name += " " + exam-info.number }
-  if exam-info.at("model", default: none) != none { document-name += " " + exam-info.model }
+  let __document_name = (
+    exam-info: (
+      academic-period: none,
+      academic-level: none,
+      academic-subject: none,
+      number: none,
+      content: none,
+      model: none
+    )) => {
+      let document-name = ""
+      if exam-info.at("name", default: none) != none { document-name += " " + exam-info.name }
+      if exam-info.at("content", default: none) != none { document-name += " " + exam-info.content }
+      if exam-info.at("number", default: none) != none { document-name += " " + exam-info.number }
+      if exam-info.at("model", default: none) != none { document-name += " " + exam-info.model }
+
+      return document-name
+  }
+
+  let __read_localization = (
+    languaje: "en",
+    localization: (
+      grade-table-queston: none,
+      grade-table-total: none,
+      grade-table-points: none,
+      grade-table-calification: none,
+      point: none,
+      points: none,
+      page: none,
+      family-name: none,
+      personal-name: none,
+      group: none,
+      date: none
+    )) => {
+      let __lang_data = toml("lang.toml")
+      if(__lang_data != none) {
+          let __read_lang_data = __lang_data.at(languaje, default: localization)
+
+          if(__read_lang_data != none) {
+          let __read_localization_value = (read_lang_data: none, field: "", localization: none) => {
+            let __parameter_value = localization.at(field)
+            if(__parameter_value != none) { return __parameter_value }
+
+            let value = read_lang_data.at(field, default: __default_localization.at(field))
+            if(value == none) { value = __default_localization.at(field)}
+            
+            return value
+          }
+
+          let __grade_table_queston = __read_localization_value(read_lang_data: __read_lang_data, field: "grade-table-queston", localization: localization)
+          let __grade_table_total = __read_localization_value(read_lang_data: __read_lang_data, field: "grade-table-total", localization: localization)
+          let __grade_table_points = __read_localization_value(read_lang_data: __read_lang_data, field: "grade-table-points", localization: localization)
+          let __grade_table_calification = __read_localization_value(read_lang_data: __read_lang_data, field: "grade-table-calification", localization: localization)
+          let __point = __read_localization_value(read_lang_data: __read_lang_data, field:"point", localization: localization)
+          let __points = __read_localization_value(read_lang_data: __read_lang_data, field: "points", localization: localization)
+          let __page = __read_localization_value(read_lang_data: __read_lang_data, field: "page", localization: localization)
+          let __family_name = __read_localization_value(read_lang_data: __read_lang_data, field: "family-name", localization: localization)
+          let __personal_name = __read_localization_value(read_lang_data: __read_lang_data, field: "personal-name", localization: localization)
+          let __group = __read_localization_value(read_lang_data: __read_lang_data, field: "group", localization: localization)
+          let __date = __read_localization_value(read_lang_data: __read_lang_data, field: "date", localization: localization)
+
+          let localization-lang-data = (
+                grade-table-queston: __grade_table_queston,
+                grade-table-total: __grade_table_total,
+                grade-table-points: __grade_table_points,
+                grade-table-calification: __grade_table_calification,
+                point: __point,
+                points: __points,
+                page: __page,
+                family-name: __family_name,
+                personal-name: __personal_name,
+                group: __group,
+                date: __date,
+              )
+
+          __localization.update(localization-lang-data)
+        }
+      }
+    }
 
   set document(
-    title: document-name.trim(" "),
+    title: __document_name(exam-info: exam-info).trim(" "),
     author: author.name
   )
 
@@ -334,9 +428,7 @@
                     ],
                   ),
                   line(length: 100%, stroke: 1pt + gray),
-                  student-data(
-                    languaje: languaje,          
-                  )
+                  __student_data()
               )
           )
           )]
@@ -360,8 +452,7 @@
               ]
             )
             line(length: 100%, stroke: 1pt + gray) 
-            student-data(
-                    languaje: languaje,       
+            __student_data( 
                     show-line-two: false   
                   )
         }
@@ -410,22 +501,21 @@
       //   ]
       // )
 
-      show-watermark(author: author, school: school, exam-info: exam-info)
+      __show_watermark(author: author, school: school, exam-info: exam-info)
     }
   )
 
   set par(justify: true) 
   set text(font: "New Computer Modern")
   
-  question-point-position-state.update(u => question-point-position)
+  __read_localization(languaje: languaje, localization: localization)
+  __question_point-position-state.update(u => question-point-position)
 
   set text(lang:languaje)
 
   if show-grade-table == true {
-    grade-table-header(
+    __grade_table_header(
       decimal-separator: decimal-separator,
-      languaje: languaje,
-      // questions: questions,
     )
     v(10pt)
   }
@@ -445,7 +535,7 @@
   set par(justify: true) 
 
   if clarifications != none {
-    show-clarifications(clarifications: clarifications)
+    __show_clarifications(clarifications: clarifications)
   }
 
   body

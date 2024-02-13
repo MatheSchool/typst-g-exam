@@ -1,9 +1,9 @@
 [package]
-name = "src/g-exam"
+name = "g-exam"
 version = "0.1.0"
 entrypoint = "g-exam.typ"
 authors = ["Andrés Giménez Muñoz"]
-license = "Unlicense"
-keyworks=["exam"]
-repository=""
+license = "MIT"
+keyworks=["exam, question"]
+repository="https://github.com/MatheSchool/typst-g-Exam"
 description = "Template for creating exams."

@@ -1,5 +1,9 @@
 #import "../g-exam.typ": g-exam, g-question, g-subquestion
 
+// #import "@preview/linguify:0.1.0": *
+// #let lang-data = toml("lang.toml")
+// #linguify_config.with(data: lang-data, lang: "es")
+
 #show: g-exam.with(
   author: (
     name: "Andrés Jorge Giménez Muñoz", 
@@ -17,6 +21,19 @@
     number: "2nd Assessment 1st Exam",
     content: "Radicals and fractions",
     model: "Model A"
+  ),
+  localization: (
+    grade-table-queston: none,
+    grade-table-total: none,
+    grade-table-points: none,
+    grade-table-calification: none,
+    point: none,
+    points: none,
+    page: none,
+    family-name: "Apellidos *4",
+    personal-name: none,
+    group: none,
+    date: none
   ),
   
   languaje: "es",

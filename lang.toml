@@ -1,0 +1,23 @@
+[en]
+family-name = "Surname"
+personal-name = "Name"
+
+[es]
+family-name = "Apellidos"
+personal-name = "Nombre"
+
+[de]
+family-name = "Nachname"
+personal-name = "Vor-und"
+
+[fr]
+family-name = "Prénom"
+personal-name = "Nom"
+
+[pt]
+family-name = "Apelido"
+personal-name = "Nome"
+
+[it]
+family-name = "Cognome"
+personal-name = "Nome"
