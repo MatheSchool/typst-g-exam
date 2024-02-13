@@ -1,0 +1,9 @@
+[package]
+name = "src/g-exam"
+version = "0.1.0"
+entrypoint = "g-exam.typ"
+authors = ["Andrés Giménez Muñoz"]
+license = "Unlicense"
+keyworks=["exam"]
+repository=""
+description = "Template for creating exams."
