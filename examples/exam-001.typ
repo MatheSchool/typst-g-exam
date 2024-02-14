@@ -22,21 +22,22 @@
     content: "Radicals and fractions",
     model: "Model A"
   ),
-  localization: (
-    grade-table-queston: none,
-    grade-table-total: none,
-    grade-table-points: none,
-    grade-table-calification: none,
-    point: none,
-    points: none,
-    page: none,
-    family-name: "Apellidos *4",
-    personal-name: none,
-    group: none,
-    date: none
-  ),
+  // localization: (
+  //   grade-table-queston: none,
+  //   grade-table-total: none,
+  //   grade-table-points: none,
+  //   grade-table-calification: none,
+  //   point: none,
+  //   points: none,
+  //   page: none,
+  //   page-counter-display: none,
+  //   family-name: "Apellidos *4",
+  //   personal-name: none,
+  //   group: none,
+  //   date: none
+  // ),
   
-  languaje: "es",
+  languaje: "en",
   decimal-separator: ",",
   date: "November 21, 2023",
   show-studen-data: true,

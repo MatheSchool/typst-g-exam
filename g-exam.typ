@@ -9,21 +9,20 @@
 
 #let __default_localization = (
     grade-table-queston: "Question",
-    grade-table-total: "total",
-    grade-table-points: "points",
-    grade-table-calification: "calification",
+    grade-table-total: "Total",
+    grade-table-points: "Points",
+    grade-table-calification: "Calification",
     point: "point",
     points: "points",
     page: "Page",
-    family-name: "Surname *1",
-    personal-name: "Name *1",
-    group: "Group *1",
-    date: "Date *1"
+    page-counter-display: "1 of 1",
+    family-name: "Surname",
+    personal-name: "Name",
+    group: "Group",
+    date: "Date"
   )
 
-#let __student_data(
-  show-line-two: true
-) = {
+#let __student_data(show-line-two: true) = {
     locate(loc => {
       [#__localization.final(loc).family-name: #box(width: 2fr, repeat[.]) #__localization.final(loc).personal-name: #box(width:1fr, repeat[.])]
       if show-line-two {
@@ -34,17 +33,14 @@
   )
 } 
 
-#let __grade_table_header(
-  decimal-separator: "."
-) = {
+#let __grade_table_header(decimal-separator: ".") = {
       locate(loc => {        
         let end-question-locations = query(<end-question-localization>, loc)
         let columns-number = range(0, end-question-locations.len() + 1)
       
-        let question-row = columns-number.map(n => 
-          {
-            if n == 0 {align(left + horizon)[Pregunta]}
-            else if n == end-question-locations.len() {align(left + horizon)[Total]}
+        let question-row = columns-number.map(n => {
+            if n == 0 {align(left + horizon)[#text(hyphenate: false,__localization.final(loc).grade-table-queston)]}
+            else if n == end-question-locations.len() {align(left + horizon)[#text(hyphenate: false,__localization.final(loc).grade-table-total)]}
             else [ #n ]
           }
         )
@@ -60,7 +56,7 @@
         }
       
         let point-row = columns-number.map(n => {
-            if n == 0 {align(left + horizon)[Puntos]}
+            if n == 0 {align(left + horizon)[#text(hyphenate: false,__localization.final(loc).grade-table-points)]}
             else if n == end-question-locations.len() [
               #strfmt("{0:}", calc.round(total-point, digits:2), fmt-decimal-separator: decimal-separator)
             ]
@@ -76,7 +72,7 @@
         let calification-row = columns-number.map(n => 
           {
             if n == 0 {
-              align(left + horizon)[Calificación]
+              align(left + horizon)[#text(hyphenate: false, __localization.final(loc).grade-table-calification)]
             }
           }
         )
@@ -99,7 +95,7 @@
   )
 }
 
-#let __question_numbering = (..args) => {
+#let __question_numbering(..args) = {
   let nums = args.pos()
   if nums.len() == 1 {
     numbering("1. ", nums.last())
@@ -112,11 +108,11 @@
   }
 }
 
-#let __paint_tab = (point: none) => {
+#let __paint_tab(point: none, loc: none) = {
   if point != none {
-    let label-point = "puntos"
+    let label-point = __localization.final(loc).points
     if point == 1 {
-      label-point = "punto"
+      label-point = __localization.final(loc).point
     }
 
     [(#emph[#strfmt("{0}", calc.round(point, digits: 2), fmt-decimal-separator: ",") #label-point])]
@@ -147,7 +143,7 @@
         #place(right, 
           dx: 14%,
           float: false,
-          [#h(0.7em) #__paint_tab(point: point)]) 
+          [#h(0.7em) #__paint_tab(point: point, loc: loc)]) 
         #__question_number.display(__question_numbering) 
         #body \ \
       ]
@@ -245,6 +241,7 @@
     point: none,
     points: none,
     page: none,
+    page-counter-display: none,
     family-name: none,
     personal-name: none,
     group: none,
@@ -330,6 +327,7 @@
       point: none,
       points: none,
       page: none,
+      page-counter-display: none,
       family-name: none,
       personal-name: none,
       group: none,
@@ -337,9 +335,9 @@
     )) => {
       let __lang_data = toml("lang.toml")
       if(__lang_data != none) {
-          let __read_lang_data = __lang_data.at(languaje, default: localization)
+        let __read_lang_data = __lang_data.at(languaje, default: localization)
 
-          if(__read_lang_data != none) {
+        if(__read_lang_data != none) {
           let __read_localization_value = (read_lang_data: none, field: "", localization: none) => {
             let __parameter_value = localization.at(field)
             if(__parameter_value != none) { return __parameter_value }
@@ -357,6 +355,7 @@
           let __point = __read_localization_value(read_lang_data: __read_lang_data, field:"point", localization: localization)
           let __points = __read_localization_value(read_lang_data: __read_lang_data, field: "points", localization: localization)
           let __page = __read_localization_value(read_lang_data: __read_lang_data, field: "page", localization: localization)
+          let __page-counter-display = __read_localization_value(read_lang_data: __read_lang_data, field: "page-counter-display", localization: localization)
           let __family_name = __read_localization_value(read_lang_data: __read_lang_data, field: "family-name", localization: localization)
           let __personal_name = __read_localization_value(read_lang_data: __read_lang_data, field: "personal-name", localization: localization)
           let __group = __read_localization_value(read_lang_data: __read_lang_data, field: "group", localization: localization)
@@ -370,6 +369,7 @@
                 point: __point,
                 points: __points,
                 page: __page,
+                page-counter-display: __page-counter-display,
                 family-name: __family_name,
                 personal-name: __personal_name,
                 group: __group,
@@ -479,30 +479,29 @@
       } 
     ),
 
-    footer: {
-      line(length: 100%, stroke: 1pt + gray) 
-      align(right)[
-        Página
-        #counter(page).display({
-          "1 de 1"},
-          both: true,
-        )
-      ]
-      // grid(
-      //   columns: (1fr, 1fr, 1fr),
-      //   align(left)[#school.name],
-      //   align(center)[#exam-info.academic-period],
-      //   align(right)[
-      //     Página 
-      //     #counter(page).display({
-      //       "1 de 1"},
-      //       both: true,
-      //     )
-      //   ]
-      // )
+    footer: locate(loc => {
+        line(length: 100%, stroke: 1pt + gray) 
+        align(right)[
+            #__localization.final(loc).page
+            #counter(page).display(__localization.final(loc).page-counter-display, both: true,
+            )
+        ]
+        // grid(
+        //   columns: (1fr, 1fr, 1fr),
+        //   align(left)[#school.name],
+        //   align(center)[#exam-info.academic-period],
+        //   align(right)[
+        //     Página 
+        //     #counter(page).display({
+        //       "1 de 1"},
+        //       both: true,
+        //     )
+        //   ]
+        // )
 
-      __show_watermark(author: author, school: school, exam-info: exam-info)
-    }
+        __show_watermark(author: author, school: school, exam-info: exam-info)
+      }
+    )
   )
 
   set par(justify: true) 
