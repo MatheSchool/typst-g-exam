@@ -1,9 +1,5 @@
 #import "../g-exam.typ": g-exam, g-question, g-subquestion
 
-// #import "@preview/linguify:0.1.0": *
-// #let lang-data = toml("lang.toml")
-// #linguify_config.with(data: lang-data, lang: "es")
-
 #show: g-exam.with(
   author: (
     name: "Andrés Jorge Giménez Muñoz", 

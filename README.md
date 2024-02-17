@@ -48,7 +48,7 @@ Template to create exams with header, school letterhead, grade chart, ...
 ```
 ### Full sample of an exam.
 
-![Example of exam](examples/exam-001.pdf)
+[Example of exam](examples/exam-001.pdf)
 
 # Usage 
 
@@ -68,7 +68,7 @@ Generate the skeleton of an exam, entering a header, student information, grade 
   - **school**: 
     - **name**: Name of the school or institution generating the exam.
     - **logo**: Logo of the school or institution generating the exam.
-  
+
   - **exam-info**: 
     - **academic-period**: Academic period.
     - **academic-level**: Academic level
@@ -89,23 +89,33 @@ Generate the skeleton of an exam, entering a header, student information, grade 
     - **family-name**: Text surname or family name in studen data.
     - **personal-name**: Text name or personal name in studen data.
     - **group**: Text gorup in studen data.
-    - **date**: Text date in studen data.
+  - **date**: Text date in studen data.
+  - **languaje**: (str) (en, es, de, fr, pt, it) Languages for Default Localization 
+  - **decimal-separator*: (str) (".", ",") Decimal separator
 
-- **date**: Date of document.
-- **show-studen-data: (none, string),
-    - **first-page**: Show studen data only in first page.
-    - **odd-pages**: Show studen data in all odd pages.
-    - `none`: Not show studen data.
-- **question-point-position**: (none, left, right)
-    - **right**: Show question point on the right.
-    - **left**: Show question point on the left.
-    - `none`: Not show the question point.
-- **show-grade-table**: (true, false) Show grade table,
-- **clarifications**: (string, (:)) Text of clarifications for students.
-- **body** (body): Body of exam.
+    - **date**: Date of document.
+
+    - **show-studen-data**: (none, str),
+        - **first-page**: Show studen data only in first page.
+        - **odd-pages**: Show studen data in all odd pages.
+        - `none`: Not show studen data.
+    - **question-point-position**: (none, left, right)
+        - **right**: Show question point on the right.
+        - **left**: Show question point on the left.
+        - `none`: Not show the question point.
+    - **show-grade-table**: (true, false) Show grade table,
+    - **clarifications**: (str, (:)) Text of clarifications for students.
+    - **body** (body): Body of exam.
 
 #### Parameters of `g-question`
 
+  - **point**: (none, float) Points of the question.
+  - **body** (body): Body of question.
+
+#### Parameters of `g-subquestion`
+
+  - **point**: (none, float) Points of the sub-question.
+  - **body** (body): Body of sub-question.
 
 # Changelog
 
