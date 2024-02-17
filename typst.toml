@@ -5,6 +5,6 @@ entrypoint = "g-exam.typ"
 authors = ["Andrés Giménez Muñoz"]
 license = "MIT"
 description = "Create exams with student information, grade chart, score control, questions, and sub-questions."
-keyworks = ["exam, question"]
+keywords = ["exam", "question", "subquestion"]
 repository = "https://github.com/MatheSchool/typst-g-exam"
 exclude = ["/examples/*"]

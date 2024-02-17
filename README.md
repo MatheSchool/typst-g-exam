@@ -48,7 +48,11 @@ Template to create exams with header, school letterhead, grade chart, ...
 ```
 ### Full sample of an exam.
 
-[Example of exam](examples/exam-001.pdf)
+  1. [Example of exam with punctuation](examples/exam-001.pdf)
+  1. [Example of exam with question only](examples/exam-002.pdf)
+  1. [Example of exam with subquestion](examples/exam-003.pdf)
+  1. [Example of exam with punctuation](examples/exam-005.pdf)
+
 
 # Usage 
 
@@ -122,3 +126,8 @@ Generate the skeleton of an exam, entering a header, student information, grade 
 ### v0.1.0
 
 - Initial version submitted to typst/packages.
+
+# ToDo
+
+- Multiple choice questions
+- Show solution of question.
