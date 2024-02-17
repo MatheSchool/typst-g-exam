@@ -244,7 +244,7 @@
 
 #let g-exam(
   author: (
-    name: none,
+    name: "",
     email: none,
     watermark: none
   ),
@@ -297,7 +297,7 @@
 
   let __show-watermark = (
       author: (
-          name: none,
+          name: "",
           email: none,
           watermark: none
         ),
@@ -442,7 +442,9 @@
               columns: (auto, auto),
               gutter:0.7em,        
               align(left + top)[
-                #image(school.logo, height:2.5cm, fit: "contain")
+                  #if(school.logo != none) {
+                  image(school.logo, height:2.5cm, fit: "contain")
+                }
               ],
               grid(
                 rows: (auto, auto, auto),
