@@ -40,9 +40,13 @@
   languaje: "en",
   decimal-separator: ",",
   date: "November 21, 2023",
-  show-studen-data: true,
+  // show-studen-data: "first-page",
+  show-studen-data: "odd-pages",
+  // show-studen-data: none,
   show-grade-table: true,
   question-point-position: right,
+  // question-point-position: left,
+  // question-point-position: none,
   clarifications: (
     [This test must be performed with a blue or black non-erasable pen.],
     [Cheating, talking, getting up from the chair or disturbing the rest of the class can be reasons for withdrawal from the test, which will be valued with a zero.],
@@ -52,10 +56,10 @@
 
 #g-question(point: 2)[Calculate the following operations and simplify if possible:
   #g-subquestion[$display(5/12 dot 9/15=)$]
-  #v(1fr)
+  // #v(1fr)
 
   #g-subquestion[$display(10 dot 9/15=)$]
-  #v(1fr)
+  // #v(1fr)
 
   #g-subquestion[$display(5/12 : 4/15=)$]
   #v(1fr)
@@ -101,4 +105,12 @@
 
   #g-subquestion[If we have pruned red rose bushes, what fraction do we have left to prune?]
   #v(1fr)
+]
+
+#g-question(point: 2)[#lorem(30)
+  #g-subquestion[#lorem(35)]
+  // #v(1fr)
+
+  #g-subquestion(point: 1)[#lorem(130)]
+  // #v(1fr)
 ]

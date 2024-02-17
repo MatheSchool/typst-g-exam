@@ -1,13 +1,13 @@
 #import "@preview/oxifmt:0.2.0": strfmt
 
-#let __question_number = counter("question-number")
-#let __question_point = state("question-point", 0)
-#let __question_point-position-state = state("question-point-position", left)
+#let __question-number = counter("question-number")
+#let __question-point = state("question-point", 0)
+#let __question-point-position-state = state("question-point-position", left)
 
 
 #let __localization = state("localization")
 
-#let __default_localization = (
+#let __default-localization = (
     grade-table-queston: "Question",
     grade-table-total: "Total",
     grade-table-points: "Points",
@@ -22,7 +22,7 @@
     date: "Date"
   )
 
-#let __student_data(show-line-two: true) = {
+#let __student-data(show-line-two: true) = {
     locate(loc => {
       [#__localization.final(loc).family-name: #box(width: 2fr, repeat[.]) #__localization.final(loc).personal-name: #box(width:1fr, repeat[.])]
       if show-line-two {
@@ -33,7 +33,7 @@
   )
 } 
 
-#let __grade_table_header(decimal-separator: ".") = {
+#let __grade-table-header(decimal-separator: ".") = {
       locate(loc => {        
         let end-question-locations = query(<end-question-localization>, loc)
         let columns-number = range(0, end-question-locations.len() + 1)
@@ -47,12 +47,12 @@
 
         let total-point = 0
         if end-question-locations.len() > 0 { 
-          total-point = end-question-locations.map(ql => __question_point.at(ql.location())).sum()
+          total-point = end-question-locations.map(ql => __question-point.at(ql.location())).sum()
         }
 
         let points = ()
         if end-question-locations.len() > 0 {
-          points =  end-question-locations.map(ql => __question_point.at(ql.location()))
+          points =  end-question-locations.map(ql => __question-point.at(ql.location()))
         }
       
         let point-row = columns-number.map(n => {
@@ -95,7 +95,7 @@
   )
 }
 
-#let __question_numbering(..args) = {
+#let __question-numbering(..args) = {
   let nums = args.pos()
   if nums.len() == 1 {
     numbering("1. ", nums.last())
@@ -108,7 +108,7 @@
   }
 }
 
-#let __paint_tab(point: none, loc: none) = {
+#let __paint-tab(point: none, loc: none) = {
   if point != none {
     let label-point = __localization.final(loc).points
     if point == 1 {
@@ -120,64 +120,91 @@
 }
 
 #let g-question(point: none, body) = {
-  __question_number.step(level: 1) 
+  __question-number.step(level: 1) 
   
   [#hide[]<end-question-localization>]
-  __question_point.update(p => 
+  __question-point.update(p => 
     {
       if point == none { 0 }
       else { point }
     })
   
   locate(loc => {
-    let __question_point-position = __question_point-position-state.final(loc)
+    let __question-point-position = __question-point-position-state.final(loc)
   
-    if __question_point-position == left {
-      [#__question_number.display(__question_numbering) #paint-tab(point:point) #h(0.3em)]
-      [
-        #body \ \
-      ]
+    if __question-point-position == left {
+      v(0.1em)
+      {
+        __question-number.display(__question-numbering) 
+        if(point != none) {
+          __paint-tab(point:point, loc: loc) 
+          h(0.2em)
+        }
+      }
+      body 
     }
-    else{
-      [
-        #place(right, 
-          dx: 14%,
-          float: false,
-          [#h(0.7em) #__paint_tab(point: point, loc: loc)]) 
-        #__question_number.display(__question_numbering) 
-        #body \ \
-      ]
+    else if __question-point-position == right {
+      v(0.1em)
+      if(point != none) {
+        place(right, 
+            dx: 12%,
+            float: false,
+            __paint-tab(point: point, loc: loc))
+      }
+      __question-number.display(__question-numbering) 
+      body
+    }
+    else {
+      v(0.1em)
+      __question-number.display(__question-numbering) 
+      body 
     }
   })
-  
 }
 
 #let g-subquestion(point: none, body) = {
-  __question_number.step(level: 2)
+  __question-number.step(level: 2)
 
   let subquestion-point = 0
   if point != none { subquestion-point = point }
-  __question_point.update(p => p + subquestion-point )
+  __question-point.update(p => p + subquestion-point )
 
   locate(loc => {
-      let question-point-position = __question_point-position-state.final(loc)
+      let question-point-position = __question-point-position-state.final(loc)
     
       if question-point-position == left {
-        [ \ ]
-        [#h(14pt) #__question_number.display(__question_numbering) #paint-tab(point: point) #h(0.3em)]
-        [
-          #body \ \
-        ]
+        v(0.1em)
+        {
+          h(0.7em) 
+          __question-number.display(__question-numbering) 
+          if(point != none) {
+            __paint-tab(point: point, loc:loc) 
+            h(0.2em)
+          }
+        }
+        body
       }
-      else{ 
-        [
-          #place(right, 
-            dx: 14%,
-            float: false,
-            [#h(0.7em) #__paint_tab(point: point)]) 
-          #__question_number.display(__question_numbering) 
-          #body \ \
-        ]
+      else if question-point-position == right {
+        v(0.1em)
+        if(point != none) {
+          place(right, 
+              dx: 12%,
+              float: false,
+              __paint-tab(point: point, loc:loc)) 
+        }
+        {
+          h(0.7em) 
+          __question-number.display(__question-numbering) 
+        }
+        body
+      }
+      else {
+        v(0.1em)
+        {
+          h(0.7em) 
+          __question-number.display(__question-numbering) 
+        }
+        body
       }
     }
   )
@@ -252,14 +279,23 @@
   keywords: none,
   languaje: "en",
   clarifications: none,
-  show-studen-data: true,
+  show-studen-data: "first-page",
   show-grade-table: true,
   decimal-separator: ".",
   question-point-position: left,
   body,
 ) = {
   
-  let __show_watermark = (
+  assert(show-studen-data in (none, "first-page", "odd-pages"),
+      message: "Invalid show studen data")
+
+  assert(question-point-position in (none, left, right),
+      message: "Invalid question point position")
+
+  assert(decimal-separator in (".", ","),
+      message: "Invalid decimal separator")
+
+  let __show-watermark = (
       author: (
           name: none,
           email: none,
@@ -299,7 +335,7 @@
         )
   }
 
-  let __document_name = (
+  let __document-name = (
     exam-info: (
       academic-period: none,
       academic-level: none,
@@ -317,7 +353,7 @@
       return document-name
   }
 
-  let __read_localization = (
+  let __read-localization = (
     languaje: "en",
     localization: (
       grade-table-queston: none,
@@ -338,28 +374,28 @@
         let __read_lang_data = __lang_data.at(languaje, default: localization)
 
         if(__read_lang_data != none) {
-          let __read_localization_value = (read_lang_data: none, field: "", localization: none) => {
+          let __read-localization_value = (read_lang_data: none, field: "", localization: none) => {
             let __parameter_value = localization.at(field)
             if(__parameter_value != none) { return __parameter_value }
 
-            let value = read_lang_data.at(field, default: __default_localization.at(field))
-            if(value == none) { value = __default_localization.at(field)}
+            let value = read_lang_data.at(field, default: __default-localization.at(field))
+            if(value == none) { value = __default-localization.at(field)}
             
             return value
           }
 
-          let __grade_table_queston = __read_localization_value(read_lang_data: __read_lang_data, field: "grade-table-queston", localization: localization)
-          let __grade_table_total = __read_localization_value(read_lang_data: __read_lang_data, field: "grade-table-total", localization: localization)
-          let __grade_table_points = __read_localization_value(read_lang_data: __read_lang_data, field: "grade-table-points", localization: localization)
-          let __grade_table_calification = __read_localization_value(read_lang_data: __read_lang_data, field: "grade-table-calification", localization: localization)
-          let __point = __read_localization_value(read_lang_data: __read_lang_data, field:"point", localization: localization)
-          let __points = __read_localization_value(read_lang_data: __read_lang_data, field: "points", localization: localization)
-          let __page = __read_localization_value(read_lang_data: __read_lang_data, field: "page", localization: localization)
-          let __page-counter-display = __read_localization_value(read_lang_data: __read_lang_data, field: "page-counter-display", localization: localization)
-          let __family_name = __read_localization_value(read_lang_data: __read_lang_data, field: "family-name", localization: localization)
-          let __personal_name = __read_localization_value(read_lang_data: __read_lang_data, field: "personal-name", localization: localization)
-          let __group = __read_localization_value(read_lang_data: __read_lang_data, field: "group", localization: localization)
-          let __date = __read_localization_value(read_lang_data: __read_lang_data, field: "date", localization: localization)
+          let __grade_table_queston = __read-localization_value(read_lang_data: __read_lang_data, field: "grade-table-queston", localization: localization)
+          let __grade_table_total = __read-localization_value(read_lang_data: __read_lang_data, field: "grade-table-total", localization: localization)
+          let __grade_table_points = __read-localization_value(read_lang_data: __read_lang_data, field: "grade-table-points", localization: localization)
+          let __grade_table_calification = __read-localization_value(read_lang_data: __read_lang_data, field: "grade-table-calification", localization: localization)
+          let __point = __read-localization_value(read_lang_data: __read_lang_data, field:"point", localization: localization)
+          let __points = __read-localization_value(read_lang_data: __read_lang_data, field: "points", localization: localization)
+          let __page = __read-localization_value(read_lang_data: __read_lang_data, field: "page", localization: localization)
+          let __page-counter-display = __read-localization_value(read_lang_data: __read_lang_data, field: "page-counter-display", localization: localization)
+          let __family_name = __read-localization_value(read_lang_data: __read_lang_data, field: "family-name", localization: localization)
+          let __personal_name = __read-localization_value(read_lang_data: __read_lang_data, field: "personal-name", localization: localization)
+          let __group = __read-localization_value(read_lang_data: __read_lang_data, field: "group", localization: localization)
+          let __date = __read-localization_value(read_lang_data: __read_lang_data, field: "date", localization: localization)
 
           let __localization_lang_data = (
                 grade-table-queston: __grade_table_queston,
@@ -382,7 +418,7 @@
     }
 
   set document(
-    title: __document_name(exam-info: exam-info).trim(" "),
+    title: __document-name(exam-info: exam-info).trim(" "),
     author: author.name
   )
 
@@ -428,7 +464,9 @@
                     ],
                   ),
                   line(length: 100%, stroke: 1pt + gray),
-                  __student_data()
+                  if show-studen-data in ("first-page", "odd-pages") {
+                    __student-data()
+                  }
               )
           )
           )]
@@ -452,9 +490,9 @@
               ]
             )
             line(length: 100%, stroke: 1pt + gray) 
-            __student_data( 
-                    show-line-two: false   
-                  )
+            if show-studen-data == "odd-pages" {
+              __student-data(show-line-two: false)
+            }
         }
         else {
            grid(
@@ -499,7 +537,7 @@
         //   ]
         // )
 
-        __show_watermark(author: author, school: school, exam-info: exam-info)
+        __show-watermark(author: author, school: school, exam-info: exam-info)
       }
     )
   )
@@ -507,13 +545,13 @@
   set par(justify: true) 
   set text(font: "New Computer Modern")
   
-  __read_localization(languaje: languaje, localization: localization)
-  __question_point-position-state.update(u => question-point-position)
+  __read-localization(languaje: languaje, localization: localization)
+  __question-point-position-state.update(u => question-point-position)
 
   set text(lang:languaje)
 
   if show-grade-table == true {
-    __grade_table_header(
+    __grade-table-header(
       decimal-separator: decimal-separator,
     )
     v(10pt)
