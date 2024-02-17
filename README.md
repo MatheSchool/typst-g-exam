@@ -28,6 +28,28 @@ Template to create exams with header, school letterhead, grade chart, ...
 )
 ```
 
+### Minimal Example with sub-question
+
+``` typst
+#import "../g-exam.typ": g-exam, g-question, g-subquestion
+
+#show: g-exam.with(
+    #g-question[Question 1]
+
+        #g-subquestion[Question 1]
+        #v(1fr)
+
+        #g-subquestion[Question 1]
+        #v(1fr)
+    
+    #g-subquestion(point: 2)[Question 1]
+    #v(1fr)
+)
+```
+### Full sample of an exam.
+
+![Example of exam](examples/exam-001.pdf)
+
 # Usage 
 
 To use this package, simply add the following code to your document:
@@ -36,7 +58,7 @@ To use this package, simply add the following code to your document:
 
 Generate the skeleton of an exam, entering a header, student information, grade table, watermarks, ...
 
-#### Parameters of g-exam
+#### Parameters of `g-exam`
 
   - **author**: 
     - **name**: Name of author of document.
@@ -81,6 +103,9 @@ Generate the skeleton of an exam, entering a header, student information, grade 
 - **show-grade-table**: (true, false) Show grade table,
 - **clarifications**: (string, (:)) Text of clarifications for students.
 - **body** (body): Body of exam.
+
+#### Parameters of `g-question`
+
 
 # Changelog
 
