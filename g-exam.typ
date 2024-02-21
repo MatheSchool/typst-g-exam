@@ -442,7 +442,7 @@
               columns: (auto, auto),
               gutter:0.7em,        
               align(left + top)[
-                  #if(school.logo != none) {
+                #if(school.at("logo", default : none) != none) {
                   image(school.logo, height:2.5cm, fit: "contain")
                 }
               ],
