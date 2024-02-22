@@ -286,7 +286,7 @@
   body,
 ) = {
   
-  assert(show-studen-data in (none, "first-page", "odd-pages"),
+  assert(show-studen-data in (none, true, false, "first-page", "odd-pages"),
       message: "Invalid show studen data")
 
   assert(question-point-position in (none, left, right),
@@ -474,7 +474,7 @@
                     ],
                   ),
                   line(length: 100%, stroke: 1pt + gray),
-                  if show-studen-data in ("first-page", "odd-pages") {
+                  if show-studen-data in (true, "first-page", "odd-pages") {
                     __student-data()
                   }
               )

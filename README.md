@@ -100,9 +100,9 @@ Generate the skeleton of an exam, entering a header, student information, grade 
     - **date**: Date of document.
 
     - **show-studen-data**: (none, str),
-        - **first-page**: Show studen data only in first page.
+        - `true`, **first-page**: Show studen data only in first page.
         - **odd-pages**: Show studen data in all odd pages.
-        - `none`: Not show studen data.
+        - `false`, `none`: Not show studen data.
     - **question-point-position**: (none, left, right)
         - **right**: Show question point on the right.
         - **left**: Show question point on the left.
