@@ -123,6 +123,10 @@ Generate the skeleton of an exam, entering a header, student information, grade 
 
 # Changelog
 
+### v0.1.1
+
+- Fix loading image.
+
 ### v0.1.0
 
 - Initial version submitted to typst/packages.
