@@ -2,18 +2,18 @@
 
 #show: g-exam.with(
   localization: (
-    grade-table-queston: none,
-    grade-table-total: none,
-    grade-table-points: none,
-    grade-table-calification: none,
-    point: none,
-    points: none,
-    page: none,
-    page-counter-display: none,
-    family-name: "Apellidos *4",
-    personal-name: none,
-    group: none,
-    date: none
+    grade-table-queston: [Number of *questions*],
+    grade-table-total: [Total _poinst_],
+    grade-table-points: [#text(fill: red)[Points]],
+    grade-table-calification: [#text(fill: gradient.radial(..color.map.rainbow))[Grades obtained]],
+    point: [point],
+    points: [Points],
+    page: [],
+    page-counter-display: "1 - 1",
+    family-name: "*Family* _name_",
+    personal-name: "*Personal* _name_",
+    group: [*Classroom*],
+    date: [*Date* of exam]
   ),
 )
 
