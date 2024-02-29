@@ -121,11 +121,18 @@ Generate the skeleton of an exam, entering a header, student information, grade 
   - **point**: (none, float) Points of the sub-question.
   - **body** (body): Body of sub-question.
 
+### Show clarification of `g-clarification`
+
+  - **size**: Size of text in clarification.
+  - **body**: (body): Body of clarification.
+
+
 # Changelog
 
 ### v0.2.0
 
 - Allow true and false values in show-studen-data.
+- Show clarifications.
 
 ### v0.1.1
 

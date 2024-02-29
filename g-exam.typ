@@ -1,13 +1,13 @@
 #import "@preview/oxifmt:0.2.0": strfmt
 
-#let __question-number = counter("question-number")
-#let __question-point = state("question-point", 0)
-#let __question-point-position-state = state("question-point-position", left)
+#let __g-question-number = counter("g-question-number")
+#let __g-question-point = state("g-question-point", 0)
+#let __g-question-point-position-state = state("g-question-point-position", left)
 
 
-#let __localization = state("localization")
+#let __g-localization = state("localization")
 
-#let __default-localization = (
+#let __g-default-localization = (
     grade-table-queston: "Question",
     grade-table-total: "Total",
     grade-table-points: "Points",
@@ -22,42 +22,42 @@
     date: "Date"
   )
 
-#let __student-data(show-line-two: true) = {
+#let __g-student-data(show-line-two: true) = {
     locate(loc => {
-      [#__localization.final(loc).family-name: #box(width: 2fr, repeat[.]) #__localization.final(loc).personal-name: #box(width:1fr, repeat[.])]
+      [#__g-localization.final(loc).family-name: #box(width: 2fr, repeat[.]) #__g-localization.final(loc).personal-name: #box(width:1fr, repeat[.])]
       if show-line-two {
         v(1pt)
-        align(right, [#__localization.final(loc).group: #box(width:2.5cm, repeat[.]) #__localization.final(loc).date: #box(width:3cm, repeat[.])])
+        align(right, [#__g-localization.final(loc).group: #box(width:2.5cm, repeat[.]) #__g-localization.final(loc).date: #box(width:3cm, repeat[.])])
       }
     }
   )
 } 
 
-#let __grade-table-header(decimal-separator: ".") = {
+#let __g-grade-table-header(decimal-separator: ".") = {
       locate(loc => {        
-        let end-question-locations = query(<end-question-localization>, loc)
-        let columns-number = range(0, end-question-locations.len() + 1)
+        let end-g-question-locations = query(<end-g-question-localization>, loc)
+        let columns-number = range(0, end-g-question-locations.len() + 1)
       
         let question-row = columns-number.map(n => {
-            if n == 0 {align(left + horizon)[#text(hyphenate: false,__localization.final(loc).grade-table-queston)]}
-            else if n == end-question-locations.len() {align(left + horizon)[#text(hyphenate: false,__localization.final(loc).grade-table-total)]}
+            if n == 0 {align(left + horizon)[#text(hyphenate: false,__g-localization.final(loc).grade-table-queston)]}
+            else if n == end-g-question-locations.len() {align(left + horizon)[#text(hyphenate: false,__g-localization.final(loc).grade-table-total)]}
             else [ #n ]
           }
         )
 
         let total-point = 0
-        if end-question-locations.len() > 0 { 
-          total-point = end-question-locations.map(ql => __question-point.at(ql.location())).sum()
+        if end-g-question-locations.len() > 0 { 
+          total-point = end-g-question-locations.map(ql => __g-question-point.at(ql.location())).sum()
         }
 
         let points = ()
-        if end-question-locations.len() > 0 {
-          points =  end-question-locations.map(ql => __question-point.at(ql.location()))
+        if end-g-question-locations.len() > 0 {
+          points =  end-g-question-locations.map(ql => __g-question-point.at(ql.location()))
         }
       
         let point-row = columns-number.map(n => {
-            if n == 0 {align(left + horizon)[#text(hyphenate: false,__localization.final(loc).grade-table-points)]}
-            else if n == end-question-locations.len() [
+            if n == 0 {align(left + horizon)[#text(hyphenate: false,__g-localization.final(loc).grade-table-points)]}
+            else if n == end-g-question-locations.len() [
               #strfmt("{0:}", calc.round(total-point, digits:2), fmt-decimal-separator: decimal-separator)
             ]
             else {
@@ -72,7 +72,7 @@
         let calification-row = columns-number.map(n => 
           {
             if n == 0 {
-              align(left + horizon)[#text(hyphenate: false, __localization.final(loc).grade-table-calification)]
+              align(left + horizon)[#text(hyphenate: false, __g-localization.final(loc).grade-table-calification)]
             }
           }
         )
@@ -82,7 +82,7 @@
           columns: columns-number.map( n => 
           {
             if n == 0 {auto}
-            else if n == end-question-locations.len() {auto}
+            else if n == end-g-question-locations.len() {auto}
             else {30pt}
           }),
           rows: (auto, auto, 30pt),
@@ -95,7 +95,7 @@
   )
 }
 
-#let __question-numbering(..args) = {
+#let __g-question-numbering(..args) = {
   let nums = args.pos()
   if nums.len() == 1 {
     numbering("1. ", nums.last())
@@ -108,11 +108,11 @@
   }
 }
 
-#let __paint-tab(point: none, loc: none) = {
+#let __g-paint-tab(point: none, loc: none) = {
   if point != none {
-    let label-point = __localization.final(loc).points
+    let label-point = __g-localization.final(loc).points
     if point == 1 {
-      label-point = __localization.final(loc).point
+      label-point = __g-localization.final(loc).point
     }
 
     [(#emph[#strfmt("{0}", calc.round(point, digits: 2), fmt-decimal-separator: ",") #label-point])]
@@ -120,81 +120,81 @@
 }
 
 #let g-question(point: none, body) = {
-  __question-number.step(level: 1) 
+  __g-question-number.step(level: 1) 
   
-  [#hide[]<end-question-localization>]
-  __question-point.update(p => 
+  [#hide[]<end-g-question-localization>]
+  __g-question-point.update(p => 
     {
       if point == none { 0 }
       else { point }
     })
   
   locate(loc => {
-    let __question-point-position = __question-point-position-state.final(loc)
+    let __g-question-point-position = __g-question-point-position-state.final(loc)
   
-    if __question-point-position == left {
+    if __g-question-point-position == left {
       v(0.1em)
       {
-        __question-number.display(__question-numbering) 
+        __g-question-number.display(__g-question-numbering) 
         if(point != none) {
-          __paint-tab(point:point, loc: loc) 
+          __g-paint-tab(point:point, loc: loc) 
           h(0.2em)
         }
       }
       body 
     }
-    else if __question-point-position == right {
+    else if __g-question-point-position == right {
       v(0.1em)
       if(point != none) {
         place(right, 
             dx: 12%,
             float: false,
-            __paint-tab(point: point, loc: loc))
+            __g-paint-tab(point: point, loc: loc))
       }
-      __question-number.display(__question-numbering) 
+      __g-question-number.display(__g-question-numbering) 
       body
     }
     else {
       v(0.1em)
-      __question-number.display(__question-numbering) 
+      __g-question-number.display(__g-question-numbering) 
       body 
     }
   })
 }
 
 #let g-subquestion(point: none, body) = {
-  __question-number.step(level: 2)
+  __g-question-number.step(level: 2)
 
-  let subquestion-point = 0
-  if point != none { subquestion-point = point }
-  __question-point.update(p => p + subquestion-point )
+  let subg-question-point = 0
+  if point != none { subg-question-point = point }
+  __g-question-point.update(p => p + subg-question-point )
 
   locate(loc => {
-      let question-point-position = __question-point-position-state.final(loc)
+      let g-question-point-position = __g-question-point-position-state.final(loc)
     
-      if question-point-position == left {
+      if g-question-point-position == left {
         v(0.1em)
         {
           h(0.7em) 
-          __question-number.display(__question-numbering) 
+          __g-question-number.display(__g-question-numbering) 
           if(point != none) {
-            __paint-tab(point: point, loc:loc) 
+            __g-paint-tab(point: point, loc:loc) 
             h(0.2em)
           }
         }
         body
       }
-      else if question-point-position == right {
+      else if g-question-point-position == right {
         v(0.1em)
         if(point != none) {
           place(right, 
               dx: 12%,
               float: false,
-              __paint-tab(point: point, loc:loc)) 
+              __g-paint-tab(point: point, loc:loc)) 
         }
         {
           h(0.7em) 
-          __question-number.display(__question-numbering) 
+          __g-question-number.display(__g-question-numbering) 
         }
         body
       }
@@ -202,7 +202,7 @@
         v(0.1em)
         {
           h(0.7em) 
-          __question-number.display(__question-numbering) 
+          __g-question-number.display(__g-question-numbering) 
         }
         body
       }
@@ -210,7 +210,7 @@
   )
 }
 
-#let __show_clarifications = (clarifications: none) => {
+#let __g-show_clarifications = (clarifications: none) => {
   if clarifications != none {
     let clarifications-content = []
     if type(clarifications) == "content" {
@@ -282,14 +282,14 @@
   show-studen-data: "first-page",
   show-grade-table: true,
   decimal-separator: ".",
-  question-point-position: left,
+  g-question-point-position: left,
   body,
 ) = {
   
   assert(show-studen-data in (none, true, false, "first-page", "odd-pages"),
       message: "Invalid show studen data")
 
-  assert(question-point-position in (none, left, right),
+  assert(g-question-point-position in (none, left, right),
       message: "Invalid question point position")
 
   assert(decimal-separator in (".", ","),
@@ -378,8 +378,8 @@
             let __parameter_value = localization.at(field)
             if(__parameter_value != none) { return __parameter_value }
 
-            let value = read_lang_data.at(field, default: __default-localization.at(field))
-            if(value == none) { value = __default-localization.at(field)}
+            let value = read_lang_data.at(field, default: __g-default-localization.at(field))
+            if(value == none) { value = __g-default-localization.at(field)}
             
             return value
           }
@@ -397,7 +397,7 @@
           let __group = __read-localization_value(read_lang_data: __read_lang_data, field: "group", localization: localization)
           let __date = __read-localization_value(read_lang_data: __read_lang_data, field: "date", localization: localization)
 
-          let __localization_lang_data = (
+          let __g-localization_lang_data = (
                 grade-table-queston: __grade_table_queston,
                 grade-table-total: __grade_table_total,
                 grade-table-points: __grade_table_points,
@@ -412,7 +412,7 @@
                 date: __date,
               )
 
-          __localization.update(__localization_lang_data)
+          __g-localization.update(__g-localization_lang_data)
         }
       }
     }
@@ -423,7 +423,7 @@
   )
 
   let margin-right = 2.5cm
-  if (question-point-position == right) {
+  if (g-question-point-position == right) {
     margin-right = 3cm
   }
 
@@ -475,7 +475,7 @@
                   ),
                   line(length: 100%, stroke: 1pt + gray),
                   if show-studen-data in (true, "first-page", "odd-pages") {
-                    __student-data()
+                    __g-student-data()
                   }
               )
           )
@@ -501,7 +501,7 @@
             )
             line(length: 100%, stroke: 1pt + gray) 
             if show-studen-data == "odd-pages" {
-              __student-data(show-line-two: false)
+              __g-student-data(show-line-two: false)
             }
         }
         else {
@@ -530,8 +530,8 @@
     footer: locate(loc => {
         line(length: 100%, stroke: 1pt + gray) 
         align(right)[
-            #__localization.final(loc).page
-            #counter(page).display(__localization.final(loc).page-counter-display, both: true,
+            #__g-localization.final(loc).page
+            #counter(page).display(__g-localization.final(loc).page-counter-display, both: true,
             )
         ]
         // grid(
@@ -556,12 +556,12 @@
   set text(font: "New Computer Modern")
   
   __read-localization(languaje: languaje, localization: localization)
-  __question-point-position-state.update(u => question-point-position)
+  __g-question-point-position-state.update(u => g-question-point-position)
 
   set text(lang:languaje)
 
   if show-grade-table == true {
-    __grade-table-header(
+    __g-grade-table-header(
       decimal-separator: decimal-separator,
     )
     v(10pt)
@@ -570,27 +570,27 @@
   // show heading.where(level: 1): it => {
   //   set block(above: 1.2em, below: 1em)
   //   set text(12pt, weight: "semibold")
-  //   question(point: none)[#it.body]
+  //   g-question(point: none)[#it.body]
   // }
 
   // show heading.where(level: 2): it => {
   //   set text(12pt, weight: "regular")
-  //   subquestion(point: none)[#it.body]
+  //   g-subquestion(point: none)[#it.body]
   // }
 
 
   set par(justify: true) 
 
   if clarifications != none {
-    __show_clarifications(clarifications: clarifications)
+    __g-show_clarifications(clarifications: clarifications)
   }
 
   body
   
-  [#hide[]<end-question-localization>]
-  [#hide[]<end-exam>]
+  [#hide[]<end-g-question-localization>]
+  [#hide[]<end-g-exam>]
 }
 
-#let g-explanation(size:8pt, body) = { 
+#let g-clarification(size:8pt, body) = { 
   text(size:size)[$(*)$ #body] 
 }
