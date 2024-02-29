@@ -282,14 +282,14 @@
   show-studen-data: "first-page",
   show-grade-table: true,
   decimal-separator: ".",
-  g-question-point-position: left,
+  question-point-position: left,
   body,
 ) = {
   
   assert(show-studen-data in (none, true, false, "first-page", "odd-pages"),
       message: "Invalid show studen data")
 
-  assert(g-question-point-position in (none, left, right),
+  assert(question-point-position in (none, left, right),
       message: "Invalid question point position")
 
   assert(decimal-separator in (".", ","),
@@ -423,7 +423,7 @@
   )
 
   let margin-right = 2.5cm
-  if (g-question-point-position == right) {
+  if (question-point-position == right) {
     margin-right = 3cm
   }
 
@@ -556,7 +556,7 @@
   set text(font: "New Computer Modern")
   
   __read-localization(languaje: languaje, localization: localization)
-  __g-question-point-position-state.update(u => g-question-point-position)
+  __g-question-point-position-state.update(u => question-point-position)
 
   set text(lang:languaje)
 
