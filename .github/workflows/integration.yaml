@@ -1,37 +1,45 @@
 name: Build Typst document (CI)
 on: [push, workflow_dispatch]
 
-permissions:
-  contents: write
-
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
-        
-      - name: Typst
-        uses: lvignoli/typst-action@main
+        uses: actions/checkout@v4
+     
+      - uses: typst-community/setup-typst@v3
         with:
-          source_file: |
-            examples/exam-001.typ
-            examples/exam-002.typ
-            examples/exam-minimal.typ
+          version: latest
 
-      # - name: Upload PDF file
-      #   uses: actions/upload-artifact@v3
-      #   with:
-      #     name: PDF
-      #     path: *.pdf
+      - name: Delete samples
+        run: |
+          rm -rf ./examples/*.pdf
 
-      # - name: Get current date
-      #   id: date
-      #   run: echo "DATE=$(date +%Y-%m-%d-%H:%M)" >> $GITHUB_ENV
+      - name: Compile Typst to PDF
+        uses: mkpoli/compile-typst-action@main
+        with:
+          source_paths: "examples/exam-001.typ examples/exam-002.typ examples/exam-003.typ examples/exam-005.typ"
+          root_path: '.'
 
-      # - name: Release
-      #   uses: softprops/action-gh-release@v1
-      #   if: github.ref_type == 'tag'
-      #   with:
-      #     name: "${{ github.ref_name }} — ${{ env.DATE }}"
-      #     files: main.pdf
+      - name: Compile Typst to PDF
+        uses: mkpoli/compile-typst-action@main
+        with:
+          source_paths: "examples/exam-localization.typ examples/exam-minimal.typ"
+          root_path: '.'          
+
+      # - name: Check existence of output file
+      #   run: |
+      #     test -e "examples/exam-001.pdf"
+      #     test -e "examples/exam-002.pdf"
+      #     test -e "examples/exam-003.pdf"
+      #     test -e "examples/exam-004.pdf"
+      #     test -e "examples/exam-localization.pdf"
+      #     test -e "examples/exam-minimal.pdf"
+
+      - name: Upload PDF file
+        uses: actions/upload-artifact@v3
+        with:
+          name: examples-g-exam
+          path: ./examples/*.pdf
