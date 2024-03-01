@@ -97,6 +97,6 @@
 
 #g-question(point: 1)[Question 2]
 
-#g-question(point: 1.5, point-position: left)[Question 3]
+#g-question(point: 1.6, point-position: right)[Question 3]
 
 #g-question()[Question 4]

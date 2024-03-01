@@ -125,7 +125,6 @@
     body) = {
   assert(point-position in (none, left, right),
       message: "Invalid point position")
-  let __g-question-point-position = state("__g-question-point-position", none)
 
   __g-question-number.step(level: 1) 
   
@@ -137,19 +136,9 @@
     })
   
   locate(loc => {
-    if __g-question-point-position == none {
-      __g-question-point-position.push(__g-question-point-position-state.final(loc))
-    }
-    if point != 0 and __g-question-point-position == none {
-      __g-question-point-position.push(left)
+    let __g-question-point-position = __g-question-point-position-state.final(loc)
 
-      [kddffddekk #__g-question-point-position -----]
-    }
-   
-    [kkk #__g-question-point-position -----]
-  
     if __g-question-point-position == left {
-      [bb]
       v(0.1em)
       {
         __g-question-number.display(__g-question-numbering) 
@@ -169,10 +158,9 @@
             __g-paint-tab(point: point, loc: loc))
       }
       __g-question-number.display(__g-question-numbering) 
-      body
+      body 
     }
     else {
-      [ccc]
       v(0.1em) 
       __g-question-number.display(__g-question-numbering) 
       body 
@@ -187,23 +175,16 @@
 
   assert(point-position in (none, left, right),
       message: "Invalid point position")
-  let __g-question-point-position = point-position
-  
+      
   __g-question-number.step(level: 2)
 
   let subg-question-point = 0
   if point != none { subg-question-point = point }
   __g-question-point.update(p => p + subg-question-point )
 
-  
   locate(loc => {
-      if __g-question-point-position == none {
-        let __g-question-point-position = __g-question-point-position-state.final(loc)
-      }
-      if point != 0 and __g-question-point-position == none {
-        let __g-question-point-position = left  
-      }
-
+      let __g-question-point-position = __g-question-point-position-state.final(loc)
+    
       if __g-question-point-position == left {
         v(0.1em)
         {
@@ -321,7 +302,7 @@
   assert(show-studen-data in (none, true, false, "first-page", "odd-pages"),
       message: "Invalid show studen data")
 
-  assert(question-point-position in (none, left, right),
+  assert(question-point-position in (left, right),
       message: "Invalid question point position")
 
   assert(decimal-separator in (".", ","),
