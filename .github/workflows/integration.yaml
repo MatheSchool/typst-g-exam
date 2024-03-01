@@ -1,5 +1,9 @@
 name: Build Typst document (CI)
-on: [push, workflow_dispatch]
+on: 
+  push:
+    paths: '**/*.typ'
+  workflow_dispatch:
+    paths: '**/*.typ'
 
 jobs:
   build:
