@@ -136,7 +136,10 @@
     })
   
   locate(loc => {
-    let __g-question-point-position = __g-question-point-position-state.final(loc)
+    let __g-question-point-position = point-position
+    if __g-question-point-position == none {
+      __g-question-point-position = __g-question-point-position-state.final(loc)  
+    }
 
     if __g-question-point-position == left {
       v(0.1em)
@@ -175,7 +178,7 @@
 
   assert(point-position in (none, left, right),
       message: "Invalid point position")
-      
+
   __g-question-number.step(level: 2)
 
   let subg-question-point = 0
@@ -183,7 +186,10 @@
   __g-question-point.update(p => p + subg-question-point )
 
   locate(loc => {
-      let __g-question-point-position = __g-question-point-position-state.final(loc)
+      let __g-question-point-position = point-position
+      if __g-question-point-position == none {
+        __g-question-point-position = __g-question-point-position-state.final(loc)  
+      }
     
       if __g-question-point-position == left {
         v(0.1em)
