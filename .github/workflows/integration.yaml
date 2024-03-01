@@ -27,16 +27,7 @@ jobs:
         uses: mkpoli/compile-typst-action@main
         with:
           source_paths: "examples/exam-localization.typ examples/exam-minimal.typ"
-          root_path: '.'          
-
-      # - name: Check existence of output file
-      #   run: |
-      #     test -e "examples/exam-001.pdf"
-      #     test -e "examples/exam-002.pdf"
-      #     test -e "examples/exam-003.pdf"
-      #     test -e "examples/exam-004.pdf"
-      #     test -e "examples/exam-localization.pdf"
-      #     test -e "examples/exam-minimal.pdf"
+          root_path: '.' 
 
       - name: Upload PDF file
         uses: actions/upload-artifact@v3
