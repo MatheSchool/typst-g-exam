@@ -156,7 +156,7 @@
       v(0.1em)
       if(point != none) {
         place(right, 
-            dx: 12%,
+            dx: 15%,
             float: false,
             __g-paint-tab(point: point, loc: loc))
       }
@@ -207,7 +207,7 @@
         v(0.1em)
         if(point != none) {
           place(right, 
-              dx: 12%,
+              dx: 15%,
               float: false,
               __g-paint-tab(point: point, loc:loc)) 
         }

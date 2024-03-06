@@ -133,6 +133,7 @@ Generate the skeleton of an exam, entering a header, student information, grade 
 
 - Allow true and false values in show-studen-data.
 - Show clarifications.
+- Widen margin points.
 
 ### v0.1.1
 
