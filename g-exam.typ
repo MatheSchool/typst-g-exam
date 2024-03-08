@@ -4,8 +4,8 @@
 #let __g-question-point = state("g-question-point", 0)
 #let __g-question-point-position-state = state("g-question-point-position", left)
 
-
 #let __g-localization = state("localization")
+#let __g-show-solution = state("g-show-solution", false)
 
 #let __g-default-localization = (
     grade-table-queston: "Question",
@@ -229,6 +229,29 @@
   )
 }
 
+#let g-solution(
+    alternative-content: none,
+    show-solution: none,
+    body) = {
+      assert(alternative-content == none or type(alternative-content) == "content",
+        message: "Invalid alternative-content value")
+
+      assert(show-solution in (none, true, false),
+        message: "Invalid show-solution solution value")
+
+      locate(loc => {
+        let show-solution = if show-solution == none { __g-show-solution.final(loc) } else { show-solution }
+
+        if show-solution == true {
+          body
+        }
+        else {
+          alternative-content
+        }
+      }
+    )
+}
+
 #let __g-show_clarifications = (clarifications: none) => {
   if clarifications != none {
     let clarifications-content = []
@@ -302,6 +325,7 @@
   show-grade-table: true,
   decimal-separator: ".",
   question-point-position: left,
+  show-solution: false,
   body,
 ) = {
   
@@ -313,6 +337,9 @@
 
   assert(decimal-separator in (".", ","),
       message: "Invalid decimal separator")
+
+  assert(show-solution in (true, false),
+      message: "Invalid show solution value")
 
   let __show-watermark = (
       author: (
@@ -585,6 +612,8 @@
     )
     v(10pt)
   }
+
+  __g-show-solution.update(show-solution)
   
   // show heading.where(level: 1): it => {
   //   set block(above: 1.2em, below: 1em)
