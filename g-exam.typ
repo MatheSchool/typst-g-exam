@@ -231,22 +231,19 @@
 
 #let g-solution(
     alternative-content: none,
-    show-solution: none,
     body) = {
       assert(alternative-content == none or type(alternative-content) == "content",
         message: "Invalid alternative-content value")
 
-      assert(show-solution in (none, true, false),
-        message: "Invalid show-solution solution value")
-
       locate(loc => {
-        let show-solution = if show-solution == none { __g-show-solution.final(loc) } else { show-solution }
+        let show-solution =  __g-show-solution.final(loc)
 
         if show-solution == true {
           body
         }
         else {
-          alternative-content
+          hide[#body]
+          // alternative-content
         }
       }
     )
@@ -325,7 +322,7 @@
   show-grade-table: true,
   decimal-separator: ".",
   question-point-position: left,
-  show-solution: false,
+  show-solution: true,
   body,
 ) = {
   
