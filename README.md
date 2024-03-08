@@ -109,6 +109,7 @@ Generate the skeleton of an exam, entering a header, student information, grade 
         - `none`: Not show the question point.
     - **show-grade-table**: (true, false) Show grade table,
     - **clarifications**: (str, (:)) Text of clarifications for students.
+    - **show-solution**: (false, true) Displays solutions if visibility is not specified.
     - **body** (body): Body of exam.
 
 #### Parameters of `g-question`
@@ -126,6 +127,8 @@ Generate the skeleton of an exam, entering a header, student information, grade 
   - **size**: Size of text in clarification.
   - **body**: (body): Body of clarification.
 
+### Show clarification of `g-solution`
+  - **alternative-content**: (none, str): Alternate content, displayed when solutions are not visible.
 
 # Changelog
 
@@ -134,6 +137,7 @@ Generate the skeleton of an exam, entering a header, student information, grade 
 - Allow true and false values in show-studen-data.
 - Show clarifications.
 - Widen margin points.
+- Show solution.
 
 ### v0.1.1
 
