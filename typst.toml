@@ -1,10 +1,11 @@
 [package]
 name = "g-exam"
-version = "0.1.0"
+version = "0.2.0"
 entrypoint = "g-exam.typ"
 authors = ["Andrés Giménez Muñoz"]
 license = "MIT"
 description = "Create exams with student information, grade chart, score control, questions, and sub-questions."
-keywords = ["exam", "question", "subquestion"]
+keywords = ["exam", "question", "subquestion", "solutions"]
 repository = "https://github.com/MatheSchool/typst-g-exam"
+categories = ["visualization", "layout", "utility" "paper", "office"]
 exclude = ["/examples/*"]
