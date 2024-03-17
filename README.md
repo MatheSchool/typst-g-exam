@@ -8,6 +8,7 @@ Template to create exams with header, school letterhead, grade chart, ...
 - Scoring by questions and subquestions.
 - Student information, on the first page or on all odd pages.
 - Question and subcuestion.
+- Show solutions
 - List of clarifications.
 - Teacher's Watermark
 - Exam Model Watermark
@@ -18,7 +19,7 @@ Template to create exams with header, school letterhead, grade chart, ...
 ### Minimal Example
 
 ``` typ
-#import "@preview/g-exam:0.1.1": g-exam, g-question, g-subquestion
+#import "@preview/g-exam:0.2.0": g-exam, g-question, g-subquestion
 
 #show: g-exam.with(
     #g-question(point: 2)[Question 1]
@@ -31,7 +32,7 @@ Template to create exams with header, school letterhead, grade chart, ...
 ### Minimal Example with sub-question
 
 ``` typst
-#import "@preview/g-exam:0.1.1": g-exam, g-question, g-subquestion
+#import "@preview/g-exam:0.2.0": g-exam, g-question, g-subquestion
 
 #show: g-exam.with(
     #g-question[Question 1]
@@ -52,6 +53,7 @@ Template to create exams with header, school letterhead, grade chart, ...
   1. [Example of exam with question only](examples/exam-002.pdf)
   1. [Example of exam with subquestion](examples/exam-003.pdf)
   1. [Example of exam with punctuation](examples/exam-005.pdf)
+  1. [Example of exam with solution](examples/exam-005.pdf)
 
 
 # Usage 
