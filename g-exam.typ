@@ -229,6 +229,18 @@
   )
 }
 
+/// Show solution of question.
+/// 
+/// *Example:*
+/// ``` #g-solution(
+///    alternative-content: v(1fr)
+///  )[
+///  I know the demostration, but there's no room on the margin. For any clarification ask Andrew Whilst.
+/// ]```
+///
+///
+/// - alternative-content (string, content): Alternate content when the question solution is not displayed.
+/// - body (string, content): Body of question solution
 #let g-solution(
     alternative-content: none,
     body) = {
@@ -281,6 +293,19 @@
   }
 }
 
+/// Template for creating an exam.
+/// 
+/// - autor: Infomation of autor of exam.
+///  - name (string, content): Name of author of exam.
+///  - email (string): e-mail of author of exam.
+///  - watermark (string): Watermark with information about the author of the document.
+/// - scholl: Information of scholl.
+///  - name (string): Name of the school or institution generating the exam.
+///  - logo (string): Logo of the school or institution generating the exam.
+/// - date (sting): Date of generate document.
+/// - keywords (string): keywords of document.
+/// - languaje (en, es, de, fr, pt, it): Languaje of docuemnt. English, Spanish, German, Portuguese and Italian are defined.
+///     Ejemplo buy bonito:
 #let g-exam(
   author: (
     name: "",
@@ -313,7 +338,6 @@
     group: none,
     date: none
   ),
-  // date: none auto datetime,
   date: none,
   keywords: none,
   languaje: "en",
