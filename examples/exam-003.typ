@@ -8,11 +8,12 @@
   ),
   school: (
     name: "Sunrise Secondary School",
-    logo: read("./logo.png", encoding: none),
+    // logo: read("./logo.png", encoding: none),
+    logo: image("./logo.png", height:2.5cm, fit:"contain"),
   ),
   exam-info: (
     academic-period: "Academic year 2023/2024",
-    academic-level: "1º Secondary Education",
+    academic-level: "1st Secondary Education",
     academic-subject: "Mathematics",
     number: "2nd Assessment 1st Exam",
     content: "Radicals and fractions",
