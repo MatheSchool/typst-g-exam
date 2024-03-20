@@ -8,8 +8,7 @@
   ),
   school: (
     name: "Sunrise Secondary School",
-    // logo: read("./logo.png", encoding: none),
-    logo: image("./logo.png", height:2.5cm, fit:"contain"),
+    logo: image("./logo.png"),
   ),
   exam-info: (
     academic-period: "Academic year 2023/2024",
@@ -30,6 +29,9 @@
 )
 
 #g-question[Given the equation $x^n + y^n = z^n$ for $(x,y,z)$ and $n$ positive integers.] 
+
+#image("./logo.png"),
+
 #g-subquestion[For what values of $n$ is the statement in the previous question true?]
 #v(1fr)
 #g-subquestion[For $n=2$ there's a theorem with a special name. What's that name?] 

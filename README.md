@@ -134,8 +134,15 @@ Generate the skeleton of an exam, entering a header, student information, grade 
 
 # Changelog
 
+### v0.2.1
+
+- Include parameter question-text-parameters.
+- Expand documentation.
+
 ### v0.2.0
 
+- Control the size of the logo image.
+- Convert to template
 - Allow true and false values in show-studen-data.
 - Show clarifications.
 - Widen margin points.

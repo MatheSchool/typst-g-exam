@@ -3,6 +3,7 @@
 #let __g-question-number = counter("g-question-number")
 #let __g-question-point = state("g-question-point", 0)
 #let __g-question-point-position-state = state("g-question-point-position", left)
+#let __g-question-text-parameters-state = state("question-text-parameters:", none)
 
 #let __g-localization = state("localization")
 #let __g-show-solution = state("g-show-solution", false)
@@ -140,6 +141,7 @@
     if __g-question-point-position == none {
       __g-question-point-position = __g-question-point-position-state.final(loc)  
     }
+    let __g-question-text-parameters = __g-question-text-parameters-state.final(loc)
 
     if __g-question-point-position == left {
       v(0.1em)
@@ -150,6 +152,7 @@
           h(0.2em)
         }
       }
+      set text(..__g-question-text-parameters)
       body 
     }
     else if __g-question-point-position == right {
@@ -161,11 +164,13 @@
             __g-paint-tab(point: point, loc: loc))
       }
       __g-question-number.display(__g-question-numbering) 
+      set text(..__g-question-text-parameters)
       body 
     }
     else {
       v(0.1em) 
-      __g-question-number.display(__g-question-numbering) 
+      __g-question-number.display(__g-question-numbering)
+      set text(..__g-question-text-parameters)
       body 
     }
   })
@@ -188,9 +193,10 @@
   locate(loc => {
       let __g-question-point-position = point-position
       if __g-question-point-position == none {
-        __g-question-point-position = __g-question-point-position-state.final(loc)  
+        __g-question-point-position = __g-question-point-position-state.final(loc)
       }
-    
+      let __g-question-text-parameters = __g-question-text-parameters-state.final(loc)
+
       if __g-question-point-position == left {
         v(0.1em)
         {
@@ -201,6 +207,7 @@
             h(0.2em)
           }
         }
+        set text(..__g-question-text-parameters)
         body
       }
       else if __g-question-point-position == right {
@@ -215,6 +222,7 @@
           h(0.7em) 
           __g-question-number.display(__g-question-numbering) 
         }
+        set text(..__g-question-text-parameters)
         body
       }
       else {
@@ -223,6 +231,7 @@
           h(0.7em) 
           __g-question-number.display(__g-question-numbering) 
         }
+        set text(..__g-question-text-parameters)
         body
       }
     }
@@ -306,6 +315,13 @@
 /// - keywords (string): keywords of document.
 /// - languaje (en, es, de, fr, pt, it): Languaje of docuemnt. English, Spanish, German, Portuguese and Italian are defined.
 ///     Ejemplo buy bonito:
+/// - clarifications (string, [], array): Clarifications of exam. It will appear in a box on the first page.
+/// - question-text-parameters: Parameter of text in question and subquestion. For example, it allows us to change the text size of the questions.
+/// - show-studen-data(none, true, false, "first-page", "odd-pages"): It shows a box for the student to enter their details. It can appear on the first page or on all odd-numbered pages.
+/// - show-grade-table: (bool): Show grade table.
+/// - decimal-separator: (".", ","): Indicates the decimal separation character.
+/// - question-point-position: (left, right): Position of question point.
+/// - show-solution: (true, false): It shows the solutions to the questions.
 #let g-exam(
   author: (
     name: "",
@@ -342,6 +358,7 @@
   keywords: none,
   languaje: "en",
   clarifications: none,
+  question-text-parameters: none,
   show-studen-data: "first-page",
   show-grade-table: true,
   decimal-separator: ".",
@@ -510,6 +527,7 @@
               gutter:0.7em,        
               align(left + top)[
                 #if(school.at("logo", default : none) != none) {
+                  set image(height:2.5cm, width: 2.7cm, fit:"contain")
                   if(type(school.logo) == "content") {
                     school.logo
                   }
@@ -624,6 +642,7 @@
   
   __read-localization(languaje: languaje, localization: localization)
   __g-question-point-position-state.update(u => question-point-position)
+  __g-question-text-parameters-state.update(question-text-parameters)
 
   set text(lang:languaje)
 
