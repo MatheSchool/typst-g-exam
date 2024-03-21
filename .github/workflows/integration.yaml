@@ -37,7 +37,7 @@ jobs:
         id: file-list
         shell: bash
         run: |
-          list=$(ls -1 /examples/*.typ);
+          list=$(ls -1 ./examples/*.typ);
           matrix_values=$(echo '[ "'"$(echo "$list" | sed ':a;N;$!ba;s/\n/", "/g')"'" ]')
           echo "Matrix values: $matrix_values"
           echo "matrix_values=$matrix_values" >> $GITHUB_OUTPUT
