@@ -1,4 +1,4 @@
-#import "../g-exam.typ": g-exam, g-question, g-subquestion, g-solution
+#import "../src/lib.typ": g-exam, g-question, g-subquestion, g-solution
 // #set text(weight: "thin")
 
 #show: g-exam.with(
@@ -26,7 +26,7 @@
   show-studen-data: "first-page",
   show-grade-table: false,
   question-point-position: right,
-  question-text-parameters: (size: 14pt, spacing:200%),
+  question-text-parameters: (size: 16pt, spacing:200%),
   clarifications: "Answer the questions in the spaces provided. If you run out of room for an answer, continue on the back of the page."
 )
 

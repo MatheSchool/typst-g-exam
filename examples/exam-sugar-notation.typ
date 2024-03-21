@@ -1,48 +1,11 @@
-#import "../g-exam.typ": g-exam, g-question, g-subquestion, g-solution
+#import "../src/lib.typ": g-exam, g-question, g-subquestion, g-solution
+// #import "@preview/t4t:0.3.2": *
 
 #show: g-exam.with()
 
-// #show regex("=\? (.+)"): it => {
-//     let (_, ..rest) = it.text.split()
-//     g-question[#rest.join(" ")]
-//   }
+#g-question(point:.2)[Pregunta]
 
-
-// #show regex("=+\?+ (\d?\.?\d?)? (.+)"): it => {
-
-#show regex("(.+)"): it => {
-    // let (a, point, ..rest) = it.text.split()
-
-    it.fields()
-    // [#it.text.split()]
-    // [v]
-
-    // if(float.is-nan(point) == true) {
-    //   g-question[#rest.join(" ")]
-    // }
-    // else {
-      // [a #point  a]
-      // g-question(point:float(point))[#rest.join(" ")]
-
-    // }
-
-    // [vv #point vv #g-question[#rest.join(" ")] vvv]
-  }
-
-// #show regex("==\? (.+)"): it => {
-//     let (_, ..rest) = it.text.split()
-//     g-subquestion[#rest.join(" ")]
-//   }
-
-// #show regex("==\? \d?\.?\d? (.+)"): it => {
-//     let (a, point, ..rest) = it.text.split()
-//     g-subquestion(point:float(point))[#rest.join(" ")]
-//   }
-
-// #show regex("=\! (.+)"): it => {
-//     let (a, ..rest) = it.text.split()
-//     g-solution[#rest.join(" ")]
-//   }
+= Titulo
 
 =? Question 1
 
