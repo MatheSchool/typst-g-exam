@@ -35,12 +35,12 @@ jobs:
 
       - name: List Files
         shell: bash
-        run: ls examples/*.typ >> "$LIST_FILES"
+        run: ls examples/*.typ >> "$LIST_FILES!"
 
       - name: Compile Typst to PDF
         uses: mkpoli/compile-typst-action@main
         with:
-          source_paths: "$LIST_FILES"
+          source_paths: "$LIST_FILES!"
           root_path: '.' 
 
       - name: Compile documentation to PDF
