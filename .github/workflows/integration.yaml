@@ -33,26 +33,26 @@ jobs:
       #     source_paths: "examples/exam-localization.typ examples/exam-minimal.typ examples/exam-points-position.typ"
       #     root_path: '.' 
 
-      # - name: List Files
-      #   id: file-list
-      #   shell: bash
-      #   run: ls examples/*.typ
+      - name: List Files
+        id: file-list
+        shell: bash
+        run: ls examples/*.typ >> $GITHUB_STATE
 
       # - name: Echo 1
       #   STEP_OUTPUT: ${{ steps.file-list.outputs.stdout }}
       #   shell: bash
       #   run: echo ${{ steps.file-list.outputs.stdout }}
 
-      # - name: Echo 1.2      
-      #   shell: bash
-      #   run: echo ${{ steps.file-list.outcome  }}
+      - name: Echo 1.2      
+        shell: bash
+        run: echo ${{ steps.file-list.outcome  }}
 
-      - name: Get all yaml files
-        id: file-list
-        uses: the-coding-turtle/ga-file-list@v0.1
-        with:
-          directory: "examples"
-          file_extension: "typ"
+      # - name: Get all yaml files
+      #   id: file-list
+      #   uses: the-coding-turtle/ga-file-list@v0.1
+      #   with:
+      #     directory: "examples"
+      #     file_extension: "typ"
 
       - name: Echo 1.2      
         shell: bash
