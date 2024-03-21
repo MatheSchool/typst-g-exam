@@ -21,17 +21,17 @@ jobs:
         run: |
           rm -rf ./examples/*.pdf
 
-      - name: Compile Typst to PDF
-        uses: mkpoli/compile-typst-action@main
-        with:
-          source_paths: "examples/exam-001.typ examples/exam-002.typ examples/exam-003.typ examples/exam-005.typ"
-          root_path: '.'
+      # - name: Compile Typst to PDF
+      #   uses: mkpoli/compile-typst-action@main
+      #   with:
+      #     source_paths: "examples/exam-001.typ examples/exam-002.typ examples/exam-003.typ examples/exam-005.typ"
+      #     root_path: '.'
 
-      - name: Compile Typst to PDF
-        uses: mkpoli/compile-typst-action@main
-        with:
-          source_paths: "examples/exam-localization.typ examples/exam-minimal.typ examples/exam-points-position.typ"
-          root_path: '.' 
+      # - name: Compile Typst to PDF
+      #   uses: mkpoli/compile-typst-action@main
+      #   with:
+      #     source_paths: "examples/exam-localization.typ examples/exam-minimal.typ examples/exam-points-position.typ"
+      #     root_path: '.' 
 
       - name: Compile documentation to PDF
         uses: mkpoli/compile-typst-action@main
@@ -42,7 +42,7 @@ jobs:
       - name: Compile Typst to PDF
         uses: mkpoli/compile-typst-action@main
         with:
-          source_paths: "examples/**/*.typ"
+          source_paths: "examples/*.typ"
           root_path: '.' 
 
       - name: Upload PDF file
