@@ -36,7 +36,7 @@ jobs:
       - name: List Files
         id: file-list
         shell: bash
-        run: ls examples/*.typ >> $GITHUB_STATE
+        run: ls examples/*.typ >> $GITHUB_OUTPUT
 
       # - name: Echo 1
       #   STEP_OUTPUT: ${{ steps.file-list.outputs.stdout }}
