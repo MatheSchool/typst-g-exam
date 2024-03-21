@@ -38,9 +38,9 @@ jobs:
         shell: bash
         run: |
           list=$(ls -1 ./examples/*.typ);
-          matrix_values=$(echo '[ "'"$(echo "$list" | sed ':a;N;$!ba;s/\n/", "/g')"'" ]')
-          echo "Matrix values: $matrix_values"
-          echo "matrix_values=$matrix_values" >> $GITHUB_OUTPUT
+          file-list=$(echo '[ "'"$(echo "$list" | sed ':a;N;$!ba;s/\n/", "/g')"'" ]')
+          echo "File List: $file-list"
+          echo "file-list=$file-list" >> $GITHUB_OUTPUT
         # run: ls examples/*.typ >> $GITHUB_OUTPUT
 
       # - name: Echo 1
@@ -50,7 +50,7 @@ jobs:
 
       - name: Echo 1.2      
         shell: bash
-        run: echo ${{ steps.file-list.outcome  }}
+        run: echo ${{ steps.file-list.output.file-list  }}
 
       # - name: Get all yaml files
       #   id: file-list
