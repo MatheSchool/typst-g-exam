@@ -34,13 +34,14 @@ jobs:
       #     root_path: '.' 
 
       - name: List Files
+        id: file-list
         shell: bash
-        run: ls examples/*.typ >> "$LIST_FILES!"
+        run: ls examples/*.typ
 
       - name: Compile Typst to PDF
         uses: mkpoli/compile-typst-action@main
         with:
-          source_paths: "$LIST_FILES!"
+          source_paths: ${{ steps.file-list.outputs.stdout }}
           root_path: '.' 
 
       - name: Compile documentation to PDF
