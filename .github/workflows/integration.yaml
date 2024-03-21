@@ -33,6 +33,18 @@ jobs:
           source_paths: "examples/exam-localization.typ examples/exam-minimal.typ examples/exam-points-position.typ"
           root_path: '.' 
 
+      - name: Compile documentation to PDF
+        uses: mkpoli/compile-typst-action@main
+        with:
+          source_paths: "documentation/document.typ"
+          root_path: '.' 
+
+       - name: Compile Typst to PDF
+        uses: mkpoli/compile-typst-action@main
+        with:
+          source_paths: "examples/*.typ"
+          root_path: '.' 
+
       - name: Upload PDF file
         uses: actions/upload-artifact@v3
         with:
