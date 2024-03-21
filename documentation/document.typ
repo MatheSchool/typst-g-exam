@@ -1,8 +1,15 @@
 #import "@preview/tidy:0.2.0"
 // https://github.com/Mc-Zen/tidy
 
-#let docs = tidy.parse-module(
-  read("../g-exam.typ"),
-  name: "g-exam (Exam generator)")
+#let exam-docs = tidy.parse-module(
+  read("../src/g-exam.typ"),
+  name: "Exam definition")
 
-#tidy.show-module(docs, style: tidy.styles.default) 
+#let command-docs = tidy.parse-module(
+  read("../src/g-command.typ"),
+  name: "Command definitions")
+
+
+#tidy.show-module(exam-docs, style: tidy.styles.default) 
+
+#tidy.show-module(command-docs, style: tidy.styles.default) 

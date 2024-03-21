@@ -2,6 +2,8 @@
 
 Template to create exams with header, school letterhead, grade chart, ...
 
+[![.github/workflows/integration.yaml](https://github.com/MatheSchool/typst-g-exam/actions/workflows/integration.yaml/badge.svg)](https://github.com/MatheSchool/typst-g-exam/actions/workflows/integration.yaml)
+
 ## Features 
 
 - Scoreboard.

@@ -39,7 +39,7 @@ jobs:
           source_paths: "documentation/document.typ"
           root_path: '.' 
 
-       - name: Compile Typst to PDF
+      - name: Compile Typst to PDF
         uses: mkpoli/compile-typst-action@main
         with:
           source_paths: "examples/*.typ"

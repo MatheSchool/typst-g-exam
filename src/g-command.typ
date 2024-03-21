@@ -1,6 +1,16 @@
 // #import "./g-exam.typ": *
 #import"./global.typ": *
 
+/// Show a question.
+/// 
+/// *Example:*
+/// ``` 
+/// #g-question(point:2)[This is a question]
+/// ```
+///
+/// - point (none, float): Points of the question.
+/// - point-position(none, left, right): Position of points. If none,  use the position defined in G-Exam. 
+/// - body (string, content): Body of question.
 #let g-question(
     point: none, 
     point-position: none, 
@@ -57,6 +67,16 @@
   })
 }
 
+/// Show a sub-question.
+/// 
+/// *Example:*
+/// ``` 
+/// #g-subquestion(point:2)[This is a sub-question]
+/// ```
+///
+/// - point (none, float): Points of the sub-question.
+/// - point-position(none, left, right): Position of points. If none,  use the position defined in G-Exam. 
+/// - body (string, content): Body of sub-question.
 #let g-subquestion(
     point: none, 
     point-position: none, 
