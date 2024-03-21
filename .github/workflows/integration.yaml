@@ -33,16 +33,20 @@ jobs:
       #     source_paths: "examples/exam-localization.typ examples/exam-minimal.typ examples/exam-points-position.typ"
       #     root_path: '.' 
 
+      - name: List Files
+        shell: bash
+        run: ls examples/*.typ >> "$LIST_FILES"
+
+        - name: Compile Typst to PDF
+        uses: mkpoli/compile-typst-action@main
+        with:
+          source_paths: "$LIST_FILES"
+          root_path: '.' 
+
       - name: Compile documentation to PDF
         uses: mkpoli/compile-typst-action@main
         with:
           source_paths: "documentation/document.typ"
-          root_path: '.' 
-
-      - name: Compile Typst to PDF
-        uses: mkpoli/compile-typst-action@main
-        with:
-          source_paths: "examples/*.typ"
           root_path: '.' 
 
       - name: Upload PDF file
