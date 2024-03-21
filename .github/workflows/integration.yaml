@@ -44,7 +44,7 @@ jobs:
         # run: ls examples/*.typ >> $GITHUB_OUTPUT
 
         # list=$(ls -1 ./examples/*.typ);
-        # matrix_values=$(echo '[ "'"$(echo "$list" | sed ':a;N;$!ba;s/\n/", "/g')"'" ]')
+        # matrix_values=$(echo ' "'"$(echo "$list" | sed ':a;N;$!ba;s/\n/", "/g')"'" ')
         # echo "Matrix values: $matrix_values"
         # echo "matrix_values=$matrix_values" >> $GITHUB_OUTPUT
   
