@@ -38,6 +38,10 @@ jobs:
         shell: bash
         run: ls examples/*.typ
 
+      - name: List Files
+        shell: bash
+        run: echo ${{ steps.file-list.outputs.stdout }}
+
       - name: Compile Typst to PDF
         uses: mkpoli/compile-typst-action@main
         with:
