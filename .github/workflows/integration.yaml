@@ -39,15 +39,23 @@ jobs:
         run: ls examples/*.typ
 
       - name: Echo 1
-        env:
         STEP_OUTPUT: ${{ steps.file-list.outputs.stdout }}
         shell: bash
         run: echo ${{ steps.file-list.outputs.stdout }}
 
-      - name: Echo 2
-        env:
+      - name: Echo 1.2      
         shell: bash
         run: echo ${{ steps.file-list.outcome  }}
+
+      - name: List Files2
+        id: file-list2
+        shell: bash
+        run: ls examples/*.typ >> "$GITHUB_OUTPUT"
+
+      - name: Echo 2.2
+        shell: bash
+        run: echo ${{ steps.file-list2.outputs.stdout }}
+
 
       - name: Compile Typst to PDF
         uses: mkpoli/compile-typst-action@main
