@@ -38,11 +38,16 @@ jobs:
         shell: bash
         run: |
           list=$(ls -1 ./examples/*.typ);
-          file-list=$(echo '[ "'"$(echo "$list" | sed ':a;N;$!ba;s/\n/", "/g')"'" ]')
-          echo "File List: $file-list"
-          echo "file-list=$file-list" >> $GITHUB_OUTPUT
+          file_list=$(echo ' $(echo "$list" | sed ':a;N;$!ba;s/\n/" /g') ')
+          echo "File List: $file_list"
+          echo "file_list=$file_list" >> $GITHUB_OUTPUT
         # run: ls examples/*.typ >> $GITHUB_OUTPUT
 
+        # list=$(ls -1 ./examples/*.typ);
+        # matrix_values=$(echo '[ "'"$(echo "$list" | sed ':a;N;$!ba;s/\n/", "/g')"'" ]')
+        # echo "Matrix values: $matrix_values"
+        # echo "matrix_values=$matrix_values" >> $GITHUB_OUTPUT
+  
       # - name: Echo 1
       #   STEP_OUTPUT: ${{ steps.file-list.outputs.stdout }}
       #   shell: bash
@@ -50,7 +55,7 @@ jobs:
 
       - name: Echo 1.2      
         shell: bash
-        run: echo ${{ steps.file-list.output.file-list  }}
+        run: echo ${{ steps.file-list.output.file_list  }}
 
       # - name: Get all yaml files
       #   id: file-list
@@ -59,9 +64,9 @@ jobs:
       #     directory: "examples"
       #     file_extension: "typ"
 
-      - name: Echo 1.2      
-        shell: bash
-        run: echo ${{ steps.file-list.outputs.stdout  }}
+      # - name: Echo 1.2      
+      #   shell: bash
+      #   run: echo ${{ steps.file-list.outputs.stdout  }}
 
       # - name: List Files2
       #   id: file-list2
@@ -76,7 +81,7 @@ jobs:
       - name: Compile Typst to PDF
         uses: mkpoli/compile-typst-action@main
         with:
-          source_paths: ${{ steps.file-list.outputs.stdout }}
+          source_paths: ${{ steps.file-list.outputs.file_list }}
           root_path: '.' 
 
       - name: Compile documentation to PDF
