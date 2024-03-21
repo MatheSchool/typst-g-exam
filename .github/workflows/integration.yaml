@@ -42,7 +42,7 @@ jobs:
       - name: Compile Typst to PDF
         uses: mkpoli/compile-typst-action@main
         with:
-          source_paths: "examples/**.typ"
+          source_paths: "examples/**/*.typ"
           root_path: '.' 
 
       - name: Upload PDF file
