@@ -1,4 +1,5 @@
-#import "./g-exam.typ": *
+// #import "./g-exam.typ": *
+#import"./global.typ": *
 
 #let g-question(
     point: none, 
