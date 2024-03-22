@@ -42,8 +42,15 @@ jobs:
           source_paths: "documentation/document.typ"
           root_path: '.' 
 
-      - name: Upload PDF file
+      - name: Upload examples PDF file
         uses: actions/upload-artifact@v3
         with:
           name: examples-g-exam
           path: ./examples/*.pdf
+
+
+      - name: Upload documentation PDF file
+        uses: actions/upload-artifact@v3
+        with:
+          name: document-g-exam
+          path: ./documentation/*.pdf
