@@ -8,7 +8,7 @@
 /// ```
 ///
 /// - point (none, float): Points of the question.
-/// - point-position(none, left, right): Position of points. If none,  use the position defined in G-Exam. 
+/// - point-position (none, left, right): Position of points. If none,  use the position defined in G-Exam. 
 /// - body (string, content): Body of question.
 #let g-question(
     point: none, 
@@ -74,7 +74,7 @@
 /// ```
 ///
 /// - point (none, float): Points of the sub-question.
-/// - point-position(none, left, right): Position of points. If none,  use the position defined in G-Exam. 
+/// - point-position (none, left, right): Position of points. If none,  use the position defined in G-Exam. 
 /// - body (string, content): Body of sub-question.
 #let g-subquestion(
     point: none, 
