@@ -1,15 +1,15 @@
 name: Build Typst document (CI)
 on: 
   push:
-    paths: |
-      '**/*.typ'
-      '**/*.yaml'
-      '**/*.toml'
+    paths: 
+    - '**/*.typ'
+    - '**/*.yaml'
+    - '**/*.toml'
   workflow_dispatch:
-    paths: |
-      '**/*.typ'
-      '**/*.yaml'
-      '**/*.toml'
+    paths: 
+    - '**/*.typ'
+    - '**/*.yaml'
+    - '**/*.toml'
 
 jobs:
   build:
