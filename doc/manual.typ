@@ -59,7 +59,10 @@ This is the minimal starting point:
 
 = Commands
 
-== Questions
+The `g-exam` library has the `g-question`, `g-subquestion`, `g-solution` and `g-clarification` 
+commands to create questions, subquestions, solutions, and clarifications.
+
+== Questions and subquestions
 
 #doc-style.parse-show-module("../src/g-question.typ") 
 
