@@ -1,11 +1,9 @@
 #import "@preview/oxifmt:0.2.0": strfmt
 #import "./global.typ" : *
 #import "./auxiliary.typ": *
-#import "./g-command.typ": *
-
-
-
-
+#import "./g-question.typ": *
+#import "./g-solution.typ": *
+#import "./g-clarification.typ": *
 
 /// Template for creating an exam.
 /// 
