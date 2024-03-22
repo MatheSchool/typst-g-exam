@@ -38,7 +38,7 @@ jobs:
         shell: bash
         run: |
           list=$(ls -1 ./examples/*.typ);
-          file_list=$(echo '[ "'"$(echo "$list" | sed ':a;N;$!ba;s/\n/", "/g')"'" ]')
+          file_list=$(echo "$list" | sed ':a;N;$!ba;s/\n/ /g')
           echo "File List: $file_list"
           echo "file_list=$file_list" >> $GITHUB_OUTPUT
         # run: ls examples/*.typ >> $GITHUB_OUTPUT
