@@ -1,14 +1,12 @@
 #import "../src/lib.typ": *
 
-#show: g-exam.with(
-  question-text-parameters: (size: 16pt, spacing:200%),
-)
+#show: g-exam.with()
 
 #g-question(point:.2)[Pregunta]
 
 #g-subquestion(point:.2)[sub 3]
 
-= Titulo
+= Title
 
 =? Question 1
 
