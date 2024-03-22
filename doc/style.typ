@@ -83,11 +83,11 @@
 #let show-parameter-list = tidy.styles.default.show-parameter-list
 
 #let style = (
-  show-function: show-function,
-  show-parameter-block: show-parameter-block.with(in-tidy: true),
-  show-type: show-type,
-  show-outline: show-outline,
-  show-parameter-list: show-parameter-list
+  // show-function: show-function,
+  // show-parameter-block: show-parameter-block.with(in-tidy: true),
+  // show-type: show-type,
+  // show-outline: show-outline,
+  // show-parameter-list: show-parameter-list
 )
 
 #let parse-show-module(path) = {
@@ -103,5 +103,6 @@
     show-outline: false,
     sort-functions: none,
     // style: style 
+    // style: tidy.styles.default,
   )
 }

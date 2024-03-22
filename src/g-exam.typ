@@ -12,13 +12,13 @@
 ///  - email (string): e-mail of author of exam.
 ///  - watermark (string): Watermark with information about the author of the document.
 /// - scholl: Information of scholl.
-///  - name (string): Name of the school or institution generating the exam.
-///  - logo (string): Logo of the school or institution generating the exam.
+///  - name (string, content): Name of the school or institution generating the exam.
+///  - logo (none, content, bytes): Logo of the school or institution generating the exam.
 /// - date (sting): Date of generate document.
 /// - keywords (string): keywords of document.
 /// - languaje (en, es, de, fr, pt, it): Languaje of docuemnt. English, Spanish, German, Portuguese and Italian are defined.
 ///     Ejemplo buy bonito:
-/// - clarifications (string, [], array): Clarifications of exam. It will appear in a box on the first page.
+/// - clarifications (string, content, array): Clarifications of exam. It will appear in a box on the first page.
 /// - question-text-parameters: Parameter of text in question and subquestion. For example, it allows us to change the text size of the questions.
 /// - show-studen-data(none, true, false, "first-page", "odd-pages"): It shows a box for the student to enter their details. It can appear on the first page or on all odd-numbered pages.
 /// - show-grade-table: (bool): Show grade table.

@@ -1,54 +1,44 @@
 # g-exam 
 
-Template to create exams with header, school letterhead, grade chart, ...
+This template provides a way to generate exams. You can create questions and sub-questions, header with information about the academic center, score box, subject, exam, header with student information, clarifications, solutions, watermark with information about the exam model and teacher.
 
-[![.github/workflows/integration.yaml](https://github.com/MatheSchool/typst-g-exam/actions/workflows/integration.yaml/badge.svg)](https://github.com/MatheSchool/typst-g-exam/actions/workflows/integration.yaml)
-
-## Features 
+#### Features 
 
 - Scoreboard.
 - Scoring by questions and subquestions.
 - Student information, on the first page or on all odd pages.
 - Question and subcuestion.
-- Show solutions
+- Show solutions and clarifications
 - List of clarifications.
 - Teacher's Watermark
 - Exam Model Watermark
 
+## Usage 
 
-# Examples 
+For information, see the [manual](./docs/manual.pdf). 
+
+To use this package, simply add the following code to your document:
+
+## Examples 
 
 ### Minimal Example
 
-``` typ
-#import "@preview/g-exam:0.2.0": g-exam, g-question, g-subquestion
+```typ
+#import "@preview/g-exam:0.3.0": *
 
 #show: g-exam.with(
     #g-question(point: 2)[Question 1]
-    #v(1fr)
+      #g-subquestion[Subquestion a]
+      #v(1fr)
+      
+      #g-subquestion[Subquestion b]
+      #v(1fr)
+
     #g-question(point: 2)[Question 1]
     #v(1fr)
 )
 ```
 
-### Minimal Example with sub-question
-
-``` typst
-#import "@preview/g-exam:0.2.0": g-exam, g-question, g-subquestion
-
-#show: g-exam.with(
-    #g-question[Question 1]
-
-        #g-subquestion[Question 1]
-        #v(1fr)
-
-        #g-subquestion[Question 1]
-        #v(1fr)
-    
-    #g-subquestion(point: 2)[Question 1]
-    #v(1fr)
-)
-```
 ### Full sample of an exam.
 
   1. [Example of exam with punctuation](examples/exam-001.pdf)
@@ -57,89 +47,14 @@ Template to create exams with header, school letterhead, grade chart, ...
   1. [Example of exam with punctuation](examples/exam-005.pdf)
   1. [Example of exam with solution](examples/exam-005.pdf)
 
+## Changelog
 
-# Usage 
-
-To use this package, simply add the following code to your document:
-
-### g-exam
-
-Generate the skeleton of an exam, entering a header, student information, grade table, watermarks, ...
-
-#### Parameters of `g-exam`
-
-  - **author**: 
-    - **name**: Name of author of document.
-    - **email**: e-mail of author of document. 
-    - **watermark**: Watermark with information about the author of the document.
-
-  - **school**: 
-    - **name**: Name of the school or institution generating the exam.
-    - **logo**: Logo of the school or institution generating the exam.
-
-  - **exam-info**: 
-    - **academic-period**: Academic period.
-    - **academic-level**: Academic level
-    - **academic-subject**: Academic subject.
-    - **number**: Number of exam.
-    - **content**: Content of exam.
-    - **model**: Watermark with information about the exam model.
-
-  - **localization**: Location information, in case you want to change a parameter or your language is not supported.
-    - **grade-table-queston: Text question in grade table**.
-    - **grade-table-total: Text total in grade table**,
-    - **grade-table-points: Text points in grade table**,
-    - **grade-table-calification: Text calification in grade**,
-    - **point: Text point**,
-    - **points: Text points**.
-    - **page: Text page**,
-    - **page-counter-display**: Text page conter display.
-    - **family-name**: Text surname or family name in studen data.
-    - **personal-name**: Text name or personal name in studen data.
-    - **group**: Text gorup in studen data.
-  - **date**: Text date in studen data.
-  - **languaje**: (str) (en, es, de, fr, pt, it) Languages for Default Localization 
-  - **decimal-separator*: (str) (".", ",") Decimal separator
-
-    - **date**: Date of document.
-
-    - **show-studen-data**: (none, str),
-        - `true`, **first-page**: Show studen data only in first page.
-        - **odd-pages**: Show studen data in all odd pages.
-        - `false`, `none`: Not show studen data.
-    - **question-point-position**: (none, left, right)
-        - **right**: Show question point on the right.
-        - **left**: Show question point on the left.
-        - `none`: Not show the question point.
-    - **show-grade-table**: (true, false) Show grade table,
-    - **clarifications**: (str, (:)) Text of clarifications for students.
-    - **show-solution**: (false, true) Displays solutions if visibility is not specified.
-    - **body** (body): Body of exam.
-
-#### Parameters of `g-question`
-
-  - **point**: (none, float) Points of the question.
-  - **body** (body): Body of question.
-
-#### Parameters of `g-subquestion`
-
-  - **point**: (none, float) Points of the sub-question.
-  - **body** (body): Body of sub-question.
-
-### Show clarification of `g-clarification`
-
-  - **size**: Size of text in clarification.
-  - **body**: (body): Body of clarification.
-
-### Show clarification of `g-solution`
-  - **alternative-content**: (none, str): Alternate content, displayed when solutions are not visible.
-
-# Changelog
-
-### v0.2.1
+### v0.3.0
 
 - Include parameter question-text-parameters.
+- Show solution
 - Expand documentation.
+- Bug fix show watermark.
 
 ### v0.2.0
 
@@ -149,6 +64,8 @@ Generate the skeleton of an exam, entering a header, student information, grade 
 - Show clarifications.
 - Widen margin points.
 - Show solution.
+- ⚠️ Breaking changes:
+  - ?¿?¿
 
 ### v0.1.1
 
@@ -158,7 +75,9 @@ Generate the skeleton of an exam, entering a header, student information, grade 
 
 - Initial version submitted to typst/packages.
 
-# ToDo
 
-- Multiple choice questions
-- Show solution of question.
+# CI
+
+Continuous integration status:
+
+[![.github/workflows/integration.yaml](https://github.com/MatheSchool/typst-g-exam/actions/workflows/integration.yaml/badge.svg)](https://github.com/MatheSchool/typst-g-exam/actions/workflows/integration.yaml)

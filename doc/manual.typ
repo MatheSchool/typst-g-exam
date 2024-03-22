@@ -33,7 +33,7 @@
 
 = Introduction
 
-This package provides a way to generate exams. You can create questions and sub-questions, header with information about the academic center, score box, subject, exam, header with student information, clarifications, solutions, watermark with information about the exam model and teacher.
+This template provides a way to generate exams. You can create questions and sub-questions, header with information about the academic center, score box, subject, exam, header with student information, clarifications, solutions, watermark with information about the exam model and teacher.
 
 = Usage
 
@@ -50,22 +50,24 @@ This is the minimal starting point:
 
 = Exam
 
+```example
+/// User g-exam template
+#show: g-exam.with()
+```
+
 #doc-style.parse-show-module("../src/g-exam.typ") 
 
-#lorem(150)
+= Commands
 
-#lorem(150)
+== Questions
 
-= Questions
+#doc-style.parse-show-module("../src/g-question.typ") 
 
-#lorem(150)
+== Solutions
 
-#lorem(150)
+#doc-style.parse-show-module("../src/g-solution.typ") 
 
-= Solutions
+== Clarifications
 
-#lorem(150)
+#doc-style.parse-show-module("../src/g-clarification.typ") 
 
-#lorem(150)
-
-#lorem(150)
