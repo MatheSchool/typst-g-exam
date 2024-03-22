@@ -1,9 +1,9 @@
 name: Build Typst document (CI)
 on: 
   push:
-    # paths: '**/*.typ'
+    paths: '**/*.typ'
   workflow_dispatch:
-    # paths: '**/*.typ'
+    paths: '**/*.typ'
 
 jobs:
   build:
@@ -21,18 +21,6 @@ jobs:
         run: |
           rm -rf ./examples/*.pdf
 
-      # - name: Compile Typst to PDF
-      #   uses: mkpoli/compile-typst-action@main
-      #   with:
-      #     source_paths: "examples/exam-001.typ examples/exam-002.typ examples/exam-003.typ examples/exam-005.typ"
-      #     root_path: '.'
-
-      # - name: Compile Typst to PDF
-      #   uses: mkpoli/compile-typst-action@main
-      #   with:
-      #     source_paths: "examples/exam-localization.typ examples/exam-minimal.typ examples/exam-points-position.typ"
-      #     root_path: '.' 
-
       - name: List Files
         id: file-list
         shell: bash
@@ -41,42 +29,6 @@ jobs:
           file_list=$(echo "$list" | sed ':a;N;$!ba;s/\n/ /g')
           echo "File List: $file_list"
           echo "file_list=$file_list" >> $GITHUB_OUTPUT
-        # run: ls examples/*.typ >> $GITHUB_OUTPUT
-
-        # list=$(ls -1 ./examples/*.typ);
-        # matrix_values=$(echo ' "'"$(echo "$list" | sed ':a;N;$!ba;s/\n/", "/g')"'" ')
-        # echo "Matrix values: $matrix_values"
-        # echo "matrix_values=$matrix_values" >> $GITHUB_OUTPUT
-  
-      # - name: Echo 1
-      #   STEP_OUTPUT: ${{ steps.file-list.outputs.stdout }}
-      #   shell: bash
-      #   run: echo ${{ steps.file-list.outputs.stdout }}
-
-      - name: Echo 1.2      
-        shell: bash
-        run: echo ${{ steps.file-list.output.file_list  }}
-
-      # - name: Get all yaml files
-      #   id: file-list
-      #   uses: the-coding-turtle/ga-file-list@v0.1
-      #   with:
-      #     directory: "examples"
-      #     file_extension: "typ"
-
-      # - name: Echo 1.2      
-      #   shell: bash
-      #   run: echo ${{ steps.file-list.outputs.stdout  }}
-
-      # - name: List Files2
-      #   id: file-list2
-      #   shell: bash
-      #   run: ls examples/*.typ >> "$GITHUB_OUTPUT"
-
-      # - name: Echo 2.2
-      #   shell: bash
-      #   run: echo ${{ steps.file-list2.outputs.stdout }}
-
 
       - name: Compile Typst to PDF
         uses: mkpoli/compile-typst-action@main
