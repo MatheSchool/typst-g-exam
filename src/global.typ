@@ -8,6 +8,21 @@
 #let __g-localization = state("localization")
 #let __g-show-solution = state("g-show-solution", false)
 
+#let __g-default-localization = (
+    grade-table-queston: "Question",
+    grade-table-total: "Total",
+    grade-table-points: "Points",
+    grade-table-calification: "Calification",
+    point: "point",
+    points: "points",
+    page: "Page",
+    page-counter-display: "1 of 1",
+    family-name: "Surname",
+    personal-name: "Name",
+    group: "Group",
+    date: "Date"
+  )
+  
 #let __g-question-numbering(..args) = {
   let nums = args.pos()
   if nums.len() == 1 {
