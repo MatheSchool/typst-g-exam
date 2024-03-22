@@ -48,7 +48,6 @@ jobs:
           name: examples-g-exam
           path: ./examples/*.pdf
 
-
       - name: Upload documentation PDF file
         uses: actions/upload-artifact@v3
         with:
