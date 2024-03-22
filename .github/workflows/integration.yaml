@@ -36,10 +36,14 @@ jobs:
           source_paths: ${{ steps.file-list.outputs.file_list }}
           root_path: '.' 
 
+      - name: Delete samples
+        run: |
+          rm -rf ./doc/*.pdf
+
       - name: Compile documentation to PDF
         uses: mkpoli/compile-typst-action@main
         with:
-          source_paths: "doc/document.typ"
+          source_paths: "doc/manual.typ"
           root_path: '.' 
 
       - name: Upload examples PDF file
