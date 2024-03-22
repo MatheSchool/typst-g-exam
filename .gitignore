@@ -1,2 +1,3 @@
-/src/*.pdf
-/doc/*.pdf
+/src/**/*.pdf
+/doc/**/*.pdf
+!/doc/manual.pdf
