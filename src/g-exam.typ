@@ -277,6 +277,11 @@
       g-solution[#rest.join(" ")]
     }
 
+  show regex("=% (.+)"): it => {
+      let (sugar, ..rest) = it.text.split()
+      g-clarification[#rest.join(" ")]
+    }
+
   body
   
   [#hide[]<end-g-question-localization>]
