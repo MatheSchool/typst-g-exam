@@ -39,7 +39,7 @@ jobs:
       - name: Compile documentation to PDF
         uses: mkpoli/compile-typst-action@main
         with:
-          source_paths: "documentation/document.typ"
+          source_paths: "doc/document.typ"
           root_path: '.' 
 
       - name: Upload examples PDF file
@@ -52,4 +52,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: document-g-exam
-          path: ./documentation/*.pdf
+          path: ./doc/*.pdf
