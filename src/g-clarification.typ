@@ -1,3 +1,5 @@
+#import"./global.typ": *
+
 ///  Show a clarification.
 ///    - size: Size of clarification.
 ///    - body: Body of clarification.

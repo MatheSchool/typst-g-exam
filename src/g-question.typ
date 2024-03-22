@@ -1,4 +1,3 @@
-// #import "./g-exam.typ": *
 #import"./global.typ": *
 
 /// Show a question.

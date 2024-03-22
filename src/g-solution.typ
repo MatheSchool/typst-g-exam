@@ -1,3 +1,5 @@
+#import"./global.typ": *
+
 /// Show solution of question.
 /// 
 /// *Example:*
