@@ -1,5 +1,5 @@
 [en]
-grade-table-queston = "Question"
+grade-table-question = "Question"
 grade-table-total = "Total"
 grade-table-points = "Points"
 grade-table-calification = "Calification"
@@ -13,7 +13,7 @@ group = "Group"
 date = "Date"
 
 [es]
-grade-table-queston = "Pregunta"
+grade-table-question = "Pregunta"
 grade-table-total = "Total"
 grade-table-points = "Puntos"
 grade-table-calification = "Calificación"
@@ -27,7 +27,7 @@ group = "Grupo"
 date = "Fecha"
 
 [de]
-grade-table-queston = "Frage"
+grade-table-question = "Frage"
 grade-table-total = "Gesamt"
 grade-table-points = "Punkte"
 grade-table-calification = "Verkalkung"
@@ -41,7 +41,7 @@ group = "Gruppe"
 date = "Datum"
 
 [fr]
-grade-table-queston = "Question"
+grade-table-question = "Question"
 grade-table-total = "Totale"
 grade-table-points = "Aiguillage"
 grade-table-calification = "Calivage"
@@ -55,7 +55,7 @@ group = "Groupe"
 date = "Date"
 
 [pt]
-grade-table-queston = "Perguntas"
+grade-table-question = "Perguntas"
 grade-table-total = "Total"
 grade-table-points = "Pontos"
 grade-table-calification = "calificação"
@@ -69,7 +69,7 @@ group = "Grupo"
 date = "Data"
 
 [it]
-grade-table-queston = "Domande"
+grade-table-question = "Domande"
 grade-table-total = "Totale"
 grade-table-points = "Punti"
 grade-table-calification = "Calificazione"
