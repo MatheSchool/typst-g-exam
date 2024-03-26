@@ -8,7 +8,7 @@
 #let __localization = state("localization")
 
 #let __default-localization = (
-    grade-table-queston: "Question",
+    grade-table-question: "Question",
     grade-table-total: "Total",
     grade-table-points: "Points",
     grade-table-calification: "Calification",
@@ -39,7 +39,7 @@
         let columns-number = range(0, end-question-locations.len() + 1)
       
         let question-row = columns-number.map(n => {
-            if n == 0 {align(left + horizon)[#text(hyphenate: false,__localization.final(loc).grade-table-queston)]}
+            if n == 0 {align(left + horizon)[#text(hyphenate: false,__localization.final(loc).grade-table-question)]}
             else if n == end-question-locations.len() {align(left + horizon)[#text(hyphenate: false,__localization.final(loc).grade-table-total)]}
             else [ #n ]
           }
@@ -261,7 +261,7 @@
     model: none
   ),
   localization: (
-    grade-table-queston: none,
+    grade-table-question: none,
     grade-table-total: none,
     grade-table-points: none,
     grade-table-calification: none,
@@ -356,7 +356,7 @@
   let __read-localization = (
     languaje: "en",
     localization: (
-      grade-table-queston: none,
+      grade-table-question: none,
       grade-table-total: none,
       grade-table-points: none,
       grade-table-calification: none,
@@ -384,7 +384,7 @@
             return value
           }
 
-          let __grade_table_queston = __read-localization_value(read_lang_data: __read_lang_data, field: "grade-table-queston", localization: localization)
+          let __grade_table_question = __read-localization_value(read_lang_data: __read_lang_data, field: "grade-table-question", localization: localization)
           let __grade_table_total = __read-localization_value(read_lang_data: __read_lang_data, field: "grade-table-total", localization: localization)
           let __grade_table_points = __read-localization_value(read_lang_data: __read_lang_data, field: "grade-table-points", localization: localization)
           let __grade_table_calification = __read-localization_value(read_lang_data: __read_lang_data, field: "grade-table-calification", localization: localization)
@@ -398,7 +398,7 @@
           let __date = __read-localization_value(read_lang_data: __read_lang_data, field: "date", localization: localization)
 
           let __localization_lang_data = (
-                grade-table-queston: __grade_table_queston,
+                grade-table-question: __grade_table_question,
                 grade-table-total: __grade_table_total,
                 grade-table-points: __grade_table_points,
                 grade-table-calification: __grade_table_calification,
