@@ -163,7 +163,7 @@
         let __page = __read-localization_value(read_lang_data: __read_lang_data, field: "page", localization: localization)
         let __page-counter-display = __read-localization_value(read_lang_data: __read_lang_data, field: "page-counter-display", localization: localization)
         let __family_name = __read-localization_value(read_lang_data: __read_lang_data, field: "family-name", localization: localization)
-        let __given_name_name = __read-localization_value(read_lang_data: __read_lang_data, field: "given-name", localization: localization)
+        let __given_name = __read-localization_value(read_lang_data: __read_lang_data, field: "given-name", localization: localization)
         let __group = __read-localization_value(read_lang_data: __read_lang_data, field: "group", localization: localization)
         let __date = __read-localization_value(read_lang_data: __read_lang_data, field: "date", localization: localization)
 
