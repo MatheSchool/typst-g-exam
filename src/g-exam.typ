@@ -53,7 +53,7 @@
     page: none,
     page-counter-display: none,
     family-name: none,
-    personal-name: none,
+    given-name: none,
     group: none,
     date: none
   ),

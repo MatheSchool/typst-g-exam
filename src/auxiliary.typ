@@ -2,7 +2,7 @@
 
 #let __g-student-data(show-line-two: true) = {
     locate(loc => {
-      [#__g-localization.final(loc).family-name: #box(width: 2fr, repeat[.]) #__g-localization.final(loc).personal-name: #box(width:1fr, repeat[.])]
+      [#__g-localization.final(loc).family-name: #box(width: 2fr, repeat[.]) #__g-localization.final(loc).given-name: #box(width:1fr, repeat[.])]
       if show-line-two {
         v(1pt)
         align(right, [#__g-localization.final(loc).group: #box(width:2.5cm, repeat[.]) #__g-localization.final(loc).date: #box(width:3cm, repeat[.])])
@@ -135,7 +135,7 @@
     page: none,
     page-counter-display: none,
     family-name: none,
-    personal-name: none,
+    given-name: none,
     group: none,
     date: none
   )) => {
@@ -163,7 +163,7 @@
         let __page = __read-localization_value(read_lang_data: __read_lang_data, field: "page", localization: localization)
         let __page-counter-display = __read-localization_value(read_lang_data: __read_lang_data, field: "page-counter-display", localization: localization)
         let __family_name = __read-localization_value(read_lang_data: __read_lang_data, field: "family-name", localization: localization)
-        let __personal_name = __read-localization_value(read_lang_data: __read_lang_data, field: "personal-name", localization: localization)
+        let __given_name_name = __read-localization_value(read_lang_data: __read_lang_data, field: "given-name", localization: localization)
         let __group = __read-localization_value(read_lang_data: __read_lang_data, field: "group", localization: localization)
         let __date = __read-localization_value(read_lang_data: __read_lang_data, field: "date", localization: localization)
 
@@ -177,7 +177,7 @@
               page: __page,
               page-counter-display: __page-counter-display,
               family-name: __family_name,
-              personal-name: __personal_name,
+              given-name: __given_name,
               group: __group,
               date: __date,
             )

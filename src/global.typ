@@ -18,7 +18,7 @@
     page: "Page",
     page-counter-display: "1 of 1",
     family-name: "Surname",
-    personal-name: "Name",
+    given-name: "Name",
     group: "Group",
     date: "Date"
   )
