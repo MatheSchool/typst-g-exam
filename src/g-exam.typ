@@ -14,6 +14,13 @@
 /// - scholl: Information of scholl.
 ///  - name (string, content): Name of the school or institution generating the exam.
 ///  - logo (none, content, bytes): Logo of the school or institution generating the exam.
+/// - exam-info: Information of exam
+///  - academic-period(none, content, str): academic period.
+///  - academic-level(none, content, str): acadmic level.
+///  - academic-subject(none, content, str): acadmic subname,
+///  - number(none, content, str): Number of exam.
+///  - content(none, content, str): Conten of exam.
+///  - model(none, content, str): Model of exam.
 /// - date (sting): Date of generate document.
 /// - keywords (string): keywords of document.
 /// - languaje (en, es, de, fr, pt, it): Languaje of docuemnt. English, Spanish, German, Portuguese and Italian are defined.
@@ -43,6 +50,7 @@
     content: none,
     model: none
   ),
+  languaje: "en",
   localization: (
     grade-table-queston: none,
     grade-table-total: none,
@@ -59,7 +67,6 @@
   ),
   date: none,
   keywords: none,
-  languaje: "en",
   clarifications: none,
   question-text-parameters: none,
   show-studen-data: "first-page",
