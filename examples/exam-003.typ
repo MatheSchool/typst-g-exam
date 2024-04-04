@@ -1,4 +1,4 @@
-#import "../g-exam.typ": g-exam, g-question, g-subquestion
+#import "../src/lib.typ": g-exam, g-question, g-subquestion, g-solution
 
 #show: g-exam.with(
   author: (
@@ -8,11 +8,11 @@
   ),
   school: (
     name: "Sunrise Secondary School",
-    logo: read("./logo.png", encoding: none),
+    logo: image("./logo.png"),
   ),
   exam-info: (
     academic-period: "Academic year 2023/2024",
-    academic-level: "1º Secondary Education",
+    academic-level: "1st Secondary Education",
     academic-subject: "Mathematics",
     number: "2nd Assessment 1st Exam",
     content: "Radicals and fractions",
@@ -29,6 +29,9 @@
 )
 
 #g-question[Given the equation $x^n + y^n = z^n$ for $(x,y,z)$ and $n$ positive integers.] 
+
+#image("./logo.png"),
+
 #g-subquestion[For what values of $n$ is the statement in the previous question true?]
 #v(1fr)
 #g-subquestion[For $n=2$ there's a theorem with a special name. What's that name?] 

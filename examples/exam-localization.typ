@@ -1,4 +1,4 @@
-#import "../g-exam.typ": g-exam, g-question, g-subquestion
+#import "../src/lib.typ": g-exam, g-question, g-subquestion, g-solution
 
 #show: g-exam.with(
   localization: (
@@ -11,7 +11,7 @@
     page: [],
     page-counter-display: "1 - 1",
     family-name: "*Family* _name_",
-    personal-name: "*Personal* _name_",
+    given-name: "*Given* _name_",
     group: [*Classroom*],
     date: [*Date* of exam]
   ),

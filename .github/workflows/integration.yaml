@@ -1,9 +1,15 @@
 name: Build Typst document (CI)
 on: 
   push:
-    paths: '**/*.typ'
+    paths: 
+    - '**/*.typ'
+    - '**/*.yaml'
+    - '**/*.toml'
   workflow_dispatch:
-    paths: '**/*.typ'
+    paths: 
+    - '**/*.typ'
+    - '**/*.yaml'
+    - '**/*.toml'
 
 jobs:
   build:
@@ -21,20 +27,39 @@ jobs:
         run: |
           rm -rf ./examples/*.pdf
 
-      - name: Compile Typst to PDF
-        uses: mkpoli/compile-typst-action@main
-        with:
-          source_paths: "examples/exam-001.typ examples/exam-002.typ examples/exam-003.typ examples/exam-005.typ"
-          root_path: '.'
+      - name: List Files
+        id: file-list
+        shell: bash
+        run: |
+          list=$(ls -1 ./examples/*.typ);
+          file_list=$(echo "$list" | sed ':a;N;$!ba;s/\n/ /g')
+          echo "File List: $file_list"
+          echo "file_list=$file_list" >> $GITHUB_OUTPUT
 
       - name: Compile Typst to PDF
         uses: mkpoli/compile-typst-action@main
         with:
-          source_paths: "examples/exam-localization.typ examples/exam-minimal.typ examples/exam-points-position.typ"
+          source_paths: ${{ steps.file-list.outputs.file_list }}
           root_path: '.' 
 
-      - name: Upload PDF file
+      - name: Delete samples
+        run: |
+          rm -rf ./doc/*.pdf
+
+      - name: Compile documentation to PDF
+        uses: mkpoli/compile-typst-action@main
+        with:
+          source_paths: "doc/manual.typ"
+          root_path: '.' 
+
+      - name: Upload examples PDF file
         uses: actions/upload-artifact@v3
         with:
           name: examples-g-exam
           path: ./examples/*.pdf
+
+      - name: Upload documentation PDF file
+        uses: actions/upload-artifact@v3
+        with:
+          name: document-g-exam
+          path: ./doc/*.pdf

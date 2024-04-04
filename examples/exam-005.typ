@@ -1,4 +1,4 @@
-#import "../g-exam.typ": g-exam, g-question, g-subquestion
+#import "../src/lib.typ": g-exam, g-question, g-subquestion, g-solution
 
 #show: g-exam.with(
   author: (
@@ -12,7 +12,7 @@
   ),
   exam-info: (
     academic-period: "Academic year 2023/2024",
-    academic-level: "1º Secondary Education",
+    academic-level: "1st Secondary Education",
     academic-subject: "Mathematics",
     number: "2nd Assessment 1st Exam",
     content: "Radicals and fractions",

@@ -1,4 +1,4 @@
-#import "../g-exam.typ": g-exam, g-question, g-subquestion
+#import "../src/lib.typ": g-exam, g-question, g-subquestion, g-solution
 
 #show: g-exam.with(
   author: (
@@ -12,7 +12,7 @@
   ),
   exam-info: (
     academic-period: "Academic year 2023/2024",
-    academic-level: "1º Secondary Education",
+    academic-level: "1st Secondary Education",
     academic-subject: "Mathematics",
     number: "2nd Assessment 1st Exam",
     content: "Radicals and fractions",
@@ -27,8 +27,6 @@
   // show-studen-data: none,
   show-grade-table: true,
   question-point-position: right,
-  // question-point-position: left,
-  // question-point-position: none,
   clarifications: (
     [This test must be performed with a blue or black non-erasable pen.],
     [Cheating, talking, getting up from the chair or disturbing the rest of the class can be reasons for withdrawal from the test, which will be valued with a zero.],
@@ -38,10 +36,10 @@
 
 #g-question(point: 2)[Calculate the following operations and simplify if possible:
   #g-subquestion[$display(5/12 dot 9/15=)$]
-  // #v(1fr)
+  #v(1fr)
 
   #g-subquestion[$display(10 dot 9/15=)$]
-  // #v(1fr)
+  #v(1fr)
 
   #g-subquestion[$display(5/12 : 4/15=)$]
   #v(1fr)
