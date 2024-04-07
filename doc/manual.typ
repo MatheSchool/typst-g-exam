@@ -42,9 +42,9 @@ This is the minimal starting point:
 #import "@preview/g-exam:0.3.0": *
 #show: g-exam.with()
 
-#g-question(point: 2)[Question 1]
+#g-question(point: 2)[List prime numbers]
 
-#g-question(point: 1)[Question 2] 
+#g-question(point: 1)[Complete the following sentences] 
 
 ```]
 

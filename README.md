@@ -27,15 +27,15 @@ To use this package, simply add the following code to your document:
 #import "@preview/g-exam:0.3.0": *
 
 #show: g-exam.with(
-    #g-question(point: 2)[Question 1]
-      #g-subquestion[Subquestion a]
-      #v(1fr)
-      
-      #g-subquestion[Subquestion b]
+    #g-question(point: 2)[List prime numbers]
       #v(1fr)
 
-    #g-question(point: 2)[Question 1]
-    #v(1fr)
+    #g-question(point: 2)[Complete the following sentences]
+      #g-subquestion[Don Quixote was written by ...]
+      #v(1fr)
+      
+      #g-subquestion[The name of the continent we live on is ...]
+      #v(1fr)
 )
 ```
 

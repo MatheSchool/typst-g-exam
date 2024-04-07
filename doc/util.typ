@@ -38,7 +38,7 @@
       dx: -left-fringe * 22cm + 5mm,
       text(3cm, right-color)[g-exam]
     ) +
-    text(29pt)[exam for Typst]
+    text(29pt)[exam template for Typst]
   )
   block(
     v(1cm) +
