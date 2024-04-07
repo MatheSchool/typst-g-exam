@@ -56,7 +56,7 @@ To use this package, simply add the following code to your document:
 ### v0.3.0
 
 - Include parameter question-text-parameters.
-- Show solution
+- Show solution.
 - Expand documentation.
 - Possibility of estrablecer question-point-position to none.
 - Bug fix show watermark.
