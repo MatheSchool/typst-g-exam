@@ -28,7 +28,7 @@ To use this package, simply add the following code to your document:
 
 #show: g-exam.with(
     #g-question(point: 2)[List prime numbers]
-      #v(1fr)
+    #v(1fr)
 
     #g-question(point: 2)[Complete the following sentences]
       #g-subquestion[Don Quixote was written by ...]
@@ -65,8 +65,8 @@ To use this package, simply add the following code to your document:
 - Show clarifications.
 - Widen margin points.
 - Show solution.
-- ⚠️ Breaking changes:
-  - ?¿?¿
+<!-- - ⚠️ Breaking changes:
+  - ?¿?¿ -->
 
 ### v0.1.1
 
