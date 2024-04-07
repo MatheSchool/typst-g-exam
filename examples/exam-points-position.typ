@@ -1,4 +1,4 @@
-#import "../src/lib.typ": g-exam, g-question, g-subquestion, g-solution
+#import "../src/lib.typ": *
 #import "@preview/cetz:0.2.1"
 
 #show: g-exam.with()
