@@ -47,7 +47,6 @@
   ]
 ] 
 
-
 #g-subquestion(point: 10)[What famous mathematician had an elegant proof for this theorem but
 there was not enough space in the margin to write it down?].
 #v(1fr)
@@ -60,4 +59,3 @@ there was not enough space in the margin to write it down?].
 
     #v(5pt)
   ]
-

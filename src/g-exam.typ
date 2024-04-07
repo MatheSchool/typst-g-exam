@@ -30,7 +30,7 @@
 /// - show-studen-data(none, true, false, "first-page", "odd-pages"): It shows a box for the student to enter their details. It can appear on the first page or on all odd-numbered pages.
 /// - show-grade-table: (bool): Show grade table.
 /// - decimal-separator: (".", ","): Indicates the decimal separation character.
-/// - question-point-position: (left, right): Position of question point.
+/// - question-point-position: (none, left, right): Position of question point.
 /// - show-solution: (true, false): It shows the solutions to the questions.
 #let g-exam(
   author: (
@@ -80,7 +80,7 @@
   assert(show-studen-data in (none, true, false, "first-page", "odd-pages"),
       message: "Invalid show studen data")
 
-  assert(question-point-position in (left, right),
+  assert(question-point-position in (none, left, right),
       message: "Invalid question point position")
 
   assert(decimal-separator in (".", ","),
