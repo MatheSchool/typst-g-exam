@@ -49,7 +49,7 @@ jobs:
       - name: Compile documentation to PDF
         uses: mkpoli/compile-typst-action@main
         with:
-          source_paths: "doc/manual.typ"
+          source_paths: "doc/g-exam-manual.typ"
           root_path: '.' 
 
       - name: Upload examples PDF file
