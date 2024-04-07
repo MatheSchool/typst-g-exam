@@ -2,11 +2,19 @@
 
 #import "./util.typ": *
 #import "./style.typ" as doc-style
+#import "./example.typ": *
 
 #import "../src/auxiliary.typ": *
 #import "../src/g-exam.typ": *
 #import "../src/g-question.typ": *
 #import "../src/g-solution.typ": *
+
+// Usage:
+//   ```typ-example
+//   /* canvas drawing code */
+//   ```
+#show raw.where(lang: "typ-example"): example
+#show raw.where(lang: "typ-example-vertical"): example.with(vertical: true)
 
 #make-title()
 
@@ -36,7 +44,7 @@ This is the minimum model for generating an exam, in which you define the g-exam
 
 #pad(left: 1em)[
 
-```typ
+```typ-example
 #import "@preview/g-exam:0.3.0": *
 #show: g-exam.with()
 
@@ -51,7 +59,7 @@ This is the minimum model for generating an exam, in which you define the g-exam
   #v(1fr)
 ```]
 
-=Configuration 
+= Configuration 
 
 == Header
 
@@ -62,7 +70,7 @@ The template will include a header in the exam, with the information entered in 
 We can indicate a logo of the educational center, a description of the exam, subject, content, academic level, ...
 
 #pad(left: 1em)[
-```typ
+```typ-example
 #show: g-exam.with(
   author: (
     name: "Andrés Jorge Giménez Muñoz", 
@@ -97,7 +105,7 @@ Values can be:
 The following example will display student information on the first page.
 
 #pad(left: 1em)[
-```typ
+```typ-example
 #show: g-exam.with(
   show-studen-data: "first-page",
 )
@@ -109,7 +117,7 @@ We will be able to show a scoreboard, with the points for each question.
 In order for this table to appear, we will have to set the `show-grade-table` a *true*, a *false* so that it doesn't show up.
 
 #pad(left: 1em)[
-```typ
+```typ-example
 #show: g-exam.with(
   show-grade-table: true,
 )
@@ -119,7 +127,7 @@ In order for this table to appear, we will have to set the `show-grade-table` a 
 
 To enter the questions, use the `q-question`, followed by the text of the question. You can include the score of the question by entering the parameter `point`.
 
-```typ
+```typ-example
 #g-question(point: 2)[Question text.]
 #v(1fr)
 ```
@@ -135,7 +143,7 @@ In the same way, the score of the question can be indicated, in case of indicati
 The following example asks a first question, with no sub-questions, with a score of two points and a second question with two sub-questions with a score of 2 points each, which will show that the second question is worth a total of four points in the scorecard.
 
 #pad(left: 1em)[
-```typ
+```typ-example
 #import "@preview/g-exam:0.3.0": *
 #show: g-exam.with()
 
@@ -155,7 +163,7 @@ The following example asks a first question, with no sub-questions, with a score
 If a pdf document is generated, the information will be saved in the document. Such as the author's name, e-mail, watermark, exam information, ...
 
 #pad(left: 1em)[
-```typ
+```typ-example
 #show: g-exam.with(
   author: (
     name: "Andrés Jorge Giménez Muñoz", 
@@ -186,7 +194,7 @@ Depending on the language we use, the decimal separator may change.
 To specify the decimal separator we want to use, we use 'decimal-separator' with the values '*.*' or '*,*' as follows.
 
 #pad(left: 1em)[
-```typ
+```typ-example
 #show: g-exam.with(
   decimal-separator: ",",
 )
@@ -205,7 +213,7 @@ To do this, the `question-text-parameters` parameter has been created in which w
 The following example will use a 16-point, double-spaced font for the questions.
 
 #pad(left: 1em)[
-```typ
+```typ-example
 #show: g-exam.with(
   question-text-parameters: (size: 16pt, spacing:200%),
 )
@@ -220,7 +228,7 @@ You can specify the language in which you want the text to appear. To do this, w
 It can take the values 'en', 'es', 'de', 'fr', 'pt', 'it'.
 
 #pad(left: 1em)[
-```typ
+```typ-example
 #show: g-exam.with(
   languaje: "es",
 )
