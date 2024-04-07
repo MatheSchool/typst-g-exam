@@ -2,6 +2,8 @@
 
 This template provides a way to generate exams. You can create questions and sub-questions, header with information about the academic center, score box, subject, exam, header with student information, clarifications, solutions, watermark with information about the exam model and teacher.
 
+### Example
+
 #### Features 
 
 - Scoreboard.
@@ -20,6 +22,8 @@ For information, see the [manual](https://github.com/MatheSchool/typst-g-exam/bl
 To use this package, simply add the following code to your document:
 
 ## Examples 
+
+<img src="./galery/exam-table-content.png" alt="Ecxam - Table of content" style="width:200px;"/>
 
 ### Minimal Example
 
@@ -41,11 +45,11 @@ To use this package, simply add the following code to your document:
 
 ### Full sample of an exam.
 
-  1. [Example of exam with punctuation](examples/exam-001.pdf)
   1. [Example of exam with question only](examples/exam-002.pdf)
   1. [Example of exam with subquestion](examples/exam-003.pdf)
   1. [Example of exam with punctuation](examples/exam-005.pdf)
   1. [Example of exam with solution](examples/exam-005.pdf)
+  1. [Example of table-content](examples/exam-table-content.pdf)
 
 ## Changelog
 
