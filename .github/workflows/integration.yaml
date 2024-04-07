@@ -1,0 +1,65 @@
+name: Build Typst document (CI)
+on: 
+  push:
+    paths: 
+    - '**/*.typ'
+    - '**/*.yaml'
+    - '**/*.toml'
+  workflow_dispatch:
+    paths: 
+    - '**/*.typ'
+    - '**/*.yaml'
+    - '**/*.toml'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+     
+      - uses: typst-community/setup-typst@v3
+        with:
+          version: latest
+
+      - name: Delete samples
+        run: |
+          rm -rf ./examples/*.pdf
+
+      - name: List Files
+        id: file-list
+        shell: bash
+        run: |
+          list=$(ls -1 ./examples/*.typ);
+          file_list=$(echo "$list" | sed ':a;N;$!ba;s/\n/ /g')
+          echo "File List: $file_list"
+          echo "file_list=$file_list" >> $GITHUB_OUTPUT
+
+      - name: Compile Typst to PDF
+        uses: mkpoli/compile-typst-action@main
+        with:
+          source_paths: ${{ steps.file-list.outputs.file_list }}
+          root_path: '.' 
+
+      - name: Delete samples
+        run: |
+          rm -rf ./doc/*.pdf
+
+      - name: Compile documentation to PDF
+        uses: mkpoli/compile-typst-action@main
+        with:
+          source_paths: "doc/manual.typ"
+          root_path: '.' 
+
+      - name: Upload examples PDF file
+        uses: actions/upload-artifact@v3
+        with:
+          name: examples-g-exam
+          path: ./examples/*.pdf
+
+      - name: Upload documentation PDF file
+        uses: actions/upload-artifact@v3
+        with:
+          name: document-g-exam
+          path: ./doc/*.pdf

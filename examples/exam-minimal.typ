@@ -1,4 +1,4 @@
-#import "../g-exam.typ": g-exam, g-question, g-subquestion
+#import "../src/lib.typ": *
 
 #show: g-exam.with()
 

@@ -1,1 +1,3 @@
-g-exam.pdf
+/src/**/*.pdf
+/doc/**/*.pdf
+!/doc/manual.pdf
