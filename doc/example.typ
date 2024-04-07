@@ -2,7 +2,7 @@
 
 // String that gets prefixed to every example code
 // for compilation only!
-#let example-preamble = "import cetz.draw: *;"
+#let example-preamble = "#import \"../src/lib.typ\": *"
 #let example-scope = (cetz: lib)
 
 
@@ -16,60 +16,71 @@
   }
 
   let radius = .25cm
+  let insert = 8pt
   let border = 1pt + gray
   let canvas-background = yellow.lighten(95%)
 
-  let picture = lib.canvas(
-    eval(
-      example-preamble + source,
-      scope: example-scope
-    ),
-    ..args
-  )
+  // let picture = lib.canvas(
+  //   eval(
+  //     example-preamble + source,
+  //     scope: example-scope
+  //   ),
+  //   ..args
+  // )
   let source = box(
     raw(
       source,
-      lang: "typc"
+      lang: "typ"
     ),
     width: 100%
   )
 
-  block(
-    if vertical {
-      align(
-        center,
-        stack(
-          dir: ttb,
-          spacing: 1em,
-          block(
-            width: 100%,
+  block( width: 95%,
             clip: true,
+            inset: insert,
             radius: radius,
             stroke: border,
-            table(
-              columns: 1,
-              stroke: none,
-              fill: (c,r) => (canvas-background, white).at(r),
-              picture,
-              align(left, source)
-            )
-          ),
+            fill: canvas-background,
+            breakable: false,
+            align(left, source)
         )
-      )
-    } else {
-      block(
-        table(
-          columns: 2,
-          stroke: none,
-          fill: (canvas-background, white),
-          align: (center + horizon, left),
-          picture,
-          source
-        ),
-        width: 100%,
-        radius: radius,
-        clip: true,
-        stroke: border
-      )
-  }, breakable: false)
+
+  // block(
+  //   if vertical {
+  //     align(
+  //       center,
+  //       stack(
+  //         dir: ttb,
+  //         spacing: 1em,
+  //         block(
+  //           width: 100%,
+  //           clip: true,
+  //           radius: radius,
+  //           stroke: border,
+  //           table(
+  //             columns: 1,
+  //             stroke: none,
+  //             fill: (c,r) => (canvas-background, white).at(r),
+  //             picture,
+  //             align(left, source)
+  //           )
+  //         ),
+  //       )
+  //     )
+  //   } else {
+  //     block(
+  //       table(
+  //         columns: 2,
+  //         stroke: none,
+  //         fill: (canvas-background, white),
+  //         align: (center + horizon, left),
+  //         picture,
+  //         source
+  //       ),
+  //       width: 100%,
+  //       radius: radius,
+  //       clip: true,
+  //       stroke: border
+  //     )
+  // }, breakable: false)
 }
