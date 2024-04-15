@@ -23,26 +23,42 @@ jobs:
         with:
           version: latest
 
-      - name: Delete samples
+      - name: Delete samples and test
         run: |
           rm -rf ./examples/*.pdf
+          rm -rf ./test/*.pdf
 
-      - name: List Files
-        id: file-list
+      - name: List Files examples
+        id: file-list-examples
         shell: bash
         run: |
-          list=$(ls -1 ./examples/*.typ);
-          file_list=$(echo "$list" | sed ':a;N;$!ba;s/\n/ /g')
-          echo "File List: $file_list"
-          echo "file_list=$file_list" >> $GITHUB_OUTPUT
+          listexamples=$(ls -1 ./examples/*.typ);
+          file_list_examples=$(echo "$listexamples" | sed ':a;N;$!ba;s/\n/ /g')
+          echo "File List Examples: $file_list_examples"
+          echo "file_list_examples=$file_list_examples" >> $GITHUB_OUTPUT
 
-      - name: Compile Typst to PDF
+      - name: Compile Typst examples to PDF
         uses: mkpoli/compile-typst-action@main
         with:
-          source_paths: ${{ steps.file-list.outputs.file_list }}
+          source_paths: ${{ steps.file-list.outputs.file_list_examples }}
           root_path: '.' 
 
-      - name: Delete samples
+      - name: List Files test
+        id: file-list-test
+        shell: bash
+        run: |
+          listtest=$(ls -1 ./test/*.typ);
+          file_list_test=$(echo "$listtest" | sed ':a;N;$!ba;s/\n/ /g')
+          echo "File List Test: $file_list_test"
+          echo "file_list_test=$file_list_test" >> $GITHUB_OUTPUT
+  
+      - name: Compile Typst test to PDF
+        uses: mkpoli/compile-typst-action@main
+        with:
+          source_paths: ${{ steps.file-list.outputs.file_list_test }}
+          root_path: '.' 
+
+      - name: Delete Doc
         run: |
           rm -rf ./doc/*.pdf
 
