@@ -1,8 +1,9 @@
-#import "../src/lib.typ": *
+#import "../../src/lib.typ": *
 
 #show: g-exam.with(
   school: (
-    name: []
+    name: [],
+    logo: none
   )
 )
 

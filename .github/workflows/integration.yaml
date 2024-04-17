@@ -47,7 +47,7 @@ jobs:
         id: file-list-test
         shell: bash
         run: |
-          listtest=$(ls -1 ./test/*.typ);
+          listtest=$(ls -1 ./test/**/*.typ);
           file_list_test=$(echo "$listtest" | sed ':a;N;$!ba;s/\n/ /g')
           echo "File List Test: $file_list_test"
           echo "file_list_test=$file_list_test" >> $GITHUB_OUTPUT
