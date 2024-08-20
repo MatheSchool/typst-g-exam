@@ -7,31 +7,30 @@
 
 /// Template for creating an exam.
 /// 
-/// - autor: Infomation of autor of exam.
+///  - author: Infomation of author of exam.
 ///  - name (string, content): Name of author of exam.
-///  - email (string): e-mail of author of exam.
+///  - email (string): E-mail of author of exam.
 ///  - watermark (string): Watermark with information about the author of the document.
-/// - scholl: Information of scholl.
+///  - school: Information of school.
 ///  - name (string, content): Name of the school or institution generating the exam.
 ///  - logo (none, content, bytes): Logo of the school or institution generating the exam.
-/// - exam-info: Information of exam
-///  - academic-period(none, content, str): academic period.
-///  - academic-level(none, content, str): acadmic level.
-///  - academic-subject(none, content, str): acadmic subname,
-///  - number(none, content, str): Number of exam.
-///  - content(none, content, str): Conten of exam.
-///  - model(none, content, str): Model of exam.
-/// - date (sting): Date of generate document.
-/// - keywords (string): keywords of document.
-/// - languaje (en, es, de, fr, pt, it): Languaje of docuemnt. English, Spanish, German, Portuguese and Italian are defined.
-///     Ejemplo buy bonito:
-/// - clarifications (string, content, array): Clarifications of exam. It will appear in a box on the first page.
-/// - question-text-parameters: Parameter of text in question and subquestion. For example, it allows us to change the text size of the questions.
-/// - show-studen-data(none, true, false, "first-page", "odd-pages"): It shows a box for the student to enter their details. It can appear on the first page or on all odd-numbered pages.
-/// - show-grade-table: (bool): Show grade table.
-/// - decimal-separator: (".", ","): Indicates the decimal separation character.
-/// - question-point-position: (none, left, right): Position of question point.
-/// - show-solution: (true, false): It shows the solutions to the questions.
+///  - exam-info: Information of exam.
+///  - academic-period (none, content, str): Academic period.
+///  - academic-level (none, content, str): Academic level.
+///  - academic-subject (none, content, str): Academic subname.
+///  - number (none, content, str): Number of exam.
+///  - content (none, content, str): Content of exam.
+///  - model (none, content, str): Model of exam.
+///  - date (sting): Date of generate document.
+///  - keywords (string): Keywords of document.
+///  - language (en, es, de, fr, pt, it): Language of document. English, Spanish, German, French, Portuguese and Italian are defined.
+///  - clarifications (string, content, array): Clarifications of exam. It will appear in a box on the first page.
+///  - question-text-parameters: Parameter of text in question and subquestion. For example, it allows us to change the text size of the questions.
+///  - show-student-data (none, true, false, "first-page", "odd-pages"): Show a box for the student to enter their details. It can appear on the first page or on all odd-numbered pages.
+///  - show-grade-table: (bool): Show the grade table.
+///  - decimal-separator: (".", ","): Indicate the decimal separation character.
+///  - question-point-position: (none, left, right): Position of question points.
+///  - show-solution: (true, false): Show the solutions.
 #let g-exam(
   author: (
     name: "",
@@ -50,7 +49,7 @@
     content: none,
     model: none
   ),
-  languaje: "en",
+  language: "en",
   localization: (
     grade-table-queston: none,
     grade-table-total: none,
@@ -69,7 +68,7 @@
   keywords: none,
   clarifications: none,
   question-text-parameters: none,
-  show-studen-data: "first-page",
+  show-student-data: "first-page",
   show-grade-table: true,
   decimal-separator: ".",
   question-point-position: left,
@@ -77,7 +76,7 @@
   body,
 ) = {
   
-  assert(show-studen-data in (none, true, false, "first-page", "odd-pages"),
+  assert(show-student-data in (none, true, false, "first-page", "odd-pages"),
       message: "Invalid show studen data")
 
   assert(question-point-position in (none, left, right),
@@ -147,7 +146,7 @@
                     ],
                   ),
                   line(length: 100%, stroke: 1pt + gray),
-                  if show-studen-data in (true, "first-page", "odd-pages") {
+                  if show-student-data in (true, "first-page", "odd-pages") {
                     __g-student-data()
                   }
               )
@@ -173,7 +172,7 @@
               ]
             )
             line(length: 100%, stroke: 1pt + gray) 
-            if show-studen-data == "odd-pages" {
+            if show-student-data == "odd-pages" {
               __g-student-data(show-line-two: false)
             }
         }
@@ -228,11 +227,11 @@
   set par(justify: true) 
   set text(font: "New Computer Modern")
   
-  __read-localization(languaje: languaje, localization: localization)
+  __read-localization(language: language, localization: localization)
   __g-question-point-position-state.update(u => question-point-position)
   __g-question-text-parameters-state.update(question-text-parameters)
 
-  set text(lang:languaje)
+  set text(lang:language)
 
   if show-grade-table == true {
     __g-grade-table-header(
