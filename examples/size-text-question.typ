@@ -20,7 +20,7 @@
     model: "Model A"
   ),
   
-  languaje: "en",
+  language: "en",
   decimal-separator: ",",
   date: "November 21, 2023",
   show-studen-data: "first-page",
