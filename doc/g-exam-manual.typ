@@ -93,9 +93,9 @@ We can indicate a logo of the educational center, a description of the exam, sub
 
 == Student Information
 
-// Para que un encabezado en el que el alumno debe introducir sus datos personales, se ha de especificar en la plantilal mediante la prpiedad `show-studen-data` indicando como se quiere que aparezca este cuadro. 
+// Para que un encabezado en el que el alumno debe introducir sus datos personales, se ha de especificar en la plantilal mediante la prpiedad `show-student-data` indicando como se quiere que aparezca este cuadro. 
 // Los valores pueden ser:
-In order for a header in which the student must enter his/her personal data, it must be specified on the template by means of the 'show-studen-data' property indicating how you want this box to appear. 
+In order for a header in which the student must enter his/her personal data, it must be specified on the template by means of the 'show-student-data' property indicating how you want this box to appear. 
 Values can be:
 - *first-page*: It will only appear on the first page.
 - *odd-pages*: It will appear on odd-numbered pages.
@@ -107,7 +107,7 @@ The following example will display student information on the first page.
 #pad(left: 1em)[
 ```typ-example
 #show: g-exam.with(
-  show-studen-data: "first-page",
+  show-student-data: "first-page",
 )
 ```]
 

@@ -20,10 +20,10 @@
     model: "Model A"
   ),
   
-  languaje: "en",
+  language: "en",
   decimal-separator: ",",
   date: "November 21, 2023",
-  show-studen-data: "first-page",
+  show-student-data: "first-page",
   show-grade-table: false,
   question-point-position: right,
   question-text-parameters: (size: 16pt, spacing:200%),

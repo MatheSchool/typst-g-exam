@@ -14,7 +14,7 @@
     model: "Model A"
   ),
   
-  languaje: "en",
+  language: "en",
   decimal-separator: ",",
   show-grade-table: true,
   question-point-position: left,
