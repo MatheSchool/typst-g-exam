@@ -1,3 +1,5 @@
 /src/**/*.pdf
-/doc/**/*.pdf
-!/doc/g-exam-manual.pdf
+/manual/**/*.pdf
+!/manual/g-exam-manual.pdf
+
+Gemfile.lock
