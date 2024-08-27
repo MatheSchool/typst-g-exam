@@ -5,11 +5,6 @@ on:
     - '**/*.typ'
     - '**/*.yaml'
     - '**/*.toml'
-  workflow_dispatch:
-    paths: 
-    - '**/*.typ'
-    - '**/*.yaml'
-    - '**/*.toml'
 
 jobs:
   build:
@@ -21,7 +16,7 @@ jobs:
      
       - uses: typst-community/setup-typst@v3
         with:
-          version: latest
+          typst-version: latest
 
       - name: Delete samples and test
         run: |
