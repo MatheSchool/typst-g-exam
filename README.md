@@ -46,7 +46,7 @@ To use this package, simply add the following code to your document:
     model: "Model A"
   ),
   
-  show-studen-data: "first-page",
+  show-student-data: "first-page",
   show-grade-table: true,
   clarifications: "Answer the questions in the spaces provided. If you run out of room for an answer, continue on the back of the page."
 )
@@ -69,6 +69,15 @@ To use this package, simply add the following code to your document:
   1. [Example of table-content](examples/exam-table-content.pdf)
 
 ## Changelog
+
+### v0.3.2
+
+- Change show-studen-data to show-student-data parameter.
+- Change languaje to language parameter.
+
+### v0.3.1
+
+- Corrections in French.
 
 ### v0.3.0
 

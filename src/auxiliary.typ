@@ -124,7 +124,7 @@
 }
 
 #let __read-localization = (
-  languaje: "en",
+  language: "en",
   localization: (
     grade-table-queston: none,
     grade-table-total: none,

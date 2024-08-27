@@ -107,7 +107,7 @@ The following example will display student information on the first page.
 #pad(left: 1em)[
 ```typ-example
 #show: g-exam.with(
-  show-studen-data: "first-page",
+  show-student-data: "first-page",
 )
 ```]
 
@@ -230,7 +230,7 @@ It can take the values 'en', 'es', 'de', 'fr', 'pt', 'it'.
 #pad(left: 1em)[
 ```typ-example
 #show: g-exam.with(
-  languaje: "es",
+  language: "es",
 )
 ```]
 
