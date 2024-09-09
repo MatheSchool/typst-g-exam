@@ -55,12 +55,12 @@ jobs:
 
       - name: Delete Doc
         run: |
-          rm -rf ./doc/*.pdf
+          rm -rf ./manual/*.pdf
 
       - name: Compile documentation to PDF
         uses: mkpoli/compile-typst-action@main
         with:
-          source_paths: "doc/g-exam-manual.typ"
+          source_paths: "manual/g-exam-manual.typ"
           root_path: '.' 
 
       - name: Upload examples PDF file
@@ -73,4 +73,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: document-g-exam
-          path: ./doc/*.pdf
+          path: ./manual/*.pdf
