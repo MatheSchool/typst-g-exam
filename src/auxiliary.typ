@@ -144,7 +144,7 @@
       let __read_lang_data = __lang_data.at(language, default: localization)
 
       if(__read_lang_data != none) {
-        let __read-localization_value = (read_lang_data: none, field: "", localization: none) => {
+        let __read_localization_value = (read_lang_data: none, field: "", localization: none) => {
           let __parameter_value = localization.at(field)
           if(__parameter_value != none) { return __parameter_value }
 
@@ -154,18 +154,18 @@
           return value
         }
 
-        let __grade_table_queston = __read-localization_value(read_lang_data: __read_lang_data, field: "grade-table-queston", localization: localization)
-        let __grade_table_total = __read-localization_value(read_lang_data: __read_lang_data, field: "grade-table-total", localization: localization)
-        let __grade_table_points = __read-localization_value(read_lang_data: __read_lang_data, field: "grade-table-points", localization: localization)
-        let __grade_table_calification = __read-localization_value(read_lang_data: __read_lang_data, field: "grade-table-calification", localization: localization)
-        let __point = __read-localization_value(read_lang_data: __read_lang_data, field:"point", localization: localization)
-        let __points = __read-localization_value(read_lang_data: __read_lang_data, field: "points", localization: localization)
-        let __page = __read-localization_value(read_lang_data: __read_lang_data, field: "page", localization: localization)
-        let __page-counter-display = __read-localization_value(read_lang_data: __read_lang_data, field: "page-counter-display", localization: localization)
-        let __family_name = __read-localization_value(read_lang_data: __read_lang_data, field: "family-name", localization: localization)
-        let __given_name = __read-localization_value(read_lang_data: __read_lang_data, field: "given-name", localization: localization)
-        let __group = __read-localization_value(read_lang_data: __read_lang_data, field: "group", localization: localization)
-        let __date = __read-localization_value(read_lang_data: __read_lang_data, field: "date", localization: localization)
+        let __grade_table_queston = __read_localization_value(read_lang_data: __read_lang_data, field: "grade-table-queston", localization: localization)
+        let __grade_table_total = __read_localization_value(read_lang_data: __read_lang_data, field: "grade-table-total", localization: localization)
+        let __grade_table_points = __read_localization_value(read_lang_data: __read_lang_data, field: "grade-table-points", localization: localization)
+        let __grade_table_calification = __read_localization_value(read_lang_data: __read_lang_data, field: "grade-table-calification", localization: localization)
+        let __point = __read_localization_value(read_lang_data: __read_lang_data, field:"point", localization: localization)
+        let __points = __read_localization_value(read_lang_data: __read_lang_data, field: "points", localization: localization)
+        let __page = __read_localization_value(read_lang_data: __read_lang_data, field: "page", localization: localization)
+        let __page-counter-display = __read_localization_value(read_lang_data: __read_lang_data, field: "page-counter-display", localization: localization)
+        let __family_name = __read_localization_value(read_lang_data: __read_lang_data, field: "family-name", localization: localization)
+        let __given_name = __read_localization_value(read_lang_data: __read_lang_data, field: "given-name", localization: localization)
+        let __group = __read_localization_value(read_lang_data: __read_lang_data, field: "group", localization: localization)
+        let __date = __read_localization_value(read_lang_data: __read_lang_data, field: "date", localization: localization)
 
         let __g-localization_lang_data = (
               grade-table-queston: __grade_table_queston,
@@ -186,6 +186,122 @@
       }
     }
 }
+
+#let __show-header = (
+    page-number: 1,
+    school: (
+      name: none,
+      logo: none,
+    ),
+    exam-info: (
+      academic-period: none,
+      academic-level: none,
+      academic-subject: none,
+      number: none,
+      content: none,
+      model: none
+    ),
+    show-student-data: "first-page",
+  ) => {
+    if (page-number==1) { 
+          align(right)[#box(
+            width:108%,
+            grid(
+              columns: (auto, auto),
+              gutter:0.7em,        
+              align(left + top)[
+                #if(type(school) == "dictionary"){
+                  if(school.at("logo", default : none) != none) {
+                    set image(height:2.5cm, width: 2.7cm, fit:"contain")
+                    if(type(school.logo) == "content") {
+                      school.logo
+                    }
+                    else if(type(school.logo) == "bytes") {
+                      image.decode(school.logo, height:2.5cm, fit:"contain")
+                    }
+                    else {
+                      assert(type(school.logo) in (none, "content", "bytes") , message: "school.logo be of type content or bytes.")
+                    }
+                  }
+                }
+              ],
+              grid(
+                rows: (auto, auto, auto),
+                gutter:1em,    
+                  grid(
+                    columns: (auto, 1fr, auto),
+                    align(left  + top)[
+                      #if(type(school) == "dictionary") [
+                        #school.at("name", default : none) \
+                      ]
+                      #exam-info.academic-period \
+                      #exam-info.academic-level
+                    ],
+                    align(center + top)[
+                    // #exam-info.number #exam-info.content \
+                    ],
+                    align(right + top)[
+                      #exam-info.at("academic-subject", default: none)  \  
+                      #exam-info.number \
+                      #exam-info.content 
+                    ],
+                  ),
+                  line(length: 100%, stroke: 1pt + gray),
+                  if show-student-data in (true, "first-page", "odd-pages") {
+                    __g-student-data()
+                  }
+              )
+            )
+          )]
+       }
+        else if calc.rem-euclid(page-number, 2) == 1 {
+            grid(
+              columns: (auto, 1fr, auto),
+              gutter:0.3em,
+              align(left  + top)[
+                #if(type(school) == "dictionary") [
+                  #school.at("name", default : none) \
+                ]
+                #exam-info.academic-period \
+                #exam-info.academic-level
+              ], 
+              align(center + top)[
+                // #exam-info.number #exam-info.content \
+              ],
+              align(right + top)[
+                #exam-info.at("academic-subject", default: none) \
+                #exam-info.number \
+                #exam-info.content 
+              ]
+            )
+            line(length: 100%, stroke: 1pt + gray) 
+            if show-student-data == "odd-pages" {
+              __g-student-data(show-line-two: false)
+            }
+        }
+        else {
+           grid(
+              columns: (auto, 1fr, auto),
+              gutter:0.3em,
+              align(left  + top)[
+                #if(type(school) == "dictionary") [
+                  #school.at("name", default : none) \
+                ]
+                #exam-info.academic-period \
+                #exam-info.academic-level
+              ], 
+              align(center + top)[
+                // #exam-info.number #exam-info.content \
+              ],
+              align(right + top)[
+                #exam-info.at("academic-subject", default: none) \
+                #exam-info.number \
+                #exam-info.content \
+              ]
+            )
+            line(length: 100%, stroke: 1pt + gray) 
+        }
+      }
 
 #let __show-watermark = (
   author: (
