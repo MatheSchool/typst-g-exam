@@ -47,7 +47,7 @@
           }
         )
 
-        let qualification-row = columns-number.map(n => 
+        let grade-row = columns-number.map(n => 
           {
             if n == 0 {
               align(left + horizon)[#text(hyphenate: false, __g-localization.final(loc).grade-table-grade)]
@@ -66,7 +66,7 @@
           rows: (auto, auto, 30pt),
           ..question-row.map(n => n),
           ..point-row.map(n => n),
-          ..calification-row.map(n => n),
+          ..grade-row.map(n => n),
         )
       )
     }
