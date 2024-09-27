@@ -1,5 +1,6 @@
 /src/**/*.pdf
 /manual/**/*.pdf
 !/manual/g-exam-manual.pdf
+/test/**/*.pdf
 
 Gemfile.lock

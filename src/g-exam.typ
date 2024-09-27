@@ -54,7 +54,7 @@
     grade-table-queston: none,
     grade-table-total: none,
     grade-table-points: none,
-    grade-table-qualification: none,
+    grade-table-grade: none,
     point: none,
     points: none,
     page: none,
@@ -106,7 +106,7 @@
     header-ascent: 20%,
     header:locate(loc => {
         let __page-number = counter(page).at(loc).first()
-        if (page-number==1) { 
+        if (__page-number==1) { 
           align(right)[#box(
             width:108%,
             grid(
@@ -146,14 +146,14 @@
                     ],
                   ),
                   line(length: 100%, stroke: 1pt + gray),
-                  if show-studen-data in (true, "first-page", "odd-pages") {
+                  if show-student-data in (true, "first-page", "odd-pages") {
                     __g-student-data()
                   }
               )
           )
           )]
         }
-        else if calc.rem-euclid(page-number, 2) == 1 {
+        else if calc.rem-euclid(__page-number, 2) == 1 {
             grid(
               columns: (auto, 1fr, auto),
               gutter:0.3em,
@@ -172,7 +172,7 @@
               ]
             )
             line(length: 100%, stroke: 1pt + gray) 
-            if show-studen-data == "odd-pages" {
+            if show-student-data == "odd-pages" {
               __g-student-data(show-line-two: false)
             }
         }

@@ -50,7 +50,7 @@
         let qualification-row = columns-number.map(n => 
           {
             if n == 0 {
-              align(left + horizon)[#text(hyphenate: false, __g-localization.final(loc).grade-table-qualification)]
+              align(left + horizon)[#text(hyphenate: false, __g-localization.final(loc).grade-table-grade)]
             }
           }
         )
@@ -133,7 +133,7 @@
     grade-table-queston: none,
     grade-table-total: none,
     grade-table-points: none,
-    grade-table-qualification: none,
+    grade-table-grade: none,
     point: none,
     points: none,
     page: none,
@@ -148,7 +148,7 @@
       let __read_lang_data = __lang_data.at(language, default: localization)
 
       if(__read_lang_data != none) {
-        let __read_localization_value = (read_lang_data: none, field: "", localization: none) => {
+        let __read-localization-value = (read_lang_data: none, field: "", localization: none) => {
           let __parameter_value = localization.at(field)
           if(__parameter_value != none) { return __parameter_value }
 
@@ -158,24 +158,24 @@
           return value
         }
 
-        let __grade_table_queston = __read-localization_value(read_lang_data: __read_lang_data, field: "grade-table-queston", localization: localization)
-        let __grade_table_total = __read-localization_value(read_lang_data: __read_lang_data, field: "grade-table-total", localization: localization)
-        let __grade_table_points = __read-localization_value(read_lang_data: __read_lang_data, field: "grade-table-points", localization: localization)
-        let __grade_table_qualification = __read-localization_value(read_lang_data: __read_lang_data, field: "grade-table-qualification", localization: localization)
-        let __point = __read-localization_value(read_lang_data: __read_lang_data, field:"point", localization: localization)
-        let __points = __read-localization_value(read_lang_data: __read_lang_data, field: "points", localization: localization)
-        let __page = __read-localization_value(read_lang_data: __read_lang_data, field: "page", localization: localization)
-        let __page-counter-display = __read-localization_value(read_lang_data: __read_lang_data, field: "page-counter-display", localization: localization)
-        let __family_name = __read-localization_value(read_lang_data: __read_lang_data, field: "family-name", localization: localization)
-        let __given_name = __read-localization_value(read_lang_data: __read_lang_data, field: "given-name", localization: localization)
-        let __group = __read-localization_value(read_lang_data: __read_lang_data, field: "group", localization: localization)
-        let __date = __read-localization_value(read_lang_data: __read_lang_data, field: "date", localization: localization)
+        let __grade_table_queston = __read-localization-value(read_lang_data: __read_lang_data, field: "grade-table-queston", localization: localization)
+        let __grade_table_total = __read-localization-value(read_lang_data: __read_lang_data, field: "grade-table-total", localization: localization)
+        let __grade_table_points = __read-localization-value(read_lang_data: __read_lang_data, field: "grade-table-points", localization: localization)
+        let __grade_table_grade = __read-localization-value(read_lang_data: __read_lang_data, field: "grade-table-grade", localization: localization)
+        let __point = __read-localization-value(read_lang_data: __read_lang_data, field:"point", localization: localization)
+        let __points = __read-localization-value(read_lang_data: __read_lang_data, field: "points", localization: localization)
+        let __page = __read-localization-value(read_lang_data: __read_lang_data, field: "page", localization: localization)
+        let __page-counter-display = __read-localization-value(read_lang_data: __read_lang_data, field: "page-counter-display", localization: localization)
+        let __family_name = __read-localization-value(read_lang_data: __read_lang_data, field: "family-name", localization: localization)
+        let __given_name = __read-localization-value(read_lang_data: __read_lang_data, field: "given-name", localization: localization)
+        let __group = __read-localization-value(read_lang_data: __read_lang_data, field: "group", localization: localization)
+        let __date = __read-localization-value(read_lang_data: __read_lang_data, field: "date", localization: localization)
 
         let __g-localization_lang_data = (
               grade-table-queston: __grade_table_queston,
               grade-table-total: __grade_table_total,
               grade-table-points: __grade_table_points,
-              grade-table-qualification: __grade_table_qualification,
+              grade-table-grade: __grade_table_grade,
               point: __point,
               points: __points,
               page: __page,
