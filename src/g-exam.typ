@@ -55,7 +55,7 @@
     grade-table-queston: none,
     grade-table-total: none,
     grade-table-points: none,
-    grade-table-calification: none,
+    grade-table-qualification: none,
     point: none,
     points: none,
     page: none,
@@ -114,18 +114,18 @@
               columns: (auto, auto),
               gutter:0.7em,        
               align(left + top)[
-                #if(school.at("logo", default : none) != none) {
-                  set image(height:2.5cm, width: 2.7cm, fit:"contain")
-                  if(type(school.logo) == "content") {
-                    school.logo
-                  }
-                  else if(type(school.logo) == "bytes") {
-                    image.decode(school.logo, height:2.5cm, fit:"contain")
-                  }
-                  else {
-                    assert(type(school.logo) in (none, "content", "bytes") , message: "school.logo be of type content or bytes.")
-                  }
-                }
+                // #if(school.at("logo", default : none) != none) {
+                //   set image(height:2.5cm, width: 2.7cm, fit:"contain")
+                //   if(type(school.logo) == "content") {
+                //     school.logo
+                //   }
+                //   else if(type(school.logo) == "bytes") {
+                //     image.decode(school.logo, height:2.5cm, fit:"contain")
+                //   }
+                //   else {
+                //     assert(type(school.logo) in (none, "content", "bytes") , message: "school.logo be of type content or bytes.")
+                //   }
+                // }
               ],
               grid(
                 rows: (auto, auto, auto),
@@ -133,7 +133,7 @@
                   grid(
                     columns: (auto, 1fr, auto),
                     align(left  + top)[
-                      #school.name \  
+                      // #school.name \  
                       #exam-info.academic-period \
                       #exam-info.academic-level
                     ],

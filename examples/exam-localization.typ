@@ -5,7 +5,7 @@
     grade-table-queston: [Number of *questions*],
     grade-table-total: [Total _poinst_],
     grade-table-points: [#text(fill: red)[Points]],
-    grade-table-calification: [#text(fill: gradient.radial(..color.map.rainbow))[Grades obtained]],
+    grade-table-qualification: [#text(fill: gradient.radial(..color.map.rainbow))[Grades obtained]],
     point: [point],
     points: [Points],
     page: [],

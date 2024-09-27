@@ -12,7 +12,7 @@
     grade-table-queston: "Question",
     grade-table-total: "Total",
     grade-table-points: "Points",
-    grade-table-calification: "Calification",
+    grade-table-qualification: "Qualification",
     point: "point",
     points: "points",
     page: "Page",

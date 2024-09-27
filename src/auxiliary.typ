@@ -47,10 +47,10 @@
           }
         )
 
-        let calification-row = columns-number.map(n => 
+        let qualification-row = columns-number.map(n => 
           {
             if n == 0 {
-              align(left + horizon)[#text(hyphenate: false, __g-localization.final(loc).grade-table-calification)]
+              align(left + horizon)[#text(hyphenate: false, __g-localization.final(loc).grade-table-qualification)]
             }
           }
         )
@@ -71,6 +71,10 @@
       )
     }
   )
+}
+
+#let __g-scholl-header = () => {
+  
 }
 
 #let __g-show_clarifications = (clarifications: none) => {
@@ -129,7 +133,7 @@
     grade-table-queston: none,
     grade-table-total: none,
     grade-table-points: none,
-    grade-table-calification: none,
+    grade-table-qualification: none,
     point: none,
     points: none,
     page: none,
@@ -157,7 +161,7 @@
         let __grade_table_queston = __read-localization_value(read_lang_data: __read_lang_data, field: "grade-table-queston", localization: localization)
         let __grade_table_total = __read-localization_value(read_lang_data: __read_lang_data, field: "grade-table-total", localization: localization)
         let __grade_table_points = __read-localization_value(read_lang_data: __read_lang_data, field: "grade-table-points", localization: localization)
-        let __grade_table_calification = __read-localization_value(read_lang_data: __read_lang_data, field: "grade-table-calification", localization: localization)
+        let __grade_table_qualification = __read-localization_value(read_lang_data: __read_lang_data, field: "grade-table-qualification", localization: localization)
         let __point = __read-localization_value(read_lang_data: __read_lang_data, field:"point", localization: localization)
         let __points = __read-localization_value(read_lang_data: __read_lang_data, field: "points", localization: localization)
         let __page = __read-localization_value(read_lang_data: __read_lang_data, field: "page", localization: localization)
@@ -171,7 +175,7 @@
               grade-table-queston: __grade_table_queston,
               grade-table-total: __grade_table_total,
               grade-table-points: __grade_table_points,
-              grade-table-calification: __grade_table_calification,
+              grade-table-qualification: __grade_table_qualification,
               point: __point,
               points: __points,
               page: __page,
