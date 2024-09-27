@@ -49,7 +49,7 @@
       v(0.1em)
       if(point != none) {
         place(right, 
-            dx: 15%,
+            dx: 13%,
             float: false,
             __g-paint-tab(point: point, loc: loc))
       }
@@ -97,6 +97,8 @@
       }
       let __g-question-text-parameters = __g-question-text-parameters-state.final(loc)
 
+      set par(hanging-indent: 1em)
+
       if __g-question-point-position == left {
         v(0.1em)
         {
@@ -114,7 +116,7 @@
         v(0.1em)
         if(point != none) {
           place(right, 
-              dx: 15%,
+              dx: 13%,
               float: false,
               __g-paint-tab(point: point, loc:loc)) 
         }
