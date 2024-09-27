@@ -19,12 +19,12 @@
     model: "Model A"
   ),
   
-  languaje: "en",
+  language: "en",
   decimal-separator: ",",
   date: "November 21, 2023",
-  // show-studen-data: "first-page",
-  show-studen-data: "odd-pages",
-  // show-studen-data: none,
+  // show-student-data: "first-page",
+  show-student-data: "odd-pages",
+  // show-student-data: none,
   show-grade-table: true,
   question-point-position: right,
   clarifications: (

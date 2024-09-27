@@ -19,10 +19,10 @@
     model: "Model A"
   ),
   
-  languaje: "en",
+  language: "en",
   decimal-separator: ",",
   date: "November 21, 2023",
-  show-studen-data: "first-page",
+  show-student-data: "first-page",
   show-grade-table: true,
   question-point-position: left,
   clarifications: "Answer the questions in the spaces provided. If you run out of room for an answer, continue on the back of the page."
