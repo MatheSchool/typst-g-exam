@@ -58,6 +58,14 @@ To use this package, simply add the following code to your document:
 
 ## Changelog
 
+<!-- ### v0.4.0
+
+- Include documentation.
+- Use paper by default.
+- Indenting subquestion.
+- Include support for dutch language.
+- Corrections in English texts. -->
+
 ### v0.3.2
 
 - Change show-studen-data to show-student-data parameter.
