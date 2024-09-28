@@ -2,8 +2,6 @@
 
 This template provides a way to generate exams. You can create questions and sub-questions, header with information about the academic center, score box, subject, exam, header with student information, clarifications, solutions, watermark with information about the exam model and teacher.
 
-### Example
-
 #### Features 
 
 - Scoreboard.
@@ -21,16 +19,14 @@ For information, see the [manual](https://github.com/MatheSchool/typst-g-exam/bl
 
 To use this package, simply add the following code to your document:
 
-## Examples 
-
 #### A sample exam
 
-<img src="./gallery/exam-table-content.png" alt="Exam - Table of content" style="width:200px;"/>
+<img src="./gallery/exam-table-content.png" alt="Exam - Table of content" style="width:500px;"/>
 
 #### Source:
 
 ```typ
-#import "@preview/g-exam:0.3.0": *
+#import "@preview/g-exam:0.3.2": *
 
 #show: g-exam.with(
   school: (
@@ -60,15 +56,16 @@ To use this package, simply add the following code to your document:
 #v(1fr)
 ```
 
-### Full sample of an exam.
-
-  1. [Example of exam with question only](examples/exam-002.pdf)
-  1. [Example of exam with subquestion](examples/exam-003.pdf)
-  1. [Example of exam with punctuation](examples/exam-005.pdf)
-  1. [Example of exam with solution](examples/exam-005.pdf)
-  1. [Example of table-content](examples/exam-table-content.pdf)
-
 ## Changelog
+
+### v0.3.2
+
+- Change show-studen-data to show-student-data parameter.
+- Change languaje to language parameter.
+
+### v0.3.1
+
+- Corrections in French.
 
 ### v0.3.0
 
@@ -82,16 +79,10 @@ To use this package, simply add the following code to your document:
 
 - Control the size of the logo image.
 - Convert to template
-- Allow true and false values in show-studen-data.
+- Allow true and false values in show-student-data.
 - Show clarifications.
 - Widen margin points.
 - Show solution.
-<!-- - ⚠️ Breaking changes:
-  - ?¿?¿ -->
-
-### v0.1.1
-
-- Fix loading image.
 
 ### v0.1.1
 
@@ -100,11 +91,3 @@ To use this package, simply add the following code to your document:
 ### v0.1.0
 
 - Initial version submitted to typst/packages.
-- Multiple choice questions
-- Show solution of question.
-
-# CI
-
-Continuous integration status:
-
-[![.github/workflows/integration.yaml](https://github.com/MatheSchool/typst-g-exam/actions/workflows/integration.yaml/badge.svg)](https://github.com/MatheSchool/typst-g-exam/actions/workflows/integration.yaml)
