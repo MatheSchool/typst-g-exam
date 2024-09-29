@@ -135,7 +135,7 @@
                     align(left  + top)[
                       #if(type(school) == "dictionary") [
                         #school.at("name", default : none) \
-                     ]
+                      ]
                       #exam-info.academic-period \
                       #exam-info.academic-level
                     ],
@@ -161,7 +161,9 @@
               columns: (auto, 1fr, auto),
               gutter:0.3em,
               align(left  + top)[
-                #school.name \  
+                #if type(school) == "dictionary" [
+                  #school.at("name", default : none) \
+                ]
                 #exam-info.academic-period \
                 #exam-info.academic-level
               ], 
@@ -184,7 +186,9 @@
               columns: (auto, 1fr, auto),
               gutter:0.3em,
               align(left  + top)[
-                #school.name \  
+                #if type(school) == "dictionary" [
+                  #school.at("name", default : none) \
+                ] 
                 #exam-info.academic-period \
                 #exam-info.academic-level
               ], 
@@ -209,10 +213,11 @@
             #counter(page).display(__g-localization.final(loc).page-counter-display, both: true,
             )
         ]
-        [----------------------]
         grid(
           columns: (1fr, 1fr, 1fr),
-          align(left)[#school.name],
+          if type(school) == "dictionary" {
+            align(left, school.at("name", default : none))
+          },
           align(center)[#exam-info.academic-period],
           align(right)[
             Página 
@@ -222,7 +227,6 @@
             )
           ]
         )
-        [----------------------]
 
         __show-watermark(author: author, school: school, exam-info: exam-info, question-point-position:question-point-position)
       }
