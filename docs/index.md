@@ -2,4 +2,4 @@ layout: page
 title: "PAGE-TITLE"
 permalink: /URL-PATH
 
-hola hola
+Prueba con plantilla docs.
