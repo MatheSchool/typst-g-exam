@@ -22,8 +22,8 @@ title: g-exam documentation
 email: your-email@example.com
 description: >- # this means to ignore newlines until "baseurl:"
   g-exam is a template for generating exams in typst.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "typst-g-exam" # the subpath of your site, e.g. /blog
+url: "https://just-the-docs.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 # twitter_username: jekyllrb
 github_username:  MatheSchool/typst-g-exam
 
@@ -32,8 +32,8 @@ github_username:  MatheSchool/typst-g-exam
 remote_theme: just-the-docs/just-the-docs
 permalink: pretty
 
-plugins:
-  - jekyll-feed
+# plugins:
+#   - jekyll-feed
 
 
 # load_paths:
@@ -52,16 +52,16 @@ plugins:
 # exclude: ["node_modules/", "*.gemspec", "*.gem", "Gemfile", "Gemfile.lock", "package.json", "script/", "LICENSE.txt", "lib/", "bin/", "README.md", "Rakefile"]
 
 
-exclude:
-  - .sass-cache/
-  - .jekyll-cache/
-  - gemfiles/
-  - Gemfile
-  - Gemfile.lock
-  - node_modules/
-  - vendor/bundle/
-  - vendor/cache/
-  - vendor/gems/
-  - vendor/ruby/
+# exclude:
+#   - .sass-cache/
+#   - .jekyll-cache/
+#   - gemfiles/
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules/
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/
 
-nav_enabled: true
+# nav_enabled: true
