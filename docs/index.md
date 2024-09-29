@@ -1,6 +1,6 @@
-layout: page
-title: "PAGE-TITLE"
-permalink: /URL-PATH
+layout: default
+title: "Home"
+<!-- permalink: /URL-PATH -->
 
 Prueba con plantilla docs.
 
