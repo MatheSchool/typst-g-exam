@@ -34,8 +34,9 @@ github_username:  andres.gimenez
 # plugins:
 #   - jekyll-feed
 
-theme: just-the-docs
-remote_theme: pmarsceill/just-the-docs
+# theme: just-the-docs
+# remote_theme: pmarsceill/just-the-docs
+remote_theme: just-the-docs/just-the-docs
 
 # Exclude from processing.
 # The following items will not be processed, by default.
