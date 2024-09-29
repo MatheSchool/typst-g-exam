@@ -30,12 +30,14 @@ github_username:  MatheSchool/typst-g-exam
 # Build settings
 # theme: minima
 remote_theme: just-the-docs/just-the-docs
+permalink: pretty
+
 plugins:
   - jekyll-feed
 
 
-load_paths:
-  - node_modules/
+# load_paths:
+#   - node_modules/
 
 # Exclude from processing.
 # The following items will not be processed, by default.
@@ -46,20 +48,20 @@ load_paths:
 # their entries' file path in the `include:` list.
 #
 
-permalink: pretty
-exclude: ["node_modules/", "*.gemspec", "*.gem", "Gemfile", "Gemfile.lock", "package.json", "script/", "LICENSE.txt", "lib/", "bin/", "README.md", "Rakefile"]
+
+# exclude: ["node_modules/", "*.gemspec", "*.gem", "Gemfile", "Gemfile.lock", "package.json", "script/", "LICENSE.txt", "lib/", "bin/", "README.md", "Rakefile"]
 
 
-# exclude:
-#   - .sass-cache/
-#   - .jekyll-cache/
-#   - gemfiles/
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules/
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
 
-# nav_enabled: true
+nav_enabled: true

@@ -2,6 +2,3 @@
 /manual/**/*.pdf
 !/manual/g-exam-manual.pdf
 /test/**/*.pdf
-
-/docs/Gemfile.lock
-/docs/.jekyll-cache
