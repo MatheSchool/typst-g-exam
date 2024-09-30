@@ -18,7 +18,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: g-exam documentation
+title: g-exam
 email: your-email@example.com
 description: >- # this means to ignore newlines until "baseurl:"
   g-exam is a template for generating exams in typst.
@@ -64,3 +64,13 @@ plugins:
 #   - vendor/ruby/
 
 # nav_enabled: true
+
+# Enable or disable the side/mobile menu globally
+# Nav menu can also be selectively enabled or disabled using page variables or the minimal layout
+nav_enabled: true
+
+# Heading anchor links appear on hover over h1-h6 tags in page content
+# allowing users to deep link to a particular heading on a page.
+#
+# Supports true (default) or false
+heading_anchors: true

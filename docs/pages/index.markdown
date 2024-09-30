@@ -10,10 +10,25 @@ usetocbot: true
 permalink: /
 ---
 
-# Título uno
+# Introduction
 
-hola que tal -2
+This template provides a way to generate exams. You can create questions and sub-questions, header
+with information about the academic center, score box, subject, exam, header with student information, 
+clariﬁcations, solutions, watermark with information about the exam model and teacher.
 
-# Título dos
+# Usage 
 
-Saludos - 1
+This is the minimum model for generating an exam, in which you deﬁne the g-exam template and the
+questions and subquestions with the g-question and g-subquestion commands.
+
+```
+#import "@preview/g-exam:0.3.2": *
+#show: g-exam.with()
+#g-question(point: 2)[List prime numbers]
+#v(1fr)
+#g-question(point: 1)[Complete the following sentences]
+#g-subquestion[Don Quixote was written by ...]
+#v(1fr)
+#g-subquestion[The name of the continent we live on is ...]
+#v(1fr)
+```
