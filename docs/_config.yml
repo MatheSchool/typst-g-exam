@@ -22,6 +22,15 @@ title: g-exam
 email: your-email@example.com
 description: >- # this means to ignore newlines until "baseurl:"
   g-exam is a template for generating exams in typst.
+
+# Turn on incremental building to reduce overall build time (still in beta)
+# See: https://jekyllrb.com/docs/configuration/incremental-regeneration/
+incremental: true
+
+# Google Gemini suggested I try this to reduce build time, which is often 20 secs
+# or longer on my desktop (AMD Ryzen 7 3800X 8-Core Processor 3.90 GHz with 32 GB RAM)
+cache: true 
+
 baseurl: "/typst-g-exam" # the subpath of your site, e.g. /blog
 url: "https://matheschool.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
 # twitter_username: jekyllrb
