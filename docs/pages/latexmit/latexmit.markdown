@@ -10,4 +10,10 @@ nav_exclude: false
 
 Examples of LaTex Mit exam template.
 
-https://typst.app/project/raMRy5AmlNGMYCPvrYISH1
+
+
+![Example LaTex Mit template](latexmit01.png)
+
+![Example LaTex Mit template](latexmit02.png)
+
+[Example LaTex Mit template](https://typst.app/project/raMRy5AmlNGMYCPvrYISH1)
