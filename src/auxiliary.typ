@@ -325,9 +325,9 @@
       content: none,
       model: none
     ),
-    question-point-position: left,
+    question-points-position: left,
   ) => {
-    let dx = if question-point-position == left { 58pt } else { 72pt }
+    let dx = if question-points-position == left { 58pt } else { 72pt }
     place(
       top + right,
       float: true,

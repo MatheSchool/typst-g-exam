@@ -24,7 +24,7 @@
   date: "November 21, 2023",
   show-student-data: "first-page",
   show-grade-table: false,
-  question-point-position: right,
+  question-points-position: right,
   // show-solution: false,
   clarifications: "Answer the questions in the spaces provided. If you run out of room for an answer, continue on the back of the page."
 )

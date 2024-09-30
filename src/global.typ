@@ -2,7 +2,7 @@
 
 #let __g-question-number = counter("g-question-number")
 #let __g-question-point = state("g-question-point", 0)
-#let __g-question-point-position-state = state("g-question-point-position", left)
+#let __g-question-points-position-state = state("g-question-points-position", left)
 #let __g-question-text-parameters-state = state("question-text-parameters:", none)
 
 #let __g-localization = state("localization")

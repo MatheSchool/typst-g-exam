@@ -26,7 +26,7 @@
   show-student-data: "odd-pages",
   // show-student-data: none,
   show-grade-table: true,
-  question-point-position: right,
+  question-points-position: right,
   clarifications: (
     [This test must be performed with a blue or black non-erasable pen.],
     [Cheating, talking, getting up from the chair or disturbing the rest of the class can be reasons for withdrawal from the test, which will be valued with a zero.],

@@ -1,4 +1,4 @@
-#import "@preview/g-exam:0.2.0": g-exam, g-question, g-subquestion
+#import "@preview/g-exam:0.4.0": g-exam, g-question, g-subquestion
 
 #show: g-exam.with(
   school: (
@@ -17,7 +17,7 @@
   language: "en",
   decimal-separator: ",",
   show-grade-table: true,
-  question-point-position: left,
+  question-points-position: left,
   clarifications: "Answer the questions in the spaces provided. If you run out of room for an answer, continue on the back of the page."
 )
 

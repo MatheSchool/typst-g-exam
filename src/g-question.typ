@@ -30,7 +30,7 @@
   locate(loc => {
     let __g-question-points-position = points-position
     if __g-question-points-position == none {
-      __g-question-points-position = __g-question-point-position-state.final(loc)  
+      __g-question-points-position = __g-question-points-position-state.final(loc)  
     }
     let __g-question-text-parameters = __g-question-text-parameters-state.final(loc)
 
@@ -94,7 +94,7 @@
   locate(loc => {
       let __g-question-points-position = points-position
       if __g-question-points-position == none {
-        __g-question-points-position = __g-question-point-position-state.final(loc)
+        __g-question-points-position = __g-question-points-position-state.final(loc)
       }
       let __g-question-text-parameters = __g-question-text-parameters-state.final(loc)
 

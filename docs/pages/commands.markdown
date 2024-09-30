@@ -42,7 +42,7 @@ us to change the text size of the questions.
 enter their details. It can appear on the ﬁrst page or on all odd-numbered pages.
 - **show-grade-table**: (bool): Show grade table.
 - **decimal-separator**: (“.”, “,”): Indicates the decimal separation character.
-- **question-point-position**: (none, left, right): Position of question point.
+- **question-points-position**: (none, left, right): Position of question point.
 - **show-solution**: (true, false): It shows the solutions to the questions.
 
 ```

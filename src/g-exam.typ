@@ -29,7 +29,7 @@
 ///  - show-student-data (none, true, false, "first-page", "odd-pages"): Show a box for the student to enter their details. It can appear on the first page or on all odd-numbered pages.
 ///  - show-grade-table: (bool): Show the grade table.
 ///  - decimal-separator: (".", ","): Indicate the decimal separation character.
-///  - question-point-position: (none, left, right): Position of question points.
+///  - question-points-position: (none, left, right): Position of question points.
 ///  - show-solution: (true, false): Show the solutions.
 #let g-exam(
   author: (
@@ -71,7 +71,7 @@
   show-student-data: "first-page",
   show-grade-table: true,
   decimal-separator: ".",
-  question-point-position: left,
+  question-points-position: left,
   show-solution: true,
   body,
 ) = {
@@ -79,7 +79,7 @@
   assert(show-student-data in (none, true, false, "first-page", "odd-pages"),
       message: "Invalid show studen data")
 
-  assert(question-point-position in (none, left, right),
+  assert(question-points-position in (none, left, right),
       message: "Invalid question point position")
 
   assert(decimal-separator in (".", ","),
@@ -94,7 +94,7 @@
   )
 
   let margin-right = 2.5cm
-  if (question-point-position == right) {
+  if (question-points-position == right) {
     margin-right = 3cm
   }
 
@@ -228,7 +228,7 @@
           ]
         )
 
-        __show-watermark(author: author, school: school, exam-info: exam-info, question-point-position:question-point-position)
+        __show-watermark(author: author, school: school, exam-info: exam-info, question-points-position:question-points-position)
       }
     )
   )  
@@ -237,7 +237,7 @@
   set text(font: "New Computer Modern")
   
   __read-localization(language: language, localization: localization)
-  __g-question-point-position-state.update(u => question-point-position)
+  __g-question-points-position-state.update(u => question-points-position)
   __g-question-text-parameters-state.update(question-text-parameters)
 
   set text(lang:language)

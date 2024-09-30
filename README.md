@@ -59,7 +59,8 @@ To use this package, simply add the following code to your document:
 ## Changelog
 
 <!-- ### v0.4.0
-- Change point parameter by points in g-question and g-subquestion.
+- Change point parameter to points in g-question and g-subquestion.
+- Change question-points-position paramet to question-points-position.
 - Include documentation.
 - Use paper by default.
 - Indenting subquestion.
@@ -80,7 +81,7 @@ To use this package, simply add the following code to your document:
 - Include parameter question-text-parameters.
 - Show solution.
 - Expand documentation.
-- Possibility of estrablecer question-point-position to none.
+- Possibility of estrablecer question-points-position to none.
 - Bug fix show watermark.
 
 ### v0.2.0
