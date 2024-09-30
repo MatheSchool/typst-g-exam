@@ -1,6 +1,6 @@
 ---
 layout: default
-title: latex mit 
+title: LaTeX MIT 
 nav_order: 3
 has_children: true
 has_toc: false # on by default
@@ -10,6 +10,10 @@ nav_exclude: false
 
 Examples of LaTex Mit exam template.
 
+
+![Example LaTex Mit template](assets/exam-latexmit-example.png)
+
+[Download pdf LaTex Mit template](assets/exam-latexmit-example.pdf)  [Edit example in typst.app](https://typst.app/project/raMRy5AmlNGMYCPvrYISH1)
 
 ```
 #import "@preview/g-exam:0.4.0": *
@@ -55,8 +59,3 @@ $ integral_0^infinity (sin(x))/x $
 
 ```
 
-![Example LaTex Mit template](assets/exam-latexmit-example.png)
-
-[Download pdf LaTex Mit template](assets/exam-latexmit-example.pdf)
-
-[Edit example in typst.app](https://typst.app/project/raMRy5AmlNGMYCPvrYISH1)
