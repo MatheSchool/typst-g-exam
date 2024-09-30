@@ -22,11 +22,11 @@ This is the minimum model for generating an exam, in which you deﬁne the g-exa
 questions and subquestions with the g-question and g-subquestion commands.
 
 ```
-#import "@preview/g-exam:0.3.2": *
+#import "@preview/g-exam:0.4.0": *
 #show: g-exam.with()
-#g-question(point: 2)[List prime numbers]
+#g-question(points: 2)[List prime numbers]
 #v(1fr)
-#g-question(point: 1)[Complete the following sentences]
+#g-question(points: 1)[Complete the following sentences]
 #g-subquestion[Don Quixote was written by ...]
 #v(1fr)
 #g-subquestion[The name of the continent we live on is ...]

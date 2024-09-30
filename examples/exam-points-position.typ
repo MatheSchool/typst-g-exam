@@ -3,7 +3,7 @@
 
 #show: g-exam.with()
 
-#g-question(point: 2, point-position: right)[Question 1]
+#g-question(points: 2, point-position: right)[Question 1]
 
 #v(5cm)
 
@@ -12,7 +12,7 @@
   Determines by the position of the lines the type of system according to the number of solutions. \
 
 #columns(2, gutter: 2cm)[
-    #g-subquestion(point: 0.5, point-position: left)[
+    #g-subquestion(points: 0.5, point-position: left)[
       #align(center, 
       cetz.canvas(length: 0.7cm, {
         cetz.plot.plot(
@@ -52,7 +52,7 @@
   ]
   #colbreak()
 
-  #g-subquestion(point: 0.5, point-position: right)[
+  #g-subquestion(points: 0.5, point-position: right)[
       #align(center, 
       cetz.canvas(length: 0.7cm, {
         cetz.plot.plot(
@@ -95,8 +95,8 @@
 
 #pagebreak()
 
-#g-question(point: 1)[Question 2]
+#g-question(points: 1)[Question 2]
 
-#g-question(point: 1.6, point-position: right)[Question 3]
+#g-question(points: 1.6, point-position: right)[Question 3]
 
 #g-question()[Question 4]

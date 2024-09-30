@@ -67,7 +67,7 @@ To enter the questions, use the q-question, followed by the text of the question
 score of the question by entering the parameter point.
 
 ```
-#g-question(point: 2)[Question text.]
+#g-question(points: 2)[Question text.]
 #v(1fr)
 )
 ```
@@ -85,15 +85,15 @@ question is worth a total of four points in the scorecard.
 #import "@preview/g-exam:0.3.0": *
 #show: g-exam.with()
 
-#g-question(point: 2)[List prime numbers]
+#g-question(points: 2)[List prime numbers]
 #v(1fr)
 
 #g-question[Complete the following sentences]
 
-#g-subquestion(point: 2)[Don Quixote was written by ...]
+#g-subquestion(points: 2)[Don Quixote was written by ...]
 #v(1fr)
 
-#g-subquestion(point: 2)[The name of the continent we live on is ...]
+#g-subquestion(points: 2)[The name of the continent we live on is ...]
 #v(1fr)
 ```
 

@@ -269,7 +269,7 @@
 
   show regex("=\? [[:digit:]] (.+)"): it => {
       let (sugar, point, ..rest) = it.text.split()
-      g-question(point:float(point))[#rest.join(" ")]
+      g-question(points:float(point))[#rest.join(" ")]
     }
 
   show regex("==\?"): it => {
@@ -284,7 +284,7 @@
 
   show regex("==\? [[:digit:]] (.+)"): it => {
       let (sugar, point, ..rest) = it.text.split()
-      g-subquestion(point:float(point))[#rest.join(" ")]
+      g-subquestion(points:float(point))[#rest.join(" ")]
     }
 
   show regex("=! (.+)"): it => {

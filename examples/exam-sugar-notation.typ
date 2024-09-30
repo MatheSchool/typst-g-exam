@@ -2,9 +2,9 @@
 
 #show: g-exam.with()
 
-#g-question(point:.2)[Question]
+#g-question(points:.2)[Question]
 
-#g-subquestion(point:.2)[sub 3]
+#g-subquestion(points:.2)[sub 3]
 
 = Title
 
@@ -28,7 +28,7 @@
 
 =? Solve this ecuation $x^2 -4x +4 = 0$ 
 
-#g-question(point:.2)[ Solve this equation $x^2 -4x +4 = 0$ ]
+#g-question(points:.2)[ Solve this equation $x^2 -4x +4 = 0$ ]
 
 =! Solution of the question.
 

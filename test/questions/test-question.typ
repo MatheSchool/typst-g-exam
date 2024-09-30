@@ -1,10 +1,6 @@
 #import "../../src/lib.typ": *
 
-#show: g-exam.with(
-  school: (
-    name: []
-  )
-)
+#show: g-exam.with()
 
 #g-question(points: 1)[Question 1]
 

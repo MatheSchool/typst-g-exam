@@ -46,20 +46,20 @@ To use this package, simply add the following code to your document:
   show-grade-table: true,
   clarifications: "Answer the questions in the spaces provided. If you run out of room for an answer, continue on the back of the page."
 )
-#g-question(point:2.5)[Is it true that $x^n + y^n = z^n$ if $(x,y,z)$ and $n$ are positive integers?. Explain.] 
+#g-question(points:2.5)[Is it true that $x^n + y^n = z^n$ if $(x,y,z)$ and $n$ are positive integers?. Explain.] 
 #v(1fr)
 
-#g-question(point:2.5)[Prove that the real part of all non-trivial zeros of the function $zeta(z) "is" 1/2$].
+#g-question(points:2.5)[Prove that the real part of all non-trivial zeros of the function $zeta(z) "is" 1/2$].
 #v(1fr)
 
-#g-question(point:2)[Compute $ integral_0^infinity (sin(x))/x $ ]
+#g-question(points:2)[Compute $ integral_0^infinity (sin(x))/x $ ]
 #v(1fr)
 ```
 
 ## Changelog
 
 <!-- ### v0.4.0
-
+- Change point parameter by points in g-question and g-subquestion.
 - Include documentation.
 - Use paper by default.
 - Indenting subquestion.
