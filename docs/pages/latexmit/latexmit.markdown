@@ -11,9 +11,11 @@ nav_exclude: false
 Examples of LaTex Mit exam template.
 
 
-![Example LaTex Mit template](assets/exam-latexmit-example.png)
+[![Example LaTex Mit template](assets/exam-latexmit-example.png)](assets/exam-latexmit-example.pdf)  
 
-[Download pdf LaTex Mit template](assets/exam-latexmit-example.pdf)  [Edit example in typst.app](https://typst.app/project/raMRy5AmlNGMYCPvrYISH1)
+<!-- [Download pdf LaTex Mit template](assets/exam-latexmit-example.pdf)   -->
+
+[Edit example in typst.app](https://typst.app/project/raMRy5AmlNGMYCPvrYISH1)
 
 ```
 #import "@preview/g-exam:0.4.0": *
