@@ -2,9 +2,9 @@
 
 #show: g-exam.with(
   author: (
-    name: "Andrés Jorge Giménez Muñoz", 
+    name: "Bernhard Riemann", 
     email: "matheschool@outlook.es", 
-    watermark: "Teacher: andres",
+    watermark: "Teacher: Bernhard",
   ),
   school: (
     name: "Sunrise Secondary School",

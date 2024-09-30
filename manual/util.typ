@@ -8,7 +8,7 @@
 
   let url = "https://github.com/MatheSchool/typst-g-exam"
   let authors = (
-    ([Andrés Jorge Giménez Muñoz], "andres.gimenez@outlook.com"),
+    ([], []),
   )
 
   set page(

@@ -73,9 +73,9 @@ We can indicate a logo of the educational center, a description of the exam, sub
 ```typ-example
 #show: g-exam.with(
   author: (
-    name: "Andrés Jorge Giménez Muñoz", 
+    name: "Heinrich Christian Schumacher", 
     email: "matheschool@outlook.es", 
-    watermark: "Teacher: andres",  ),
+    watermark: "Teacher: Heinrich",  ),
   school: (
     name: "Sunrise Secondary School",
     logo: read("./logo.png", encoding: none),
@@ -166,9 +166,9 @@ If a pdf document is generated, the information will be saved in the document. S
 ```typ-example
 #show: g-exam.with(
   author: (
-    name: "Andrés Jorge Giménez Muñoz", 
+    name: "Peter Andreas Hansen", 
     email: "matheschool@outlook.es", 
-    watermark: "Teacher: andres",  ),
+    watermark: "Teacher: Peter",  ),
   school: (
     name: "Sunrise Secondary School",
     logo: read("./logo.png", encoding: none),

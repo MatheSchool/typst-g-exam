@@ -14,9 +14,9 @@ indicate a logo of the educational center, a description of the exam, subject, c
 ```typst
 #show: g-exam.with(
 author: (
-name: "Andrés Jorge Giménez Muñoz",
+name: "Carl Friedrich Gauss",
 email: "matheschool@outlook.es",
-watermark: "Teacher: andres", ),
+watermark: "Teacher: Carl", ),
 school: (
 name: "Sunrise Secondary School",
 logo: read("./logo.png", encoding: none),
@@ -105,9 +105,9 @@ name, e-mail, watermark, exam information, …
 ```
 #show: g-exam.with(
 author: (
-name: "Andrés Jorge Giménez Muñoz",
+name: "Leonhard Euler",
 email: "matheschool@outlook.es",
-watermark: "Teacher: andres", ),
+watermark: "Teacher: Leonhard", ),
 school: (
 name: "Sunrise Secondary School",
 logo: read("./logo.png", encoding: none),

@@ -2,9 +2,9 @@
 
 #show: g-exam.with(
   author: (
-    name: "Andrés Jorge Giménez Muñoz", 
+    name: "Farkas Bolyai, August Möbius,", 
     email: "matheschool@outlook.es", 
-    watermark: "Teacher: andres",
+    watermark: "Teacher: Möbius",
   ),
   school: (
     name: "Sunrise Secondary School",
