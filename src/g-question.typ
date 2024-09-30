@@ -46,13 +46,13 @@
       set text(..__g-question-text-parameters)
       body 
     }
-    else if __g-question-point-position == right {
+    else if __g-question-points-position == right {
       v(0.1em)
-      if(point != none) {
+      if(points != none) {
         place(right, 
             dx: 13%,
             float: false,
-            __g-paint-tab(points: point, loc: loc))
+            __g-paint-tab(points: points, loc: loc))
       }
       __g-question-number.display(__g-question-numbering) 
       set text(..__g-question-text-parameters)
@@ -113,9 +113,9 @@
         set text(..__g-question-text-parameters)
         body
       }
-      else if __g-question-point-position == right {
+      else if __g-question-points-position == right {
         v(0.1em)
-        if(point != none) {
+        if(points != none) {
           place(right, 
               dx: 13%,
               float: false,

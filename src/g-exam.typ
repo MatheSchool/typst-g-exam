@@ -23,7 +23,7 @@
 ///  - model (none, content, str): Model of exam.
 ///  - date (sting): Date of generate document.
 ///  - keywords (string): Keywords of document.
-///  - language (en, es, de, fr, pt, it): Language of document. English, Spanish, German, French, Portuguese and Italian are defined.
+///  - language (en, es, de, fr, pt, it, nl): Language of document. English, Spanish, German, French, Portuguese and Italian are defined.
 ///  - clarifications (string, content, array): Clarifications of exam. It will appear in a box on the first page.
 ///  - question-text-parameters: Parameter of text in question and subquestion. For example, it allows us to change the text size of the questions.
 ///  - show-student-data (none, true, false, "first-page", "odd-pages"): Show a box for the student to enter their details. It can appear on the first page or on all odd-numbered pages.
