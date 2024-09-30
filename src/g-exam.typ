@@ -213,20 +213,20 @@
             #counter(page).display(__g-localization.final(loc).page-counter-display, both: true,
             )
         ]
-        grid(
-          columns: (1fr, 1fr, 1fr),
-          if type(school) == "dictionary" {
-            align(left, school.at("name", default : none))
-          },
-          align(center)[#exam-info.academic-period],
-          align(right)[
-            Página 
-            #counter(page).display({
-              "1 de 1"},
-              both: true,
-            )
-          ]
-        )
+        // grid(
+        //   columns: (1fr, 1fr, 1fr),
+        //   if type(school) == "dictionary" {
+        //     align(left, school.at("name", default : none))
+        //   },
+        //   align(center)[#exam-info.academic-period],
+        //   align(right)[
+        //     Página 
+        //     #counter(page).display({
+        //       "1 de 1"},
+        //       both: true,
+        //     )
+        //   ]
+        // )
 
         __show-watermark(author: author, school: school, exam-info: exam-info, question-points-position:question-points-position)
       }
