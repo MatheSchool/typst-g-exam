@@ -45,7 +45,7 @@ This is the minimum model for generating an exam, in which you define the g-exam
 #pad(left: 1em)[
 
 ```typ-example
-#import "@preview/g-exam:0.3.0": *
+#import "@preview/g-exam:0.3.2": *
 #show: g-exam.with()
 
 #g-question(points: 2)[List prime numbers]
