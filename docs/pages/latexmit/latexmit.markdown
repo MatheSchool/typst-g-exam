@@ -15,7 +15,7 @@ Examples of LaTex Mit exam template.
 
 <!-- [Download pdf LaTex Mit template](assets/exam-latexmit-example.pdf)   -->
 
-[Edit example in typst.app](https://typst.app/project/raMRy5AmlNGMYCPvrYISH1)
+[Edit example in typst.app](https://typst.app/project/rRYcxOVDv6fubPsGL0m43B)
 
 ```
 #import "@preview/g-exam:0.4.0": *
