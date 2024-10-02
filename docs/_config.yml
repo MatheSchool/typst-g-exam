@@ -83,3 +83,8 @@ nav_enabled: true
 #
 # Supports true (default) or false
 heading_anchors: true
+
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM

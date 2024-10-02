@@ -17,7 +17,30 @@ Examples of LaTex Mit exam template.
 
 [Edit example in typst.app](https://typst.app/project/rRYcxOVDv6fubPsGL0m43B)
 
+
+<!-- {% highlight typ %}
+#import "@preview/g-exam:0.4.0": *
+
+#show: g-exam.with(
+  author: (
+    name: "Ferdinand Eisenstein", 
+    email: "matheschool@outlook.es", 
+    watermark: "Teacher: Ferdinand",
+  ),
+{% endhighlight %} -->
+
+```python
+#import "@preview/g-exam:0.4.0": *
+
+#show: g-exam.with(
+  author: (
+    name: "Ferdinand Eisenstein", 
+    email: "matheschool@outlook.es", 
+    watermark: "Teacher: Ferdinand",
+  ),
 ```
+
+```typst
 #import "@preview/g-exam:0.4.0": *
 
 #show: g-exam.with(
