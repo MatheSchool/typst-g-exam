@@ -9,7 +9,6 @@ nav_enabled: true
 usetocbot: true
 permalink: /
 ---
-
 # Introduction
 
 This template provides a way to generate exams. You can create questions and sub-questions, header
@@ -32,3 +31,20 @@ questions and subquestions with the g-question and g-subquestion commands.
 #g-subquestion[The name of the continent we live on is ...]
 #v(1fr)
 ```
+
+We will obtain a simple exam model
+
+<!-- [![Example](assets/exam-minimal.png)](./index/assets/exam-minimal.pdf) -->
+
+
+<!-- ![steam-fish-1]({{ "assets/exam-minimal.png" | absolute_url }} =250x) -->
+
+[![steam-fish-2](assets/exam-minimal.png){: width="400" }](./assets/exam-minimal.pdf)
+
+<!-- [![Example LaTex Mit template](assets/exam-latexmit-example.png)](../assets/exam-latexmit-example.pdf) -->
+
+<!-- [![Example]({{ "assets/exam-minimal.png" | absolute_url }} =250x)](../assets/exam-minimal.pdf)   -->
+
+<!-- {{ "assets/exam-minimal.png" | resize: "800x800>" }} -->
+<!-- [<img src="assets/exam-minimal.png" width="200">] -->
+

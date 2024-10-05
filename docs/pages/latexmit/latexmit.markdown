@@ -11,7 +11,7 @@ nav_exclude: false
 Examples of LaTex Mit exam template.
 
 
-[![Example LaTex Mit template](assets/exam-latexmit-example.png)](../assets/exam-latexmit-example.pdf)  
+[![Example LaTex Mit template](assets/exam-latexmit-example.png){: width="450" }](../assets/exam-latexmit-example.pdf)
 
 <!-- [Download pdf LaTex Mit template](assets/exam-latexmit-example.pdf)   -->
 
