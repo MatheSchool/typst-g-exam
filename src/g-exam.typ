@@ -104,105 +104,114 @@
     number-align: right,
     header-ascent: 20%,
     header:locate(loc => {
-        let __page-number = counter(page).at(loc).first()
-        if (__page-number==1) { 
-          align(right)[#box(
-            width:108%,
-            grid(
-              columns: (auto, auto),
-              gutter:0.7em,        
-              align(left + top)[
-                #if(type(school) == "dictionary") {
-                  if(school.at("logo", default : none) != none) {
-                    set image(height:2.5cm, width: 2.7cm, fit:"contain")
-                    if(type(school.logo) == "content") {
-                      school.logo
-                    }
-                    else if(type(school.logo) == "bytes") {
-                      image.decode(school.logo, height:2.5cm, fit:"contain")
-                    }
-                    else {
-                      assert(type(school.logo) in (none, "content", "bytes") , message: "school.logo be of type content or bytes.")
-                    }
-                  }
-                }
-              ],
-              grid(
-                rows: (auto, auto, auto),
-                gutter:1em,    
-                  grid(
-                    columns: (auto, 1fr, auto),
-                    align(left  + top)[
-                      #if(type(school) == "dictionary") [
-                        #school.at("name", default : none) \
-                      ]
-                      #exam-info.academic-period \
-                      #exam-info.academic-level
-                    ],
-                    align(center + top)[
-                    // #exam-info.number #exam-info.content \
-                    ],
-                    align(right + top)[
-                      #exam-info.at("academic-subject", default: none)  \  
-                      #exam-info.number \
-                      #exam-info.content 
-                    ],
-                  ),
-                  line(length: 100%, stroke: 1pt + gray),
-                  if show-student-data in (true, "first-page", "odd-pages") {
-                    __g-student-data()
-                  }
-              )
-          )
-          )]
-        }
-        else if calc.rem-euclid(__page-number, 2) == 1 {
-            grid(
-              columns: (auto, 1fr, auto),
-              gutter:0.3em,
-              align(left  + top)[
-                #if type(school) == "dictionary" [
-                  #school.at("name", default : none) \
-                ]
-                #exam-info.academic-period \
-                #exam-info.academic-level
-              ], 
-              align(center + top)[
-                // #exam-info.number #exam-info.content \
-              ],
-              align(right + top)[
-                #exam-info.at("academic-subject", default: none) \
-                #exam-info.number \
-                #exam-info.content 
-              ]
-            )
-            line(length: 100%, stroke: 1pt + gray) 
-            if show-student-data == "odd-pages" {
-              __g-student-data(show-line-two: false)
-            }
-        }
-        else {
-           grid(
-              columns: (auto, 1fr, auto),
-              gutter:0.3em,
-              align(left  + top)[
-                #if type(school) == "dictionary" [
-                  #school.at("name", default : none) \
-                ] 
-                #exam-info.academic-period \
-                #exam-info.academic-level
-              ], 
-              align(center + top)[
-                // #exam-info.number #exam-info.content \
-              ],
-              align(right + top)[
-                #exam-info.at("academic-subject", default: none) \
-                #exam-info.number \
-                #exam-info.content \
-              ]
-            )
-            line(length: 100%, stroke: 1pt + gray) 
-        }
+      let __page-number = counter(page).at(loc).first()
+
+      __show-header(
+        page-number: __page-number, 
+        school: school, 
+        exam-info: exam-info, 
+        show-student-data: show-student-data)
+
+      //   if (__page-number==1) { 
+      //     align(right)[#box(
+      //       width:108%,
+      //       grid(
+      //         columns: (auto, auto),
+      //         gutter:0.7em,        
+      //         align(left + top)[
+      //           #if(type(school) == "dictionary") {
+      //             if(school.at("logo", default : none) != none) {
+      //               set image(height:2.5cm, width: 2.7cm, fit:"contain")
+      //               if(type(school.logo) == "content") {
+      //                 school.logo
+      //               }
+      //               else if(type(school.logo) == "bytes") {
+      //                 image.decode(school.logo, height:2.5cm, fit:"contain")
+      //               }
+      //               else {
+      //                 assert(type(school.logo) in (none, "content", "bytes") , message: "school.logo be of type content or bytes.")
+      //               }
+      //             }
+      //           }
+      //         ],
+      //         grid(
+      //           rows: (auto, auto, auto),
+      //           gutter:1em,    
+      //             grid(
+      //               columns: (auto, 1fr, auto),
+      //               align(left  + top)[
+      //                 #if(type(school) == "dictionary") [
+      //                   #school.at("name", default : none) \
+      //                 ]
+      //                 #exam-info.academic-period \
+      //                 #exam-info.academic-level
+      //               ],
+      //               align(center + top)[
+      //               // #exam-info.number #exam-info.content \
+      //               ],
+      //               align(right + top)[
+      //                 #exam-info.at("academic-subject", default: none)  \  
+      //                 #exam-info.number \
+      //                 #exam-info.content 
+      //               ],
+      //             ),
+      //             line(length: 100%, stroke: 1pt + gray),
+      //             [22222222222222],
+      //             if show-student-data in (true, "first-page", "odd-pages") {
+      //               __g-student-data()
+      //             }
+      //         )
+      //     )
+      //     )]
+      //   }
+      //   else if calc.rem-euclid(__page-number, 2) == 1 {
+      //       grid(
+      //         columns: (auto, 1fr, auto),
+      //         gutter:0.3em,
+      //         align(left  + top)[
+      //           #if type(school) == "dictionary" [
+      //             #school.at("name", default : none) \
+      //           ]
+      //           #exam-info.academic-period \
+      //           #exam-info.academic-level
+      //         ], 
+      //         align(center + top)[
+      //           // #exam-info.number #exam-info.content \
+      //         ],
+      //         align(right + top)[
+      //           #exam-info.at("academic-subject", default: none) \
+      //           #exam-info.number \
+      //           #exam-info.content 
+      //         ]
+      //       )
+      //       [11111111111111111]
+      //       line(length: 100%, stroke: 1pt + gray) 
+      //       if show-student-data == "odd-pages" {
+      //         __g-student-data(show-line-two: false)
+      //       }
+      //   }
+      //   else {
+      //      grid(
+      //         columns: (auto, 1fr, auto),
+      //         gutter:0.3em,
+      //         align(left  + top)[
+      //           #if type(school) == "dictionary" [
+      //             #school.at("name", default : none) \
+      //           ] 
+      //           #exam-info.academic-period \
+      //           #exam-info.academic-level
+      //         ], 
+      //         align(center + top)[
+      //           // #exam-info.number #exam-info.content \
+      //         ],
+      //         align(right + top)[
+      //           #exam-info.at("academic-subject", default: none) \
+      //           #exam-info.number \
+      //           #exam-info.content \
+      //         ]
+      //       )
+      //       line(length: 100%, stroke: 1pt + gray) 
+      //   }
       } 
     ),
 
