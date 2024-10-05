@@ -1,14 +1,14 @@
 ---
 layout: default
-title: LaTeX MIT 
-nav_order: 7
+title: Student data
+nav_order: 3
 has_children: true
 has_toc: false # on by default
 nav_exclude: false
 ---
-# LaTeX Mit exam template
+# Student data
 
-Examples of LaTex Mit exam template.
+Student data
 
 
 [![Example LaTex Mit template](assets/exam-latexmit-example.png){: width="450" }](../assets/exam-latexmit-example.pdf)
@@ -83,4 +83,3 @@ $ integral_0^infinity (sin(x))/x $
 #v(1fr)
 
 ```
-
