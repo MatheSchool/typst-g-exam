@@ -33,7 +33,7 @@ jobs:
           echo "file_list_examples=$file_list_examples" >> $GITHUB_OUTPUT
 
       - name: Compile Typst examples to PDF
-        uses: mkpoli/compile-typst-action@main
+        uses: ammar-ahmed22/compile-typst-action@v1
         with:
           source_paths: ${{ steps.file-list-examples.outputs.file_list_examples }} 
           root_path: '.' 
@@ -48,7 +48,7 @@ jobs:
           echo "file_list_test=$file_list_test" >> $GITHUB_OUTPUT
   
       - name: Compile Typst test to PDF
-        uses: mkpoli/compile-typst-action@main
+        uses: ammar-ahmed22/compile-typst-action@v1
         with:
           source_paths: ${{ steps.file-list-test.outputs.file_list_test }}
           root_path: '.' 
@@ -58,7 +58,7 @@ jobs:
           rm -rf ./manual/*.pdf
 
       - name: Compile documentation to PDF
-        uses: mkpoli/compile-typst-action@main
+        uses: ammar-ahmed22/compile-typst-action@v1
         with:
           source_paths: "manual/g-exam-manual.typ"
           root_path: '.' 
