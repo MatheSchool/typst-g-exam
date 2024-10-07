@@ -1,14 +1,14 @@
 ---
 layout: default
-title: Student data
-nav_order: 3
+title: Exams
+nav_order: 4
 has_children: true
 has_toc: false # on by default
 nav_exclude: false
 ---
-# Student data
+# Exams create
 
-Student data
+Exams create
 
 
 [![Example LaTex Mit template](assets/exam-latexmit-example.png){: width="450" }](../assets/exam-latexmit-example.pdf)
