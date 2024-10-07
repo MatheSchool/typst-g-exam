@@ -32,11 +32,16 @@ jobs:
           echo "File List Examples: $file_list_examples"
           echo "file_list_examples=$file_list_examples" >> $GITHUB_OUTPUT
 
+      # - name: Compile Typst examples to PDF
+      #   uses: mkpoli/compile-typst-action@main
+      #   with:
+      #     source_paths: ${{ steps.file-list-examples.outputs.file_list_examples }} 
+      #     root_path: '.' 
+
       - name: Compile Typst examples to PDF
-        uses: mkpoli/compile-typst-action@main
+        uses: lvignoli/typst-action@v0
         with:
-          source_paths: ${{ steps.file-list-examples.outputs.file_list_examples }} 
-          root_path: '.' 
+          source_file: ${{ steps.file-list-examples.outputs.file_list_examples }} 
 
       - name: List Files test
         id: file-list-test
@@ -47,21 +52,30 @@ jobs:
           echo "File List Test: $file_list_test"
           echo "file_list_test=$file_list_test" >> $GITHUB_OUTPUT
   
+      # - name: Compile Typst test to PDF
+      #   # uses: mkpoli/compile-typst-action@main
+      #   with:
+      #     source_paths: ${{ steps.file-list-test.outputs.file_list_test }}
+      #     root_path: '.' 
       - name: Compile Typst test to PDF
-        uses: mkpoli/compile-typst-action@main
+        uses: lvignoli/typst-action@v0
         with:
-          source_paths: ${{ steps.file-list-test.outputs.file_list_test }}
-          root_path: '.' 
+          source_file: ${{ steps.file-list-test.outputs.file_list_test }}
 
       - name: Delete Doc
         run: |
           rm -rf ./manual/*.pdf
 
+      # - name: Compile documentation to PDF
+      #   uses: lvignoli/typst-action@v0
+      #   with:
+      #     source_paths: "manual/g-exam-manual.typ"
+      #     root_path: '.'
+
       - name: Compile documentation to PDF
-        uses: mkpoli/compile-typst-action@main
+        uses: lvignoli/typst-action@v0
         with:
-          source_paths: "manual/g-exam-manual.typ"
-          root_path: '.' 
+          source_file: "manual/g-exam-manual.typ"
 
       - name: Upload examples PDF file
         uses: actions/upload-artifact@v3
