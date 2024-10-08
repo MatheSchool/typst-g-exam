@@ -1,0 +1,20 @@
+{
+  "name": "editor-tools",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "license": "Apache-2.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build -- --component=symbol-view && vite build -- ",
+    "preview": "vite preview",
+    "test": "vitest",
+    "coverage": "vitest run --coverage"
+  },
+  "dependencies": {
+    "csv-stringify": "^6.5.0",
+    "detypify-service": "0.2.4",
+    "minisearch": "^6.3.0",
+    "vanjs-core": "^1.5.0"
+  }
+}
