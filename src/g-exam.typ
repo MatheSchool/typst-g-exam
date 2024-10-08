@@ -2,6 +2,7 @@
 #import "./global.typ" : *
 #import "./auxiliary.typ": *
 #import "./g-question.typ": *
+#import "./g-option.typ": *
 #import "./g-solution.typ": *
 #import "./g-clarification.typ": *
 
