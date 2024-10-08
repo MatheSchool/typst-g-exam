@@ -2,7 +2,9 @@ name: Build Typst document (CI)
 on: 
   push:
     paths: 
-    - '**/*.typ'
+    - 'src/**/*.typ'
+    - 'examples/**/*.typ'
+    - 'test/**/*.typ'
     - '**/*.yaml'
     - '**/*.toml'
 
