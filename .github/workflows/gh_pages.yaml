@@ -46,6 +46,7 @@ jobs:
       - name: Install deps
         run: yarn install
       - name: Build Preview Html
+        working-directory: ./docs-shiroa
         run: |
           yarn build:preview
       # - name: Build Book
