@@ -3,10 +3,10 @@ on:
   push:
     # branches:
     #   - main
-    paths: 
-      - 'docs-shiroa/**'
-      - 'package.json'
-      - 'yarn.lock'
+    # paths: 
+    #   - 'docs-shiroa/**'
+    #   - 'package.json'
+    #   - 'yarn.lock'
     
 permissions:
   pages: write
