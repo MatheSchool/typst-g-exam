@@ -1,12 +1,12 @@
 name: g-exam::gh_pages
 on:
   push:
-    branches:
-      - main
-    # paths: 
-    #   - 'docs-shiroa/**'
-    #   - 'package.json'
-    #   - 'yarn.lock'
+    # branches:
+    #   - main
+    paths: 
+      - 'docs-shiroa/**'
+      - 'package.json'
+      - 'yarn.lock'
     
 permissions:
   pages: write
