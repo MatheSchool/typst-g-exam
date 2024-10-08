@@ -26,7 +26,7 @@
 ///  - language (en, es, de, fr, pt, it, nl): Language of document. English, Spanish, German, French, Portuguese and Italian are defined.
 ///  - clarifications (string, content, array): Clarifications of exam. It will appear in a box on the first page.
 ///  - question-text-parameters: Parameter of text in question and subquestion. For example, it allows us to change the text size of the questions.
-///  - show-student-data (none, true, false, "first-page", "odd-pages"): Show a box for the student to enter their details. It can appear on the first page or on all odd-numbered pages.
+///  - show-student-data (none, true, false, "first-page", "all-pages", "odd-pages"): Show a box for the student to enter their details. It can appear on the first page, all pages or on all odd-numbered pages.
 ///  - show-grade-table: (bool): Show the grade table.
 ///  - decimal-separator: (".", ","): Indicate the decimal separation character.
 ///  - question-points-position: (none, left, right): Position of question points.
@@ -69,12 +69,11 @@
   clarifications: none,
   question-text-parameters: none,
   show-student-data: "first-page",
-  // student-data: (
-  //   show-in-page: "first-page",
-  //   show-name: true,
-  //   show-surname: true,
-  //   show-group: true,
-  //   show-date: true
+  // show-student-data: (
+  //   given-name: true,
+  //   family-name: true,
+  //   group: true,
+  //   date: true
   // ),
   show-grade-table: true,
   decimal-separator: ".",
@@ -84,7 +83,7 @@
 ) = {
   
   if type(show-student-data) != "dictionary" {
-    assert(show-student-data in (none, true, false, "first-page", "odd-pages"),
+    assert(show-student-data in (none, true, false, "first-page", "all-pages", "odd-pages"),
     message: "Invalid show studen data")
   }
 

@@ -1,29 +1,101 @@
 #import "./global.typ" : *
 
-#let __g-student-data(show-line-two: true, show-group: true, show-date:true) = {
+#let __g-student-data(
+      page: [],  // first, odd, pair.
+      show-student-data: "first-page",
+        // show-student-data: (
+        //   given-name: true,
+        //   family-name: true,
+        //   group: true,
+        //   date: true
+        // ),
+    ) = {
+      
     locate(loc => {
-      [
-        #__g-localization.final(loc).family-name: #box(width: 2fr, repeat[.]) 
+      // [
+      //   -- Studen data -- \
+      // ]
+      let family-label = [
+        #__g-localization.final(loc).family-name: #box(width: 2fr, repeat[.])
+      ]
+
+      let give-label = [
         #__g-localization.final(loc).given-name: #box(width:1fr, repeat[.])
       ]
 
-      if show-line-two {
-        v(1pt)
+      let group-label = [
+        #__g-localization.final(loc).group: #box(width:2.5cm, repeat[.])
+      ]
+
+      let date-label = [
+        #__g-localization.final(loc).date: #box(width:4cm, repeat[.])
+      ]
+
+      // let row-one = {
+      //   family-label
+      //   give-label
+      // }
+
+      // let row-two = {
+      //   v(1pt)
+      //   align(right, {
+      //       // if show-group {
+      //       group-label
+      //       // }
+      //       // if show-date {
+      //         date-label
+      //       // }
+      //     }
+      //   )
+      // }
+
+      if type(show-student-data) != "dictionary" {
+        if show-student-data == false {
+          return
+        }
+
+        if show-student-data == "first-page" and page != "first" {
+          return
+          // family-label =[]
+          // give-label = []
+          // group-label = []
+          // date-label = []
+        }
+
+        if show-student-data == "odd-pages" and page != "odd" {
+          return
+         }
+        // if show-student-data == false {
+          // family-label =[]
+          // give-label = []
+          // group-label = []
+          // date-label = []
+        // }
+      }
+      else {
+
+      }
+
+      // row-one
+      // if is-first-page {
+      //   row-two
+      // }
+      family-label
+      give-label
+      v(1pt)
         align(right, {
-            if show-group {
-              __g-localization.final(loc).group
-              [: ] 
-              box(width:2.5cm, repeat[.]) 
-              [ ]
-            }
-            if show-date {
-              __g-localization.final(loc).date
-              [: ] 
-              box(width:4cm, repeat[.])
-            }
+            // if show-group {
+            group-label
+            // }
+            // if show-date {
+              date-label
+            // }
           }
         )
-      }
+
+      // [
+      //   ++ Studen data ++ \
+      // ]
     }
   )
 } 
@@ -223,6 +295,12 @@
       model: none
     ),
     show-student-data: "first-page",
+    // show-student-data: (
+    //   given-name: true,
+    //   family-name: true,
+    //   group: true,
+    //   date: true
+    // ),
   ) => {
       if (page-number==1) { 
         align(right)[#box(
@@ -231,7 +309,7 @@
             columns: (auto, auto),
             gutter:0.7em,        
             align(left + top)[
-              #if(type(school) == "dictionary") {
+              #if type(school) == "dictionary" {
                 if(school.at("logo", default : none) != none) {
                   set image(height:2.5cm, width: 2.7cm, fit:"contain")
                   if(type(school.logo) == "content") {
@@ -252,7 +330,7 @@
                 grid(
                   columns: (auto, 1fr, auto),
                   align(left  + top)[
-                    #if(type(school) == "dictionary") [
+                    #if type(school) == "dictionary" [
                       #school.at("name", default : none) \
                     ]
                     #exam-info.academic-period \
@@ -268,9 +346,10 @@
                   ],
                 ),
                 line(length: 100%, stroke: 1pt + gray),
-                if show-student-data in (true, "first-page", "odd-pages") {
-                  __g-student-data()
-                }
+                __g-student-data(
+                  page: "first", 
+                  show-student-data: show-student-data
+                )
             )
         )
         )]
@@ -296,9 +375,10 @@
             ]
           )
           line(length: 100%, stroke: 1pt + gray) 
-          if show-student-data == "odd-pages" {
-            __g-student-data(show-line-two: false)
-          }
+          __g-student-data(
+            page: "odd", 
+            show-student-data: show-student-data
+          )
       }
       else {
           grid(
@@ -320,7 +400,11 @@
               #exam-info.content \
             ]
           )
-          line(length: 100%, stroke: 1pt + gray) 
+          line(length: 100%, stroke: 1pt + gray)
+          __g-student-data(
+            page: "pair", 
+            show-student-data: show-student-data
+          )
         }
       } 
     }
