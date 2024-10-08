@@ -5,6 +5,7 @@ on:
       - main
     paths: 
       - 'docs-shiroa/**'
+      - 'package.json'
     
 permissions:
   pages: write
