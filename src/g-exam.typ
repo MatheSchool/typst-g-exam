@@ -83,7 +83,8 @@
   body,
 ) = {
   
-  if type(show-student-data) != "dictionary" {
+  // [#type(show-student-data)]
+  if type(show-student-data) != "dictionary" and type(show-student-data) != "array" {
     assert(show-student-data in (none, true, false, "first-page", "all-pages", "odd-pages"),
     message: "Invalid show studen data")
   }

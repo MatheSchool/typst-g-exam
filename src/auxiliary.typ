@@ -3,18 +3,15 @@
 #let __g-student-data(
       page: [],  // first, odd, pair.
       show-student-data: "first-page",
-        // show-student-data: (
-        //   given-name: true,
-        //   family-name: true,
-        //   group: true,
-        //   date: true
-        // ),
+      // show-student-data: (
+      //   given-name: first-page,
+      //   family-name: first-page,
+      //   group: first-page,
+      //   date: first-page
+      // ),
     ) = {
-      
+    
     locate(loc => {
-      // [
-      //   -- Studen data -- \
-      // ]
       let family-label = [
         #__g-localization.final(loc).family-name: #box(width: 2fr, repeat[.])
       ]
@@ -31,24 +28,6 @@
         #__g-localization.final(loc).date: #box(width:4cm, repeat[.])
       ]
 
-      // let row-one = {
-      //   family-label
-      //   give-label
-      // }
-
-      // let row-two = {
-      //   v(1pt)
-      //   align(right, {
-      //       // if show-group {
-      //       group-label
-      //       // }
-      //       // if show-date {
-      //         date-label
-      //       // }
-      //     }
-      //   )
-      // }
-
       if type(show-student-data) != "dictionary" {
         if show-student-data == false {
           return
@@ -56,46 +35,43 @@
 
         if show-student-data == "first-page" and page != "first" {
           return
-          // family-label =[]
-          // give-label = []
-          // group-label = []
-          // date-label = []
         }
 
-        if show-student-data == "odd-pages" and page != "odd" {
+        if show-student-data == "odd-pages" and not(page == "first" or page == "odd") {
           return
-         }
-        // if show-student-data == false {
-          // family-label =[]
-          // give-label = []
-          // group-label = []
-          // date-label = []
-        // }
+        }
       }
       else {
+        let family-name-value = show-student-data.at("family-name", default: "first-page")
+        let give-name-value =  show-student-data.at("given-name", default: "first-page")
+        let group-value = show-student-data.at("group", default: "first-page")
+        let date-value = show-student-data.at("date", default: "first-page")
 
+        if family-name-value == false or (family-name-value == "first-page" and page != "first") or (family-name-value == "odd-pages" and not(page == "first" or page == "odd")) {
+          family-label =[]
+        }
+
+         if give-name-value == false or (give-name-value == "first-page" and page != "first") or (give-name-value == "odd-pages" and not(page == "first" or page == "odd")) {
+          give-label =[]
+        }
+
+        if group-value == false or (group-value == "first-page" and page != "first") or (group-value == "odd-pages" and not(page == "first" or page == "odd")) {
+          group-label =[]
+        }
+
+         if date-value == false or (date-value == "first-page" and page != "first") or (date-value == "odd-pages" and not(page == "first" or page == "odd")) {
+          date-label =[]
+        }
       }
 
-      // row-one
-      // if is-first-page {
-      //   row-two
-      // }
       family-label
       give-label
       v(1pt)
-        align(right, {
-            // if show-group {
-            group-label
-            // }
-            // if show-date {
-              date-label
-            // }
-          }
-        )
-
-      // [
-      //   ++ Studen data ++ \
-      // ]
+      align(right, {
+          group-label
+          date-label
+        }
+      )
     }
   )
 } 
