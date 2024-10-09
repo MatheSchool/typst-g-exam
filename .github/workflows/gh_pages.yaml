@@ -1,11 +1,11 @@
-name: {{repo-name}}::gh_pages
+name: g-exam::gh_pages
 on:
   push:
     # branches:
     #   - main
     paths: 
       - 'docs-shiroa/**'
-          
+
 permissions:
   pages: write
   id-token: write
@@ -45,7 +45,7 @@ jobs:
 
       - name: Build Book
         run: |
-          shiroa build --font-path ./assets/typst-fonts/ --font-path ./assets/fonts/ --path-to-root /{{repo-name}}/ -w . src 
+          shiroa build --font-path ./assets/typst-fonts/ --font-path ./assets/fonts/ --path-to-root /g-exam/ -w . src 
 
       - name: Setup Pages
         uses: actions/configure-pages@v3
