@@ -3,8 +3,8 @@ on:
   push:
     # branches:
     #   - main
-    paths: 
-      - 'docs-shiroa/**'
+    # paths: 
+    #   - 'docs-shiroa/**'
 
 permissions:
   pages: write
