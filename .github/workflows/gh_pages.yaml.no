@@ -54,7 +54,7 @@ jobs:
       - name: Build Book
         working-directory: ./docs-shiroa
         run: |
-          shiroa build --font-path ./assets/typst-fonts/ --font-path ./assets/fonts/ --path-to-root /g-exam/ -w . docs-shiroa/g-exam
+          shiroa build --font-path ./assets/typst-fonts/ --font-path ./assets/fonts/ --path-to-root /g-exam/ -w . g-exam
       - name: Build Cargo Docs
         working-directory: ./docs-shiroa
         run: |
