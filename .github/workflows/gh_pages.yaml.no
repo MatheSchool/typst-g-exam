@@ -1,11 +1,13 @@
-name: {{repo-name}}::gh_pages
+name: g-exam::gh_pages
 on:
   push:
-    # branches:
-    #   - main
-    paths: 
-      - 'docs-shiroa/**'
-          
+    branches:
+      - main
+    # paths: 
+    #   - 'docs-shiroa/**'
+    #   - 'package.json'
+    #   - 'yarn.lock'
+    
 permissions:
   pages: write
   id-token: write
@@ -26,36 +28,45 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      
       - run: git submodule update --init --recursive
-      
       - name: Download font assets
         working-directory: ./docs-shiroa
         # use fonts in stable releases
         run: |
           mkdir -p assets/fonts/
           curl -L https://github.com/Myriad-Dreamin/shiroa/releases/download/v0.1.2/font-assets.tar.gz | tar -xvz -C assets/fonts
-      
       - name: Download & install shiroa
         working-directory: ./docs-shiroa
         run: |
-          curl -L https://github.com/Myriad-Dreamin/shiroa/releases/download/v0.2.0-nightly1/shiroa-x86_64-unknown-linux-gnu.tar.gz | tar -xvz
+          curl -L https://github.com/Myriad-Dreamin/shiroa/releases/download/v0.2.0-nightly4/shiroa-x86_64-unknown-linux-gnu.tar.gz | tar -xvz
           chmod +x shiroa-x86_64-unknown-linux-gnu/bin/shiroa
           sudo cp shiroa-x86_64-unknown-linux-gnu/bin/shiroa /usr/bin/shiroa
-
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 16
+      - name: Install deps
+        run: yarn install
+      # - name: Build Preview Html
+      #   working-directory: ./docs-shiroa
+      #   run: |
+      #     yarn build:preview
       - name: Build Book
+        working-directory: ./docs-shiroa
         run: |
-          shiroa build --font-path ./assets/typst-fonts/ --font-path ./assets/fonts/ --path-to-root /{{repo-name}}/ -w . src 
-
+          shiroa build --font-path ./assets/typst-fonts/ --font-path ./assets/fonts/ --path-to-root /g-exam/ -w . docs-shiroa/g-exam
+      - name: Build Cargo Docs
+        working-directory: ./docs-shiroa
+        run: |
+          cargo doc --workspace --no-deps
+          cp -r target/doc dist/g-exam/rs
       - name: Setup Pages
         uses: actions/configure-pages@v3
-
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
           # Upload `/github-pages` sub directory
-          path: './dist'
-
+          path: './docs-shiroa/dist/g-exam'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
