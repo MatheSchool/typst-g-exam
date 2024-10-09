@@ -1,16 +1,10 @@
 #import "../../src/lib.typ": *
 
 #show: g-exam.with(
-  // show-student-data: "first-page",
-  show-student-data: "all-pages",
-  // show-student-data: "odd-pages",
-  // show-student-data:
-  // (
-  //  given-name: false,
-  //  family-name: false,
-  //  group: false,
-  //  date: false
-  // ),
+  show-student-data:
+  (
+    group: "odd-pages",
+  ),
   show-grade-table: false,
 )
 
