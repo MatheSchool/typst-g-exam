@@ -1,17 +1,19 @@
 #import "@preview/shiroa:0.1.1": *
-
 #show: book
 
 #book-meta(
-  title: "shiroa",
-  description: "shiroa Documentation",
-  repository: "https://github.com/Myriad-Dreamin/shiroa",
-  repository-edit: "https://github.com/Myriad-Dreamin/shiroa/edit/main/github-pages/docs/{path}",
-  authors: ("Myriad-Dreamin", "7mile"),
+  title: "g-exam",
+  description: "g-exam Documentation",
+  repository: "https://github.com/MatheSchool/typst-g-exam",
+  // repository-edit: "https://github.com/Myriad-Dreamin/shiroa/edit/main/github-pages/docs/{path}",
+  authors: ("Andrés Giménez Muñoz", "Nombre dos"),
   language: "en",
   summary: [ // begin of summary
-    #prefix-chapter("introduction.typ")[Introduction]
-  //   = User Guide
+    = Introducction
+    #prefix-chapter("Introduction.typ")[Introduction]
+     - #chapter("page1.typ")[Página 1]
+     - #chapter("page2.typ")[Página 2]
+
   //   - #chapter("guide/installation.typ")[Installation]
   //   - #chapter("guide/get-started.typ")[Get Started]
   //   - #chapter("guide/faq.typ")[Frequently Asked Questions]
@@ -46,12 +48,14 @@
   ],
 )
 
-#build-meta(dest-dir: "../dist")
+#build-meta(
+  dest-dir: "../dist"
+)
 
 #get-book-meta()
 
 // re-export page template
 // #import "/contrib/typst/gh-pages.typ": project, heading-reference
 // #let book-page = project
-#let cross-link = cross-link
+// #let cross-link = cross-link
 // #let heading-reference = heading-reference

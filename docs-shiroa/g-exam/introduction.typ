@@ -1,10 +1,14 @@
-== shiroa page
-
-// #import "/github-pages/docs/book.typ": book-page
+// #import "/docs-shiroa/g-exam/book.typ": book-page
 
 // #show: book-page.with(title: "Introduction")
 
-// = Introduction
+= Introduction
+
+Introducción a la documentación de g-exam.
+
+*Uno* prueba
+
+*Dos* Prueba
 
 // *shiroa* (_Shiro A_, or _The White_, or _云笺_) is a simple tool for creating modern online (cloud) books in pure typst. It has similar use cases as #link("https://rust-lang.github.io/mdBook/index.html")[mdBook], which is ideal for creating product or API documentation, tutorials, course materials or anything that requires a clean, easily navigable and customizable presentation.
 
