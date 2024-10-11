@@ -14,6 +14,9 @@
      - #chapter("page1.typ")[Página 1]
      - #chapter("page2.typ")[Página 2]
 
+     = Examples
+     #prefix-chapter("examples/exam-big-image.typ")[Example]
+
   //   - #chapter("guide/installation.typ")[Installation]
   //   - #chapter("guide/get-started.typ")[Get Started]
   //   - #chapter("guide/faq.typ")[Frequently Asked Questions]
