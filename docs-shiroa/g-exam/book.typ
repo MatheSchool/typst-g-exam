@@ -10,7 +10,7 @@
   language: "en",
   summary: [ // begin of summary
     = Introducction
-    #prefix-chapter("Introduction.typ")[Introduction]
+    #prefix-chapter("introduction.typ")[Introduction]
      - #chapter("page1.typ")[Página 1]
      - #chapter("page2.typ")[Página 2]
 
