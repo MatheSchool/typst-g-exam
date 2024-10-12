@@ -15,16 +15,17 @@
     - #chapter("commands.typ")[Commands]
       - #chapter("page1.typ")[Página 1]
       - #chapter("page2.typ")[Página 2]
-    - #chapter("about.typ")[About]
+    
 
-    = Latex Mit
-    #prefix-chapter("latexmit/latexmit.typ")[LaTeX MIT ]
-    - #chapter("latexmit/latexmit-with-points.typ")[LaTeX MIT with points]
-    - #chapter("latexmit/latexmit-without-spaces.typ")[LaTeX MIT without spaces]
+    == Latex Mit
+    - #chapter("latexmit/latexmit.typ")[LaTeX MIT ]
+      - #chapter("latexmit/latexmit-with-points.typ")[LaTeX MIT with points]
+      - #chapter("latexmit/latexmit-without-spaces.typ")[LaTeX MIT without spaces]
 
-     = Examples
-     #prefix-chapter("examples/exam-big-image.typ")[Example]
+     == Examples
+     - #chapter("examples/exam-big-image.typ")[Example]
 
+     - #chapter("about.typ")[About]
   //   - #chapter("guide/installation.typ")[Installation]
   //   - #chapter("guide/get-started.typ")[Get Started]
   //   - #chapter("guide/faq.typ")[Frequently Asked Questions]
