@@ -1,6 +1,6 @@
 
 #import "book.typ": book-page, cross-link
-#import "../templates/page.typ": *
+#import "../template/page.typ": *
 
 /// This function is to render a text string in monospace style and function
 /// color in your defining themes.

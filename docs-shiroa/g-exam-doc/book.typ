@@ -11,8 +11,11 @@
   summary: [ // begin of summary
     = Introducction
     #prefix-chapter("introduction.typ")[Introduction]
-     - #chapter("page1.typ")[Página 1]
-     - #chapter("page2.typ")[Página 2]
+    - #chapter("configuration.typ")[Configuration]
+    - #chapter("commands.typ")[Commands]
+    - #chapter("page1.typ")[Página 1]
+      - #chapter("page2.typ")[Página 2]
+      - #chapter("about.typ")[About]
 
      = Examples
      #prefix-chapter("examples/exam-big-image.typ")[Example]
@@ -58,7 +61,7 @@
 #get-book-meta()
 
 // re-export page template
-#import "../templates/page.typ": project
+#import "../template/page.typ": project
 #let book-page = project
 #let cross-link = cross-link
 // #let heading-reference = heading-reference

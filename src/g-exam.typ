@@ -98,10 +98,10 @@
   assert(show-solution in (true, false),
       message: "Invalid show solution value")
 
-  set document(
-    title: __document-name(exam-info: exam-info).trim(" "),
-    author: author.name
-  )
+  // set document(
+  //   title: __document-name(exam-info: exam-info).trim(" "),
+  //   author: author.name
+  // )
 
   let margin-right = 2.5cm
   if (question-points-position == right) {
