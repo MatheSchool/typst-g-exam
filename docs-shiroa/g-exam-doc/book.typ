@@ -13,9 +13,14 @@
     #prefix-chapter("introduction.typ")[Introduction]
     - #chapter("configuration.typ")[Configuration]
     - #chapter("commands.typ")[Commands]
-    - #chapter("page1.typ")[Página 1]
+      - #chapter("page1.typ")[Página 1]
       - #chapter("page2.typ")[Página 2]
-      - #chapter("about.typ")[About]
+    - #chapter("about.typ")[About]
+
+    = Latex Mit
+    #prefix-chapter("latexmit/latexmit.typ")[LaTeX MIT ]
+    - #chapter("latexmit/latexmit-with-points.typ")[LaTeX MIT with points]
+    - #chapter("latexmit/latexmit-without-spaces.typ")[LaTeX MIT without spaces]
 
      = Examples
      #prefix-chapter("examples/exam-big-image.typ")[Example]
