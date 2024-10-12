@@ -1,5 +1,7 @@
 #import "mod.typ": *
 
+#show: book-page.with(title: "Página 2")
+
 = Página 2
 
 == Prueba de página 1

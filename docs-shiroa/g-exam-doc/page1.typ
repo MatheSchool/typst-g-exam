@@ -1,5 +1,6 @@
-// #import "@preview/shiroa:0.1.1": *
 #import "mod.typ": *
+
+#show: book-page.with(title: "Página 1")
 
 = Página 1
 

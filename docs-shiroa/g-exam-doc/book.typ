@@ -6,7 +6,7 @@
   description: "g-exam Documentation",
   repository: "https://github.com/MatheSchool/typst-g-exam",
   // repository-edit: "https://github.com/Myriad-Dreamin/shiroa/edit/main/github-pages/docs/{path}",
-  authors: ("Andrés Giménez Muñoz", "Nombre dos"),
+  authors: ("Andrés Giménez Muñoz",),
   language: "en",
   summary: [ // begin of summary
     = Introducction
