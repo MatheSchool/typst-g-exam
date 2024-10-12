@@ -1,3 +1,5 @@
+#import "mod.typ": *
+
 = Página 2
 
 == Prueba de página 1

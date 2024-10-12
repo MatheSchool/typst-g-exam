@@ -1,6 +1,6 @@
-// #import "/docs-shiroa/g-exam/book.typ": book-page
+#import "mod.typ": *
 
-// #show: book-page.with(title: "Introduction")
+#show: book-page.with(title: "Introduction")
 
 = Introduction
 
