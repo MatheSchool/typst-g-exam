@@ -11,6 +11,7 @@ family-name = "Surname"
 given-name = "Name"
 group = "Group"
 date = "Date"
+draft-label = "Draft"
 
 [es]
 grade-table-queston = "Pregunta"
@@ -25,6 +26,7 @@ family-name = "Apellidos"
 given-name = "Nombre"
 group = "Grupo"
 date = "Fecha"
+draft-label = "Borrador"
 
 [de]
 grade-table-queston = "Frage"
@@ -39,6 +41,7 @@ family-name = "Nachname"
 given-name = "Vor-und"
 group = "Gruppe"
 date = "Datum"
+draft-label = "Entwurf"
 
 [fr]
 grade-table-queston = "Question"
@@ -53,6 +56,7 @@ family-name = "Nom"
 given-name = "Prénom"
 group = "Groupe"
 date = "Date"
+draft-label = "Brouillon"
 
 [pt]
 grade-table-queston = "Perguntas"
@@ -67,6 +71,7 @@ family-name = "Apelido"
 given-name = "Nome"
 group = "Grupo"
 date = "Data"
+draft-label = "Projeto"
 
 [it]
 grade-table-queston = "Domande"
@@ -81,6 +86,7 @@ family-name = "Cognome"
 given-name = "Nome"
 group = "Gruppo"
 date = "Dattero"
+draft-label = "Bozza"
 
 [nl]
 grade-table-queston = "Vraag"
@@ -95,3 +101,4 @@ family-name = "Achternaam"
 given-name = "Voornaam"
 group = "Groep"
 date = "Datum"
+draft-label = "Concept"

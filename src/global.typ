@@ -20,7 +20,8 @@
     family-name: "Surname",
     given-name: "Name",
     group: "Group",
-    date: "Date"
+    date: "Date",
+    draft-label: "Draft",
   )
   
 #let __g-question-numbering(..args) = {

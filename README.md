@@ -65,7 +65,9 @@ To use this package, simply add the following code to your document:
 - Use paper by default.
 - Indenting subquestion.
 - Include support for dutch language.
-- Corrections in English texts. -->
+- Corrections in English texts. 
+- Draft label.
+-->
 
 ### v0.3.2
 

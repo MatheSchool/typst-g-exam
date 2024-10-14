@@ -32,6 +32,7 @@
 ///  - decimal-separator: (".", ","): Indicate the decimal separation character.
 ///  - question-points-position: (none, left, right): Position of question points.
 ///  - show-solution: (true, false): Show the solutions.
+///  - show-draft: (true, false): It shows a draft label in the background.
 #let g-exam(
   author: (
     name: "",
@@ -63,7 +64,8 @@
     family-name: none,
     given-name: none,
     group: none,
-    date: none
+    date: none,
+    draft-label: none,
   ),
   date: none,
   keywords: none,
@@ -80,6 +82,7 @@
   decimal-separator: ".",
   question-points-position: left,
   show-solution: true,
+  show-draft: false,
   body,
 ) = {
   
@@ -121,6 +124,8 @@
         school: school, 
         exam-info: exam-info, 
         show-student-data: show-student-data)
+
+      __show-draft(draft-show: show-draft, draft-label:[draft])
       } 
     ),
 
@@ -147,6 +152,7 @@
         // )
 
         __show-watermark(author: author, school: school, exam-info: exam-info, question-points-position:question-points-position)
+        
       }
     )
   )  

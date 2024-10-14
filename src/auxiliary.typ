@@ -206,7 +206,8 @@
     family-name: none,
     given-name: none,
     group: none,
-    date: none
+    date: none,
+    draft-label: none,
   )) => {
     let __lang_data = toml("./lang.toml")
     if(__lang_data != none) {
@@ -214,7 +215,7 @@
 
       if(__read_lang_data != none) {
         let __read-localization-value = (read_lang_data: none, field: "", localization: none) => {
-          let __parameter_value = localization.at(field)
+          let __parameter_value = localization.at(field, default: none)
           if(__parameter_value != none) { return __parameter_value }
 
           let value = read_lang_data.at(field, default: __g-default-localization.at(field))
@@ -235,6 +236,7 @@
         let __given_name = __read-localization-value(read_lang_data: __read_lang_data, field: "given-name", localization: localization)
         let __group = __read-localization-value(read_lang_data: __read_lang_data, field: "group", localization: localization)
         let __date = __read-localization-value(read_lang_data: __read_lang_data, field: "date", localization: localization)
+        let __draft-label = __read-localization-value(read_lang_data: __read_lang_data, field: "draft-label", localization: localization)
 
         let __g-localization_lang_data = (
               grade-table-queston: __grade_table_queston,
@@ -249,6 +251,7 @@
               given-name: __given_name,
               group: __group,
               date: __date,
+              draft-label: __draft-label
             )
 
         __g-localization.update(__g-localization_lang_data)
@@ -327,7 +330,7 @@
                   show-student-data: show-student-data
                 )
             )
-        )
+          )
         )]
       }
       else if calc.rem-euclid(page-number, 2) == 1 {
@@ -427,3 +430,24 @@
       )
     )
 }
+
+#let __show-draft = (
+    draft-show: true,
+    draft-label: [],
+  ) => {
+    locate(loc => {
+      if draft-show {
+          place(
+            center,
+            clearance: 0pt,
+            dx: -50pt,
+            dy: 260pt,
+            rotate(-45deg,
+              origin: top + right,
+              text(size:70pt, fill:silver)[#__g-localization.final(loc).draft-label] 
+            )
+          )
+        }
+      }
+    )
+  }
