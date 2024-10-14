@@ -11,7 +11,8 @@
   summary: [ // begin of summary
     = Introducction
     #prefix-chapter("introduction.typ")[Introduction]
-    - #chapter("configuration.typ")[Configuration]
+    - #chapter("configuration/configuration.typ")[Configuration]
+      - #chapter("configuration/draft.typ")[Configuration]
     - #chapter("commands.typ")[Commands]
       - #chapter("page1.typ")[Página 1]
       - #chapter("page2.typ")[Página 2]
