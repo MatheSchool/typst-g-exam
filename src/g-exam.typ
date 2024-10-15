@@ -124,8 +124,6 @@
         school: school, 
         exam-info: exam-info, 
         show-student-data: show-student-data)
-
-      
       } 
     ),
 
