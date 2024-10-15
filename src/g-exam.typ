@@ -116,7 +116,7 @@
     numbering: "1 / 1",
     number-align: right,
     header-ascent: 20%,
-    header:locate(loc => {
+    header: locate(loc => {
       let __page-number = counter(page).at(loc).first()
 
       __show-header(
@@ -125,9 +125,13 @@
         exam-info: exam-info, 
         show-student-data: show-student-data)
 
-      __show-draft(draft-show: show-draft, draft-label:[draft])
+      
       } 
     ),
+
+    background:{
+      __show-draft(draft-show: show-draft, draft-label:[draft])
+    },
 
     footer: locate(loc => {
         line(length: 100%, stroke: 1pt + gray) 

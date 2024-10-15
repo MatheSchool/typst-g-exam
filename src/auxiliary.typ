@@ -441,7 +441,7 @@
             center,
             clearance: 0pt,
             dx: -50pt,
-            dy: 260pt,
+            dy: 330pt,
             rotate(-45deg,
               origin: top + right,
               text(size:70pt, fill:silver)[#__g-localization.final(loc).draft-label] 
