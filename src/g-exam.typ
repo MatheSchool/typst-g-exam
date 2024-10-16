@@ -135,7 +135,7 @@
       context {
         line(length: 100%, stroke: 1pt + gray)       
         align(right)[
-          #counter(page).display(context __g-localization.final().page-counter-display, both: true,
+          #counter(page).display(__g-localization.final().page-counter-display, both: true,
           )
         ]
       // grid(
