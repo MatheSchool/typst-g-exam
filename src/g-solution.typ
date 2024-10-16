@@ -18,16 +18,13 @@
       assert(alternative-content == none or type(alternative-content) == "content",
         message: "Invalid alternative-content value")
 
-      locate(loc => {
-        let show-solution =  __g-show-solution.final(loc)
+    let show-solution = context __g-show-solution.final()
 
-        if show-solution == true {
-          body
-        }
-        else {
-          hide[#body]
-          // alternative-content
-        }
-      }
-    )
+    if show-solution == true {
+      body
+    }
+    else {
+      hide[#body]
+      // alternative-content
+    }
 }

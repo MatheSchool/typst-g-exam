@@ -37,11 +37,11 @@
   }
 }
 
-#let __g-paint-tab(points: none, loc: none) = {
+#let __g-paint-tab(points: none) = {
   if points != none {
-    let label-point = __g-localization.final(loc).points
+    let label-point = context __g-localization.final().points
     if points == 1 {
-      label-point = __g-localization.final(loc).point
+      label-point = context __g-localization.final().point
     }
 
     [(#emph[#strfmt("{0}", calc.round(points, digits: 2), fmt-decimal-separator: ",") #label-point])]

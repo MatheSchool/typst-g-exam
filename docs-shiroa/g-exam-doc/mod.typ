@@ -22,8 +22,7 @@
 #let colors = (blue.lighten(10%), olive, eastern)
 
 #let fg-blue = main-color.mix(rgb("#0074d9"))
-#let pro-tip(content) = locate(loc => {
-  block(
+#let pro-tip(content) = block(
     width: 100%,
     breakable: false,
     inset: (x: 0.65em, y: 0.65em, left: 0.65em * 0.6),
@@ -34,6 +33,5 @@
       content
     },
   )
-})
 
 #let note-box = pro-tip

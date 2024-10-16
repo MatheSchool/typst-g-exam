@@ -27,12 +27,13 @@
       else { points }
     })
   
-  locate(loc => {
+  context {
     let __g-question-points-position = points-position
     if __g-question-points-position == none {
-      __g-question-points-position = __g-question-points-position-state.final(loc)  
+      __g-question-points-position = context __g-question-points-position-state.final()  
     }
-    let __g-question-text-parameters = __g-question-text-parameters-state.final(loc)
+
+    let __g-question-text-parameters = __g-question-text-parameters-state.final()
 
     if __g-question-points-position == left {
       v(0.1em)
@@ -64,7 +65,7 @@
       set text(..__g-question-text-parameters)
       body 
     }
-  })
+  }
 }
 
 /// Show a sub-question.
@@ -91,52 +92,52 @@
   if points != none { subg-question-points = points }
   __g-question-point.update(p => p + subg-question-points )
 
-  locate(loc => {
-      let __g-question-points-position = points-position
-      if __g-question-points-position == none {
-        __g-question-points-position = __g-question-points-position-state.final(loc)
-      }
-      let __g-question-text-parameters = __g-question-text-parameters-state.final(loc)
-
-      set par(hanging-indent: 1em)
-
-      if __g-question-points-position == left {
-        v(0.1em)
-        {
-          h(0.7em) 
-          __g-question-number.display(__g-question-numbering) 
-          if(points != none) {
-            __g-paint-tab(points: points, loc:loc) 
-            h(0.2em)
-          }
-        }
-        set text(..__g-question-text-parameters)
-        body
-      }
-      else if __g-question-points-position == right {
-        v(0.1em)
-        if(points != none) {
-          place(right, 
-              dx: 13%,
-              float: false,
-              __g-paint-tab(points: points, loc:loc)) 
-        }
-        {
-          h(0.7em) 
-          __g-question-number.display(__g-question-numbering) 
-        }
-        set text(..__g-question-text-parameters)
-        body
-      }
-      else {
-        v(0.1em)
-        {
-          h(0.7em) 
-          __g-question-number.display(__g-question-numbering) 
-        }
-        set text(..__g-question-text-parameters)
-        body
-      }
+  context {
+    let __g-question-points-position = points-position
+    if __g-question-points-position == none {
+      __g-question-points-position = context __g-question-points-position-state.final()
     }
-  )
+    
+    let __g-question-text-parameters = __g-question-text-parameters-state.final()
+
+    set par(hanging-indent: 1em)
+
+    if __g-question-points-position == left {
+      v(0.1em)
+      {
+        h(0.7em) 
+        __g-question-number.display(__g-question-numbering) 
+        if(points != none) {
+          __g-paint-tab(points: points, loc:loc) 
+          h(0.2em)
+        }
+      }
+      set text(..__g-question-text-parameters)
+      body
+    }
+    else if __g-question-points-position == right {
+      v(0.1em)
+      if(points != none) {
+        place(right, 
+            dx: 13%,
+            float: false,
+            __g-paint-tab(points: points, loc:loc)) 
+      }
+      {
+        h(0.7em) 
+        __g-question-number.display(__g-question-numbering) 
+      }
+      set text(..__g-question-text-parameters)
+      body
+    }
+    else {
+      v(0.1em)
+      {
+        h(0.7em) 
+        __g-question-number.display(__g-question-numbering) 
+      }
+      set text(..__g-question-text-parameters)
+      body
+    }
+  }
 }

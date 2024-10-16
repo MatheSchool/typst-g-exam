@@ -11,57 +11,55 @@
       // ),
     ) = {
     
-    locate(loc => {
-      let family-label = [
-        #__g-localization.final(loc).family-name: #box(width: 2fr, repeat[.])
-      ]
+    let family-label = [
+       __g-localization.final().family-name: #box(width: 2fr, repeat[.])
+    ]
 
-      let give-label = [
-        #__g-localization.final(loc).given-name: #box(width:1fr, repeat[.])
-      ]
+    let give-label = [
+      #context __g-localization.final().given-name: #box(width:1fr, repeat[.])
+    ]
 
-      let group-label = [
-        #__g-localization.final(loc).group: #box(width:2.5cm, repeat[.])
-      ]
+    let group-label = [
+      #context __g-localization.final().group: #box(width:2.5cm, repeat[.])
+    ]
 
-      let date-label = [
-        #__g-localization.final(loc).date: #box(width:4cm, repeat[.])
-      ]
+    let date-label = [
+      #context __g-localization.final().date: #box(width:4cm, repeat[.])
+    ]
 
-      if type(show-student-data) != "dictionary" {
-        if show-student-data == false {
-          return
-        }
-
-        if show-student-data == "first-page" and page != "first" {
-          return
-        }
-
-        if show-student-data == "odd-pages" and not(page == "first" or page == "odd") {
-          return
-        }
+    if type(show-student-data) != "dictionary" {
+      if show-student-data == false {
+        return
       }
-      else {
-        let family-name-value = show-student-data.at("family-name", default: "first-page")
-        let give-name-value =  show-student-data.at("given-name", default: "first-page")
-        let group-value = show-student-data.at("group", default: "first-page")
-        let date-value = show-student-data.at("date", default: "first-page")
 
-        if family-name-value == false or (family-name-value == "first-page" and page != "first") or (family-name-value == "odd-pages" and not(page == "first" or page == "odd")) {
-          family-label =[]
-        }
+      if show-student-data == "first-page" and page != "first" {
+        return
+      }
 
-         if give-name-value == false or (give-name-value == "first-page" and page != "first") or (give-name-value == "odd-pages" and not(page == "first" or page == "odd")) {
-          give-label =[]
-        }
+      if show-student-data == "odd-pages" and not(page == "first" or page == "odd") {
+        return
+      }
+    }
+    else {
+      let family-name-value = show-student-data.at("family-name", default: "first-page")
+      let give-name-value =  show-student-data.at("given-name", default: "first-page")
+      let group-value = show-student-data.at("group", default: "first-page")
+      let date-value = show-student-data.at("date", default: "first-page")
 
-        if group-value == false or (group-value == "first-page" and page != "first") or (group-value == "odd-pages" and not(page == "first" or page == "odd")) {
-          group-label =[]
-        }
+      if family-name-value == false or (family-name-value == "first-page" and page != "first") or (family-name-value == "odd-pages" and not(page == "first" or page == "odd")) {
+        family-label =[]
+      }
 
-         if date-value == false or (date-value == "first-page" and page != "first") or (date-value == "odd-pages" and not(page == "first" or page == "odd")) {
-          date-label =[]
-        }
+        if give-name-value == false or (give-name-value == "first-page" and page != "first") or (give-name-value == "odd-pages" and not(page == "first" or page == "odd")) {
+        give-label =[]
+      }
+
+      if group-value == false or (group-value == "first-page" and page != "first") or (group-value == "odd-pages" and not(page == "first" or page == "odd")) {
+        group-label =[]
+      }
+
+        if date-value == false or (date-value == "first-page" and page != "first") or (date-value == "odd-pages" and not(page == "first" or page == "odd")) {
+        date-label =[]
       }
 
       family-label
@@ -73,68 +71,64 @@
         }
       )
     }
-  )
 } 
 
-#let __g-grade-table-header(decimal-separator: ".") = {
-      locate(loc => {        
-        let end-g-question-locations = query(<end-g-question-localization>, loc)
-        let columns-number = range(0, end-g-question-locations.len() + 1)
-      
-        let question-row = columns-number.map(n => {
-            if n == 0 {align(left + horizon)[#text(hyphenate: false,__g-localization.final(loc).grade-table-queston)]}
-            else if n == end-g-question-locations.len() {align(left + horizon)[#text(hyphenate: false,__g-localization.final(loc).grade-table-total)]}
-            else [ #n ]
-          }
-        )
+#let __g-grade-table-header(decimal-separator: ".") = {        
+    let end-g-question-locations = query(<end-g-question-localization>)
+    let columns-number = range(0, end-g-question-locations.len() + 1)
+  
+    let question-row = columns-number.map(n => {
+        if n == 0 {align(left + horizon)[#text(hyphenate: false, context __g-localization.final().grade-table-queston)]}
+        else if n == end-g-question-locations.len() {align(left + horizon)[#text(hyphenate: false, context __g-localization.final().grade-table-total)]}
+        else [ #n ]
+      }
+    )
 
-        let total-point = 0
-        if end-g-question-locations.len() > 0 { 
-          total-point = end-g-question-locations.map(ql => __g-question-point.at(ql.location())).sum()
-        }
-
-        let points = ()
-        if end-g-question-locations.len() > 0 {
-          points =  end-g-question-locations.map(ql => __g-question-point.at(ql.location()))
-        }
-      
-        let point-row = columns-number.map(n => {
-            if n == 0 {align(left + horizon)[#text(hyphenate: false,__g-localization.final(loc).grade-table-points)]}
-            else if n == end-g-question-locations.len() [
-              #strfmt("{0:}", calc.round(total-point, digits:2), fmt-decimal-separator: decimal-separator)
-            ]
-            else {
-              let point = points.at(n)
-              [
-                #strfmt("{0}", calc.round(point, digits: 2), fmt-decimal-separator: decimal-separator)
-              ]
-            }
-          }
-        )
-
-        let grade-row = columns-number.map(n => 
-          {
-            if n == 0 {
-              align(left + horizon)[#text(hyphenate: false, __g-localization.final(loc).grade-table-grade)]
-            }
-          }
-        )
-
-        align(center, table(
-          stroke: 0.8pt + luma(80),
-          columns: columns-number.map( n => 
-          {
-            if n == 0 {auto}
-            else if n == end-g-question-locations.len() {auto}
-            else {30pt}
-          }),
-          rows: (auto, auto, 30pt),
-          ..question-row.map(n => n),
-          ..point-row.map(n => n),
-          ..grade-row.map(n => n),
-        )
-      )
+    let total-point = 0
+    if end-g-question-locations.len() > 0 { 
+      total-point = end-g-question-locations.map(ql => __g-question-point.at(ql.location())).sum()
     }
+
+    let points = ()
+    if end-g-question-locations.len() > 0 {
+      points =  end-g-question-locations.map(ql => __g-question-point.at(ql.location()))
+    }
+  
+    let point-row = columns-number.map(n => {
+        if n == 0 {align(left + horizon)[#text(hyphenate: false, context __g-localization.final().grade-table-points)]}
+        else if n == end-g-question-locations.len() [
+          #strfmt("{0:}", calc.round(total-point, digits:2), fmt-decimal-separator: decimal-separator)
+        ]
+        else {
+          let point = points.at(n)
+          [
+            #strfmt("{0}", calc.round(point, digits: 2), fmt-decimal-separator: decimal-separator)
+          ]
+        }
+      }
+    )
+
+    let grade-row = columns-number.map(n => 
+      {
+        if n == 0 {
+          align(left + horizon)[#text(hyphenate: false, context __g-localization.final().grade-table-grade)]
+        }
+      }
+    )
+
+    align(center, table(
+      stroke: 0.8pt + luma(80),
+      columns: columns-number.map( n => 
+      {
+        if n == 0 {auto}
+        else if n == end-g-question-locations.len() {auto}
+        else {30pt}
+      }),
+      rows: (auto, auto, 30pt),
+      ..question-row.map(n => n),
+      ..point-row.map(n => n),
+      ..grade-row.map(n => n),
+    )
   )
 }
 
@@ -254,7 +248,7 @@
               draft-label: __draft-label
             )
 
-        __g-localization.update(__g-localization_lang_data)
+        context __g-localization.update(__g-localization_lang_data)
       }
     }
 }
@@ -435,7 +429,6 @@
     draft-show: true,
     draft-label: [],
   ) => {
-    locate(loc => {
       if draft-show {
           place(
             center,
@@ -444,10 +437,10 @@
             dy: 330pt,
             rotate(-45deg,
               origin: top + right,
-              text(size:70pt, fill:silver)[#__g-localization.final(loc).draft-label] 
+              text(size:70pt, fill:silver)[
+                #context __g-localization.final().draft-label
+              ] 
             )
           )
         }
-      }
-    )
   }

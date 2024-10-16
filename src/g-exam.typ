@@ -85,8 +85,6 @@
   show-draft: false,
   body,
 ) = {
-  
-  // [#type(show-student-data)]
   if type(show-student-data) != "dictionary" and type(show-student-data) != "array" {
     assert(show-student-data in (none, true, false, "first-page", "all-pages", "odd-pages"),
     message: "Invalid show studen data")
@@ -116,47 +114,48 @@
     numbering: "1 / 1",
     number-align: right,
     header-ascent: 20%,
-    header: locate(loc => {
-      let __page-number = counter(page).at(loc).first()
 
-      __show-header(
-        page-number: __page-number, 
-        school: school, 
-        exam-info: exam-info, 
-        show-student-data: show-student-data)
-      } 
-    ),
+    header: {
+      context{
+        let __page-number = counter(page).at(here()).first()
 
-    background:{
+        __show-header(
+          page-number: __page-number,
+          school: school, 
+          exam-info: exam-info, 
+          show-student-data: show-student-data)
+      }
+    },
+
+    background: {
       __show-draft(draft-show: show-draft, draft-label:[draft])
     },
 
-    footer: locate(loc => {
-        line(length: 100%, stroke: 1pt + gray) 
+    footer: {
+      context {
+        line(length: 100%, stroke: 1pt + gray)       
         align(right)[
-            #__g-localization.final(loc).page
-            #counter(page).display(__g-localization.final(loc).page-counter-display, both: true,
-            )
+          #counter(page).display(context __g-localization.final().page-counter-display, both: true,
+          )
         ]
-        // grid(
-        //   columns: (1fr, 1fr, 1fr),
-        //   if type(school) == "dictionary" {
-        //     align(left, school.at("name", default : none))
-        //   },
-        //   align(center)[#exam-info.academic-period],
-        //   align(right)[
-        //     Página 
-        //     #counter(page).display({
-        //       "1 de 1"},
-        //       both: true,
-        //     )
-        //   ]
-        // )
+      // grid(
+      //   columns: (1fr, 1fr, 1fr),
+      //   if type(school) == "dictionary" {
+      //     align(left, school.at("name", default : none))
+      //   },
+      //   align(center)[#exam-info.academic-period],
+      //   align(right)[
+      //     Página 
+      //     #counter(page).display({
+      //       "1 de 1"},
+      //       both: true,
+      //     )
+      //   ]
+      // )
 
-        __show-watermark(author: author, school: school, exam-info: exam-info, question-points-position:question-points-position)
-        
+      __show-watermark(author: author, school: school, exam-info: exam-info, question-points-position:question-points-position)
       }
-    )
+    }
   )  
 
     // set text(font: "New Computer Modern")
@@ -168,9 +167,11 @@
   set text(lang:language)
 
   if show-grade-table == true {
-    __g-grade-table-header(
-      decimal-separator: decimal-separator,
-    )
+    context {
+      __g-grade-table-header(
+        decimal-separator: decimal-separator,
+      )
+    }
     v(10pt)
   }
 
