@@ -99,6 +99,9 @@
   assert(show-solution in (true, false),
       message: "Invalid show solution value")
 
+  assert(show-draft in (true, false),
+      message: "Invalid show draft value")
+
   // set document(
   //   title: __document-name(exam-info: exam-info).trim(" "),
   //   author: author.name
