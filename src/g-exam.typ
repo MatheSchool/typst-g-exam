@@ -5,6 +5,7 @@
 #import "./g-option.typ": *
 #import "./g-solution.typ": *
 #import "./g-clarification.typ": *
+#import "./g-sugar.typ": *
 
 /// Template for creating an exam.
 /// 
@@ -184,45 +185,14 @@
     __g-show_clarifications(clarifications: clarifications)
   }
 
-  show regex("=\?"): it => {
-      let (sugar) = it.text.split()
-      g-question[]
-    }
+  __sugar()  
+  
+  //  show regex("=\?"): it => {
+  //   [kkkkk]
+  //     let (sugar) = it.text.split()
+  //     g-question[]
+  //   }
 
-  show regex("=\? (.+)"): it => {
-      let (sugar, ..rest) = it.text.split()
-      g-question[#rest.join(" ")]
-    }
-
-  show regex("=\? [[:digit:]] (.+)"): it => {
-      let (sugar, point, ..rest) = it.text.split()
-      g-question(points:float(point))[#rest.join(" ")]
-    }
-
-  show regex("==\?"): it => {
-      let (sugar) = it.text.split()
-      g-subquestion[]
-    }
-
-  show regex("==\? (.+)"): it => {
-      let (sugar, ..rest) = it.text.split()
-      g-subquestion[#rest.join(" ")]
-    }
-
-  show regex("==\? [[:digit:]] (.+)"): it => {
-      let (sugar, point, ..rest) = it.text.split()
-      g-subquestion(points:float(point))[#rest.join(" ")]
-    }
-
-  show regex("=! (.+)"): it => {
-      let (sugar, ..rest) = it.text.split()
-      g-solution[#rest.join(" ")]
-    }
-
-  show regex("=% (.+)"): it => {
-      let (sugar, ..rest) = it.text.split()
-      g-clarification[#rest.join(" ")]
-    }
 
   body
   

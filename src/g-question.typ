@@ -30,7 +30,7 @@
   context {
     let __g-question-points-position = points-position
     if __g-question-points-position == none {
-      __g-question-points-position = context __g-question-points-position-state.final()  
+      __g-question-points-position = __g-question-points-position-state.final()  
     }
 
     let __g-question-text-parameters = __g-question-text-parameters-state.final()
@@ -40,7 +40,7 @@
       {
         __g-question-number.display(__g-question-numbering) 
         if(points != none) {
-          __g-paint-tab(points:points, loc: loc) 
+          __g-paint-tab(points:points) 
           h(0.2em)
         }
       }
@@ -53,7 +53,7 @@
         place(right, 
             dx: 13%,
             float: false,
-            __g-paint-tab(points: points, loc: loc))
+            __g-paint-tab(points: points))
       }
       __g-question-number.display(__g-question-numbering) 
       set text(..__g-question-text-parameters)
@@ -95,7 +95,7 @@
   context {
     let __g-question-points-position = points-position
     if __g-question-points-position == none {
-      __g-question-points-position = context __g-question-points-position-state.final()
+      __g-question-points-position = __g-question-points-position-state.final()
     }
     
     let __g-question-text-parameters = __g-question-text-parameters-state.final()
@@ -108,7 +108,7 @@
         h(0.7em) 
         __g-question-number.display(__g-question-numbering) 
         if(points != none) {
-          __g-paint-tab(points: points, loc:loc) 
+          __g-paint-tab(points: points)
           h(0.2em)
         }
       }
@@ -121,7 +121,7 @@
         place(right, 
             dx: 13%,
             float: false,
-            __g-paint-tab(points: points, loc:loc)) 
+            __g-paint-tab(points: points)) 
       }
       {
         h(0.7em) 
