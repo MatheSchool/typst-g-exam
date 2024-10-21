@@ -4,51 +4,115 @@
 
 #let __sugar(content) = {
   show regex("=\?"): it => {
-      [--1--]
-      let (sugar) = it.text.split()
-      g-question[]
+      let (sugar, ..rest) = it.text.split("?")
+
+      if sugar == "=" {        
+        g-question[]
+      }
+      else {
+        [#it]
+      }
     }
 
-  show regex("=\? (.+)"): it => {
-      [--2--]
-      let (sugar, ..rest) = it.text.split()
-      g-question[#rest.join(" ")]
+  show regex("=\?(.+)"): it => {
+      let (sugar, ..rest) = it.text.split("?")
+
+      if sugar == "=" {
+        g-question[#rest.join("?").trim()]
+      }
+      else {
+        [#it]
+      }
     }
 
-  show regex("=\? [[:digit:]] (.+)"): it => {
-      [--3--]
-      let (sugar, point, ..rest) = it.text.split()
-      g-question(points:float(point))[#rest.join(" ")]
+  show regex("=(\d+\.?\d*)\?(.+)"): it => {
+    let (sugar, ..rest) = it.text.split("?")
+
+    if sugar.starts-with("=") {
+      let points = float(sugar.slice(1))
+      g-question(points: points)[#rest.join("?")]
     }
+    else {
+      [#it]
+    }
+  }
 
   show regex("==\?"): it => {
-    [--4--]
-      let (sugar) = it.text.split()
-      g-subquestion[]
+      let (sugar, ..rest) = it.text.split("?")
+
+      if sugar == "==" {        
+        g-subquestion[]
+      }
+      else {
+        [#it]
+      }
     }
 
-  show regex("==\? (.+)"): it => {
-    [--5--]
-      let (sugar, ..rest) = it.text.split()
-      g-subquestion[#rest.join(" ")]
+  show regex("==\?(.+)"): it => {
+      let (sugar, ..rest) = it.text.split("?")
+
+      if sugar == "==" {
+        g-subquestion[#rest.join("?").trim()]
+      }
+      else {
+        [#it]
+      }
     }
 
-  show regex("==\? [[:digit:]] (.+)"): it => {
-    [--6--]
-      let (sugar, point, ..rest) = it.text.split()
-      g-subquestion(points:float(point))[#rest.join(" ")]
+  show regex("==(\d+\.?\d*)\?(.+)"): it => {
+    let (sugar, ..rest) = it.text.split("?")
+
+    if sugar.starts-with("==") {
+      let points = float(sugar.slice(2))
+      g-subquestion(points: points)[#rest.join("?")]
+    }
+    else {
+      [#it]
+    }
+  }
+  
+  show regex("=\!"): it => {
+      let (sugar, ..rest) = it.text.split("!")
+
+      if(sugar == "=") {        
+        g-solution[]
+      }
+      else {
+        [#it]
+      }
     }
 
-  show regex("=! (.+)"): it => {
-    [--7--]
-      let (sugar, ..rest) = it.text.split()
-      g-solution[#rest.join(" ")]
+  show regex("=\!(.+)"): it => {
+      let (sugar, ..rest) = it.text.split("!")
+
+      if(sugar == "=") {
+        g-solution[#rest.join("!").trim()]
+      }
+      else {
+        [#it]
+      }
     }
 
-  show regex("=% (.+)"): it => {
-    [--8--]
-      let (sugar, ..rest) = it.text.split()
-      g-clarification[#rest.join(" ")]
+  show regex("=\%"): it => {
+      let (sugar, ..rest) = it.text.split("%")
+
+      if(sugar == "=") {        
+        g-clarification[]
+      }
+      else {
+        [#it]
+      }
+    }
+
+  show regex("=\%(.+)"): it => {
+      let (sugar, ..rest) = it.text.split("%")
+
+      if(sugar == "=") {
+        g-clarification[#rest.join("%").trim()]
+      }
+      else {
+        [#it]
+      }
     }
 
   content

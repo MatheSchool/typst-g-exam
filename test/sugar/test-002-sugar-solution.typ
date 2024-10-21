@@ -7,10 +7,14 @@
 
 = Header
 
-#g-question()[Question 1]
+=? Quiestion 1 ? What ?
 
-=? Question 1
+=% Clarification %
 
-=% Aclaration
+=! Solution.
 
-=! Solution 1
+=3? Queston a
+
+=32? Queston b?
+
+==321.43? Queston c?

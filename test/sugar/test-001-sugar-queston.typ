@@ -1,26 +1,25 @@
 #import "../../src/lib.typ": *
 
 #show: g-exam.with(
-  show-grade-table: false,
-  question-text-parameters: (size: 18pt, font:"OpenDyslexic")
+  // show-grade-table: false,
+  // show-solution: false
+  // question-text-parameters: (size: 18pt, font:"OpenDyslexic")
 )
 
-= [hola que tal]
+=?
 
-// #g-question()[Question 1]
+=2.5? Question 1 ? What ?
 
-// No Question 3
+==? 
 
-=? Hola que tal?
+==? Subquestion 1
 
-[ddes]
+=% Clarification %
 
-// =?Question 1 kjfakñjd
+=! Solution.
 
-// ekdjkadiekd
+=3? Queston a
 
-// =?
+==32? Question b?
 
-// =?[Question 3]
-
-// =? [Question 3]
+==321.43? Question c?
