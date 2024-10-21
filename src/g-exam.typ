@@ -179,6 +179,8 @@
 
   __g-show-solution.update(show-solution)
 
+  __g-decimal-separator.update(decimal-separator)
+
   set par(justify: true) 
 
   if clarifications != none {

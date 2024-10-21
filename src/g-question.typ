@@ -34,13 +34,14 @@
     }
 
     let __g-question-text-parameters = __g-question-text-parameters-state.final()
+    let __decimal-separator = __g-decimal-separator.final()
 
     if __g-question-points-position == left {
       v(0.1em)
       {
         __g-question-number.display(__g-question-numbering) 
         if(points != none) {
-          __g-paint-tab(points:points) 
+          __g-paint-tab(points:points, decimal-separator: __decimal-separator) 
           h(0.2em)
         }
       }
@@ -53,7 +54,7 @@
         place(right, 
             dx: 13%,
             float: false,
-            __g-paint-tab(points: points))
+            __g-paint-tab(points: points, decimal-separator: __decimal-separator))
       }
       __g-question-number.display(__g-question-numbering) 
       set text(..__g-question-text-parameters)
@@ -99,6 +100,7 @@
     }
     
     let __g-question-text-parameters = __g-question-text-parameters-state.final()
+    let __decimal-separator = __g-decimal-separator.final()
 
     set par(hanging-indent: 1em)
 
@@ -108,7 +110,7 @@
         h(0.7em) 
         __g-question-number.display(__g-question-numbering) 
         if(points != none) {
-          __g-paint-tab(points: points)
+          __g-paint-tab(points: points, decimal-separator: __decimal-separator)
           h(0.2em)
         }
       }
@@ -121,7 +123,7 @@
         place(right, 
             dx: 13%,
             float: false,
-            __g-paint-tab(points: points)) 
+            __g-paint-tab(points: points, decimal-separator: __decimal-separator)) 
       }
       {
         h(0.7em) 

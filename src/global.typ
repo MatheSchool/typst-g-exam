@@ -5,8 +5,10 @@
 #let __g-question-points-position-state = state("g-question-points-position", left)
 #let __g-question-text-parameters-state = state("question-text-parameters:", none)
 
-#let __g-localization = state("localization")
+#let __g-localization = state("g-localization")
 #let __g-show-solution = state("g-show-solution", false)
+
+#let __g-decimal-separator = state("g-decimal-separator", ".")
 
 #let __g-default-localization = (
     grade-table-queston: "Question",
@@ -37,13 +39,16 @@
   }
 }
 
-#let __g-paint-tab(points: none) = {
+#let __g-paint-tab(
+    points: none, 
+    decimal-separator: "."
+  ) = {
   if points != none {
     let label-point = context __g-localization.final().points
     if points == 1 {
       label-point = context __g-localization.final().point
     }
 
-    [(#emph[#strfmt("{0}", calc.round(points, digits: 2), fmt-decimal-separator: ",") #label-point])]
+    [(#emph[#strfmt("{0}", calc.round(points, digits: 2), fmt-decimal-separator: decimal-separator) #label-point])]
   }
 }

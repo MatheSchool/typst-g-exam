@@ -1,6 +1,7 @@
 #import "../../src/lib.typ": *
 
 #show: g-exam.with(
+  // decimal-separator: ","
   // show-grade-table: false,
   // show-solution: false
   // question-text-parameters: (size: 18pt, font:"OpenDyslexic")
