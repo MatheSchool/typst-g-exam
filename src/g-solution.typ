@@ -11,20 +11,31 @@
 ///
 ///
 /// - alternative-content (string, content): Alternate content when the question solution is not displayed.
+///  - show-solution: (true, false, "space", "spacex2", "spacex3"): Show the solutions.
 /// - body (string, content): Body of question solution
 #let g-solution(
     alternative-content: none,
+    show-solution:none,
     body) = {
-      assert(alternative-content == none or type(alternative-content) == "content",
-        message: "Invalid alternative-content value")
+      // [#type(alternative-content) \ ]
 
-    let show-solution = context __g-show-solution.final()
+      // assert(alternative-content == none or type(alternative-content) == "content",
+      //   message: "Invalid alternative-content value")
 
-    if show-solution == true {
-      body
-    }
-    else {
-      hide[#body]
-      // alternative-content
+    context {
+      let show-solution = __g-show-solution.final()
+
+      if show-solution == true {
+        body
+      }
+      else {
+        hide[#body]
+        [ \ ] 
+        hide[#body]
+        [ \ ] 
+        hide[#body]
+        [ \ ]
+        // alternative-content
+      }
     }
 }

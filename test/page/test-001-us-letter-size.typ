@@ -27,7 +27,7 @@
   show-student-data: "first-page",
   show-grade-table: false,
   question-points-position: right,
-  // show-solution: false,
+  show-solution: true,
   clarifications: "Answer the questions in the spaces provided. If you run out of room for an answer, continue on the back of the page."
 )
 

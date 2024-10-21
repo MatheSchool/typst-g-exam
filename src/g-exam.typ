@@ -31,7 +31,7 @@
 ///  - show-grade-table: (bool): Show the grade table.
 ///  - decimal-separator: (".", ","): Indicate the decimal separation character.
 ///  - question-points-position: (none, left, right): Position of question points.
-///  - show-solution: (true, false): Show the solutions.
+///  - show-solution: (true, false, "space", "spacex2", "spacex3"): Show the solutions.
 ///  - show-draft: (true, false): It shows a draft label in the background.
 #let g-exam(
   author: (
@@ -161,8 +161,6 @@
     }
   )  
 
-    // set text(font: "New Computer Modern")
-  
   __read-localization(language: language, localization: localization)
   __g-question-points-position-state.update(u => question-points-position)
   __g-question-text-parameters-state.update(question-text-parameters)

@@ -12,7 +12,7 @@
     ) = {
     
     let family-label = [
-       __g-localization.final().family-name: #box(width: 2fr, repeat[.])
+       #context __g-localization.final().family-name: #box(width: 2fr, repeat[.])
     ]
 
     let give-label = [
