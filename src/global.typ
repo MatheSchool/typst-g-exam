@@ -1,4 +1,4 @@
-#import "@preview/oxifmt:0.2.0": strfmt
+#import "@preview/oxifmt:0.2.1": strfmt
 
 #let __g-question-number = counter("g-question-number")
 #let __g-question-point = state("g-question-point", 0)

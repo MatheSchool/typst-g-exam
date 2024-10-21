@@ -185,14 +185,7 @@
     __g-show_clarifications(clarifications: clarifications)
   }
 
-  __sugar()  
-  
-  //  show regex("=\?"): it => {
-  //   [kkkkk]
-  //     let (sugar) = it.text.split()
-  //     g-question[]
-  //   }
-
+  show: __sugar
 
   body
   
