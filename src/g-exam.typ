@@ -68,7 +68,7 @@
     date: none,
     draft-label: none,
   ),
-  date: none,
+  date: auto,
   keywords: none,
   clarifications: none,
   question-text-parameters: none,
@@ -103,10 +103,11 @@
   assert(show-draft in (true, false),
       message: "Invalid show draft value")
 
-  // set document(
-  //   title: __document-name(exam-info: exam-info).trim(" "),
-  //   author: author.name
-  // )
+  set document(
+    title: __document-name(exam-info: exam-info).trim(" "),
+    author: author.name, 
+    date: date
+  )
 
   let margin-right = 2.5cm
   if (question-points-position == right) {
