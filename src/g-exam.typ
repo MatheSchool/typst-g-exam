@@ -23,7 +23,7 @@
 ///  - number (none, content, str): Number of exam.
 ///  - content (none, content, str): Content of exam.
 ///  - model (none, content, str): Model of exam.
-///  - date (sting): Date of generate document.
+///  - date (none, auto, datetime): Date of generate document.
 ///  - keywords (string): Keywords of document.
 ///  - language (en, es, de, fr, pt, it, nl): Language of document. English, Spanish, German, French, Portuguese and Italian are defined.
 ///  - clarifications (string, content, array): Clarifications of exam. It will appear in a box on the first page.
@@ -102,6 +102,10 @@
 
   assert(show-draft in (true, false),
       message: "Invalid show draft value")
+
+  assert(date == none or date == auto or type(date) == "datetime", 
+      message: "Date must be nono, auto or datetime."
+  )
 
   set document(
     title: __document-name(exam-info: exam-info).trim(" "),
