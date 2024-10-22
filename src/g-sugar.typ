@@ -39,7 +39,6 @@
 
   show regex("=(\d+\.?\d*)\?(.+)"): it => {
       let (sugar, ..rest) = it.text.split("?")
-
       if sugar.starts-with("=") {
         let points = float(sugar.slice(1))
         g-question(points: points)[#rest.join("?")]
@@ -52,7 +51,7 @@
   show regex("==\?"): it => {
       let (sugar, ..rest) = it.text.split("?")
 
-      if sugar == "==" {        
+      if sugar == "==" {       
         g-subquestion[]
       }
       else {
