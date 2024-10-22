@@ -21,13 +21,13 @@
   
   language: "en",
   decimal-separator: ",",
-  date: "November 21, 2023",
+  // date: "November 21, 2023",
   // show-student-data: "first-page",
   show-student-data: "odd-pages",
   // show-student-data: none,
   show-grade-table: true,
   question-points-position: right,
-  question-text-parameters: (size: 20pt, font:"OpenDyslexic"),
+  question-text-parameters: (size: 22pt, font:"OpenDyslexic"),
   clarifications: (
     [This test must be performed with a blue or black non-erasable pen.],
     [Cheating, talking, getting up from the chair or disturbing the rest of the class can be reasons for withdrawal from the test, which will be valued with a zero.],
@@ -53,7 +53,7 @@
 
 #g-question(points: 2)[Calculate the following operations and simplify if possible:]
 
-  #g-subquestion[$display(4/11+5/11-2/11=)$]
+  ==? $display(4/11+5/11-2/11=)$
   #v(1fr)
 
   #g-subquestion[$display(3+2/5=)$]
@@ -68,10 +68,11 @@
 #pagebreak()
 
 =2? Calculate the following operations and simplify if possible:
-  ==? [$display(3/5 - (1-7/10) = )$]
+
+  ==? $display(3/5 - (1-7/10) = )$
   #v(1fr)
 
-  ==? [$display((3-5/3) dot (2-7/5) =)$]
+  ==? $display((3-5/3) dot (2-7/5) =)$
   #v(1fr)
 
 #pagebreak()
@@ -82,15 +83,17 @@
       #v(1fr)
 ]    
 
-#g-question(points: 2)[In a garden we have 20 red, 10 white and 15 yellow rose bushes.
+#g-question(points: 2)[In a garden we have 20 red, 10 white and 15 yellow rose bushes.]
+
   #g-subquestion[What fraction does each color represent?]
   #v(1fr)
 
   #g-subquestion[If we have pruned red rose bushes, what fraction do we have left to prune?]
   #v(1fr)
-]
+
 
 =2? #lorem(30)
+
   ==? #lorem(35)
   // #v(1fr)
 
