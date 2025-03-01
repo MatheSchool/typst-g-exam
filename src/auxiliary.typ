@@ -357,7 +357,7 @@
             columns: (auto, 1fr, auto),
             gutter:0.3em,
             align(left  + top)[
-              #if type(school) == "dictionary" [
+              #if type(school) == dictionary [
                 #school.at("name", default : none) \
               ]
               #exam-info.at("academic-period", default: none)  \ 
@@ -384,7 +384,7 @@
             columns: (auto, 1fr, auto),
             gutter:0.3em,
             align(left  + top)[
-              #if type(school) == "dictionary" [
+              #if type(school) == dictionary [
                 #school.at("name", default : none) \
               ] 
               #exam-info.at("academic-period", default: none)  \ 

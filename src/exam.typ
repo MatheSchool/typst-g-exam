@@ -112,7 +112,7 @@
   assert(show-solution in (true, false),
       message: "Invalid show solution value")
 
-  assert(draft in (true, false, none) or type(draft) in (string, content),
+  assert(draft in (true, false, none) or type(draft) in (str, content),
       message: "Invalid show draft value")
 
   assert(date == none or date == auto or type(date) == datetime, 
