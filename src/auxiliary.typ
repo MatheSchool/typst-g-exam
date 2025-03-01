@@ -28,8 +28,8 @@
     #context __g-localization.final().date: #box(width:4cm, repeat[.])
   ]
   
-  if type(show-student-data) != "dictionary" {
-    if type(show-student-data) == "array" and page != "first" {
+  if type(show-student-data) != dictionary {
+    if type(show-student-data) == array and page != "first" {
       return
     }
 
@@ -158,13 +158,13 @@
 #let __g-show_clarifications = (clarifications: none) => {
   if clarifications != none {
     let clarifications-content = []
-    if type(clarifications) == "content" {
+    if type(clarifications) == content {
       clarifications-content = clarifications
     }
-    else if type(clarifications) == "string" {
+    else if type(clarifications) == str {
       clarifications-content = clarifications
     } 
-    else if type(clarifications) == "array" {
+    else if type(clarifications) == array {
       clarifications-content = [
         #for clarification in clarifications [
           - #clarification
@@ -202,7 +202,7 @@
     if exam-info.at("number", default: none) != none { document-name += " " + exam-info.number }
     if exam-info.at("model", default: none) != none { document-name += " " + exam-info.model }
 
-    if type(document-name) == "string"{
+    if type(document-name) == str{
       document-name = document-name.trim(" ")
     }
     
@@ -306,17 +306,17 @@
             columns: (auto, auto),
             gutter:0.7em,        
             align(left + top)[
-              #if type(school) == "dictionary" {
+              #if type(school) == dictionary {
                 if(school.at("logo", default : none) != none) {
                   set image(height:2.5cm, width: 2.7cm, fit:"contain")
-                  if(type(school.logo) == "content") {
+                  if(type(school.logo) == content) {
                     school.logo
                   }
-                  else if(type(school.logo) == "bytes") {
-                    image.decode(school.logo, height:2.5cm, fit:"contain")
+                  else if(type(school.logo) == bytes) {
+                    image(school.logo, height:2.5cm, fit:"contain")
                   }
                   else {
-                    assert(type(school.logo) in (none, "content", "bytes") , message: "school.logo be of type content or bytes.")
+                    assert(type(school.logo) in (none, content, bytes) , message: "school.logo be of type content or bytes.")
                   }
                 }
               }
@@ -327,7 +327,7 @@
                 grid(
                   columns: (auto, 1fr, auto),
                   align(left  + top)[
-                    #if type(school) == "dictionary" [
+                    #if type(school) == dictionary [
                       #school.at("name", default : none) \
                     ]
                     #exam-info.at("academic-period", default:none) \
@@ -461,11 +461,11 @@
 
       let draft-text = none
 
-      if type(draft) == "string"{
+      if type(draft) == str{
         draft-text = draft
       }
 
-      if type(draft) == "content"{
+      if type(draft) == content{
         draft-text = draft
       }
 
