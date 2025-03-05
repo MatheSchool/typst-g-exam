@@ -125,8 +125,7 @@
     date: date
   )
 
-  let margin-top = 4cm + 0.9cm * show-student-number
-  // let margin-top = 5cm
+  let margin-top = 4cm + 1cm * show-student-number
   let margin-right = 2.5cm
   if (question-points-position == right) {
     margin-right = 3cm

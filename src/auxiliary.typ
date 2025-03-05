@@ -461,23 +461,13 @@
 
     let draft-text = none
 
-<<<<<<< HEAD
-    if type(draft) == "string"{
+    if type(draft) == str{
       draft-text = draft
     }
 
-    if type(draft) == "content"{
+    if type(draft) == content{
       draft-text = draft
     }
-=======
-      if type(draft) == str{
-        draft-text = draft
-      }
-
-      if type(draft) == content{
-        draft-text = draft
-      }
->>>>>>> 5a5681dd900c5b9f5d0c24bee13010e27254c1b4
 
     if  draft-text == none {
       draft-text = context __g-localization.final().draft-label
