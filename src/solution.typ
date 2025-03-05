@@ -18,7 +18,7 @@
     body) = {
       // [#type(alternative-content) \ ]
 
-      // assert(alternative-content == none or type(alternative-content) == "content",
+      // assert(alternative-content == none or type(alternative-content) == content,
       //   message: "Invalid alternative-content value")
 
     context {

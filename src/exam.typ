@@ -98,7 +98,7 @@
   draft: false,
   body,
 ) = {
-  if type(show-student-data) != "dictionary" and type(show-student-data) != "array" {
+  if type(show-student-data) != dictionary and type(show-student-data) != array {
     assert(show-student-data in (none, true, false, "first-page", "all-pages", "odd-pages"),
     message: "Invalid show studen data")
   }
@@ -112,10 +112,10 @@
   assert(show-solution in (true, false),
       message: "Invalid show solution value")
 
-  assert(draft in (true, false, none) or type(draft) in ("string", "content"),
+  assert(draft in (true, false, none) or type(draft) in (str, content),
       message: "Invalid show draft value")
 
-  assert(date == none or date == auto or type(date) == "datetime", 
+  assert(date == none or date == auto or type(date) == datetime, 
       message: "Date must be nono, auto or datetime."
   )
 
@@ -164,7 +164,7 @@
         ]
       // grid(
       //   columns: (1fr, 1fr, 1fr),
-      //   if type(school) == "dictionary" {
+      //   if type(school) == dictionary {
       //     align(left, school.at("name", default : none))
       //   },
       //   align(center)[#exam-info.academic-period],
