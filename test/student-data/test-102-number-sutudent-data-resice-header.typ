@@ -5,7 +5,7 @@
   (
     group: "odd-pages",
   ),
-  show-student-number: 4,
+  show-student-number: 9,
   show-grade-table: false,
 )
 

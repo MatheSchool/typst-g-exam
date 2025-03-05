@@ -125,13 +125,15 @@
     date: date
   )
 
+  let margin-top = 4cm + 0.9cm * show-student-number
+  // let margin-top = 5cm
   let margin-right = 2.5cm
   if (question-points-position == right) {
     margin-right = 3cm
   }
 
   set page(
-    margin: (top: 5cm, right:margin-right),
+    margin: (top: margin-top, right:margin-right),
     numbering: "1 / 1",
     number-align: right,
     header-ascent: 20%,
