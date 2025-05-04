@@ -28,6 +28,21 @@ group = "Grupo"
 date = "Fecha"
 draft-label = "Borrador"
 
+[ca]
+grade-table-queston = "Pregunta"
+grade-table-total = "Total"
+grade-table-points = "Punts"
+grade-table-grade = "Qualificació"
+point = "punt"
+points = "punts"
+page = "Pàgina"
+page-counter-display = "1 de 1"
+family-name = "Cognoms"
+given-name = "Nom"
+group = "Grup"
+date = "Data"
+draft-label = "Esborrany"
+
 [de]
 grade-table-queston = "Frage"
 grade-table-total = "Gesamt"
