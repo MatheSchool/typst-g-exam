@@ -410,7 +410,7 @@
     }
 
 #let __show-watermark = (
-  author: (
+    author: (
       name: "",
       email: none,
       watermark: none
@@ -455,36 +455,36 @@
 #let __show-draft = (
     draft: true
   ) => {
-      if draft == false or draft == none {
-        return
-      }
+    if draft == false or draft == none {
+      return
+    }
 
-      let draft-text = none
+    let draft-text = none
 
-      if type(draft) == str{
-        draft-text = draft
-      }
+    if type(draft) == str{
+      draft-text = draft
+    }
 
-      if type(draft) == content{
-        draft-text = draft
-      }
+    if type(draft) == content{
+      draft-text = draft
+    }
 
-      if  draft-text == none {
-        draft-text = context __g-localization.final().draft-label
-      }
+    if  draft-text == none {
+      draft-text = context __g-localization.final().draft-label
+    }
 
-      if draft-text != none {
-          place(
-            center,
-            clearance: 0pt,
-            dx: -50pt,
-            dy: 330pt,
-            rotate(-45deg,
-              origin: top + right,
-              text(size:70pt, fill:silver)[
-                #draft-text
-              ]
-            )
-          )
-        }
+    if draft-text != none {
+      place(
+        center,
+        clearance: 0pt,
+        dx: -50pt,
+        dy: 330pt,
+        rotate(-45deg,
+          origin: top + right,
+          text(size:70pt, fill:silver)[
+            #draft-text
+          ]
+        )
+      )
+    }
   }
