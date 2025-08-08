@@ -59,6 +59,12 @@ To use this package, simply add the following code to your document:
 
 ## Changelog
 
+### v0.4.3
+- Use Typst 0.13.1
+- Include cat language.
+- Model admit content type.
+- Fix margin top.
+
 ### v0.4.2
 - Fix lang tag.
 
