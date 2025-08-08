@@ -1,6 +1,6 @@
 #import "../src/lib.typ": *
-#import "@preview/cetz:0.3.1"
-#import "@preview/cetz-plot:0.1.0"
+#import "@preview/cetz:0.4.1"
+#import "@preview/cetz-plot:0.1.2"
 
 #show: exam.with()
 
