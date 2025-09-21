@@ -1,4 +1,5 @@
 #import "@preview/oxifmt:1.0.0": strfmt
+// #import "@preview/valkyrie:0.2.2" as z
 #import "./global.typ" : *
 #import "./auxiliary.typ": *
 #import "question.typ": *
@@ -103,6 +104,31 @@
     message: "Invalid show studen data")
   }
 
+  // let schema = z.any()
+
+  // let input-types = (
+  //   author = (
+  //     // name: z.content(optional: true),
+  //     name: z.string(),
+  //     email: z.email(optional: true),
+  //     watermark: z.content(optional: true)
+  //   ),
+  //   // school= (
+  //   //   name: z.string(),
+  //   //   logo: none,
+  //   // ),
+  // // exam-info: (
+  // //   academic-period: none,
+  // //   academic-level: none,
+  // //   academic-subject: none,
+  // //   number: none,
+  // //   content: none,
+  // //   model: none
+  // // ),
+  // )
+
+  // z.parse(input-types, z.any(optional: true))
+
   assert(question-points-position in (none, left, right),
       message: "Invalid question point position")
 
@@ -131,55 +157,57 @@
     margin-right = 3cm
   }
 
-  set page(
-    margin: (top: margin-top, right:margin-right),
-    numbering: "1 / 1",
-    number-align: right,
-    header-ascent: 20%,
+  // show: show-target(paged: doc => {
+    set page(
+      margin: (top: margin-top, right:margin-right),
+      numbering: "1 / 1",
+      number-align: right,
+      header-ascent: 20%,
 
-    header: {
-      context{
-        let __page-number = counter(page).at(here()).first()
+      header: {
+        context{
+          let __page-number = counter(page).at(here()).first()
 
-        __show-header(
-          page-number: __page-number,
-          school: school, 
-          exam-info: exam-info, 
-          show-student-data: show-student-data, 
-          show-student-number: show-student-number)
+          __show-header(
+            page-number: __page-number,
+            school: school, 
+            exam-info: exam-info, 
+            show-student-data: show-student-data, 
+            show-student-number: show-student-number)
+        }
+      },
+
+      background: {
+        __show-draft(draft: draft)
+      },
+
+      footer: {
+        context {
+          line(length: 100%, stroke: 1pt + gray)       
+          align(right)[
+            #counter(page).display(__g-localization.final().page-counter-display, both: true,
+            )
+          ]
+        // grid(
+        //   columns: (1fr, 1fr, 1fr),
+        //   if type(school) == dictionary {
+        //     align(left, school.at("name", default : none))
+        //   },
+        //   align(center)[#exam-info.academic-period],
+        //   align(right)[
+        //     Página 
+        //     #counter(page).display({
+        //       "1 de 1"},
+        //       both: true,
+        //     )
+        //   ]
+        // )
+
+        __show-watermark(author: author, school: school, exam-info: exam-info, question-points-position:question-points-position)
+        }
       }
-    },
-
-    background: {
-      __show-draft(draft: draft)
-    },
-
-    footer: {
-      context {
-        line(length: 100%, stroke: 1pt + gray)       
-        align(right)[
-          #counter(page).display(__g-localization.final().page-counter-display, both: true,
-          )
-        ]
-      // grid(
-      //   columns: (1fr, 1fr, 1fr),
-      //   if type(school) == dictionary {
-      //     align(left, school.at("name", default : none))
-      //   },
-      //   align(center)[#exam-info.academic-period],
-      //   align(right)[
-      //     Página 
-      //     #counter(page).display({
-      //       "1 de 1"},
-      //       both: true,
-      //     )
-      //   ]
-      // )
-
-      __show-watermark(author: author, school: school, exam-info: exam-info, question-points-position:question-points-position)
-      }
-    }
-  )  
+    )  
+  // })
 
   __read-localization(language: language, localization: localization)
   __g-question-points-position-state.update(u => question-points-position)
