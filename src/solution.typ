@@ -25,7 +25,9 @@
       let show-solution = __g-show-solution.final()
 
       if show-solution == true {
+        v(3pt)
         body
+        v(7pt)
       }
       else {
         hide[#body]

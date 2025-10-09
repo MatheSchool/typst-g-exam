@@ -3,7 +3,7 @@
 #show: exam.with(
   show-grade-table: false,
   show-student-data: true,
-  show-solution: true
+  show-solution: false
 )
 
 #question[Question 1]
