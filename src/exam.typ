@@ -135,7 +135,7 @@
   assert(decimal-separator in (".", ","),
       message: "Invalid decimal separator")
 
-  assert(show-solution in (true, false),
+  assert(show-solution in (true, false, "space", "spacex2", "spacex3"),
       message: "Invalid show solution value")
 
   assert(draft in (true, false, none) or type(draft) in (str, content),
@@ -208,6 +208,20 @@
       }
     )  
   // })
+
+  show math.equation.where(block: false) : it => {
+    if show-solution != false {
+      set text(
+        top-edge: "bounds",
+        bottom-edge: "bounds"
+      )
+      it
+    }
+    else {
+      // align(left)[#it]
+      it
+    }
+  }
 
   __read-localization(language: language, localization: localization)
   __g-question-points-position-state.update(u => question-points-position)

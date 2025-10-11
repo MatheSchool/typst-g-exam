@@ -9,11 +9,13 @@
 ///
 /// - points (none, float): Points of the question.
 /// - points-position (none, left, right): Position of points. If none,  use the position defined in G-Exam. 
+/// - solution (none, content): Solution of the question.
 /// - body (string, content): Body of question.
 /// -> content
 #let question(
     points: none,
     points-position: none,
+    solution: none,
     body) = {
 
   assert(points-position in (none, left, right),
@@ -37,6 +39,8 @@
     let __g-question-text-parameters = __g-question-text-parameters-state.final()
     let __decimal-separator = __g-decimal-separator.final()
 
+    let __show-solution = __g-show-solution.final()
+
     if __g-question-points-position == left {
       v(0.1em)
       {
@@ -48,6 +52,9 @@
       }
       set text(..__g-question-text-parameters)
       body 
+      if __show-solution == true {
+        text(fill:rgb("#0038A7"))[#solution]
+      }
     }
     else if __g-question-points-position == right {
       v(0.1em)
@@ -60,12 +67,19 @@
       __g-question-number.display(__g-question-numbering) 
       set text(..__g-question-text-parameters)
       body 
+      if __show-solution == true {
+        text(fill:rgb("#0038A7"))[#solution]
+      }
+
     }
     else {
       v(0.1em) 
       __g-question-number.display(__g-question-numbering)
       set text(..__g-question-text-parameters)
       body 
+      if __show-solution == true {
+        text(fill:rgb("#0038A7"))[#solution]
+      }
     }
   }
 }
@@ -79,11 +93,13 @@
 ///
 /// - points (none, float): Points of the sub-question.
 /// - points-position (none, left, right): Position of points. If none,  use the position defined in G-Exam. 
+/// - solution (none, content): Solution of the sub-question.
 /// - body (string, content): Body of sub-question.
 /// -> content
 #let subquestion(
     points: none, 
     points-position: none, 
+    solution: none,
     body) = {
 
   assert(points-position in (none, left, right),
@@ -104,6 +120,8 @@
     let __g-question-text-parameters = __g-question-text-parameters-state.final()
     let __decimal-separator = __g-decimal-separator.final()
 
+    let __show-solution = __g-show-solution.final()
+
     set par(hanging-indent: 0.7em) //if body.has("text")
     
     if __g-question-points-position == left {
@@ -117,7 +135,10 @@
         }
       }
       set text(..__g-question-text-parameters)
-      body
+      [#body]
+      if __show-solution == true {
+        text(fill:rgb("#0038A7"))[#solution]
+      }
     }
     else if __g-question-points-position == right {
       v(0.1em)
@@ -133,6 +154,9 @@
       }
       set text(..__g-question-text-parameters)
       body
+      if __show-solution == true {
+        text(fill:rgb("#0038A7"))[#solution]
+      }
     }
     else {
       v(0.1em)
@@ -142,6 +166,9 @@
       }
       set text(..__g-question-text-parameters)
       body
+      if __show-solution == true {
+        text(fill:rgb("#0038A7"))[#solution]
+      }
     }
   }
 }

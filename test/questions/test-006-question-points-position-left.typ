@@ -1,7 +1,7 @@
 #import "../../src/lib.typ": *
 
 #show: exam.with(
-  question-points-position: left,
+  question-points-position: left
 )
 
 #question(points: 1)[Question 1]
