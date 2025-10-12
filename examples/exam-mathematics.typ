@@ -34,52 +34,52 @@
   )
 )
 
-#g-question(points: 2)[Calculate the following operations and simplify if possible:
-  #g-subquestion[$display(5/12 dot 9/15=)$]
+#question(points: 2)[Calculate the following operations and simplify if possible:
+  #subquestion[$display(5/12 dot 9/15=)$]
   #v(1fr)
 
-  #g-subquestion[$display(10 dot 9/15=)$]
+  #subquestion[$display(10 dot 9/15=)$]
   #v(1fr)
 
-  #g-subquestion[$display(5/12 : 4/15=)$]
+  #subquestion[$display(5/12 : 4/15=)$]
   #v(1fr)
 
-  #g-subquestion[$display(2 : 5/3 =)$]
-  #v(1fr)
-]
-#pagebreak()
-
-#g-question(points: 2)[Calculate the following operations and simplify if possible:
-  #g-subquestion[$display(4/11+5/11-2/11=)$]
-  #v(1fr)
-
-  #g-subquestion[$display(3+2/5=)$]
-  #v(1fr)
-
-  #g-subquestion[$display(7/12+2/9=)$]
-  #v(1fr)
-
-  #g-subquestion[$display(1-9/13=)$]
+  #subquestion[$display(2 : 5/3 =)$]
   #v(1fr)
 ]
 #pagebreak()
 
-#g-question(points: 2)[Calculate the following operations and simplify if possible:
-  #g-subquestion[$display(3/5 - (1-7/10) = )$]
+#question(points: 2)[Calculate the following operations and simplify if possible:
+  #subquestion[$display(4/11+5/11-2/11=)$]
   #v(1fr)
 
-  #g-subquestion[$display((3-5/3) dot (2-7/5) =)$]
+  #subquestion[$display(3+2/5=)$]
+  #v(1fr)
+
+  #subquestion[$display(7/12+2/9=)$]
+  #v(1fr)
+
+  #subquestion[$display(1-9/13=)$]
   #v(1fr)
 ]
 #pagebreak()
 
-#g-question(points: 2)[Sort the following fractions from highest to lowest:
+#question(points: 2)[Calculate the following operations and simplify if possible:
+  #subquestion[$display(3/5 - (1-7/10) = )$]
+  #v(1fr)
+
+  #subquestion[$display((3-5/3) dot (2-7/5) =)$]
+  #v(1fr)
+]
+#pagebreak()
+
+#question(points: 2)[Sort the following fractions from highest to lowest:
       \ \
       #align(center, [$ 2/3 ; 3/8 ; 4/6 ; 1/2 $])
       #v(1fr)
 ]    
 
-#g-question(points: 2)[In a garden we have 20 red, 10 white and 15 yellow rose bushes.
+#question(points: 2)[In a garden we have 20 red, 10 white and 15 yellow rose bushes.
   #g-subquestion[What fraction does each color represent?]
   #v(1fr)
 
@@ -87,10 +87,10 @@
   #v(1fr)
 ]
 
-#g-question(points: 2)[#lorem(30)
-  #g-subquestion[#lorem(35)]
+#question(points: 2)[#lorem(30)
+  #subquestion[#lorem(35)]
   // #v(1fr)
 
-  #g-subquestion(points: 1)[#lorem(130)]
+  #subquestion(points: 1)[#lorem(130)]
   // #v(1fr)
 ]
