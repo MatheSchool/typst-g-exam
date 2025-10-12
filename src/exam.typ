@@ -7,6 +7,7 @@
 #import "solution.typ": *
 #import "clarification.typ": *
 #import "sugar.typ": *
+#import "question-columns.typ": *
 
 /// Template for creating an exam.
 ///
