@@ -469,7 +469,7 @@ Calcula:
 
 
 #question()[Determina los siguientes límites de funciones distinguiendo.]
-#columns(2, [
+#questions-columns([
   
   #subquestion(
     solution: [$display(=)$]
@@ -478,8 +478,6 @@ Calcula:
   #subquestion(
     solution: [$display(=)$]
   )[$display(limits("lím")_(x->7) ((x^2-7x+4)/(x-3))^((x+1)/(x-7)))$]
-  
-  #colbreak()
   
   #subquestion(
     solution: [$display(=)$]
@@ -491,3 +489,23 @@ Calcula:
 
 ])
 
+#question()[Determina los siguientes límites de funciones distinguiendo.]
+#columns(2, [
+  
+  #subquestion(
+    solution: [$display(=)$]
+  )[$display(limits("lím")_(x->-1) ((3-2x)/(x^2+1))^(x/(x+3)))$]
+  
+  #subquestion(
+    solution: [$display(=)$]
+  )[$display(limits("lím")_(x->7) ((x^2-7x+4)/(x-3))^((x+1)/(x-7)))$]
+  
+  #subquestion(
+    solution: [$display(=)$]
+  )[$display(limits("lím")_(x->0) ((x^2+1)/(2x+1))^(1/x))$]
+  
+  #subquestion(
+    solution: [$display(=)$]
+  )[$display(limits("lím")_(x->0) ((2x^2-x-1)/(7-x))^(1/(x-2)))$]
+
+])
