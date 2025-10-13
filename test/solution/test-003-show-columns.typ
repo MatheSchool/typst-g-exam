@@ -8,7 +8,7 @@
 
 #question[Question 1]
 
-#question-columns(
+#questions-columns(
 [
   #subquestion[Question 1.1]
   #solution(alternative-content: "Not solution of question 2")[Solution 1]
@@ -19,7 +19,7 @@
 
 #question[Limits]
 
-#question-columns(
+#questions-columns(
 [
   #subquestion(
     solution: [$display(=(3infinity^2+5infinity-3)/4=\+infinity)$],
@@ -38,7 +38,7 @@
 
 #question[Limits]
 
-#question-columns(
+#questions-columns(
 [
   #align(start)[
     #subquestion()[$display(limits("lim")_(x->+infinity) (3x^2+5x-3)/4)$]
@@ -56,7 +56,7 @@
 
 #question[Question 2]
 
-#question-columns()[
+#questions-columns()[
   #subquestion()[$display(2p(x) + q(x))$]
   #solution([Solution of $display(2p(x) + q(x))$])
   #subquestion()[$display(x^2-2)$]
@@ -67,7 +67,7 @@
 
 #question[Question 3]
 
-#question-columns()[
+#questions-columns()[
 #subquestion[Question 3.1]
 #solution(alternative-content: [Alternative])[Solution 3.1]
 
