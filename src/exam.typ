@@ -8,6 +8,7 @@
 #import "clarification.typ": *
 #import "sugar.typ": *
 #import "question-columns.typ": *
+#import "decorator.typ": *
 
 /// Template for creating an exam.
 ///
