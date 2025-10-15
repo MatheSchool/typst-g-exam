@@ -1,137 +1,115 @@
 #import"./global.typ": *
 
-#let __find_items(items) = {
-  let groups = ()
-  let group = ()
-  let content-result
-  let first-item = true
+// #let __find_items(items) = {
+//   let groups = ()
+//   let group = ()
+//   let content-result
+//   let first-item = true
 
-  for item in items.children {   
-    if type(item) == content {
-      for item2 in item.fields() {
-        for item3 in item2 {
-          if type(item3) == array {
-            for item4 in item3 {
-              for item5 in item4.fields() {
-                if item5.at(1) == "g-question-number" {
-                  // if  first-item {
-                  //   first-item = false
-                  // } 
-                  // else {
-                     groups.push(group)
-                     group = ()
-                  // }
-                }
-              }
-            }
-          }
-        }
-      } 
+//   for item in items.children {   
+//     if type(item) == content {
+//       for item2 in item.fields() {
+//         for item3 in item2 {
+//           if type(item3) == array {
+//             for item4 in item3 {
+//               for item5 in item4.fields() {
+//                 if item5.at(1) == "g-question-number" {
+//                   // if  first-item {
+//                   //   first-item = false
+//                   // } 
+//                   // else {
+//                      groups.push(group)
+//                      group = ()
+//                   // }
+//                 }
+//               }
+//             }
+//           }
+//         }
+//       } 
     
-      group.push(item)}
-  }
+//       group.push(item)}
+//   }
 
-  groups.push(group)
-  return  groups
-}
+//   groups.push(group)
+//   return  groups
+// }
 
-#let __make_item(group-item) = {
-  for item in group-item{
-    [#item]
-  }
-}
+// #let __make_item(group-item) = {
+//   for item in group-item{
+//     [#item]
+//   }
+// }
 
-#let __make_body(groups) = {
-  let number-group = 0
-  for group in groups {
-    for item in group {
-      [#item.at(0).at(0)]
-    }
-    number-group = number-group + 1
-    if number-group < groups.len() {
-      colbreak()
-    }
-  }
-}
+// #let __make_body(groups) = {
+//   let number-group = 0
+//   for group in groups {
+//     for item in group {
+//       [#item.at(0).at(0)]
+//     }
+//     number-group = number-group + 1
+//     if number-group < groups.len() {
+//       colbreak()
+//     }
+//   }
+// }
 
-#let __make_groups(size-items, number-columns) = {
-  let number-item = size-items.len()
-  let item-by-group = calc.ceil(number-item / number-columns)
+// #let __make_groups(size-items, number-columns) = {
+//   let number-item = size-items.len()
+//   let item-by-group = calc.ceil(number-item / number-columns)
 
-  let groups = ()
+//   let groups = ()
 
-  let total-size = measure(__make_item(size-items))
-  let block-height = total-size.height / number-columns
+//   let total-size = measure(__make_item(size-items))
+//   let block-height = total-size.height / number-columns
 
-  let i = 1
-  let j = 1
+//   let i = 1
+//   let j = 1
 
-  while i < number-item {
-    let group = ()
-    let group-size-height = 0pt
-    while group-size-height <= block-height and j <= number-item {
-      group = size-items.slice(i, j)
-      let group-make = __make_item(group)
-      group-size-height = measure(group-make).height
-      j = j + 1 
-    }
-    i = j - 1
-    groups.push(group)
-  }
+//   while i < number-item {
+//     let group = ()
+//     let group-size-height = 0pt
+//     while group-size-height <= block-height and j <= number-item {
+//       group = size-items.slice(i, j)
+//       let group-make = __make_item(group)
+//       group-size-height = measure(group-make).height
+//       j = j + 1 
+//     }
+//     i = j - 1
+//     groups.push(group)
+//   }
 
-  return groups
-}
+//   return groups
+// }
 
 #let __g-questions-pages(
   items,
 ) = {
       context {
         layout(layout-size => {
-        // [layout-size: #layout-size \ ]
-        // let absolute-height = layout-size.height.to-absolute()        
-
-        // let height-accumulated = 0pt        
-        let item = items.at(0)
-        [#item]
+        let item = [#items.at(0) \ ]
+        item
 
         let size-items = measure(item)
-        // [size-items: #size-items \ ]
         let height-accumulated = size-items.height
 
         let i = 1
         while i < items.len() {           
           while height-accumulated > layout-size.height {
-            // [ajueste: #height-accumulated  -> ]
             height-accumulated = height-accumulated - layout-size.height
-            // [#height-accumulated \ ]
           }
 
-          let next-item = items.at(i)
+          let next-item = [#items.at(i) \ ]
           let hidden-next-item = measure(next-item)
           let size-items = measure(next-item)
 
           height-accumulated = height-accumulated + size-items.height
-          // while height-accumulated > layout-size.height {
-          //   [ajueste: #height-accumulated  -> ]
-          //   height-accumulated = height-accumulated - layout-size.height
-          //   [#height-accumulated \ ]
-          // }
-
-          // if i == 5 {    
-          //   [layout-size: #layout-size \ ]
-          //   [size-items: #i #size-items \ ]
-          //   [height-accumulated: #i #height-accumulated \ ]
-          //   [#(height-accumulated - layout-size.height).to-absolute() \ ]
-          //   [#(height-accumulated > layout-size.height) \ ]
-          // }
           if height-accumulated > layout-size.height { 
-            
             height-accumulated = size-items.height
-            // [ ------------------ pagebreack ---------------------- #size-items.height  ----------------------- \ ]
             colbreak()
           }
           item = next-item
-          [#item] 
+          item
           i = i + 1
         }
       })
@@ -149,6 +127,9 @@
     else if type(items) == str {
       items
     } 
+    else if items.len() == 1 {
+      items.at(0)
+    }
     else if type(items) == array {
       __g-questions-pages(items)
     }
@@ -157,30 +138,99 @@
     }
   }
 
+#let __g-columns-width(
+    layout-size,
+    items
+  ) = {
+  let items-size-width = 0pt
+  // for item in items {
+  //   let items-size = measure(item)
+  //   items-size-width = calc.max(items-size-width, items-size.width)
+  // }
+
+  // let number-column = layout-size.width / items-size-width
+  let layout-size-width = 629.29pt
+  // let number-column = calc.rem(layout-size.width, items-size-width)
+  let items-size-width = 15pt
+  let number-column = calc.trunc(layout-size-width, items-size-width)
+
+  let number-column-int = int(number-column)
+
+  return number-column-int
+}  
+
+// #let __g-columns-width(
+//     layout-size,
+//     items
+//   ) = {
+//   let items-size-width = 0pt
+//   for item in items {
+//     // let items-size = measure(item)
+//     // items-size-width = calc.max(items-size-width, items-size.width)
+
+//   }
+// }
+
 #let __g-questions-columns(
   max-columns: 10000,
   gutter: 4% + 0pt,
   items,
   ) = {
     context {
-        layout(layout-size => {
-          // [#layout-size]
-        
+      // [#type(items)]
 
-        // let with-acumulado = 0pt
+     
+        // [items-size: #items-size]
         
-        // let with-page
+      layout(layout-size => {
+        // [layout-size: #layout-size \ ]
 
-        for item in items {
-          let size-items = measure(item)
-          // [#size-items]
-          item
-              // [ \ \  ]
-            }
-        }
-      )
-    }
+        // let items-size = items.map(item => {
+        //       measure(item).width
+        //     })
+
+       let number-column = __g-columns-width(layout-size, items)
+       [number-column: #number-column \ ]
+      //  number-column = calc.
+        let number-column = 3
+        let number-column = calc.min(max-columns, calc.max(1, number-column))
+        [number-column: #number-column \ ]
+        columns(number-column, {
+        
+        // let content-size = measure(items)
+        
+        // 
+
+        // let item = items.at(0)
+        // [#item]
+
+        // let size-items = measure(item)
+        // let height-accumulated = size-items.height 
+
+        // let i = 1
+        // while i < items.len() {           
+        //   while height-accumulated > layout-size.height {
+        //     height-accumulated = height-accumulated - layout-size.height
+        //   }
+
+        //   let next-item = items.at(i)
+        //   let hidden-next-item = measure(next-item)
+        //   let size-items = measure(next-item)
+
+        //   height-accumulated = height-accumulated + size-items.height
+        //   if height-accumulated > layout-size.height { 
+        //     height-accumulated = size-items.height
+        //     [-----------------------------------------]
+        //     colbreak()
+        //   }
+        //   item = next-item
+        //   item
+        //   i = i + 1
+        // }
+      })
+    })
   }
+}
 
 /// Automatic adjustment of question and subquestion lists.
 /// 
@@ -201,14 +251,17 @@
   gutter: 4% + 0pt,
   ..body,
   ) = {
-        let items = body.pos()
+    let items = body.pos()
       
     if type(items) == content {
       items
     }
     else if type(items) == str {
       items
-    } 
+    }
+    else if items.len() == 1 {
+      items.at(0)
+    }
     else if type(items) == array {
       __g-questions-columns(items)
     }
@@ -216,104 +269,4 @@
       panic("Not implementation questions-pages of type: '" + type(items) + "'")
     }
   }
-  // context {
-  //   let show-solution = __g-show-solution.final()
 
-  //   let content-size = measure(body)
-  //   layout(layout-size => {
-  //     let number-question = body.children.filter(item => {
-  //       return true
-  //     })
-  //     let number-column = calc.min(max-columns, calc.max(1, calc.trunc(layout-size.width / content-size.width)))
-  //     // [layout-size.width: #layout-size.width \ ]
-  //     // [content-size.width: #content-size.width \ ]
-  //     // [#calc.trunc(layout-size.width / content-size.width) \ ]
-  //     // [#(layout-size.width / content-size.width) \ ]
-  //     // [number-column: #number-column \ ]      
-
-  //     // [ ----------------------------------------------- \ ]
-  //     //   let first-item = true
-  //     //   for item in body.children { 
-  //     //     [item: #item : #type(item) \ ] 
-  //     //     if type(item) == content {
-  //     //       for item2 in item.fields() {
-  //     //         [item2: #item2 : #type(item2) \ ]  
-  //     //         for item3 in item2 {
-  //     //           if type(item3) == array {
-  //     //             for item4 in item3 {
-  //     //               for item5 in item4.fields() {
-  //     //                 if item5.at(1) == "g-question-number" {
-                        
-  //     //                   // if  first-item {
-  //     //                   //   first-item = false
-  //     //                   // } 
-  //     //                   // else {
-  //     //                     [Cambio de grupo  --------------------- \ ]
-  //     //                     // groups.push(group)
-  //     //                     // group = ()
-  //     //                   // }
-  //     //                 }
-  //     //               }
-  //     //             }
-  //     //           }
-  //     //         }
-  //     //       } 
-          
-  //     //       // group.push(item)
-  //     //       [Carga Item \ ]
-  //     //     }
-  //     //   }
-  //     //   [ ----------------------------------------------- \ ]
-      
-  //     if number-column == 1 {
-  //       body
-  //     }
-  //     else {
-  //       let items = __find_items(body)
-  //       number-column = calc.min(number-column, items.len())
-
-  //       let size-items = items.map(item => {
-  //         let content = __make_item(item)
-  //         (item, measure(content))
-  //       })
-
-  //     let number-item = size-items.len()
-  //     let total-size = measure(__make_item(size-items))
-    
-  //     // {
-  //     //   let block-height = total-size.height / number-column
-
-  //     //   let i = 1
-  //     //   let j = 1
-
-  //     //   [number-item: #number-item \ ]
-  //     //   while i < number-item {
-  //     //     let group = ()
-  //     //     let group-size-height = 0pt
-  //     //     while group-size-height <= block-height and j <= number-item {
-  //     //       // groups.push([a])
-  //     //       group = size-items.slice(i, j)
-  //     //       let group-make = __make_item(group)
-  //     //       group-size-height = measure(group-make).height
-  //     //       [i: #i, j: #j \ ]
-  //     //       j = j + 1 
-  //     //     }
-  //     //     i = j - 1
-  //     //     // groups.push(group)
-  //     //     // [aa #__make_item(group)]
-  //     //     [---- \ ]
-  //     //     [group.len() #group.len() \ ]
-  //     //     for aa in group {
-  //     //       [+ #aa.at(0).at(0)]
-  //     //     }
-  //     //   }
-  //     // }
-
-  //       let groups = __make_groups(size-items, number-column)
-  //       let body-groups = __make_body(groups)
-
-  //       columns(number-column, gutter: gutter, body-groups) 
-  //     }
-  //   })
-  }
-}

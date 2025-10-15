@@ -7,13 +7,7 @@
   show-student-data: false,
   show-grade-table: false,
   show-solution: true,
-  // draft: true,
   question-points-position: right,
-//   question-text-parameters: (size: 14pt, spacing:150%)
-
-  // question-text-parameters: (size: 16pt, spacing:200%, font:"OpenDyslexic")
-)
-// #set math.cases(reverse: true)
 
 #question()[Calcula el valor de los siguientes límites, si existieran:]
 

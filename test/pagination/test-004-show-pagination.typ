@@ -7,14 +7,8 @@
   date: datetime(year: 2025, month: 9, day: 1),
   show-student-data: false,
   show-grade-table: false,
-  show-solution: true,
-  // draft: true,
-  question-points-position: right,
-//   question-text-parameters: (size: 14pt, spacing:150%)
-
-  // question-text-parameters: (size: 16pt, spacing:200%, font:"OpenDyslexic")
+  show-solution: false,
 )
-// #set math.cases(reverse: true)
 
 #questions-pages(  
   [
@@ -29,46 +23,57 @@
         = 0 / 2
         = 0$
       ]
+    ],
+    [
       #subquestion(
         solution: [$display(=3)$]
       )[$display(limits("lím")_(x->-2) sqrt(3x^2-8)/(x+2))$]
-
+    ],
+    [
       #subquestion(
         solution: [$display(=+infinity)$]
-      )[$display(limits("lím")_(x->0)1000/x^2)$]
-
+      )[$display(limits("lím")_(x->0)1000/x^2)$]],
+    [
       #subquestion(
         solution: [$display(= +infinity)$]
       )[$display(limits("lím")_(x->0^+) 1/x^3)$]
-
+    ],
+    [
       #subquestion(
         solution: [$display(= -infinity)$]
       )[$display(limits("lím")_(x->0^-) 1/x^3)$]
-
+    ],
+    [
       #subquestion(
         solution: [$display(exists.not)$ (ya que el límite lateral por la izquierda es $-infinity$ y por la derecha $+infinity)$.]
       )[$display(limits("lím")_(x->0) 1/x^3)$]
-
+    ],
+    [
       #subquestion(
         solution: [$display(=-infinity)$]
       )[$display(limits("lím")_(x->0^+) -1/x^3)$]
-
+    ],
+    [
       #subquestion(
         solution: [$display(=+infinity)$]
       )[$display(limits("lím")_(x->0^-) -1/x^3)$]
-
+    ],
+    [
       #subquestion(
         solution: [$display(exists.not)$ (ya que el límite lateral por la izquierda es $-infinity$ y por la derecha $-infinity)$.]
       )[$display(limits("lím")_(x->0) -1/x^3)$]
-
+    ],
+    [
       #subquestion(
         solution: [$display(=-infinity)$]
       )[$display(limits("lím")_(x->0) -10/(x^2))$]
-
+    ],
+    [
       #subquestion(
         solution: [$display(=0)$]
       )[$display(limits("lím")_(x->1^+) sqrt(x^2+2x-3))$]
-
+    ],
+    [
       #subquestion(
         solution: [#h(0.1cm) $display(exists.not)$]
       )[$display(limits("lím")_(x->1^-) sqrt(x^2+2x-3))$]
@@ -80,15 +85,18 @@
         ⇒ El argumento de la raíz es negativo
         ⇒ El límite no existe cuando $x->1^-$.
       ]
-
+    ],
+    [
       #subquestion(
         solution: [#h(0.1cm) $display(exists.not)$ ya que el límite lateral por la izquierda no existe.]
       )[$display(limits("lím")_(x->1) sqrt(x^2+2x-3))$]
-
+    ],
+    [
       #subquestion(
         solution: [$display(=-infinity)$]
       )[$display(limits("lím")_(x->1^+) ln(x^2+2x-3))$]
-
+    ],
+    [
       #subquestion(
         solution: [
           $display(limits("lím")_(x -> 1^-) ln(x^2 + 2x - 3)
@@ -99,39 +107,48 @@
           ⇒ El límite no existe cuando $x->1^-$.
         ]
       )[$display(limits("lím")_(x->1^-) ln(x^2+2x-3))$]
-
+    ],
+    [
       #subquestion(
         solution: [$display(=)$]
       )[$display(limits("lím")_(x->1) ln(x^2+2x-3))$]
-
+    ],
+    [
       #subquestion(
         solution: [$display(=)$]
       )[$display(limits("lím")_(x->2^+) 1/root(4, x^4-16))$]
-
+    ],
+    [
       #subquestion(
         solution: [$display(=)$]
       )[$display(limits("lím")_(x->2^-) 1/root(4, x^4-16))$]
-
+    ],
+    [
       #subquestion(
         solution: [$display(=)$]
       )[$display(limits("lím")_(x->2) 1/root(4, x^4-16))$]
-
+    ],
+    [
       #subquestion(
         solution: [$display(=)$]
       )[$display(limits("lím")_(x->2^+) 1/ln(x^4-16))$]
-
+    ],
+    [
       #subquestion(
         solution: [$display(=)$]
       )[$display(limits("lím")_(x->2^-) 1/ln(x^4-16))$]
-
+    ],
+    [
       #subquestion(
         solution: [$display(=)$]
       )[$display(limits("lím")_(x->2) 1/ln(x^4-16))$]
-
+    ],
+    [
       #subquestion(
         solution: [$display(=)$]
       )[$display(limits("lím")_(x->2) 1/sqrt(x^2+x-6))$]
-
+    ],
+    [
       #subquestion(
         solution: [$display(=)$]
       )[$display(limits("lím")_(x->2) 1/ln(x^2+x-6))$]
