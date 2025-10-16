@@ -87,11 +87,13 @@
 ) = {
       context {
         layout(layout-size => {
+          // [layout-size #layout-size]
         let item = [#items.at(0) \ ]
         item
 
         let size-items = measure(item)
         let height-accumulated = size-items.height
+        // let height-accumulated = 120pt
 
         let i = 1
         while i < items.len() {           
@@ -139,24 +141,32 @@
   }
 
 #let __g-columns-width(
-    layout-size,
+    layout-size-width,
     items
   ) = {
   let items-size-width = 0pt
-  // for item in items {
-  //   let items-size = measure(item)
-  //   items-size-width = calc.max(items-size-width, items-size.width)
+  let items-size-heigth = 0pt
+  for item in items {
+    let item-size = measure(item)
+    items-size-width = calc.max(items-size-width, item-size.width)
+    items-size-heigth = items-size-heigth + item-size.height
+  }
+
+  let number-column = layout-size-width / items-size-width
+  // let layout-size-width = 629.29pt
+  // let items-size-width = 15pt
+  // let number-column = 3
+  // [number-column-float: #number-column-float]
+  // while number-column < number-column-float {
+  //   number-column = number-column + 1
   // }
+  let number-column = 3
+  // let number-column = calc.trunc(number-column)
 
-  // let number-column = layout-size.width / items-size-width
-  let layout-size-width = 629.29pt
-  // let number-column = calc.rem(layout-size.width, items-size-width)
-  let items-size-width = 15pt
-  let number-column = calc.trunc(layout-size-width, items-size-width)
+  // let number-column-int = int(number-column)
 
-  let number-column-int = int(number-column)
-
-  return number-column-int
+  return (number-column, items-size-heigth)
+  // return (items-size-width, items-size-heigth)
 }  
 
 // #let __g-columns-width(
@@ -182,53 +192,64 @@
      
         // [items-size: #items-size]
         
-      layout(layout-size => {
+      // layout(layout-size => {
+      let layout-size-width = 629.29pt
         // [layout-size: #layout-size \ ]
 
         // let items-size = items.map(item => {
         //       measure(item).width
         //     })
 
-       let number-column = __g-columns-width(layout-size, items)
-       [number-column: #number-column \ ]
+       let columns-info = __g-columns-width(layout-size-width, items)
+       let number-column = columns-info.at(0)
+      // let layout-size-width = columns-info.at(0) 
+      // let items-size-width = columns-info.at(0)
+       let items-size-heigth = columns-info.at(1)
+      // let number-column = calc.trunc(layout-size-width / items-size-width)
+      //  items-size-width, items-size-heigth
+      //  [aa: #columns-info.at(2) - #type(columns-info.at(2))]
+       let items-size-heigth-column = items-size-heigth / number-column
+       
+      //  [items-size-heigth-column: #items-size-heigth-column]
+
+      //  [number-column: #number-column \ ]
       //  number-column = calc.
         let number-column = 3
-        let number-column = calc.min(max-columns, calc.max(1, number-column))
-        [number-column: #number-column \ ]
+        // let number-column = calc.min(max-columns, calc.max(1, number-column))
+        // [number-column: #number-column \ ]
+        // [items-size-width: #items-size-width \ ]
         columns(number-column, {
         
-        // let content-size = measure(items)
-        
-        // 
+        let item = items.at(0)
+        [#item]
 
-        // let item = items.at(0)
-        // [#item]
+        let size-item = measure(item)
+        let height-accumulated = size-item.height
+        // [size-item: #size-item]
+        let i = 1
+        while i < items.len() {           
+          // while height-accumulated > layout-size-width {
+          //   height-accumulated = height-accumulated - size-item.height
+          // }
 
-        // let size-items = measure(item)
-        // let height-accumulated = size-items.height 
+          let next-item = items.at(i)
+          // let hidden-next-item = measure(next-item)
+          let size-item = measure(next-item)
 
-        // let i = 1
-        // while i < items.len() {           
-        //   while height-accumulated > layout-size.height {
-        //     height-accumulated = height-accumulated - layout-size.height
-        //   }
-
-        //   let next-item = items.at(i)
-        //   let hidden-next-item = measure(next-item)
-        //   let size-items = measure(next-item)
-
-        //   height-accumulated = height-accumulated + size-items.height
-        //   if height-accumulated > layout-size.height { 
-        //     height-accumulated = size-items.height
-        //     [-----------------------------------------]
-        //     colbreak()
-        //   }
-        //   item = next-item
-        //   item
-        //   i = i + 1
-        // }
+          height-accumulated = height-accumulated + size-item.height
+         
+          if height-accumulated > items-size-heigth-column { 
+            // [--------------------------------]   
+            height-accumulated = size-item.height
+            colbreak()
+          }
+          // height-accumulated = height-accumulated + size-item.height
+          item = next-item
+          item
+          i = i + 1
+        }
       })
-    })
+    // })
   }
 }
 
