@@ -1,99 +1,15 @@
 #import"./global.typ": *
 
-// #let __find_items(items) = {
-//   let groups = ()
-//   let group = ()
-//   let content-result
-//   let first-item = true
-
-//   for item in items.children {   
-//     if type(item) == content {
-//       for item2 in item.fields() {
-//         for item3 in item2 {
-//           if type(item3) == array {
-//             for item4 in item3 {
-//               for item5 in item4.fields() {
-//                 if item5.at(1) == "g-question-number" {
-//                   // if  first-item {
-//                   //   first-item = false
-//                   // } 
-//                   // else {
-//                      groups.push(group)
-//                      group = ()
-//                   // }
-//                 }
-//               }
-//             }
-//           }
-//         }
-//       } 
-    
-//       group.push(item)}
-//   }
-
-//   groups.push(group)
-//   return  groups
-// }
-
-// #let __make_item(group-item) = {
-//   for item in group-item{
-//     [#item]
-//   }
-// }
-
-// #let __make_body(groups) = {
-//   let number-group = 0
-//   for group in groups {
-//     for item in group {
-//       [#item.at(0).at(0)]
-//     }
-//     number-group = number-group + 1
-//     if number-group < groups.len() {
-//       colbreak()
-//     }
-//   }
-// }
-
-// #let __make_groups(size-items, number-columns) = {
-//   let number-item = size-items.len()
-//   let item-by-group = calc.ceil(number-item / number-columns)
-
-//   let groups = ()
-
-//   let total-size = measure(__make_item(size-items))
-//   let block-height = total-size.height / number-columns
-
-//   let i = 1
-//   let j = 1
-
-//   while i < number-item {
-//     let group = ()
-//     let group-size-height = 0pt
-//     while group-size-height <= block-height and j <= number-item {
-//       group = size-items.slice(i, j)
-//       let group-make = __make_item(group)
-//       group-size-height = measure(group-make).height
-//       j = j + 1 
-//     }
-//     i = j - 1
-//     groups.push(group)
-//   }
-
-//   return groups
-// }
-
 #let __g-questions-pages(
   items,
 ) = {
       context {
         layout(layout-size => {
-          // [layout-size #layout-size]
         let item = [#items.at(0) \ ]
         item
 
         let size-items = measure(item)
         let height-accumulated = size-items.height
-        // let height-accumulated = 120pt
 
         let i = 1
         while i < items.len() {           
@@ -141,6 +57,7 @@
   }
 
 #let __g-columns-width(
+    max-columns,
     layout-size-width,
     items
   ) = {
@@ -152,34 +69,15 @@
     items-size-heigth = items-size-heigth + item-size.height
   }
 
-  let number-column = layout-size-width / items-size-width
-  // let layout-size-width = 629.29pt
-  // let items-size-width = 15pt
+  let number-column = calc.max(1, calc.trunc(layout-size-width / items-size-width))
+  number-column = calc.min(max-columns, number-column)
+  number-column = calc.min(items.len(), number-column)
+  number-column = calc.max(1, number-column)
   // let number-column = 3
-  // [number-column-float: #number-column-float]
-  // while number-column < number-column-float {
-  //   number-column = number-column + 1
-  // }
-  let number-column = 3
   // let number-column = calc.trunc(number-column)
 
-  // let number-column-int = int(number-column)
-
-  return (number-column, items-size-heigth)
-  // return (items-size-width, items-size-heigth)
+  return (number-column, items-size-heigth, items-size-width)
 }  
-
-// #let __g-columns-width(
-//     layout-size,
-//     items
-//   ) = {
-//   let items-size-width = 0pt
-//   for item in items {
-//     // let items-size = measure(item)
-//     // items-size-width = calc.max(items-size-width, items-size.width)
-
-//   }
-// }
 
 #let __g-questions-columns(
   max-columns: 10000,
@@ -193,62 +91,67 @@
         // [items-size: #items-size]
         
       // layout(layout-size => {
-      let layout-size-width = 629.29pt
+      let layout-size-width = 455pt
         // [layout-size: #layout-size \ ]
 
         // let items-size = items.map(item => {
         //       measure(item).width
         //     })
 
-       let columns-info = __g-columns-width(layout-size-width, items)
-       let number-column = columns-info.at(0)
-      // let layout-size-width = columns-info.at(0) 
-      // let items-size-width = columns-info.at(0)
-       let items-size-heigth = columns-info.at(1)
-      // let number-column = calc.trunc(layout-size-width / items-size-width)
-      //  items-size-width, items-size-heigth
-      //  [aa: #columns-info.at(2) - #type(columns-info.at(2))]
-       let items-size-heigth-column = items-size-heigth / number-column
-       
-      //  [items-size-heigth-column: #items-size-heigth-column]
+      let columns-info = __g-columns-width(max-columns, layout-size-width, items)
+      let number-column = columns-info.at(0)
+      // number-column = 1
+      let items-size-heigth = columns-info.at(1)
+      let items-size-width = columns-info.at(2)
+      let items-size-heigth-column = (items-size-heigth / number-column) * 1.1
 
-      //  [number-column: #number-column \ ]
-      //  number-column = calc.
-        let number-column = 3
-        // let number-column = calc.min(max-columns, calc.max(1, number-column))
+        // [ \ ]
         // [number-column: #number-column \ ]
+        // [items-size-heigth: #items-size-heigth \ ]   
         // [items-size-width: #items-size-width \ ]
-        columns(number-column, {
-        
-        let item = items.at(0)
-        [#item]
+        // [layout-size-width: #layout-size-width \ ]
+        // let aa = layout-size-width/items-size-width
+        // [#(layout-size-width/items-size-width)]
+        // [items-size-heigth-column: #items-size-heigth-column]
+      
+       
+      columns(number-column, {
+      
+      let item = items.at(0)
+      [#item]
+      // [#measure(item)]
+      
 
-        let size-item = measure(item)
-        let height-accumulated = size-item.height
-        // [size-item: #size-item]
-        let i = 1
-        while i < items.len() {           
-          // while height-accumulated > layout-size-width {
-          //   height-accumulated = height-accumulated - size-item.height
-          // }
+      let size-item = measure(item)
+      let height-accumulated = size-item.height
+      // [size-item: #size-item]
+      let i = 1
+      while i < items.len() {           
+        // while height-accumulated > layout-size-width {
+        //   height-accumulated = height-accumulated - size-item.height
+        // }
 
-          let next-item = items.at(i)
-          // let hidden-next-item = measure(next-item)
-          let size-item = measure(next-item)
+        let next-item = items.at(i)
+        // let hidden-next-item = measure(next-item)
+        let size-item = measure(next-item)
 
-          height-accumulated = height-accumulated + size-item.height
-         
-          if height-accumulated > items-size-heigth-column { 
-            // [--------------------------------]   
-            height-accumulated = size-item.height
-            colbreak()
-          }
-          // height-accumulated = height-accumulated + size-item.height
-          item = next-item
-          item
-          i = i + 1
+        height-accumulated = height-accumulated + size-item.height
+        // [height-accumulated: #height-accumulated \ ]
+        // [items-size-heigth-column: #items-size-heigth-column \ ]
+
+        if height-accumulated > items-size-heigth-column { 
+          // [--------------------------------]   
+          height-accumulated = size-item.height
+          colbreak()
         }
-      })
+        // height-accumulated = height-accumulated + size-item.height
+        item = next-item
+        item
+        // [#measure(item) \ ]
+        // [#box(width:455pt, fill:red)[aa] \ ]
+        i = i + 1
+      }
+    })
     // })
   }
 }
