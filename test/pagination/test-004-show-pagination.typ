@@ -6,7 +6,7 @@
   date: datetime(year: 2025, month: 9, day: 1),
   show-student-data: false,
   show-grade-table: false,
-  show-solution: true,
+  show-solution: false,
 )
 
 #questions-pages(
@@ -230,9 +230,6 @@
       #subquestion(
         solution: [$display(= root(3,-2))$]
       )[$display(limits("lím")_(x->+infinity) (root(3, 2x^2+3)-5)/(sqrt(x+5)+root(3, 1-x^2)))$]
-    ],
-    [   
-      #colbreak()
     ],
     [   
       #subquestion(
