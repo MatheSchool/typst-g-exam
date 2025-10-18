@@ -1,16 +1,17 @@
 #import "../../src/lib.typ": *
 
 #show: exam.with(
-  language: "es",
-  decimal-separator: ",",
-  date: datetime(year: 2025, month: 9, day: 1),
   show-student-data: false,
   show-grade-table: false,
-  show-solution: false,
-)
+  show-solution: true,
+  // draft: true,
+  question-points-position: right,
+//   question-text-parameters: (size: 14pt, spacing:150%)
 
-#questions-pages(
-  [
+  // question-text-parameters: (size: 16pt, spacing:200%, font:"OpenDyslexic")
+)
+#set math.cases(reverse: true)
+
     #question()[Si $limits("lím")_(x->1) f(x) = 4$ y $limits("lím")_(x->1) g(x) = 2$, di el valor del límite cuando $x$ tiende a 1 de las siguientes funciones:]
 
     #columns(2, [
@@ -22,8 +23,7 @@
       #subquestion()[$display(sqrt(g(x)))$]
       #subquestion()[$display(4f(x)-5g(x))$]
     ])
-  ],
-  [
+
     #question()[Si $limits("lím")_(x->2) p(x) = +infinity$, $limits("lím")_(x->2) q(x) = +infinity$, $limits("lím")_(x->2) r(x) = 3$, $limits("lím")_(x->2) s(x) = 0$, di, en los casos en que sea posible, el valor del $limits("lím")_(x->2)$ de las siguientes funcioens:
 
     \[Recuerda que las expresiones $(+infinity)slash(+infinity)$, $(+infinity)-(+infinity)$, $(0) dot (+infinity)$, $(1)^((+infinity))$, $(0)slash(0)$ son indeterminaciones \].
@@ -47,8 +47,7 @@
       #subquestion()[$display((r(x)/3)^(p(x)))$]
       #subquestion()[$display((r(x)/3)^(-p(x)))$]
     ])
-  ],
-  [
+
     #question()[Calcula el valor de los siguientes límites, si existieran:]
     #questions-columns([
       #subquestion(
@@ -196,9 +195,10 @@
       = ((1/(+infinity) + 3/(+infinity)^2)/(3 + 5/(+infinity)^2))^(2 sqrt(+infinity))
       = ((0 + 0)/(3 + 0))^(+infinity)
       = (0/3)^(+infinity) = (0)^(+infinity) = 0)$]
-    ])
-    ],
-  [#question()[Calcula el valor de los siguientes límites, si existieran:]
+    ]
+    )
+
+    #question()[Calcula el valor de los siguientes límites, si existieran:]
     #questions-columns([
       #subquestion(
         solution: [$display(=-2)$]
@@ -254,8 +254,7 @@
         solution: [$display(= -2/3)$]
       )[$display(limits("lím")_(x->infinity) 1/(3x^2+1) (3-2x^2))$]
     ])
-  ],
-  [
+
     #question()[Calcula el valor de los siguientes límites, si existieran:]
     #questions-columns([
       #subquestion(
@@ -307,8 +306,7 @@
         solution: [$display(= -infinity)$]
       )[$display(limits("lím")_(x->-infinity) sqrt(1-x) - e^x + e^(-x)))$]
     ])
-  ],
-  [
+
     #question()[Calcula el valor de los siguientes límites, si existieran:]
     #questions-columns([
       #subquestion(
@@ -350,8 +348,7 @@
         solution: [$display(= 0)$]
       )[$display(limits("lím")_(x->infinity) "Ln"(x) dot 2/x)$]
     ])
-  ],
-  [
+
     #question()[Calcula los siguientes límites:]
     #questions-columns([
       #subquestion(
@@ -428,8 +425,7 @@
         solution: [$display(= 1)$]
       )[$display(limits("lím")_(x->1) ((2x+1)/(x+2))^(1/(x-1)))$]
     ])
-  ],
-  [
+
     #question()[Calcula los siguientes límites:]
       #questions-columns([
         #subquestion(
@@ -472,8 +468,6 @@
         )[$display(limits("lím")_(x->-infinity) ((x^2+x-1)/(x^2+2))^(3x-1))$]
       ]
     )
-  ]
-)
 
     // = EvAU
     // #question()[Junio 2006  - Opción A

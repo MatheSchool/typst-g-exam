@@ -3,40 +3,106 @@
 #let __g-questions-pages(
   items,
 ) = {
-      context {
-        // layout(layout-size => {
-        // let aa = place(rect(width: 100%, height: 100%))
-        // let layout-size = measure(aa)
-        // [layout-size: #layout-size - #type(layout-size)]
+      layout(size =>
+      {
+        context {
+          // let page-height = page.height /*- measure(page.header).height*/ - measure(page.footer).height - page.margin.top.length //- page.margin.bottom.length
+          // [#page.width]
+          let page-height = page.height - measure(width: size.width, page.header).height - measure(width: size.width, page.footer).height - page.margin.top.length
+          // let page-height = page.height - measure(page.header).height - page.margin.top.length
+          // let page-height = page.height - measure(page.footer).height
+          // let page-height = page.height
+          // let page-height = size.height - measure(page.header).height - measure(page.footer).height //- page.margin.top.length
+          // let page-height = size.height
+          // let page-height = 629.29pt
+          let page-height = 620.29pt
+          // let page-height = page.height
+          let measure-items = items.map(item => measure(width: size.width, item))
+          // box(width: 10%, height: page-height, fill:blue)[aa]
+          // box(width: 10%, height: size.height, fill:green)[]
+          // box(width: 10%, height: 650.94pt, fill:red)[aa]
+          // box(width: 10%, height: 620.94pt, fill:orange)[aa]
+          // [ \ ]
+          // [#size.height \ ]
+          // [#page.height \ ]
+          // [#measure(page.header).height \ ]
+          // [#measure(page.footer).height \ ]
+          // [#page.margin.top.length \ ]
 
-        let item = [#items.at(0) \ ]
-        item
+          // [\ #page-height \ ]
 
-        let size-items = measure(item)
-        let height-accumulated = size-items.height
+          // let page-height = 650.94pt
 
-        let i = 1
-        while i < items.len() {           
-          while height-accumulated > page.height {
-            height-accumulated = height-accumulated - page.height
-          }
+          //  for item in items {
+          //   [#measure(width: size.width, item) \ ]
+          //  }
+          // for item in items {
+          //   [---- inicio  \ ]
+          //   let aa = block(item)
+          //   let bb = measure(aa)
+          //   [#bb]
+          //   [---- fin \ ]
+          //  }
 
-          let next-item = [#items.at(i) \ ]
-          let hidden-next-item = measure(next-item)
-          let size-items = measure(next-item)
+          // let page-height = page.height - page.margin.top.length //- page.margin.bottom.
+          // [#page.height \ ]
+          // [#page.margin \ ]
+          // [#measure(page.header) \ ]
+          // [#measure(page.footer) \ ]
+          // [page-height: #page-height \ ]
+          // [#here().position().y]
+          // [page.footer-descent: #page.footer-descent - #page.footer-descent.to-absolute() - #type(page.footer-descent)]
+          // [#page.footer.location()]
+          //  let page-height = size.height - here().position().y
+          //  [page-height: #page-height \ ]
+          //  [#page-remains]
+          
+          // let page-height = 692pt
+          // [#type(page.header)]
+          // layout(layout-size => {
+          // let aa = place(rect(width: 100%, height: 100%))
+          // let layout-size = measure(aa)
+          // [layout-size: #layout-size - #type(layout-size)]
 
-          height-accumulated = height-accumulated + size-items.height
-          if height-accumulated > page.height { 
-            height-accumulated = size-items.height
-            [+++ #height-accumulated ++ #page.height +++]
-            colbreak()
-          }
-          item = next-item
+          let item = [#items.at(0) \ ]
           item
-          i = i + 1
+
+          // let size-items = measure(item)
+          let height-accumulated = measure-items.at(0).height // size-items.height
+          // [+++ #height-accumulated ++ #page-height +++ \ ]
+
+          let i = 1
+          while i < items.len() {           
+            // [#i \ ]
+            
+            // while height-accumulated > page.height {
+            //   height-accumulated = height-accumulated - page-height
+            // }
+
+            let next-item = [#items.at(i) \ ]
+            // let size-next-items = measure(next-item)
+            // [size-next-items: #size-next-items \ ]
+
+            let measure-item-height = measure-items.at(i).height
+            height-accumulated = height-accumulated + measure-items.at(i).height
+            // [+++ #height-accumulated ++ #page-height +++ \ ]
+            if height-accumulated > page-height { 
+              height-accumulated = measure-item-height
+              // [-------------------- \ ]
+              colbreak()
+            }
+            // [#here()]
+            // [#here().position()]
+
+            item = next-item
+            item
+            // [location: #item.location() \ ]
+            // [#height-accumulated ++ #page-height \ ]
+            i = i + 1
+          }
         }
+      })
     }
-  }
 
 #let questions-pages(
   ..body,
@@ -61,21 +127,21 @@
   }
 
 #let __g-columns-width(
+    size,
     max-columns,
-    // gutter,
     items
   ) = {
   let items-size-width = 0pt
   let items-size-heigth = 0pt
   for item in items {
-    let item-size = measure(item)
+    let item-size = measure(height: size.height, item)
     items-size-width = calc.max(items-size-width, item-size.width)
     items-size-heigth = items-size-heigth + item-size.height
   }
 
   let number-column = calc.max(1, calc.trunc(page.width / items-size-width))
 
-  number-column = calc.max(1, calc.trunc(page.width / items-size-width * (1-0.1 * (number-column - 1))))
+  number-column = calc.max(1, calc.trunc(page.width / items-size-width * (1-0.21 * (number-column - 1))))
   number-column = calc.min(max-columns, number-column)
   number-column = calc.min(items.len(), number-column)
 
@@ -84,98 +150,68 @@
 
 #let __g-questions-columns(
   max-columns: 10000,
-  // gutter: 4% + 0pt,
   items,
   ) = {
-    context {
-      // [#gutter #type(gutter) \ ]
-      // [#type(gutter.to-absolute()) \ ]
+     layout(size => {
+      context {
+        // [#type(gutter.to-absolute()) \ ]
 
-      let columns-info = __g-columns-width(max-columns, /*gutter,*/ items)
-      let number-column = columns-info.at(0)
-      let items-size-heigth = columns-info.at(1)
-      let items-size-width = columns-info.at(2)
+        let columns-info = __g-columns-width(size, max-columns, items)
+        let number-column = columns-info.at(0)
+        let items-size-heigth = columns-info.at(1)
+        let items-size-width = columns-info.at(2)
 
-      let items-size-heigth-column = (items-size-heigth / number-column) * 0.95
+        let items-size-heigth-column = (items-size-heigth / number-column) * 1.05 //* 0.95
 
-        // [ \ ]
-        // [number-column: #number-column \ ]
-        // [page.width: #page.width \ ]
+        let measure-items = items.map(item => measure(width: size.width, item))
 
-        // [#(page.width / items-size-width) \ ]
-        // [#(page.width / items-size-width * 0.85) \ ]
-        // [items-size-heigth: #items-size-heigth \ ]   
-        // [items-size-width: #items-size-width \ ]
+        // for measure-item in measure-items {
+        //   [#measure-item \ ]
+        // }
+
+        //   // [ \ ]
+        //   [number-column: #number-column \ ]
+        //   // [page.width: #page.width \ ]
+
+        //   // [#(page.width / items-size-width) \ ]
+        //   // [#(page.width / items-size-width * 0.85) \ ]
+        //   // [items-size-heigth: #items-size-heigth \ ]   
+        //   // [items-size-width: #items-size-width \ ]
+          
+        //   // [#(page.width/items-size-width) \ ]
+        //   [items-size-heigth-column: #items-size-heigth-column \ ]
+        //   // [#(page.width / items-size-width * (1-0.2 * 2))]
+        // colbreak()
         
-        // [#(page.width/items-size-width) \ ]
-        // [items-size-heigth-column: #items-size-heigth-column \ ]
-        // [#(page.width / items-size-width * (1-0.2 * 2))]
-      
-       
-      columns(number-column, {
-        let item = items.at(0)
-        [#item]
-        let size-item = measure(item)
-        let height-accumulated = size-item.height
-        // [height-accumulated: #height-accumulated \ ]
-        // [#size-item \ ]
-        let i = 1
-        while i < items.len() {
-          item = items.at(i)
-          item
-          let size-item = measure(item)
-          height-accumulated = height-accumulated + size-item.height
+        
+        columns(number-column, {
+          let item = items.at(0)
+          [#item]
+          let size-item = measure-items.at(0)
+          let height-accumulated = size-item.height
           // [height-accumulated: #height-accumulated \ ]
           // [#size-item \ ]
-        
-          if height-accumulated > items-size-heigth-column { 
-            [--- #height-accumulated ---]   
-            height-accumulated = 0pt
-            colbreak()
+          let i = 1
+          while i < items.len() {
+            item = items.at(i)
+            item
+            let size-item = measure-items.at(i)
+            height-accumulated = height-accumulated + size-item.height
+            // [height-accumulated: #height-accumulated \ ]
+            // [#size-item \ ]
+          
+            if height-accumulated > items-size-heigth-column { 
+              // [--- #height-accumulated ---]   
+              height-accumulated = 0pt
+              colbreak()
+            }
+
+            i= i + 1
           }
-
-          i= i + 1
-        }
-      })
-    }
+        })
+      }
+    })
   }
-      // let item = items.at(0)
-      // [#item]
-      // // [#measure(item)]
-      
-      // let size-item = measure(item)
-      // let height-accumulated = size-item.height
-      // // [size-item: #size-item]
-      // let i = 1
-      // while i < items.len() {           
-      //   // while height-accumulated > layout-size-width {
-      //   //   height-accumulated = height-accumulated - size-item.height
-      //   // }
-
-      //   let next-item = items.at(i)
-      //   // let hidden-next-item = measure(next-item)
-      //   let size-item = measure(next-item)
-
-      //   height-accumulated = height-accumulated + size-item.height
-      //   [height-accumulated: #height-accumulated \ ]
-      //   // [items-size-heigth-column: #items-size-heigth-column \ ]
-
-      //   if height-accumulated > items-size-heigth-column { 
-      //     [--------------------------------]   
-      //     height-accumulated = size-item.height
-      //     colbreak()
-      //   }
-      //   // height-accumulated = height-accumulated + size-item.height
-      //   item = next-item
-      //   item
-      //   // [#measure(item) \ ]
-      //   // [#box(width:455pt, fill:red)[aa] \ ]
-      //   i = i + 1
-      // }
-    // })
-    // })
-//   }
-// }
 
 /// Automatic adjustment of question and subquestion lists.
 /// 
