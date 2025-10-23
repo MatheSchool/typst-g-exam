@@ -168,12 +168,13 @@
         let number-column = columns-info.at(0)
         let items-size-heigth = columns-info.at(1)
         let items-size-width = columns-info.at(2)
-        // [ \ ]
+        // [columns-info: #columns-info \ ]
+        // // [ \ ]
         // [number-column: #number-column \ ]
         // [size.width: #size.width \ ]
         // [items-size-width: #items-size-width \ ]
 
-        let number-column1 = (size.width + 40pt) / (items-size-width + 40pt)
+        // let number-column1 = (size.width + 40pt) / (items-size-width + 40pt)
         // let number-column1 = calc.max(1, calc.trunc(page.width / items-size-width))
         // [number-column1: #number-column1 \ ]
         // number-column1 = calc.max(1, calc.trunc(page.width / items-size-width * (1-0.1 * (number-column1 - 1))))
@@ -187,16 +188,26 @@
           num-items-per-column = num-items-per-column + 1
         }
 
+        let items-size-heigth-column = (items-size-heigth / number-column)
         let items-columns = items.chunks(num-items-per-column)
                 
         columns(number-column, {
           let i=0
+          // let size-item = measure(width: size.width, item)
           for  items-column in items-columns {
+            let height-accumulated = 0pt
+            // let height-accumulated = size-item.height 
             for item in items-column {
+              let size-item = measure(width: size.width, item)
+              height-accumulated = height-accumulated + size-item.height
               item
             }
             i = i + 1
-            if i < items-columns.len() {
+            // [#i - #items-columns.len()]
+            // if i < items-columns.len() {
+            // [height-accumulated: #height-accumulated \ ]
+            // [items-size-heigth-column: #items-size-heigth-column \ ]
+           if height-accumulated > items-size-heigth-column { 
               // [--- #i -----]
               colbreak()
             }
