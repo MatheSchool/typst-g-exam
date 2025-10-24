@@ -9,10 +9,10 @@
           let page-height = page.height - measure(width: size.width, page.header).height - measure(width: size.width, page.footer).height - page.margin.top.length
           
           let height-accumulated = here().position().y
-
-          let i = 0
+          
           let item = items.at(0)
           height-accumulated = height-accumulated + measure(width: size.width, item).height
+          let i = 1
           while i < items.len() {
             item
 
@@ -22,13 +22,12 @@
             height-accumulated = height-accumulated + height-item-measure
 
             i = i + 1
-            if height-accumulated > page-height and i < items.len() { 
+            if height-accumulated > page-height and i < items.len() - 1 { 
               height-accumulated = height-item-measure
               colbreak()
             }
             
             item = next-item
-
           }
         }
       })
@@ -100,11 +99,13 @@
         if calc.rem-euclid(items.len(), number-column) > 0 {
           num-items-per-column = num-items-per-column + 1
         }
+        // [number-column: #number-column, items-size-heigth: #items-size-heigth, items-size-width: #items-size-width, here-position: #here-position, num-items-per-column]
 
-        if num-items-per-column * number-column < items.len() { // one page.
+
+        if number-column > 1 { // one page.
           let items-columns = items.chunks(num-items-per-column)  
           columns(number-column, {
-            i = 0
+            let i = 0
             while i < items-columns.len() {
               let items = items-columns.at(i)
               for item in items { 
@@ -126,8 +127,6 @@
             }
             item
           }
-          // [------------------------]
-          // colbreak()
         }
       }
     })

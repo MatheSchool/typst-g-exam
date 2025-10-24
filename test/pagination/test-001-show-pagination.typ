@@ -7,11 +7,26 @@
 )
 
 #questions-pages(
-  [Page 1],
-  [Page 2],
-  [Page 3],
-  [#lorem(150)],
-  [#lorem(350)],
-  [#lorem(225)],
-  [#lorem(100)],
+  [
+    Page 1
+  
+  ],
+  [Page 2
+  
+  ],
+  [Page 3
+  
+  ],
+  [#lorem(150)
+  
+  ],
+  [#lorem(350)
+  
+  ],
+  [#lorem(225)
+  
+  ],
+  [#lorem(100)
+  
+  ],
 )
