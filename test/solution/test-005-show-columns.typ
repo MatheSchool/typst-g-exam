@@ -8,6 +8,7 @@
   show-grade-table: false,
   show-solution: true,
   question-points-position: right,
+)
 
 #question()[Calcula el valor de los siguientes límites, si existieran:]
 
