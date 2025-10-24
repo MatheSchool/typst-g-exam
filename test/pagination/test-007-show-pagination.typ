@@ -1,5 +1,7 @@
 #import "../../src/lib.typ": *
 
+// #set text(costs: (orphan: 100%))
+
 #show: exam.with(
   show-student-data: false,
   show-grade-table: false,
