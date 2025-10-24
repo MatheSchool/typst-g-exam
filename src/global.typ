@@ -10,6 +10,8 @@
 
 #let __g-decimal-separator = state("g-decimal-separator", ".")
 
+#let __g-solution-color-state = state("g-solution-color", rgb("#0038A7"))
+
 #let __g-default-localization = (
     grade-table-queston: "Question",
     grade-table-total: "Total",
@@ -51,4 +53,20 @@
 
     [(#emph[#strfmt("{0}", calc.round(points, digits: 2), fmt-decimal-separator: decimal-separator) #label-point])]
   }
+}
+
+#let __g-solution-color(solution-color: none) = {
+    assert(solution-color == none or type(solution-color) == color or type(solution-color) == str, 
+      message: "Invalid solution color"
+    )
+
+    if solution-color == none {
+      solution-color = __g-solution-color-state.final()    
+    }
+
+    if type(solution-color) == str {
+      solution-color = str.to.rgb(solution-color)
+    }
+
+    return  solution-color
 }

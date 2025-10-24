@@ -6,6 +6,7 @@
   show-student-data: false,
   show-grade-table: false,
   show-solution: true,
+  solution-color: red,
   // draft: true,
 )
 
@@ -16,13 +17,13 @@
     #questions-columns(
     [
       #subquestion()[$display(f(x) = x^3 + 5x^2 - 2x + 7)$]
-      #solution()[
+      #solution(color: green)[
         $display(f'(x) = 3x^2 + 10x - 2)$
       ]
     ],
     [
       #subquestion()[$display(f(x) = (4x-3)^2)$]
-      #solution()[
+      #solution(color: orange)[
         $display(f'(x) = 2(4x-3) dot 4 = 32x-24)$
       ]
     ],

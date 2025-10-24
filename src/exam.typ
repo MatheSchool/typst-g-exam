@@ -45,6 +45,7 @@
 /// - decimal-separator: (".", ","): Indicate the decimal separation character.
 /// - question-points-position: (none, left, right): Position of question points.
 /// - show-solution: (true, false, "space", "spacex2", "spacex3"): Show the solutions.
+/// - solution-color (none, color, str): Color of the text solution.
 /// - draft: (true, false): It shows a draft label in the background.
 /// - body (string, content): Body of exam.
 /// -> content
@@ -98,6 +99,7 @@
   decimal-separator: ".",
   question-points-position: left,
   show-solution: true,
+  solution-color: none,
   draft: false,
   body,
 ) = {
@@ -146,6 +148,10 @@
   assert(date == none or date == auto or type(date) == datetime, 
       message: "Date must be nono, auto or datetime."
   )
+ 
+  assert(solution-color == none or type(solution-color) == color or type(solution-color) == str, 
+      message: "Invalid solution color"
+    )
 
   set document(
     title: __document-name(exam-info: exam-info),
@@ -243,6 +249,13 @@
   __g-show-solution.update(show-solution)
 
   __g-decimal-separator.update(decimal-separator)
+
+  if solution-color != none {
+    if type(solution-color) == str {
+      solution-color = str.to.rgb(solution-color)
+    }
+    __g-solution-color-state.update(solution-color)
+  }
 
   set par(justify: true) 
 

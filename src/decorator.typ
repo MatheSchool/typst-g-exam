@@ -1,4 +1,10 @@
+#import"./global.typ": *
+
 /// Box the result of an operation.
-#let result(body) = {
-  rect(stroke:rgb("#0038A7"))[#body]
+#let result(
+  color: none,
+  body) = {
+    context {
+      rect(stroke: __g-solution-color(solution-color: color))[#body]
+    }
 }

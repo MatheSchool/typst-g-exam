@@ -10,17 +10,15 @@
 /// - points (none, float): Points of the question.
 /// - points-position (none, left, right): Position of points. If none,  use the position defined in G-Exam. 
 /// - solution (none, content): Solution of the question.
+/// - solution-color (none, color): Color of the text solution.
 /// - body (string, content): Body of question.
 /// -> content
 #let question(
     points: none,
     points-position: none,
     solution: none,
+    solution-color: none,
     body) = {
-
-  assert(points-position in (none, left, right),
-      message: "Invalid point position")
-
   __g-question-number.step(level: 1) 
   
   [#hide[]<end-g-question-localization>]
@@ -53,7 +51,7 @@
       set text(..__g-question-text-parameters)
       body 
       if __show-solution == true {
-        text(fill:rgb("#0038A7"))[#solution]
+        text(fill:__g-solution-color(solution-color: solution-color))[#solution]
       }
     }
     else if __g-question-points-position == right {
@@ -68,7 +66,7 @@
       set text(..__g-question-text-parameters)
       body 
       if __show-solution == true {
-        text(fill:rgb("#0038A7"))[#solution]
+        text(fill:__g-solution-color(color))[#solution]
       }
 
     }
@@ -78,7 +76,7 @@
       set text(..__g-question-text-parameters)
       body 
       if __show-solution == true {
-        text(fill:rgb("#0038A7"))[#solution]
+        text(fill:__g-solution-color(color))[#solution]
       }
     }
   }
@@ -94,12 +92,14 @@
 /// - points (none, float): Points of the sub-question.
 /// - points-position (none, left, right): Position of points. If none,  use the position defined in G-Exam. 
 /// - solution (none, content): Solution of the sub-question.
+/// - solution-color (none, color): Color of the text solution.
 /// - body (string, content): Body of sub-question.
 /// -> content
 #let subquestion(
     points: none, 
     points-position: none, 
     solution: none,
+    solution-color: none,
     body) = {
 
   assert(points-position in (none, left, right),
@@ -137,7 +137,7 @@
       set text(..__g-question-text-parameters)
       [#body]
       if __show-solution == true {
-        text(fill:rgb("#0038A7"))[#solution]
+        text(fill:__g-solution-color(solution-color: solution-color))[#solution]
       }
     }
     else if __g-question-points-position == right {
@@ -155,7 +155,7 @@
       set text(..__g-question-text-parameters)
       body
       if __show-solution == true {
-        text(fill:rgb("#0038A7"))[#solution]
+        text(fill:__g-solution-color(color))[#solution]
       }
     }
     else {
@@ -167,7 +167,7 @@
       set text(..__g-question-text-parameters)
       body
       if __show-solution == true {
-        text(fill:rgb("#0038A7"))[#solution]
+        text(fill:__g-solution-color(color))[#solution]
       }
     }
   }
@@ -178,14 +178,7 @@
     point: none,
     points-position: none, 
     body) = {
-      // panic("g-question is obsolete, please use question.")
-
-      if points == none {
-        question(points: point, points-position: points-position)[#body]  
-      }
-      else {
-        question(points: points, points-position: points-position)[#body]
-      }
+      panic("g-question is obsolete, please use question.")
     }
 
 #let g-subquestion(
@@ -193,12 +186,5 @@
     point: none,
     points-position: none, 
     body) = {
-      // panic("g-subquestion is obsolete, please use subquestion.")
-
-      if points == none {
-        subquestion(points: point, points-position: points-position)[#body]  
-      }
-      else {
-        subquestion(points: points, points-position: points-position)[#body]
-      }
+      panic("g-subquestion is obsolete, please use subquestion.")
     }

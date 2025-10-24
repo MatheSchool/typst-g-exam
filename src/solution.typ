@@ -11,10 +11,12 @@
 ///
 /// - alternative-content (string, content): Alternate content when the question solution is not displayed.
 /// - show-solution: (true, false, "space", "spacex2", "spacex3"): Show the solutions.
+/// - color (none, color): Color of the text solution.
 /// - body (string, content): Body of question solution
 #let solution(
     alternative-content: none,
     show-solution:none,
+    color:none,
     body) = {
 
     context {
@@ -22,7 +24,7 @@
 
       if show-solution == true {
         v(3pt)
-        text(fill:rgb("#0038A7"))[#body]
+        text(fill:__g-solution-color(solution-color: color))[#body]
         v(7pt)
       }
       else {
@@ -57,5 +59,5 @@
     alternative-content: none,
     show-solution:none,
     body) = {
-      solution(alternative-content: alternative-content, show-solution: show-solution)[body]
+      panic("g-solution function is obsolete, use solution.")
     }
