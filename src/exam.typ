@@ -98,7 +98,7 @@
   show-grade-table: true,
   decimal-separator: ".",
   question-points-position: left,
-  show-solution: true,
+  show-solutions: true,
   solution-color: none,
   draft: false,
   body,
@@ -139,8 +139,8 @@
   assert(decimal-separator in (".", ","),
       message: "Invalid decimal separator")
 
-  assert(show-solution in (true, false, "space", "spacex2", "spacex3"),
-      message: "Invalid show solution value")
+  assert(show-solutions in (true, false, "space", "spacex2", "spacex3"),
+      message: "Invalid show solutions value")
 
   assert(draft in (true, false, none) or type(draft) in (str, content),
       message: "Invalid show draft value")
@@ -218,7 +218,7 @@
   // })
 
   show math.equation.where(block: false) : it => {
-    if show-solution != false {
+    if show-solutions != false {
       set text(
         top-edge: "bounds",
         bottom-edge: "bounds"
@@ -246,7 +246,7 @@
     v(10pt)
   }
 
-  __g-show-solution.update(show-solution)
+  __g-show-solutions.update(show-solutions)
 
   __g-decimal-separator.update(decimal-separator)
 
@@ -314,37 +314,10 @@
   show-grade-table: true,
   decimal-separator: ".",
   question-point-position: left,
-  show-solution: true,
+  show-solutions: true,
   body,
 ) = {
-  assert(show-student-data in (none, true, false, "first-page", "odd-pages"),
-      message: "Invalid show studen data")
-
-  assert(question-point-position in (none, left, right),
-      message: "Invalid question point position")
-
-  assert(decimal-separator in (".", ","),
-      message: "Invalid decimal separator")
-
-  assert(show-solution in (true, false),
-      message: "Invalid show solution value")
-  
-  let _language = language
-  if _language == none {
-    _language = languaje
-  }
-  exam(
-      author: author, 
-      school: school, 
-      exam-info: exam-info, 
-      language: _language, 
-      localization: localization, 
-      clarifications: clarifications,
-      question-text-parameters: question-text-parameters, 
-      question-points-position: question-point-position, 
-      show-student-data: show-student-data,
-      show-grade-table: show-grade-table,
-      decimal-separator: decimal-separator,
-      show-solution: show-solution,
-      )[#body]
+ panic()[
+    "The g-exam template is deprecated. Please use the exam template instead."
+  ]
 }

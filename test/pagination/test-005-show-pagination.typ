@@ -3,7 +3,7 @@
 #show: exam.with(
   show-student-data: false,
   show-grade-table: false,
-  show-solution: true,
+  show-solutions: true,
   // draft: true,
   question-points-position: right,
 //   question-text-parameters: (size: 14pt, spacing:150%)

@@ -37,7 +37,7 @@
     let __g-question-text-parameters = __g-question-text-parameters-state.final()
     let __decimal-separator = __g-decimal-separator.final()
 
-    let __show-solution = __g-show-solution.final()
+    let __show-solution = __g-show-solutions.final()
 
     if __g-question-points-position == left {
       v(0.1em)
@@ -120,7 +120,7 @@
     let __g-question-text-parameters = __g-question-text-parameters-state.final()
     let __decimal-separator = __g-decimal-separator.final()
 
-    let __show-solution = __g-show-solution.final()
+    let __show-solutions = __g-show-solutions.final()
 
     set par(hanging-indent: 0.7em) //if body.has("text")
     
@@ -136,7 +136,7 @@
       }
       set text(..__g-question-text-parameters)
       [#body]
-      if __show-solution == true {
+      if __show-solutions == true {
         text(fill:__g-solution-color(solution-color: solution-color))[#solution]
       }
     }
@@ -154,7 +154,7 @@
       }
       set text(..__g-question-text-parameters)
       body
-      if __show-solution == true {
+      if __show-solutions == true {
         text(fill:__g-solution-color(color))[#solution]
       }
     }
@@ -166,7 +166,7 @@
       }
       set text(..__g-question-text-parameters)
       body
-      if __show-solution == true {
+      if __show-solutions == true {
         text(fill:__g-solution-color(color))[#solution]
       }
     }

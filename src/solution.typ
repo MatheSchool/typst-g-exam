@@ -20,7 +20,7 @@
     body) = {
 
     context {
-      let show-solution = __g-show-solution.final()
+      let show-solution = __g-show-solutions.final()
 
       if show-solution == true {
         v(3pt)

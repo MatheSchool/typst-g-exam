@@ -6,7 +6,7 @@
 #let __g-question-text-parameters-state = state("question-text-parameters:", none)
 
 #let __g-localization = state("g-localization")
-#let __g-show-solution = state("g-show-solution", false)
+#let __g-show-solutions = state("g-show-solutions", false)
 
 #let __g-decimal-separator = state("g-decimal-separator", ".")
 

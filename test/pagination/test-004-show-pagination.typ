@@ -6,7 +6,7 @@
   date: datetime(year: 2025, month: 9, day: 1),
   show-student-data: false,
   show-grade-table: false,
-  show-solution: true,
+  show-solutions: true,
 )
 
 #questions-pages(
