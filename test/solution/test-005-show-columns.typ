@@ -1,6 +1,5 @@
 #import "../../src/lib.typ": *
 
-
 #show: exam.with( 
   language: "es",
   decimal-separator: ",",
