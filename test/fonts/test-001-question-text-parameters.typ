@@ -1,7 +1,7 @@
 #import "../../src/lib.typ": *
 
 #show: exam.with(
-  question-text-parameters: (font: "PT Sans", size: 18pt, spacing:200%),
+  // question-text-parameters: (font: "PT Sans", size: 18pt, spacing:200%),
 )
 
 #g-question(points: 2)[#lorem(30)]
