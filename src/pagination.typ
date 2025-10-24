@@ -6,22 +6,29 @@
       layout(size =>
       {
         context {
-          // let page-height = page.height /*- measure(page.header).height*/ - measure(page.footer).height - page.margin.top.length //- page.margin.bottom.length
           let page-height = page.height - measure(width: size.width, page.header).height - measure(width: size.width, page.footer).height - page.margin.top.length
           
           let height-accumulated = here().position().y
 
-          let i = 1
-          for item in items {
+          let i = 0
+          let item = items.at(0)
+          height-accumulated = height-accumulated + measure(width: size.width, item).height
+          while i < items.len() {
             item
 
-            let height-item-measure = measure(width: size.width, item).height
+            let next-item = items.at(i)
+
+            let height-item-measure = measure(width: size.width, next-item).height
             height-accumulated = height-accumulated + height-item-measure
+
+            i = i + 1
             if height-accumulated > page-height and i < items.len() { 
-              height-accumulated = 0pt
+              height-accumulated = height-item-measure
               colbreak()
             }
-            i = i + 1
+            
+            item = next-item
+
           }
         }
       })
