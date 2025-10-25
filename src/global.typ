@@ -70,3 +70,33 @@
 
     return  solution-color
 }
+
+#let __g_bottom-margin() = {
+  let bottom-margin = 0pt
+  if type(page.margin) == dictionary {
+    if "rest" in page.margin {
+      bootm-margin = page.margin.rest
+    }
+
+    if "y" in page.margin {
+      bottom-margin = page.margin.y
+    }
+
+    if "bottom" in page.margin {
+        bottom-margin = page.margin.bottom
+    }
+  }
+  else {
+    bottom-margin = page.margin
+  }
+
+  if bottom-margin == auto {
+      let min-dim = calc.min(
+        if page.width == auto { 210mm } else { page.width },
+        if page.height == auto { 297mm } else { page.height },
+    )
+    bottom-margin = 2.5 / 21 * min-dim
+  }
+
+  return  bottom-margin
+}

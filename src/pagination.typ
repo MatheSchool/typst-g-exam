@@ -1,35 +1,4 @@
 #import"./global.typ": *
-// #import "@preview/scaffolder:0.2.1": get-page-margins
-
-#let __g_bottom-margin() = {
-  let bottom-margin = 0pt
-  if type(page.margin) == dictionary {
-    if "rest" in page.margin {
-      bootm-margin = page.margin.rest
-    }
-
-    if "y" in page.margin {
-      bottom-margin = page.margin.y
-    }
-
-    if "bottom" in page.margin {
-        bottom-margin = page.margin.bottom
-    }
-  }
-  else {
-    bottom-margin = page.margin
-  }
-
-  if bottom-margin == auto {
-      let min-dim = calc.min(
-        if page.width == auto { 210mm } else { page.width },
-        if page.height == auto { 297mm } else { page.height },
-    )
-    bottom-margin = 2.5 / 21 * min-dim
-  }
-
-  return  bottom-margin
-}
 
 #let __g-questions-pages(
   items,
@@ -37,28 +6,26 @@
       layout(size =>
       {
         context {
-          let page-height = page.height - measure(width: size.width, page.header).height - measure(width: size.width, page.footer).height - page.margin.top.length
+          let bottom-margin = __g_bottom-margin()
           
-          let height-accumulated = here().position().y
-          
-          let item = items.at(0)
-          height-accumulated = height-accumulated + measure(width: size.width, item).height
           let i = 1
+          let item = items.at(0)
+          let item-height = measure(width: size.width, item).height
           while i < items.len() {
-            item
-
             let next-item = items.at(i)
-
-            let height-item-measure = measure(width: size.width, next-item).height
-            height-accumulated = height-accumulated + height-item-measure
-
-            i = i + 1
-            if height-accumulated > page-height and i < items.len() - 1 { 
-              height-accumulated = height-item-measure
-              colbreak()
+            let next-item-height = measure(width: size.width, next-item).height
+            
+            item 
+            context {              
+              let item-position-height = here().position().y
+              if next-item-height > page.height - item-position-height - bottom-margin {
+                colbreak()
+              }
             }
             
             item = next-item
+            item-height = next-item-height
+            i = i + 1
           }
           item
         }
