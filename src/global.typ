@@ -71,32 +71,47 @@
     return  solution-color
 }
 
-#let __g_bottom-margin() = {
-  let bottom-margin = 0pt
+#let __g_page-margin() = {
+  let margins = (top: auto, bottom:auto)
+
   if type(page.margin) == dictionary {
     if "rest" in page.margin {
-      bootm-margin = page.margin.rest
+      margins.top = page.margin.rest
+      margins.bottom = page.margin.rest
     }
 
     if "y" in page.margin {
-      bottom-margin = page.margin.y
+      margins.top = page.margin.y
+      margins.bottom = page.margin.y
+    }
+
+    if "top" in page.margin {
+      margins.top = page.margin.top
     }
 
     if "bottom" in page.margin {
-        bottom-margin = page.margin.bottom
+      margins.bottom = page.margin.bottom
     }
   }
   else {
-    bottom-margin = page.margin
+    margins.bottom = page.margin
   }
 
-  if bottom-margin == auto {
+  if margins.top == auto {
       let min-dim = calc.min(
         if page.width == auto { 210mm } else { page.width },
         if page.height == auto { 297mm } else { page.height },
     )
-    bottom-margin = 2.5 / 21 * min-dim
+    margins.top = 2.5 / 21 * min-dim
   }
 
-  return  bottom-margin
+  if margins.bottom == auto {
+      let min-dim = calc.min(
+        if page.width == auto { 210mm } else { page.width },
+        if page.height == auto { 297mm } else { page.height },
+    )
+    margins.bottom = 2.5 / 21 * min-dim
+  }
+
+  return  margins
 }

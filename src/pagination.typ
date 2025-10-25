@@ -6,25 +6,26 @@
       layout(size =>
       {
         context {
-          let bottom-margin = __g_bottom-margin()
+          let margins = __g_page-margin()
           
           let i = 1
           let item = items.at(0)
-          let item-height = measure(width: size.width, item).height
           while i < items.len() {
             let next-item = items.at(i)
             let next-item-height = measure(width: size.width, next-item).height
-            
+           
             item 
             context {              
               let item-position-height = here().position().y
-              if next-item-height > page.height - item-position-height - bottom-margin {
+              // if i == 14 {
+              // [next-item-height: #next-item-height ; page.height: #page.height ;  item-position-height: #item-position-height ; magins.top: #margins.top ; magins.botton: #margins.bottom ; #(page.height - item-position-height + margins.top - margins.bottom)]
+              // }
+              if next-item-height > page.height - item-position-height + margins.top - margins.bottom {
                 colbreak()
               }
             }
             
             item = next-item
-            item-height = next-item-height
             i = i + 1
           }
           item
@@ -123,11 +124,10 @@
             }
           })
         } else { // one column.
-          let bottom-margin = __g_bottom-margin()
+          let margins = __g_page-margin()
           
           let i = 1
           let item = items.at(0)
-          let item-height = measure(width: size.width, item).height
           while i < items.len() {
             let next-item = items.at(i)
             let next-item-height = measure(width: size.width, next-item).height
@@ -135,13 +135,12 @@
             item 
             context {              
               let item-position-height = here().position().y
-              if next-item-height > page.height - item-position-height - bottom-margin {
+              if next-item-height > page.height - item-position-height + margins.top - margins.bottom {
                 colbreak()
               }
             }
             
             item = next-item
-            item-height = next-item-height
             i = i + 1
           }
           item
