@@ -23,7 +23,7 @@
     [
       #subquestion()[$display(f(x) = x^3 + 5x^2 - 2x + 7)$]
       #solution()[
-        $display(f'(x) = 3x^2 + 10x - 2)$
+        $display(f'(x) = 3x^2 + 10x - 2 = )$
       ]
     ],
     [
