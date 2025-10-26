@@ -1,0 +1,34 @@
+# for a description of available keys, see https://github.com/typst/packages/?tab=readme-ov-file#package-format
+
+[package]
+name = "g-exam"
+version = "0.5.0"
+entrypoint = "src/lib.typ"
+authors = ["Andrés Giménez Muñoz"]
+license = "MIT"
+description = "This template provides a way to generate exams."
+homepage = "https://matheschool.github.io/typst-g-exam/"
+repository = "https://github.com/MatheSchool/typst-g-exam"
+keywords = ["exam", "template"]
+categories = ["template"]
+disciplines = ["education"]
+# compiler = ""
+exclude = [
+  ".github",
+  "docs",
+  "scripts",
+  "tests",
+  "runexamples.sh",
+  "runtest.sh",
+  "runtesthtml.sh",
+  ".typstignore",
+  "Justfile",
+]
+
+[template]
+path = "template"
+entrypoint = "1er exam.typ"
+thumbnail = "logo.png"
+
+# [tool.mytool]
+# foo = "bar"
