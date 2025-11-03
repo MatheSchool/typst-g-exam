@@ -167,7 +167,7 @@
       set text(..__g-question-text-parameters)
       body
       if __show-solutions == true {
-        text(fill:__g-solution-color(color))[#solution]
+        text(fill:__g-solution-color(solution-color: solution-color))[#solution]
       }
     }
   }

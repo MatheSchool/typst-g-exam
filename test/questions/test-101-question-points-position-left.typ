@@ -8,6 +8,8 @@
 
 #question(points: 1, points-position: right)[Question 2]
 
+#subquestion(points: 2)[Subquestion 2.1]
+
 #question(points: 1.5)[Question 3]
 
 #question(points:1.5)[Question 4]
