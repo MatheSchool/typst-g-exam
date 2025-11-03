@@ -155,7 +155,7 @@
 
   set document(
     title: __document-name(exam-info: exam-info),
-    author: author.name, 
+    author: author.at("name", default:""), 
     date: date
   )
 
