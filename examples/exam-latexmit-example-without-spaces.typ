@@ -40,7 +40,7 @@
 
 #subquestion(points: 10)[For $n=2$ there's a theorem with a special name. What's that name?
 
-  #g-solution(
+  #solution(
     alternative-content: v(1fr)
   )[
     Pythagorean theorem.

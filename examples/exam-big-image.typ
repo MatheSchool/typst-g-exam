@@ -37,7 +37,7 @@
 #subquestion[For $n=2$ there's a theorem with a special name. What's that name?] 
 #v(1fr)
 
-#g-subquestion[What famous mathematician had an elegant proof for this theorem but
+#subquestion[What famous mathematician had an elegant proof for this theorem but
 there was not enough space in the margin to write it down?].
 #v(1fr)
 

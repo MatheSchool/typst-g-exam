@@ -80,10 +80,10 @@
 ]    
 
 #question(points: 2)[In a garden we have 20 red, 10 white and 15 yellow rose bushes.
-  #g-subquestion[What fraction does each color represent?]
+  #subquestion[What fraction does each color represent?]
   #v(1fr)
 
-  #g-subquestion[If we have pruned red rose bushes, what fraction do we have left to prune?]
+  #subquestion[If we have pruned red rose bushes, what fraction do we have left to prune?]
   #v(1fr)
 ]
 
