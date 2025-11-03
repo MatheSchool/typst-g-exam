@@ -1,7 +1,11 @@
 #import "../../src/lib.typ": *
 
 #show: exam.with(
+    author: (
+    watermark: "Teacher: Ernest",
+  ),
   question-points-position: none,
+
 )
 
 #question(points: 1)[Question 1]
