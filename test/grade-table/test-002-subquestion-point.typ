@@ -6,11 +6,11 @@
 )
 
 
-#g-question()[]
-#g-subquestion(points:1)[]
-#g-subquestion(points:1)[]
+#question()[]
+#subquestion(points:1)[]
+#subquestion(points:1)[]
 
-#g-question(points:3)[]
-#g-subquestion(points:1.2)[]
-#g-subquestion(points:1.3)[]
+#question(points:3)[]
+#subquestion(points:1.2)[]
+#subquestion(points:1.3)[]
 

@@ -2,8 +2,8 @@
 
 #show: exam.with()
 
-#g-subquestion(points: 1)[Sub question 1]
+#subquestion(points: 1)[Sub question 1]
 
-#g-subquestion(points: 1)[Sub question 2]
+#subquestion(points: 1)[Sub question 2]
 
-#g-subquestion(points: 1.5)[Sub question 3]
+#subquestion(points: 1.5)[Sub question 3]

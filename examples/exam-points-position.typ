@@ -13,7 +13,7 @@
   Determines by the position of the lines the type of system according to the number of solutions. \
 
 #columns(2, gutter: 2cm)[
-    #g-subquestion(points: 0.5, points-position: left)[
+    #subquestion(points: 0.5, points-position: left)[
       #align(center, 
       cetz.canvas(length: 0.7cm, {
         import cetz.draw: *

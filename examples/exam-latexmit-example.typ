@@ -28,13 +28,13 @@
   clarifications: "Answer the questions in the spaces provided. If you run out of room for an answer, continue on the back of the page."
 )
 
-#g-question[Is it true that $x^n + y^n = z^n$ if $(x,y,z)$ and $n$ are positive integers?. Explain.] 
+#question[Is it true that $x^n + y^n = z^n$ if $(x,y,z)$ and $n$ are positive integers?. Explain.] 
 #v(1fr)
 
-#g-question[Prove that the real part of all non-trivial zeros of the function $zeta(z) "is" 1/2$].
+#question[Prove that the real part of all non-trivial zeros of the function $zeta(z) "is" 1/2$].
 #v(1fr)
 
-#g-question[Compute
+#question[Compute
 $ integral_0^infinity (sin(x))/x $
 ]
 #v(1fr)

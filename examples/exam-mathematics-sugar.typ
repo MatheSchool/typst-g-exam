@@ -51,18 +51,18 @@
 
 #pagebreak()
 
-#g-question(points: 2)[Calculate the following operations and simplify if possible:]
+#question(points: 2)[Calculate the following operations and simplify if possible:]
 
   ==? $display(4/11+5/11-2/11=)$
   #v(1fr)
 
-  #g-subquestion[$display(3+2/5=)$]
+  #subquestion[$display(3+2/5=)$]
   #v(1fr)
 
-  #g-subquestion[$display(7/12+2/9=)$]
+  #subquestion[$display(7/12+2/9=)$]
   #v(1fr)
 
-  #g-subquestion[$display(1-9/13=)$]
+  #subquestion[$display(1-9/13=)$]
   #v(1fr)
 
 #pagebreak()
@@ -77,13 +77,13 @@
 
 #pagebreak()
 
-#g-question(points: 2)[Sort the following fractions from highest to lowest:
+#question(points: 2)[Sort the following fractions from highest to lowest:
       \ \
       #align(center, [$ 2/3 ; 3/8 ; 4/6 ; 1/2 $])
       #v(1fr)
 ]    
 
-#g-question(points: 2)[In a garden we have 20 red, 10 white and 15 yellow rose bushes.]
+#question(points: 2)[In a garden we have 20 red, 10 white and 15 yellow rose bushes.]
 
   #g-subquestion[What fraction does each color represent?]
   #v(1fr)

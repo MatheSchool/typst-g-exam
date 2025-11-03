@@ -5,7 +5,7 @@
   decimal-separator: ",",
   show-student-data: false,
   show-grade-table: false,
-  show-solution: true,
+  show-solutions: true,
   question-points-position: right,
 )
 

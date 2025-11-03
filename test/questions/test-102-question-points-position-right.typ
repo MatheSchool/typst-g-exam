@@ -8,7 +8,7 @@
 
 #question(points: 1, points-position: left)[Question 2]
 
-#question(point: 1.5)[Question 3]
+#question(points: 1.5)[Question 3]
 
 #question(points:1.5)[Question 4]
 

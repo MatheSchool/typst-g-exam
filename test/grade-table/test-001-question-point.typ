@@ -5,9 +5,9 @@
   show-grade-table: true,
 )
 
-#g-question(points:2.1)[]
-#g-question(points:3)[]
-#g-question(points:2.3)[]
-#g-question(points:3)[]
-#g-question(points:2.1)[]
-#g-question(points:3.3)[]
+#question(points:2.1)[]
+#question(points:3)[]
+#question(points:2.3)[]
+#question(points:3)[]
+#question(points:2.1)[]
+#question(points:3.3)[]

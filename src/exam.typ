@@ -44,7 +44,7 @@
 /// - show-grade-table: (bool): Show the grade table.
 /// - decimal-separator: (".", ","): Indicate the decimal separation character.
 /// - question-points-position: (none, left, right): Position of question points.
-/// - show-solution: (true, false, "space", "spacex2", "spacex3"): Show the solutions.
+/// - show-solutions: (true, false, "space", "spacex2", "spacex3"): Show the solutions.
 /// - solution-color (none, color, str): Color of the text solution.
 /// - draft: (true, false): It shows a draft label in the background.
 /// - body (string, content): Body of exam.

@@ -5,7 +5,7 @@
   // decimal-separator: "."
   show-student-data:false,
   show-grade-table: false,
-  // show-solution: false
+  // show-solutions: false
   // question-text-parameters: (size: 18pt, font:"OpenDyslexic")
 )
 

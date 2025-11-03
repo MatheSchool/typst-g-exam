@@ -4,7 +4,7 @@
   question-points-position: right,
   decimal-separator: ","
   // show-grade-table: false,
-  // show-solution: false
+  // show-solutions: false
   // question-text-parameters: (size: 18pt, font:"OpenDyslexic")
 )
 
