@@ -14,14 +14,14 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
      
       - name: Delete samples and test
         run: |
           rm -rf ./examples/*.pdf
           rm -rf ./test/*.pdf
       
-      - uses: typst-community/setup-typst@v3
+      - uses: typst-community/setup-typst@v4
 
       - name: Compile Typst examples to PDF
         shell: bash
