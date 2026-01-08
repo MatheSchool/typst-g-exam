@@ -12,6 +12,8 @@
 
 #let __g-solution-color-state = state("g-solution-color", rgb("#0038A7"))
 
+#let __g-footer-position = state("g-footer-position", 0pt)
+
 #let __g-default-localization = (
     grade-table-queston: "Question",
     grade-table-total: "Total",

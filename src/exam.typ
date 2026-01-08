@@ -108,31 +108,6 @@
     message: "Invalid show studen data")
   }
 
-  // let schema = z.any()
-
-  // let input-types = (
-  //   author = (
-  //     // name: z.content(optional: true),
-  //     name: z.string(),
-  //     email: z.email(optional: true),
-  //     watermark: z.content(optional: true)
-  //   ),
-  //   // school= (
-  //   //   name: z.string(),
-  //   //   logo: none,
-  //   // ),
-  // // exam-info: (
-  // //   academic-period: none,
-  // //   academic-level: none,
-  // //   academic-subject: none,
-  // //   number: none,
-  // //   content: none,
-  // //   model: none
-  // // ),
-  // )
-
-  // z.parse(input-types, z.any(optional: true))
-
   assert(question-points-position in (none, left, right),
       message: "Invalid question point position")
 
@@ -146,7 +121,7 @@
       message: "Invalid show draft value")
 
   assert(date == none or date == auto or type(date) == datetime, 
-      message: "Date must be nono, auto or datetime."
+      message: "Date must be none, auto or datetime."
   )
  
   assert(solution-color == none or type(solution-color) == color or type(solution-color) == str, 
@@ -191,28 +166,16 @@
 
       footer: {
         context {
+          __g-footer-position.update(here().position().y)
           line(length: 100%, stroke: 1pt + gray)       
           align(right)[
             #counter(page).display(__g-localization.final().page-counter-display, both: true,
             )
           ]
-        // grid(
-        //   columns: (1fr, 1fr, 1fr),
-        //   if type(school) == dictionary {
-        //     align(left, school.at("name", default : none))
-        //   },
-        //   align(center)[#exam-info.academic-period],
-        //   align(right)[
-        //     Página 
-        //     #counter(page).display({
-        //       "1 de 1"},
-        //       both: true,
-        //     )
-        //   ]
-        // )
 
         __show-watermark(author: author, school: school, exam-info: exam-info, question-points-position:question-points-position)
         }
+        [#hide[]<footer>]
       }
     )  
   // })
@@ -269,55 +232,4 @@
   
   [#hide[]<end-g-question-localization>]
   [#hide[]<end-g-exam>]
-}
-
-
-#let g-exam(
-  author: (
-    name: "",
-    email: none,
-    watermark: none
-  ),
-  school: (
-    name: none,
-    logo: none,
-  ),
-  exam-info: (
-    academic-period: none,
-    academic-level: none,
-    academic-subject: none,
-    number: none,
-    content: none,
-    model: none
-  ),
-  language: "en",
-  languaje: none,
-  localization: (
-    grade-table-queston: none,
-    grade-table-total: none,
-    grade-table-points: none,
-    grade-table-calification: none,
-    point: none,
-    points: none,
-    page: none,
-    page-counter-display: none,
-    family-name: none,
-    given-name: none,
-    group: none,
-    date: none
-  ),
-  date: none,
-  keywords: none,
-  clarifications: none,
-  question-text-parameters: none,
-  show-student-data: "first-page",
-  show-grade-table: true,
-  decimal-separator: ".",
-  question-point-position: left,
-  show-solutions: true,
-  body,
-) = {
- panic()[
-    "The g-exam template is deprecated. Please use the exam template instead."
-  ]
 }

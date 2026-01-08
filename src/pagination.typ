@@ -5,40 +5,76 @@
 ) = {
       layout(size =>
       {
-        context {
-          let margins = __g_page-margin()
-          
+        // let footer-position = __g-footer-position.final()
+        // context {
+          // let margins = __g_page-margin()
+          // let g-footer-locations = query(<footer>)
+          // let footer-position = __g-footer-position.get()
           let i = 1
           let item = items.at(0)
           while i < items.len() {
-            let next-item = items.at(i)
-            let next-item-height = measure(width: size.width, next-item).height
             item 
-            context {              
+            let next-item = items.at(i)
+            
+            context {
               let item-position-height = here().position().y
+              let next-item-height = measure(width: size.width, next-item).height
+              let header-height = measure(width: size.width, page.header).height 
+              let footer-height = measure(width: size.width, page.footer).height 
               
-              place(right, dx:50pt, [
-                next-item-height: #next-item-height \   
-                page.height: #page.height \  
-                item-position-height: #item-position-height \
-                magins.top: #margins.top \
-                magins.botton: #margins.bottom \ 
-                #(page.height - item-position-height + margins.top - margins.bottom)])
-              
-              if next-item-height > page.height - item-position-height + margins.top - margins.bottom {
+              // let footer = query(<footer>)
+              // let footer-y = locate(footer).position().y
+              // let next-item-height2 = measure(width: page.width, next-item).height
+
+              // if i == 14 {
+              // place(right, dx:70pt, [
+              //   size: #size \
+              //   // #here().position() \
+              //   // margins: #margins \
+              //   page: (#page.width, #page.height) \
+              //   // page: #page.margin \
+              //   // footer-position: #footer-position \
+              //   header-height: #header-height \
+              //   footer-height: #footer-height \
+              //   next-item-height: #next-item-height \
+              //   // next-item-height2: #next-item-height2 \   
+              //   // page.height: #page.height \  
+              //   item-position-height: #item-position-height \
+              //   // margins.top: #margins.top \
+              //   // margins.bottom: #margins.bottom \
+              //   #(item-position-height + next-item-height + footer-height + header-height)
+              // ])
+              // }
+              // if next-item-height > page.height - item-position-height + margins.top - margins.bottom {
+              // if page.height - margins.bottom < item-position-height + next-item-height /*and i !=14*/ {
+              // if  size.height < item-position-height + next-item-height {
+              // [#footer-position]
+              if page.height < item-position-height + next-item-height + footer-height + header-height {
+                // [#footer-position]
                 colbreak()
               }
             }
-            
             item = next-item
             i = i + 1
           }
-          item
-        }
+        item
       })
+      // }
+      // )
     }
     
-
+/// Automatic adjustment of pages.
+/// 
+/// *Example:*
+/// ```
+/// #question()[This is a question]
+/// 
+/// #questions-pages([
+/// #question()[This is a first question]
+/// #question()[This is a second question]
+/// ])
+/// 
+/// - body (string, content): Body of question and question list.
 #let questions-pages(
   ..body,
 ) = {
@@ -85,34 +121,19 @@
   max-columns: 100,
   items,
   ) = {
-  //   box(width: 100%, stroke:blue, fill:red,
-  //   [
-  //     #for item in items {
-  //       item
-  //     }
-  //   ])
-  // }
-
     layout(size => {
       context {
         let columns-info = __g-columns-width(size, max-columns, items)
         let number-column = columns-info.at(0)
         let items-size-heigth = columns-info.at(1)
         let items-size-width = columns-info.at(2)
-        // let here-position = here().position()
-        let size-height = size.height //- 130pt //page.margin.top.length
-        // [#page.margin.top.length]
+        let size-height = size.height 
 
         let num-items-per-column = calc.div-euclid(items.len(), number-column)
         if calc.rem-euclid(items.len(), number-column) > 0 {
           num-items-per-column = num-items-per-column + 1
         }
         
-
-        // let page-height = page.height - measure(width: size.width, page.header).height - measure(width: size.width, page.footer).height - page.margin.top.length
-
-        // [number-column: #number-column, items-size-heigth: #items-size-heigth, items-size-width: #items-size-width, here-position: #here-position, num-items-per-column]
-
         if number-column > 1 { // one page.
           let items-columns = items.chunks(num-items-per-column)  
           columns(number-column, {
