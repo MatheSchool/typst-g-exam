@@ -13,13 +13,18 @@
           while i < items.len() {
             let next-item = items.at(i)
             let next-item-height = measure(width: size.width, next-item).height
-           
             item 
             context {              
               let item-position-height = here().position().y
-              // if i == 14 {
-              // [next-item-height: #next-item-height ; page.height: #page.height ;  item-position-height: #item-position-height ; magins.top: #margins.top ; magins.botton: #margins.bottom ; #(page.height - item-position-height + margins.top - margins.bottom)]
-              // }
+              
+              place(right, dx:50pt, [
+                next-item-height: #next-item-height \   
+                page.height: #page.height \  
+                item-position-height: #item-position-height \
+                magins.top: #margins.top \
+                magins.botton: #margins.bottom \ 
+                #(page.height - item-position-height + margins.top - margins.bottom)])
+              
               if next-item-height > page.height - item-position-height + margins.top - margins.bottom {
                 colbreak()
               }
