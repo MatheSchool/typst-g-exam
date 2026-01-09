@@ -3,6 +3,8 @@ ignorePaths: []
 dictionaryDefinitions: []
 dictionaries: []
 words:
+  - colbreak
   - subquestion
+  - trunc
 ignoreWords: []
 import: []
