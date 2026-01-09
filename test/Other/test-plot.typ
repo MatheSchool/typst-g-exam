@@ -493,7 +493,7 @@
         import cetz.draw: *
         import cetz-plot: *
         plot.plot(
-          size: (-5,5),
+          size: (10,5),
           x-tick-step:1,
           y-tick-step:5,
           axis-style: "school-book",
