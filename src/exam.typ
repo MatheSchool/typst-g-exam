@@ -166,7 +166,6 @@
 
       footer: {
         context {
-          // __g-footer-position.update(here().position().y)
           line(length: 100%, stroke: 1pt + gray)       
           align(right)[
             #counter(page).display(__g-localization.final().page-counter-display, both: true,
