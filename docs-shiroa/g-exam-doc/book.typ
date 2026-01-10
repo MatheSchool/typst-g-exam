@@ -1,15 +1,12 @@
-#import "@preview/shiroa:0.3.0": *
+#import "@preview/shiroa:0.2.0": *
 #show: book
-
 #book-meta(
   title: "g-exam Docs",
   description: "g-exam Documentation",
   repository: "https://github.com/MatheSchool/typst-g-exam",
-  // repository-edit: "https://github.com/Myriad-Dreamin/shiroa/edit/main/github-pages/docs/{path}",
   authors: ("Andrés Giménez Muñoz",),
   language: "en",
-  summary: [ // begin of summary
-    // = g-Exam
+  summary: [ 
     #prefix-chapter("introduction.typ")[Introduction]
     - #chapter("configuration/configuration.typ")[Configuration]
       - #chapter("configuration/question.typ")[Questions]
@@ -39,14 +36,12 @@
   ],
 )
 
-#build-meta(
-  dest-dir: "../dist"
-)
+#build-meta(dest-dir: "../dist")
 
 #get-book-meta()
 
-// re-export page template
-#import "../template/page.typ": project
+re-export page template
+#import "/docs-shiroa/template/pages.typ": project, heading-reference
 #let book-page = project
 #let cross-link = cross-link
-// #let heading-reference = heading-reference
+#let heading-reference = heading-reference

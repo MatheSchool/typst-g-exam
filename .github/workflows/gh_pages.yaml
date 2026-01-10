@@ -46,9 +46,13 @@ jobs:
       #   run: |
       #     shiroa build --font-path ./assets/typst-fonts/ --font-path ./assets/fonts/ --path-to-root /typst-g-exam/ --workspace . g-exam-doc
       
+      # - name: Build Book
+      #   run: |
+      #     shiroa build --font-path ./assets/typst-fonts/ --font-path ./assets/fonts/ --path-to-root /typst-g-exam/ --workspace . ./docs-shiroa/g-exam-doc
+
       - name: Build Book
         run: |
-          shiroa build --font-path ./assets/typst-fonts/ --font-path ./assets/fonts/ --path-to-root /typst-g-exam/ --workspace . ./docs-shiroa/g-exam-doc
+          shiroa build --path-to-root /typst-g-exam/ --workspace . ./docs-shiroa/g-exam-doc --mode static-html
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

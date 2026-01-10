@@ -1,4 +1,4 @@
-#import "mod.typ": *
+#import "/docs-shiroa/g-exam-doc/book.typ": book-page
 
 #show: book-page.with(title: "Introduction")
 
@@ -14,7 +14,7 @@ solutions, watermark with information about the exam model and teacher.
 - Scoreboard.
 - Scoring by questions and subquestions.
 - Student information, on the first page or on all odd pages.
-- Question and subcuestion.
+- Question and subquestion.
 - Show solutions and clarifications
 - List of clarifications.
 - Teacher's Watermark
@@ -22,33 +22,11 @@ solutions, watermark with information about the exam model and teacher.
 
 == A sample exam
 
-#link("https://github.com/MatheSchool/typst-g-exam/blob/develop/docs-shiroa:0.3.0/g-exam-doc/assets/exam-table-content.pdf?raw=true")[
-  #figure(
-    image("./assets/exam-table-content.png", width: 80%),
-    caption: [Exam - Table of content],
-  )
-]
-
-// #media.iframe(
-//   outer-width: 640pt,
-//   outer-height: 360pt,
-//   attributes: (
-//     src: "https://github.com/MatheSchool/typst-g-exam/blob/develop/docs-shiroa/g-exam-doc/assets/exam-table-content.pdf",
-//     scrolling: "no",
-//     border: "0",
-//     width: "100%",
-//     height: "100%",
-//     frameborder: "no",
-//     framespacing: "0",
-//     allowfullscreen: "true",
-//   ),
-// )
-
 === Source:
 
-```typ
+```bash
 
-#import "@preview/g-exam:0.4.2": *
+#import "@preview/g-exam:0.4.4": *
 
 #show: exam.with(
   school: (

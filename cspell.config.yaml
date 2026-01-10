@@ -4,7 +4,10 @@ dictionaryDefinitions: []
 dictionaries: []
 words:
   - colbreak
+  - shiroa
   - subquestion
+  - subquestions
   - trunc
+  - Typst
 ignoreWords: []
 import: []
