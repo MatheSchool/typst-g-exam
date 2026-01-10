@@ -106,7 +106,6 @@
     let j = 0
     for i in range(partition.len()) {
       let k = j + partition.at(i)
-      [j:#j, k:#k \ ]
       partition-array.push(array.slice(j, k))
       j = k
     }
@@ -135,12 +134,10 @@
   while n < partition-sizes.len() {
     let height-n = partition-sizes.at(n).height
     if height-n > max-height {
-      [max n:#n \ ]
       max-height-position = n
       max-height = height-n
     }
     if height-n < min-height {
-      [min n:#n \ ]
       min-height-position = n
       min-height = min-height
     }
