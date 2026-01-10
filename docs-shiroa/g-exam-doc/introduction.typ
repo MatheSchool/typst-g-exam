@@ -22,7 +22,7 @@ solutions, watermark with information about the exam model and teacher.
 
 == A sample exam
 
-#link("https://github.com/MatheSchool/typst-g-exam/blob/develop/docs-shiroa/g-exam-doc/assets/exam-table-content.pdf?raw=true")[
+#link("https://github.com/MatheSchool/typst-g-exam/blob/develop/docs-shiroa:0.3.0/g-exam-doc/assets/exam-table-content.pdf?raw=true")[
   #figure(
     image("./assets/exam-table-content.png", width: 80%),
     caption: [Exam - Table of content],

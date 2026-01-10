@@ -1,4 +1,4 @@
-#import "@preview/shiroa:0.1.2": *
+#import "@preview/shiroa:0.3.0": *
 #import "../template/page.typ": project, part-style
 
 #let _page-project = project
