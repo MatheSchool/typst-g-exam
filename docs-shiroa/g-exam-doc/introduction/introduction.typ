@@ -66,7 +66,7 @@ This is an embed video.
   outer-width: 640pt,
   outer-height: 360pt,
   attributes: (
-    src: "assets/exam-table-content.pdf",
+    src: "./assets/exam-table-content.pdf",
     scrolling: "no",
     border: "0",
     width: "100%",
