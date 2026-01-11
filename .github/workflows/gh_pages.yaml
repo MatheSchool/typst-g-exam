@@ -66,6 +66,7 @@ jobs:
       - name: Copy examples PDF
         shell: bash
         run: |
+          mkdir -p ./docs-shiroa/dist/assets/
           cp ./examples/*.pdf ./docs-shiroa/dist/assets/
 
       - name: Setup Pages
