@@ -52,7 +52,7 @@ jobs:
       - name: Compile Typst examples to PDF
         shell: bash
         run: |
-          for archivo in $(ls -1 ./examples/*.typ); do
+          for archivo in $(ls -1 ./examples/**/*.typ); do
               echo "$archivo"
               typst compile $archivo --root .
               
@@ -67,7 +67,7 @@ jobs:
         shell: bash
         run: |
           mkdir -p ./docs-shiroa/dist/assets/
-          cp ./examples/*.pdf ./docs-shiroa/dist/assets/
+          cp ./examples/**/*.pdf ./docs-shiroa/dist/assets/
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
