@@ -62,8 +62,8 @@ To begin with, we can show this small example in which the school information, e
 == Result
 
 #media.iframe(
-  outer-width: "100%",
-  outer-height: "1150pt",
+  outer-width: 720pt,
+  outer-height: 950pt,
   attributes: (
     src: "../assets/introduction.pdf",
     style: "height:100%",
@@ -76,19 +76,3 @@ To begin with, we can show this small example in which the school information, e
     allowfullscreen: "true",
   ),
 )
-
-// #media.iframe(
-//   outer-width: 100%,
-//   outer-height: 1150pt,
-//   attributes: (
-//     src: "https://matheschool.github.io/typst-g-exam/assets/introduction.pdf",
-//     style: "height:100%",
-//     scrolling: "no",
-//     border: "0",
-//     width: "100%",
-//     height: "100%",
-//     frameborder: "no",
-//     framespacing: "0",
-//     allowfullscreen: "true",
-//   ),
-// )
