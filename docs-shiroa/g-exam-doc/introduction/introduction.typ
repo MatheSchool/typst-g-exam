@@ -63,11 +63,65 @@ solutions, watermark with information about the exam model and teacher.
 
 This is an embed video.
 
+
+==== pdf 
+
 #media.iframe(
   outer-width: 640pt,
-  outer-height: 360pt,
+  // outer-height: 360pt,
   attributes: (
     src: "./assets/introduction.pdf",
+    scrolling: "no",
+    border: "0",
+    width: "100%",
+    height: "100%",
+    frameborder: "no",
+    framespacing: "0",
+    allowfullscreen: "true",
+  ),
+)
+
+==== pdf2 
+
+#media.iframe(
+  outer-width: 640pt,
+  // outer-height: 360pt,
+  attributes: (
+    src: "/assets/introduction.pdf",
+    scrolling: "no",
+    border: "0",
+    width: "100%",
+    height: "100%",
+    frameborder: "no",
+    framespacing: "0",
+    allowfullscreen: "true",
+  ),
+)
+
+=== svg
+
+#media.iframe(
+  outer-width: 640pt,
+  // outer-height: 360pt,
+  attributes: (
+    src: "./assets/introduction.svg",
+    scrolling: "no",
+    border: "0",
+    width: "100%",
+    height: "100%",
+    frameborder: "no",
+    framespacing: "0",
+    allowfullscreen: "true",
+  ),
+)
+
+=== png
+
+#media.iframe(
+  outer-width: 640pt,
+  // outer-height: 360pt,
+  attributes: (
+    src: "./assets/introduction.png",
     scrolling: "no",
     border: "0",
     width: "100%",
