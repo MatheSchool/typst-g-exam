@@ -16,11 +16,12 @@
       - #chapter("configuration/question.typ")[Questions]
       - #chapter("configuration/author.typ")[Author]
       - #chapter("configuration/school.typ")[School]
-      - #chapter("configuration/student-data.typ")[Studen data]
+      - #chapter("configuration/student-data.typ")[Student data]
       - #chapter("configuration/grade-table.typ")[Grade table]
       - #chapter("configuration/exam-info.typ")[Exam info]
       - #chapter("configuration/localization.typ")[Localization]
       - #chapter("configuration/font-type.typ")[Font type]
+      - #chapter("configuration/paper-size.typ")[Paper size]
       - #chapter("configuration/clarifications.typ")[Clarifications]
       - #chapter("configuration/draft.typ")[Draft]
      

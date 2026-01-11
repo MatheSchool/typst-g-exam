@@ -2,8 +2,6 @@
 
 #show: book-page.with(title: "Exam Information")
 
-= Exam info
-
 Using the exam-info field we can indicate the exam information, which will appear in the header in the exam header.
 
 We can indicate the exam model, using the model field, which will appear in the lower right corner.

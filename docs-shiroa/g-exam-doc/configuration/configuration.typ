@@ -2,8 +2,6 @@
 
 #show: book-page.with(title: "Configuration")
 
-= Configuration
-
 The template will include a header in the exam, with the information entered in the template. We can
 indicate a logo of the educational center, a description of the exam, subject, content, academic level, …
 
@@ -95,5 +93,5 @@ exam-info: (
 ),
 
 ```
-This information can be consulted in the properties of the pdf document.
 
+This information can be consulted in the properties of the pdf document.

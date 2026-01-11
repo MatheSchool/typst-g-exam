@@ -1,8 +1,6 @@
 #import "mod.typ": *
 
-#show: book-page.with(title: "studen-data")
-
-= Student data
+#show: book-page.with(title: "Studen Data")
 
 In order for a header in which the student must enter his/her personal data, it must be speciﬁed on the
 template by means of the "show-studen-data" property indicating how you want this box to appear.

@@ -59,12 +59,7 @@ solutions, watermark with information about the exam model and teacher.
 
 ```
 
-=== Result
-
-This is an embed video.
-
-
-==== pdf 
+=== Result:
 
 #media.iframe(
   outer-width: 820pt,

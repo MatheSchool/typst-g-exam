@@ -1,10 +1,8 @@
 #import "mod.typ": *
 
-#show: book-page.with(title: "localization")
+#show: book-page.with(title: "Localization")
 
-= Localization
-
-== Languages
+= Languages
 
 You can specify the language in which you want the text to appear. To do this, we use the "languaje"
 property. It can take the values "en", "es", "de", "fr", "pt", "it", "nl".
@@ -15,7 +13,7 @@ property. It can take the values "en", "es", "de", "fr", "pt", "it", "nl".
 )
 ```
 
-== Customization
+= Customization
 
 To customize an exam text, we can use the localization parameter.
 For each parameter you can specify the indicated content, for example by indicating text in bold, italics or a different size.
@@ -39,7 +37,7 @@ For each parameter you can specify the indicated content, for example by indicat
   ),
 
 ```
-==== Usefulness of each tag
+== Usefulness of each tag
 
 - grade-table-queston: Tag _question_ on the grade table.
 - grade-table-total: Tag _total_ on the grade table.
@@ -55,9 +53,9 @@ For each parameter you can specify the indicated content, for example by indicat
 - date: Tag _data_ on the exam information.,
 - draft-label: Watermark that will appear in draft mode.
 
-== Examples
+= Examples
 
-=== Modify Watermark in Draft Mode
+= Modify Watermark in Draft Mode
 
 Modify the text of the draft mode watermark.
 
@@ -81,7 +79,7 @@ Modify the size of the watermark text in draft mode.
 
 ```
 
-=== Modify the appearance of the student's information.
+= Modify the appearance of the student's information.
 
 If we want the labels of the student's information to appear in bold.
 

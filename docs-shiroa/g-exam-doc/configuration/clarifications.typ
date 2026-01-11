@@ -3,7 +3,6 @@
 
 #show: book-page.with(title: "Clarifications")
 
-= Clarification
 You can indicate clarifications in the exam header, using the clarification field, which accepts string, content, or a collection of string or content.
 
 ```typ

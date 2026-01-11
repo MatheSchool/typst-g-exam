@@ -1,4 +1,4 @@
-#import "@preview/g-exam:0.4.2": *
+#import "@preview/g-exam:0.4.3": *
 
 #show: exam.with(
   school: (

@@ -15,7 +15,7 @@ Examples of LaTex Mit exam template.
 
 
 // <!-- {% highlight typ %}
-// #import "@preview/g-exam:0.4.2": *
+// #import "@preview/g-exam:0.4.4": *
 
 // #show: exam.with(
 //   author: (
@@ -26,7 +26,7 @@ Examples of LaTex Mit exam template.
 // {% endhighlight %} -->
 
 // ```python
-// #import "@preview/g-exam:0.4.2": *
+// #import "@preview/g-exam:0.4.4": *
 
 // #show: exam.with(
 //   author: (
@@ -37,7 +37,7 @@ Examples of LaTex Mit exam template.
 // ```
 
 // ```typst
-// #import "@preview/g-exam:0.4.2": *
+// #import "@preview/g-exam:0.4.4": *
 
 // #show: exam.with(
 //   author: (
