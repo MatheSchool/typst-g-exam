@@ -27,7 +27,7 @@ jobs:
       - name: Compile Typst examples to PDF
         shell: bash
         run: |
-          for archivo in $(ls -1 ./examples/*.typ); do
+          for archivo in ./examples/*.typ; do
               echo "$archivo"
               typst compile $archivo --root .
               
@@ -41,7 +41,7 @@ jobs:
       - name: Compile Typst test to PDF
         shell: bash
         run: |
-          for archivo in $(ls -1 ./test/**/*.typ); do
+          for archivo in ./test/**/*.typ; do
             echo "$archivo"
             typst compile $archivo --root .
             
@@ -51,15 +51,6 @@ jobs:
                 echo "Error al compilar: $archivo"
             fi
           done
-
-      # - name: Delete Doc
-      #   run: |
-      #     rm -rf ./manual/*.pdf
-
-      # - name: Compile documentation to PDF
-      #   shell: bash
-      #   run: |
-      #     typst compile ./manual/g-exam-manual.typ --root .
 
       - name: Upload examples PDF file
         uses: actions/upload-artifact@v4
@@ -72,9 +63,4 @@ jobs:
         with:
           name: test-g-exam
           path: ./test/**/*.pdf
-
-      # - name: Upload documentation PDF file
-      #   uses: actions/upload-artifact@v4
-      #   with:
-      #     name: document-g-exam
-      #     path: ./manual/*.pdf
+          

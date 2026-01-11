@@ -72,7 +72,7 @@ jobs:
       - name: Compile Typst examples to svg
         shell: bash
         run: |
-          for archivo in $(ls -1 ./examples/**/*.typ); do
+          for archivo in ./examples/**/*.typ; do
               echo "$archivo"
               typst compile $archivo --root . --format svg
               
@@ -92,7 +92,7 @@ jobs:
       - name: Compile Typst examples to png
         shell: bash
         run: |
-          for archivo in $(ls -1 ./examples/**/*.typ); do
+          for archivo in ./examples/**/*.typ; do
               echo "$archivo"
               typst compile $archivo --root . --format png
               
