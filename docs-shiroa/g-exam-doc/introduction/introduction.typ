@@ -71,7 +71,7 @@ This is an embed video.
   outer-height: 1260pt,
   attributes: (
     src: "./assets/introduction.pdf",
-    style: "height:100%",
+    style: "width:100%, height:100%",
     scrolling: "no",
     border: "0",
     width: "100%",
@@ -81,9 +81,6 @@ This is an embed video.
     allowfullscreen: "true",
   ),
 )
-
-#media.div()
-
 === svg
 
 #media.iframe(
@@ -91,6 +88,7 @@ This is an embed video.
   // outer-height: 360pt,
   attributes: (
     src: "./assets/introduction.svg",
+    style: "width:100%, height:100%",
     scrolling: "no",
     border: "0",
     width: "100%",
