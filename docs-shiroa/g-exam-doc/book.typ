@@ -10,7 +10,7 @@
   language: "en",
   summary: [ 
     // begin of summary
-    #prefix-chapter("introduction.typ")[Introduction]
+    #prefix-chapter("introduction/introduction.typ")[Introduction]
     = Configuration
     - #chapter("configuration/configuration.typ")[Configuration]
       - #chapter("configuration/question.typ")[Questions]

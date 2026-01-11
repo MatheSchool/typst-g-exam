@@ -1,7 +1,7 @@
-#import "@preview/shiroa:0.2.0": *
+#import "@preview/shiroa:0.3.1": *
 
 #import "/docs-shiroa/g-exam-doc/book.typ"
-#let ebook = gh-ebook
+#let ebook = book
 
 #show: ebook.project.with(title: "Typst book", authors: ("Andrés Giménez Muñoz", ), spec: "book.typ")
 
