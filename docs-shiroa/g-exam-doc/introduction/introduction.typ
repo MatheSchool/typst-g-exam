@@ -68,10 +68,10 @@ This is an embed video.
 
 #media.iframe(
   outer-width: 640pt,
-  outer-height: 1260pt,
+  outer-height: 1500pt,
   attributes: (
     src: "./assets/introduction.pdf",
-    style: "width:100%, height:100%",
+    style: "height:100%",
     scrolling: "no",
     border: "0",
     width: "100%",
