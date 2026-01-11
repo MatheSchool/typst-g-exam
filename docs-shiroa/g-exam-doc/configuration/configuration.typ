@@ -8,6 +8,7 @@ The template will include a header in the exam, with the information entered in 
 indicate a logo of the educational center, a description of the exam, subject, content, academic level, …
 
 ```typst
+
 #show: exam.with(
     author: (
         name: "Carl Friedrich Gauss",
@@ -26,6 +27,7 @@ indicate a logo of the educational center, a description of the exam, subject, c
         model: "Model A"
     ),
 )
+
 ```
 
 = Question
@@ -34,8 +36,10 @@ To enter the questions, use the q-question, followed by the text of the question
 score of the question by entering the parameter point.
 
 ```typst
+
 #question(points: 2)[Question text.]
 #v(1fr)
+
 ```
 
 To create sub-questions, it will be done in the same way with the q-subquestion, command, which
@@ -48,7 +52,8 @@ second question with two sub-questions with a score of 2 points each, which will
 question is worth a total of four points in the scorecard.
 
 ```typst
-#import "@preview/g-exam:0.3.0": *
+
+#import "@preview/g-exam:0.4.4": *
 #show: exam.with()
 
 #question(points: 2)[List prime numbers]
@@ -61,6 +66,7 @@ question is worth a total of four points in the scorecard.
 
 #subquestion(points: 2)[The name of the continent we live on is ...]
 #v(1fr)
+
 ```
 
 = Information in the document’s metadata
@@ -69,6 +75,7 @@ If a pdf document is generated, the information will be saved in the document. S
 name, e-mail, watermark, exam information, …
 
 ```typst
+
 #show: exam.with(
 author: (
     name: "Leonhard Euler",
@@ -86,6 +93,7 @@ exam-info: (
     content: "Radicals and fractions",
     model: "Model A"
 ),
+
 ```
 This information can be consulted in the properties of the pdf document.
 

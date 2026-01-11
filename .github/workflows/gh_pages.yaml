@@ -69,6 +69,47 @@ jobs:
           mkdir -p ./docs-shiroa/dist/assets/
           cp ./examples/**/*.pdf ./docs-shiroa/dist/assets/
 
+      - name: Compile Typst examples to svg
+        shell: bash
+        run: |
+          for archivo in $(ls -1 ./examples/**/*.typ); do
+              echo "$archivo"
+              typst compile $archivo --root . --format svg
+              
+              if [ $? -eq 0 ]; then
+                  echo "Compilación exitosa: $archivo"
+              else
+                  echo "Error al compilar: $archivo"
+              fi
+          done
+
+      - name: Copy examples svg
+        shell: bash
+        run: |
+          mkdir -p ./docs-shiroa/dist/assets/
+          cp ./examples/**/*.svg ./docs-shiroa/dist/assets/
+
+      - name: Compile Typst examples to png
+        shell: bash
+        run: |
+          for archivo in $(ls -1 ./examples/**/*.typ); do
+              echo "$archivo"
+              typst compile $archivo --root . --format png
+              
+              if [ $? -eq 0 ]; then
+                  echo "Compilación exitosa: $archivo"
+              else
+                  echo "Error al compilar: $archivo"
+              fi
+          done
+
+      - name: Copy examples png
+        shell: bash
+        run: |
+          mkdir -p ./docs-shiroa/dist/assets/
+          cp ./examples/**/*.png ./docs-shiroa/dist/assets/
+
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
