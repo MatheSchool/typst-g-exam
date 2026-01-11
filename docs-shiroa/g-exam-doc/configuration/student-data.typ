@@ -11,7 +11,7 @@ Values can be:
 - odd-pages: It will appear on odd-numbered pages.
 - none: The user information box will not appear.
 
-The following example will display student information on the ﬁrst page.
+The following example will display student information on the first page.
 
 ```typst
 

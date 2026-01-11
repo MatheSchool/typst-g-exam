@@ -22,7 +22,9 @@ solutions, watermark with information about the exam model and teacher.
 
 = A sample exam
 
-== Source:
+To begin with, we can show this small example in which the school information, exam header, and configuration to display student information and results table are defined. Afterwards, the questions and sub-questions are defined.
+
+== Source
 
 ```typst
 
@@ -57,13 +59,13 @@ solutions, watermark with information about the exam model and teacher.
 
 ```
 
-== Result:
+== Result
 
 #media.iframe(
   outer-width: 820pt,
   outer-height: 1150pt,
   attributes: (
-    src: "./assets/introduction.pdf",
+    src: "../assets/introduction.pdf",
     style: "height:100%",
     scrolling: "no",
     border: "0",
