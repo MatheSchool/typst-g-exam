@@ -1,4 +1,4 @@
-#import "/docs-shiroa/g-exam-doc/book.typ": book-page
+#import "/docs-shiroa/g-exam-doc/book.typ": book-page, media
 
 #show: book-page.with(title: "Introduction")
 
@@ -17,14 +17,16 @@ solutions, watermark with information about the exam model and teacher.
 - Question and subquestion.
 - Show solutions and clarifications
 - List of clarifications.
-- Teacher's Watermark
-- Exam Model Watermark
+- Teacher's Watermark.
+- Exam Model Watermark-
+- Solution posting.
+- Pagination of questions and subquestions.
 
 == A sample exam
 
 === Source:
 
-```typ
+```typst
 
 #import "@preview/g-exam:0.4.4": *
 
@@ -49,11 +51,28 @@ solutions, watermark with information about the exam model and teacher.
 #question(points:2.5)[Is it true that $x^n + y^n = z^n$ if $(x,y,z)$ and $n$ are positive integers?. Explain.] 
 #v(1fr)
 
-#guestion(points:2.5)[Prove that the real part of all non-trivial zeros of the function $zeta(z) "is" 1/2$].
+#question(points:2.5)[Prove that the real part of all non-trivial zeros of the function $zeta(z) "is" 1/2$].
 #v(1fr)
 
 #question(points:2)[Compute $ integral_0^infinity (sin(x))/x $ ]
 #v(1fr)
-
-
 ```
+
+=== Result
+
+This is an embed video.
+
+#media.iframe(
+  outer-width: 640pt,
+  outer-height: 360pt,
+  attributes: (
+    src: "assets/exam-table-content.pdf",
+    scrolling: "no",
+    border: "0",
+    width: "100%",
+    height: "100%",
+    frameborder: "no",
+    framespacing: "0",
+    allowfullscreen: "true",
+  ),
+)
