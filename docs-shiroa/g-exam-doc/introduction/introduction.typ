@@ -68,9 +68,10 @@ This is an embed video.
 
 #media.iframe(
   outer-width: 640pt,
-  // outer-height: 360pt,
+  outer-height: 1260pt,
   attributes: (
     src: "./assets/introduction.pdf",
+    style: "height:100%",
     scrolling: "no",
     border: "0",
     width: "100%",
@@ -81,22 +82,7 @@ This is an embed video.
   ),
 )
 
-==== pdf2 
-
-#media.iframe(
-  outer-width: 640pt,
-  // outer-height: 360pt,
-  attributes: (
-    src: "/assets/introduction.pdf",
-    scrolling: "no",
-    border: "0",
-    width: "100%",
-    height: "100%",
-    frameborder: "no",
-    framespacing: "0",
-    allowfullscreen: "true",
-  ),
-)
+#media.div()
 
 === svg
 
@@ -105,23 +91,6 @@ This is an embed video.
   // outer-height: 360pt,
   attributes: (
     src: "./assets/introduction.svg",
-    scrolling: "no",
-    border: "0",
-    width: "100%",
-    height: "100%",
-    frameborder: "no",
-    framespacing: "0",
-    allowfullscreen: "true",
-  ),
-)
-
-=== png
-
-#media.iframe(
-  outer-width: 640pt,
-  // outer-height: 360pt,
-  attributes: (
-    src: "./assets/introduction.png",
     scrolling: "no",
     border: "0",
     width: "100%",
