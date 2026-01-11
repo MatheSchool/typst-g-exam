@@ -56,6 +56,7 @@ solutions, watermark with information about the exam model and teacher.
 
 #question(points:2)[Compute $ integral_0^infinity (sin(x))/x $ ]
 #v(1fr)
+
 ```
 
 === Result
