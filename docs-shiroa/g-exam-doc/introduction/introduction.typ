@@ -67,8 +67,8 @@ This is an embed video.
 ==== pdf 
 
 #media.iframe(
-  outer-width: 640pt,
-  outer-height: 1500pt,
+  outer-width: 820pt,
+  outer-height: 1150pt,
   attributes: (
     src: "./assets/introduction.pdf",
     style: "height:100%",
@@ -81,20 +81,4 @@ This is an embed video.
     allowfullscreen: "true",
   ),
 )
-=== svg
 
-#media.iframe(
-  outer-width: 640pt,
-  // outer-height: 360pt,
-  attributes: (
-    src: "./assets/introduction.svg",
-    style: "width:100%, height:100%",
-    scrolling: "no",
-    border: "0",
-    width: "100%",
-    height: "100%",
-    frameborder: "no",
-    framespacing: "0",
-    allowfullscreen: "true",
-  ),
-)
