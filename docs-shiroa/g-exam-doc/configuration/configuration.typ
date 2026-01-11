@@ -1,6 +1,6 @@
-// #import "mod.typ": *
+#import "mod.typ": *
 
-// #show: book-page.with(title: "Configuration")
+#show: book-page.with(title: "Configuration")
 
 = Configuration
 

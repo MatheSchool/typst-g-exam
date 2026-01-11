@@ -1,8 +1,37 @@
-#import "@preview/shiroa:0.3.0": *
+#import "@preview/shiroa:0.3.1": *
+#import "../template/ebook.typ" : part-style, project
 
-#import "../template/ebook.typ"
+#let _page-project = project
 
-#show: ebook.project.with(title: "g-exam Doc", spec: "book.typ")
+#let _resolve-inclusion-state = state("_resolve-inclusion", none)
 
-// set a resolver for inclusion
-#ebook.resolve-inclusion(it => include it) 
+#let resolve-inclusion(inc) = _resolve-inclusion-state.update(it => inc)
+
+#let project(title: "", authors: (), spec: "", content) = {
+  // Set document metadata early
+  set document(
+    author: authors,
+    title: title,
+  )
+
+  // Inherit from gh-pages
+  show: _page-project
+
+  if title != "" {
+    heading(title)
+  }
+
+  context {
+    let inc = _resolve-inclusion-state.final()
+    external-book(spec: inc(spec))
+
+    let mt = book-meta-state.final()
+    let styles = (inc: inc, part: part-style, chapter: it => it)
+
+    if mt != none {
+      mt.summary.map(it => visit-summary(it, styles)).sum()
+    }
+  }
+
+  content
+}

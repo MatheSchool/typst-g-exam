@@ -1,4 +1,4 @@
-#import "@preview/shiroa:2.3.0": *
+#import "@preview/shiroa:0.3.1": *
 #import "../template/pages.typ": project, part-style
 
 #let _page-project = project
@@ -21,15 +21,17 @@
     heading(title)
   }
 
-    let inc = context _resolve-inclusion-state.final()
+  context {
+    let inc = _resolve-inclusion-state.final()
     external-book(spec: inc(spec))
 
-    let mt = context book-meta-state.final()
+    let mt = book-meta-state.final()
     let styles = (inc: inc, part: part-style, chapter: it => it)
 
     if mt != none {
       mt.summary.map(it => visit-summary(it, styles)).sum()
     }
+  }
 
   content
 }

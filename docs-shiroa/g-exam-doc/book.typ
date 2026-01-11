@@ -1,5 +1,7 @@
-#import "@preview/shiroa:0.2.0": *
+#import "@preview/shiroa:0.3.1": *
+
 #show: book
+
 #book-meta(
   title: "g-exam Docs",
   description: "g-exam Documentation",
@@ -7,7 +9,9 @@
   authors: ("Andrés Giménez Muñoz",),
   language: "en",
   summary: [ 
+    // begin of summary
     #prefix-chapter("introduction.typ")[Introduction]
+    = Configuration
     - #chapter("configuration/configuration.typ")[Configuration]
       - #chapter("configuration/question.typ")[Questions]
       - #chapter("configuration/author.typ")[Author]
@@ -20,25 +24,29 @@
       - #chapter("configuration/clarifications.typ")[Clarifications]
       - #chapter("configuration/draft.typ")[Draft]
      
+    = Commands 
     - #chapter("commands/commands.typ")[Commands]
       - #chapter("commands/exam.typ")[Exam]
       - #chapter("commands/question.typ")[Question]
     
     // == Latex Mit
-    - #chapter("latexmit/latexmit.typ")[LaTeX MIT ]
-      - #chapter("latexmit/latexmit-with-points.typ")[LaTeX MIT with points]
-      - #chapter("latexmit/latexmit-without-spaces.typ")[LaTeX MIT without spaces]
+    // - #chapter("latexmit/latexmit.typ")[LaTeX MIT ]
+    //   - #chapter("latexmit/latexmit-with-points.typ")[LaTeX MIT with points]
+    //   - #chapter("latexmit/latexmit-without-spaces.typ")[LaTeX MIT without spaces]
 
     // == Examples
-    - #chapter("examples/exam-big-image.typ")[Example]
+    // - #chapter("examples/exam-big-image.typ")[Example]
+    
+    == About
     - #chapter("changelog.typ")[Changelog]
     // - #chapter("about.typ")[About]
+    // end of summary
   ],
 )
 
 #build-meta(dest-dir: "../dist")
 
-#get-book-meta()
+// #get-book-meta()
 
 re-export page template
 #import "/docs-shiroa/template/pages.typ": project, heading-reference

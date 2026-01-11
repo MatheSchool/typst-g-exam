@@ -24,7 +24,7 @@ solutions, watermark with information about the exam model and teacher.
 
 === Source:
 
-```bash
+```typ
 
 #import "@preview/g-exam:0.4.4": *
 

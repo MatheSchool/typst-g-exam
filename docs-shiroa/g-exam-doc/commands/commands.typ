@@ -26,8 +26,6 @@ Template for creating an exam.
     - *content*(none, content, str): Conten of exam.
     - *model*(none, content, str): Model of exam.
 
-```
-```
 
 === Clarification
 

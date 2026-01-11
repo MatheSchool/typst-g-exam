@@ -1,4 +1,4 @@
-#import "@preview/g-exam:0.4.2": *
+#import "@preview/g-exam:0.4.3": *
 
 #show: exam.with(
   author: (
@@ -24,7 +24,7 @@
   date: "November 21, 2023",
   show-student-data: "odd-pages",
   show-grade-table: true,
-  question-point-position: right,
+  question-points-position: right,
   // question-text-parameters: (size: 18pt, spacing:200%)
   // question-text-parameters: (size: 11pt, spacing:100%)
 )
