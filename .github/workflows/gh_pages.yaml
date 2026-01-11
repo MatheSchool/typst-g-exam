@@ -109,14 +109,12 @@ jobs:
           mkdir -p ./docs-shiroa/dist/assets/
           cp ./examples/**/*.png ./docs-shiroa/dist/assets/
 
-
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
         with:
-          # Upload `/github-pages` sub directory
           path: './docs-shiroa/dist'
 
       - name: Deploy to GitHub Pages
