@@ -39,8 +39,8 @@
     // - #chapter("examples/exam-big-image.typ")[Example]
     
     == About
-    - #chapter("changelog.typ")[Changelog]
-    // - #chapter("about.typ")[About]
+    - #chapter("introduction/changelog.typ")[Changelog]
+    // - #chapter("introduction/about.typ")[About]
     // end of summary
   ],
 )

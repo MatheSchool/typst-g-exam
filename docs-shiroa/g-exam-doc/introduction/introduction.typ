@@ -2,14 +2,12 @@
 
 #show: book-page.with(title: "Introduction")
 
-= Introduction
-
 *g-exam* is a template for Typst, which allows us to create exams. 
 You can create questions and sub-questions, header with information about the academic center, 
 score box, subject, exam, header with student information, clarifications, 
 solutions, watermark with information about the exam model and teacher.
 
-== Features 
+= Features 
 
 - Scoreboard.
 - Scoring by questions and subquestions.
@@ -22,9 +20,9 @@ solutions, watermark with information about the exam model and teacher.
 - Solution posting.
 - Pagination of questions and subquestions.
 
-== A sample exam
+= A sample exam
 
-=== Source:
+== Source:
 
 ```typst
 
@@ -59,7 +57,7 @@ solutions, watermark with information about the exam model and teacher.
 
 ```
 
-=== Result:
+== Result:
 
 #media.iframe(
   outer-width: 820pt,

@@ -2,4 +2,3 @@
 
 #show: book-page.with(title: "About")
 
-= About

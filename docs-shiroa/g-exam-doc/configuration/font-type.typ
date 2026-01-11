@@ -2,11 +2,9 @@
 
 #show: book-page.with(title: "Font type")
 
-= Font type
-
 Typst allows you to customize the fonts of testo, both size, type, space between words, ...
 
-== Sources in questions and sub-questions
+= Sources in questions and sub-questions
 
 For children with special needs, it is recommended to use a larger font, which can cause the entire
 document to be out of place. To do this, the question-text-parameters parameter has been created in
@@ -34,7 +32,7 @@ We can use special fonts for dyslexia, as follows.
 
 ```
 
-== Sources of the entire document
+= Sources of the entire document
 If we want to change the text fonts of the entire document, we can do so, indicating it at the beginning of the document, before calling the template.
 
 This will change the sources of the table of contents, student information, headers, and question numbering.
@@ -42,22 +40,6 @@ This will change the sources of the table of contents, student information, head
 ```typst
 
 #set text(font: "PT Sans", size: 18pt, spacing:200%)
-
-#show: exam.with(
-)
-
-#question(points: 2)[#lorem(30)]
-
-
-```
-
-= Paper Size
-
-We can also change the size of the paper. Typst uses DIM A4 by default. If we want to use US Letter size, we can change it from the following shape.
-
-```typst
-
-#set page("us-letter")
 
 #show: exam.with(
 )
