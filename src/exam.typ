@@ -114,7 +114,7 @@
   assert(decimal-separator in (".", ","),
       message: "Invalid decimal separator")
 
-  assert(show-solutions in (true, false, "space", "spacex2", "spacex3"),
+  assert(show-solutions in (true, false, "true", "false", "space", "spacex2", "spacex3"),
       message: "Invalid show solutions value")
 
   assert(draft in (true, false, none) or type(draft) in (str, content),
@@ -180,7 +180,7 @@
   // })
 
   show math.equation.where(block: false) : it => {
-    if show-solutions != false {
+    if show-solutions != false and show-solutions != "false" {
       set text(
         top-edge: "bounds",
         bottom-edge: "bounds"
@@ -188,7 +188,6 @@
       it
     }
     else {
-      // align(left)[#it]
       it
     }
   }
