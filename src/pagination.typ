@@ -17,6 +17,15 @@
               let header-height = measure(width: size.width, page.header).height 
               let footer-height = measure(width: size.width, page.footer).height 
               
+              place(right, dx:50pt, [
+                next-item-height: #next-item-height \   
+                page.height: #page.height \  
+                item-position-height: #item-position-height \
+                header-height: #header-height \
+                footer-height: #footer-height \
+                #(item-position-height + next-item-height + footer-height + header-height + 15pt)
+                )])
+
               if page.height < item-position-height + next-item-height + footer-height + header-height + 15pt{
                 colbreak()
               }

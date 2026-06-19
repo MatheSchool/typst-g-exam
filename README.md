@@ -59,6 +59,9 @@ To use this package, simply add the following code to your document:
 
 ## Changelog
 
+### v0.4.5
+- Read show-solutions in comand line.
+
 ### v0.4.4
 - New result for marck the result.
 - Show solution.
