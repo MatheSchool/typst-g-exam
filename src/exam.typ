@@ -114,10 +114,10 @@
   assert(decimal-separator in (".", ","),
       message: "Invalid decimal separator")
 
-  if sys.inputs.at("show-solutions") == "true" {
+  if sys.inputs.at("show-solutions", default:"false") == "true" {
     show-solutions = true
   }
-  else if sys.inputs.at("show-solutions") == "false" {
+  else if sys.inputs.at("show-solutions",  default:"false") == "false" {
     show-solutions = false
   }
 
