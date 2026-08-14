@@ -105,7 +105,7 @@
 ) = {
   if type(show-student-data) != dictionary and type(show-student-data) != array {
     assert(show-student-data in (none, true, false, "first-page", "all-pages", "odd-pages"),
-    message: "Invalid show studen data")
+    message: "Invalid show student data")
   }
 
   assert(question-points-position in (none, left, right),
@@ -114,11 +114,8 @@
   assert(decimal-separator in (".", ","),
       message: "Invalid decimal separator")
 
-  if sys.inputs.at("show-solutions", default:"false") == "true" {
-    show-solutions = true
-  }
-  else if sys.inputs.at("show-solutions",  default:"false") == "false" {
-    show-solutions = false
+  if "show-solutions" in sys.inputs {
+    show-solutions = sys.inputs.at("show-solutions") == "true"
   }
 
   assert(show-solutions in (true, false, "true", "false", "space", "spacex2", "spacex3"),
@@ -175,8 +172,7 @@
         context {
           line(length: 100%, stroke: 1pt + gray)       
           align(right)[
-            #counter(page).display(__g-localization.final().page-counter-display, both: true,
-            )
+              #counter(page).display(__g-localization.final().page-counter-display, both: true)
           ]
 
         __show-watermark(author: author, school: school, exam-info: exam-info, question-points-position:question-points-position)

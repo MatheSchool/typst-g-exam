@@ -3,9 +3,12 @@ ignorePaths: []
 dictionaryDefinitions: []
 dictionaries: []
 words:
+  - archivo
   - authors
   - chapter
   - colbreak
+  - Compilando
+  - compilar
   - Docs
   - Documentation
   - exam

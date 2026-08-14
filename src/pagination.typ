@@ -3,39 +3,67 @@
 #let __g-questions-pages(
   items,
 ) = {
-      layout(size =>
-      {
-          let i = 1
-          let item = items.at(0)
-          while i < items.len() {
-            item 
-            let next-item = items.at(i)
-            
-            context {
-              let item-position-height = here().position().y
-              let next-item-height = measure(width: size.width, next-item).height
-              let header-height = measure(width: size.width, page.header).height 
-              let footer-height = measure(width: size.width, page.footer).height 
-              
-              place(right, dx:50pt, [
-                next-item-height: #next-item-height \   
-                page.height: #page.height \  
-                item-position-height: #item-position-height \
-                header-height: #header-height \
-                footer-height: #footer-height \
-                #(item-position-height + next-item-height + footer-height + header-height + 15pt)
-                )])
+  layout(size => {
+    // `size.height` es la altura disponible para el contenido.
+    let available-height = size.height
 
-              if page.height < item-position-height + next-item-height + footer-height + header-height + 15pt{
-                colbreak()
-              }
-            }
-            item = next-item
-            i = i + 1
-          }
-        item
-      })
+    // Medimos todas las preguntas con el ancho real disponible.
+    let measured-items = items.map(item => (
+      item: item,
+      height: measure(width: size.width, item).height,
+    ))
+
+    let pages = ()
+    let current-page = ()
+    let current-height = 0pt
+
+    for entry in measured-items {
+      let item = entry.item
+      let item-height = entry.height
+
+      if item-height > available-height {
+        if current-page.len() > 0 {
+          pages.push(current-page)
+          current-page = ()
+          current-height = 0pt
+        }
+
+        pages.push((item,))
+      }
+      // El elemento cabe en una página, pero no en la actual.
+      else if (
+        current-page.len() > 0
+        and current-height + item-height > available-height
+      ) {
+        pages.push(current-page)
+
+        current-page = (item,)
+        current-height = item-height
+      }
+      // El elemento cabe en la página actual.
+      else {
+        current-page.push(item)
+        current-height += item-height
+      }
     }
+
+    // Guardar la última página.
+    if current-page.len() > 0 {
+      pages.push(current-page)
+    }
+
+    // Renderizar las páginas.
+    for (i, page-items) in pages.enumerate() {
+      for item in page-items {
+        item
+      }
+
+      if i < pages.len() - 1 {
+        colbreak()
+      }
+    }
+  })
+}
     
 /// Automatic adjustment of pages.
 /// 
@@ -148,7 +176,7 @@
     }
     if height-n < min-height {
       min-height-position = n
-      min-height = min-height
+      min-height = height-n 
     }
     n += 1
   }
@@ -218,9 +246,11 @@
             item 
             context {
               let header-height = measure(width: size.width, page.header).height 
-              let footer-height = measure(width: size.width, page.footer).height 
+              // let footer-height = measure(width: size.width, page.footer).height 
+              let footer-height = 30pt
 
               let item-position-height = here().position().y
+              // let item-position-height = 0
               if page.height < item-position-height + next-item-height + footer-height + header-height {
                 colbreak()
               }
