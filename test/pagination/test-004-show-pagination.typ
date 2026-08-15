@@ -24,7 +24,7 @@
     ])
   ],
   [
-    #question()[Si $limits("lím")_(x->2) p(x) = +infinity$, $limits("lím")_(x->2) q(x) = +infinity$, $limits("lím")_(x->2) r(x) = 3$, $limits("lím")_(x->2) s(x) = 0$, di, en los casos en que sea posible, el valor del $limits("lím")_(x->2)$ de las siguientes funcioens:
+    #question()[Si $limits("lím")_(x->2) p(x) = +infinity$, $limits("lím")_(x->2) q(x) = +infinity$, $limits("lím")_(x->2) r(x) = 3$, $limits("lím")_(x->2) s(x) = 0$, di, en los casos en que sea posible, el valor del $limits("lím")_(x->2)$ de las siguientes funciones:
 
     \[Recuerda que las expresiones $(+infinity)slash(+infinity)$, $(+infinity)-(+infinity)$, $(0) dot (+infinity)$, $(1)^((+infinity))$, $(0)slash(0)$ son indeterminaciones \].
     ]
@@ -257,56 +257,48 @@
   ],
   [
     #question()[Calcula el valor de los siguientes límites, si existieran:]
-    #questions-columns([
-      #subquestion(
+    #questions-columns(
+      subquestion(
         solution: [$display(= -1 #h(10cm))$]
       )[$display(limits("lím")_(x->+infinity) x^2/(x-1)- x^2/(x-2))$]
-    ],
-    [ 
-      #subquestion(
+    ,
+      subquestion(
         solution: [$display(= -infinity )$]
       )[$display(limits("lím")_(x->-infinity) (3x^4+5)/(x+2) - (4x^3-x)/(x-2))$]
-    ],
-    [ 
-      #subquestion(
+    ,
+    subquestion(
         solution: [$display(= -infinity)$]
       )[$display(limits("lím")_(x->-infinity) (3x+5)/2 - (x^2-2)/x)$]
-    ],
-    [ 
-      #subquestion(
+    ,
+      subquestion(
         solution: [$display(= -infinity)$]
       )[$display(limits("lím")_(x->-infinity) x-sqrt(3x^2+6x-5))$]
-    ],
-    [ 
-      #subquestion(
+    ,
+      subquestion(
         solution: [$display(= +infinity)$]
       )[$display(limits("lím")_(x->-infinity) 2x^2-sqrt(2x^2-1))$]
-    ],
-    [ 
-      #subquestion(
+    ,
+    subquestion(
         solution: [$display(= 0)$]
       )[$display(limits("lím")_(x->+infinity) 2/sqrt(x^2-1) - 2/sqrt(x^2+1))$]
-    ],
-    [ 
-      #subquestion(
+    ,
+      subquestion(
         solution: [$display(= -4)$]
       )[$display(limits("lím")_(x->+infinity) (x^3-2x^2)/(x^2-1) - (x^3+2x^2)/(x^2+1))$]
-    ],
-    [ 
-      #subquestion(
+    ,
+     
+    subquestion(
         solution: [$display(= 9)$]
       )[$display(limits("lím")_(x->-infinity) (x^2+x+2)/(x-3) - (x^2-2x+2)/(x+3))$]
-    ],
-    [ 
-      #subquestion(
+    ,
+    subquestion(
         solution: [$display(= +infinity)$]
       )[$display(limits("lím")_(x->+infinity) sqrt(x^2+1) + sqrt(x+1)))$]
-    ],
-    [ 
-      #subquestion(
+    ,
+    subquestion(
         solution: [$display(= -infinity)$]
       )[$display(limits("lím")_(x->-infinity) sqrt(1-x) - e^x + e^(-x)))$]
-    ])
+    )
   ],
   [
     #question()[Calcula el valor de los siguientes límites, si existieran:]
