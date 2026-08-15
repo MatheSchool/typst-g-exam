@@ -60,10 +60,12 @@ To use this package, simply add the following code to your document:
 ## Changelog
 
 ### v0.4.5
-- Read show-solutions in comand line.
+- Improvements in pagination.
+- Read show-solutions in command line.
+- Fix german translation.
 
 ### v0.4.4
-- New result for marck the result.
+- New result for mark the result.
 - Show solution.
 - Pagination.
 
@@ -99,8 +101,8 @@ To use this package, simply add the following code to your document:
 
 ### v0.3.2
 
-- Change show-studen-data to show-student-data parameter.
-- Change languaje to language parameter.
+- Change show-student-data to show-student-data parameter.
+- Change language to language parameter.
 
 ### v0.3.1
 
@@ -111,7 +113,7 @@ To use this package, simply add the following code to your document:
 - Include parameter question-text-parameters.
 - Show solution.
 - Expand documentation.
-- Possibility of estrablecer question-points-position to none.
+- Possibility of establish question-points-position to none.
 - Bug fix show watermark.
 
 ### v0.2.0

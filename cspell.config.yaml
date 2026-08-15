@@ -6,10 +6,10 @@ dictionaries:
   - en
 words:
   - colbreak
-  - Renderizamos
-  - Renderizar
+  - renderizamos
+  - renderizar
   - subquestion
   - trunc
-  - Typst
+  - typst
 ignoreWords: []
 import: []
