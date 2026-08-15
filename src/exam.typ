@@ -69,7 +69,7 @@
   ),
   language: "en",
   localization: (
-    grade-table-queston: none,
+    grade-table-question: none,
     grade-table-total: none,
     grade-table-points: none,
     grade-table-grade: none,

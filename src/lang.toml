@@ -1,5 +1,5 @@
 [en]
-grade-table-queston = "Question"
+grade-table-question = "Question"
 grade-table-total = "Total"
 grade-table-points = "Points"
 grade-table-grade = "Grade"
@@ -14,7 +14,7 @@ date = "Date"
 draft-label = "Draft"
 
 [es]
-grade-table-queston = "Pregunta"
+grade-table-question = "Pregunta"
 grade-table-total = "Total"
 grade-table-points = "Puntos"
 grade-table-grade = "Calificación"
@@ -29,7 +29,7 @@ date = "Fecha"
 draft-label = "Borrador"
 
 [ca]
-grade-table-queston = "Pregunta"
+grade-table-question = "Pregunta"
 grade-table-total = "Total"
 grade-table-points = "Punts"
 grade-table-grade = "Qualificació"
@@ -44,7 +44,7 @@ date = "Data"
 draft-label = "Esborrany"
 
 [de]
-grade-table-queston = "Frage"
+grade-table-question = "Frage"
 grade-table-total = "Gesamt"
 grade-table-points = "Punkte"
 grade-table-grade = "Note"
@@ -59,7 +59,7 @@ date = "Datum"
 draft-label = "Entwurf"
 
 [fr]
-grade-table-queston = "Question"
+grade-table-question = "Question"
 grade-table-total = "Totale"
 grade-table-points = "Aiguillage"
 grade-table-grade = "Calivage"
@@ -74,7 +74,7 @@ date = "Date"
 draft-label = "Brouillon"
 
 [pt]
-grade-table-queston = "Perguntas"
+grade-table-question = "Perguntas"
 grade-table-total = "Total"
 grade-table-points = "Pontos"
 grade-table-grade = "calificação"
@@ -89,7 +89,7 @@ date = "Data"
 draft-label = "Projeto"
 
 [it]
-grade-table-queston = "Domande"
+grade-table-question = "Domande"
 grade-table-total = "Totale"
 grade-table-points = "Punti"
 grade-table-grade = "Calificazione"
@@ -104,7 +104,7 @@ date = "Dattero"
 draft-label = "Bozza"
 
 [nl]
-grade-table-queston = "Vraag"
+grade-table-question = "Vraag"
 grade-table-total = "Totaal"
 grade-table-points = "Punten"
 grade-table-grade = "Score"

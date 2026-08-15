@@ -21,7 +21,7 @@ For each parameter you can specify the indicated content, for example by indicat
 ```typst
 
   localization: (
-    grade-table-queston: [Question],
+    grade-table-question: [Question],
     grade-table-total: [Total],
     grade-table-points: [Points],
     grade-table-grade: [Grade],
@@ -39,7 +39,7 @@ For each parameter you can specify the indicated content, for example by indicat
 ```
 == Usefulness of each tag
 
-- grade-table-queston: Tag _question_ on the grade table.
+- grade-table-question: Tag _question_ on the grade table.
 - grade-table-total: Tag _total_ on the grade table.
 - grade-table-points: Tag _points_ on the grade table.
 - grade-table-grade: Tag _grade_ on the grade table.
@@ -47,10 +47,10 @@ For each parameter you can specify the indicated content, for example by indicat
 - points: A label that indicates the punctuation of the question in the plural.
 - page: Label _page_ in the footer of the exam.
 - page-counter-display: A label that indicates how to indicate the page number in the footer.
-- family-name: Tag _family name_ on the studen information.
-- given-name:Tag _given name_ on the studen information.
-- group: Tag _group_ on the studen information.,
-- date: Tag _data_ on the exam information.,
+- family-name: Tag _family name_ on the student information.
+- given-name:Tag _given name_ on the student information.
+- group: Tag _group_ on the student information.,
+- date: Tag _date_ on the exam information.,
 - draft-label: Watermark that will appear in draft mode.
 
 = Examples
@@ -87,7 +87,7 @@ If we want the labels of the student's information to appear in bold.
 
 #show: exam.with(
   localization: (
-    grade-table-queston: [*Question*],
+    grade-table-question: [*Question*],
     grade-table-total: [*Total*],
     grade-table-points: [*Points*],
     grade-table-grade: [*Grade*],

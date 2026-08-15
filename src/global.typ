@@ -14,7 +14,7 @@
 
 
 #let __g-default-localization = (
-    grade-table-queston: "Question",
+    grade-table-question: "Question",
     grade-table-total: "Total",
     grade-table-points: "Points",
     grade-table-grade: "Grade",

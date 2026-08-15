@@ -6,8 +6,10 @@ dictionaries:
   - en
 words:
   - colbreak
+  - euclid
   - renderizamos
   - renderizar
+  - strfmt
   - subquestion
   - trunc
   - typst

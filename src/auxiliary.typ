@@ -97,7 +97,7 @@
   let columns-number = range(0, end-g-question-locations.len() + 1)
 
   let question-row = columns-number.map(n => {
-      if n == 0 {align(left + horizon)[#text(hyphenate: false, context __g-localization.final().grade-table-queston)]}
+      if n == 0 {align(left + horizon)[#text(hyphenate: false, context __g-localization.final().grade-table-question)]}
       else if n == end-g-question-locations.len() {align(left + horizon)[#text(hyphenate: false, context __g-localization.final().grade-table-total)]}
       else [ #n ]
     }
@@ -151,7 +151,7 @@
   )
 }
 
-#let __g-scholl-header = () => {
+#let __g-school-header = () => {
   
 }
 
@@ -172,7 +172,7 @@
       ]
     }
     else {
-      panic("Not implementation clarificationso of type: '" + type(clarifications) + "'")
+      panic("Not implementation clarifications of type: '" + type(clarifications) + "'")
     }
 
     rect(
@@ -212,7 +212,7 @@
 #let __read-localization = (
   language: "en",
   localization: (
-    grade-table-queston: none,
+    grade-table-question: none,
     grade-table-total: none,
     grade-table-points: none,
     grade-table-grade: none,
@@ -241,7 +241,7 @@
           return value
         }
 
-        let __grade_table_queston = __read-localization-value(read_lang_data: __read_lang_data, field: "grade-table-queston", localization: localization)
+        let __grade_table_question = __read-localization-value(read_lang_data: __read_lang_data, field: "grade-table-question", localization: localization)
         let __grade_table_total = __read-localization-value(read_lang_data: __read_lang_data, field: "grade-table-total", localization: localization)
         let __grade_table_points = __read-localization-value(read_lang_data: __read_lang_data, field: "grade-table-points", localization: localization)
         let __grade_table_grade = __read-localization-value(read_lang_data: __read_lang_data, field: "grade-table-grade", localization: localization)
@@ -256,7 +256,7 @@
         let __draft-label = __read-localization-value(read_lang_data: __read_lang_data, field: "draft-label", localization: localization)
 
         let __g-localization_lang_data = (
-              grade-table-queston: __grade_table_queston,
+              grade-table-question: __grade_table_question,
               grade-table-total: __grade_table_total,
               grade-table-points: __grade_table_points,
               grade-table-grade: __grade_table_grade,

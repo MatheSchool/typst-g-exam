@@ -2,8 +2,8 @@
 
 #show: exam.with(
   localization: (
-    grade-table-queston: [Number of *questions*],
-    grade-table-total: [Total _poinst_],
+    grade-table-question: [Number of *questions*],
+    grade-table-total: [Total _points_],
     grade-table-points: [#text(fill: red)[Points]],
     grade-table-grade: [#text(fill: gradient.radial(..color.map.rainbow))[Grades obtained]],
     point: [point],
