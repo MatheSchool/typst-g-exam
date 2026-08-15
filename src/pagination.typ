@@ -7,6 +7,9 @@
     // `size.height` es la altura disponible para el contenido.
     let available-height = size.height
 
+    let header-height = measure(width: size.width, page.header).height 
+    let footer-height = measure(width: size.width, page.footer).height 
+
     // Medimos todas las preguntas con el ancho real disponible.
     let measured-items = items.map(item => (
       item: item,
@@ -28,12 +31,12 @@
           current-height = 0pt
         }
 
-        pages.push((item,))
+        pages.push((item,)) 
       }
       // El elemento cabe en una página, pero no en la actual.
       else if (
         current-page.len() > 0
-        and current-height + item-height > available-height
+        and current-height + item-height + header-height + footer-height> available-height
       ) {
         pages.push(current-page)
 
@@ -58,7 +61,7 @@
         item
       }
 
-      if i < pages.len() - 1 {
+      if i < pages.len() - 1 {   
         colbreak()
       }
     }
@@ -215,55 +218,108 @@
 #let __g-questions-columns(
   max-columns: 100,
   items,
-  ) = {
-    layout(size => {
-      context {
-        let (number-column, item-max-width, items-size-height) = __g-columns-width(size, max-columns, items)
-       
-        if number-column > 1 { // one page.         
-            let partition-array = __g-linear-partition(items, number-column)
+  reserved-height: 30pt,
+) = {
+  layout(size => {
+    let (number-column, item-max-width, items-size-height) = __g-columns-width(size, max-columns, items)
 
-            columns(number-column,
-            {
-              let n = 1
-              for items-partition in partition-array {
-                for item in items-partition {
-                  item
-                }
-                if n < number-column {
-                  n +=1
-                  colbreak()
-                }
-              }
-            })
-        } else { // one column.         
-          let i = 1
-          let item = items.at(0)
-          while i < items.len() {
-            let next-item = items.at(i)
-            let next-item-height = measure(width: size.width, next-item).height
-            
-            item 
-            context {
-              let header-height = measure(width: size.width, page.header).height 
-              // let footer-height = measure(width: size.width, page.footer).height 
-              let footer-height = 30pt
+    let header-height = measure(width: size.width, page.header).height 
+    let footer-height = measure(width: size.width, page.footer).height 
 
-              let item-position-height = here().position().y
-              // let item-position-height = 0
-              if page.height < item-position-height + next-item-height + footer-height + header-height {
-                colbreak()
-              }
+    if number-column > 1 {
+      // Varias columnas en la misma página.
+      let partition-array = __g-linear-partition(items, number-column)
+
+      columns(
+        number-column,
+        {
+          let n = 1
+
+          for items-partition in partition-array {
+            for item in items-partition {
+              item
             }
-            
-            item = next-item
-            i = i + 1
+
+            if n < number-column {
+              n += 1
+              colbreak()
+            }
           }
-          item
+        },
+      )
+    } else {
+      // Una única columna.
+      //
+      // Calculamos previamente qué elementos caben en cada página.
+      let available-height = size.height - reserved-height
+
+      let pages = ()
+      let current-page = ()
+      let current-height = 0pt
+
+      // Medimos todos los elementos una sola vez.
+      let measured-items = items.map(item => (
+        item: item,
+        height: measure(
+          width: size.width,
+          item,
+        ).height,
+      ))
+
+      for entry in measured-items {
+        let item = entry.item
+        let item-height = entry.height
+
+        // El elemento ocupa más que una página completa.
+        //
+        // No hacemos un salto antes de él porque eso produciría
+        // una página vacía. Typst podrá fragmentarlo.
+        if item-height > available-height {
+          if current-page.len() > 0 {
+            pages.push(current-page)
+            current-page = ()
+            current-height = 0pt
+          }
+
+          pages.push((item,))
+        }
+
+        // No cabe en la página actual, pero sí en una página completa.
+        else if (
+          current-page.len() > 0
+          and current-height + item-height + header-height + footer-height > available-height
+        ) {
+          pages.push(current-page)
+
+          current-page = (item,)
+          current-height = item-height
+        }
+
+        // Cabe en la página actual.
+        else {
+          current-page.push(item)
+          current-height += item-height + 10pt
         }
       }
-    })
-   }
+
+      // Última página.
+      if current-page.len() > 0 {
+        pages.push(current-page)
+      }
+
+      // Renderizamos las páginas.
+      for (page-index, page-items) in pages.enumerate() {
+        for item in page-items {
+          item
+        }
+
+        if page-index < pages.len() - 1 {
+          colbreak()
+        }
+      }
+    }
+  })
+}
 
 /// Automatic adjustment of question and subquestion lists.
 /// 

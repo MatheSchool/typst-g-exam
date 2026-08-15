@@ -1,33 +1,15 @@
 version: "0.2"
 ignorePaths: []
 dictionaryDefinitions: []
-dictionaries: []
+dictionaries:
+  - es
+  - en
 words:
-  - archivo
-  - authors
-  - chapter
   - colbreak
-  - Compilando
-  - compilar
-  - Docs
-  - Documentation
-  - exam
-  - Example
-  - footer
-  - height
-  - here
-  - layout
-  - measure
-  - page
-  - pages
-  - questions
-  - right
-  - shiroa
+  - Renderizamos
+  - Renderizar
   - subquestion
-  - subquestions
   - trunc
   - Typst
-  - while
-  - width
 ignoreWords: []
 import: []
