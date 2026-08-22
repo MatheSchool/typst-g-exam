@@ -63,22 +63,19 @@ To use this package, simply add the following code to your document:
 - Improvements in pagination.
 - Read show-solutions in command line.
 - Fix german translation.
+- User Typst 0.15.0
 
 ### v0.4.4
 - New result for mark the result.
 - Show solution.
 - Pagination.
-
-### v0.4.4
-- Use Typst 0.14.0
-- Options
-- Pagination question and subquestion.
+- User Typst 0.14.2
 
 ### v0.4.3
-- Use Typst 0.13.1
 - Include cat language.
 - Model admit content type.
 - Fix margin top.
+- Use Typst 0.13.1
 
 ### v0.4.2
 - Fix lang tag.
@@ -91,8 +88,8 @@ To use this package, simply add the following code to your document:
 - Change g-exam for exam.
 - Change g-question and g-subquestion for question and subquestion.
 - Change point parameter to points in question and subquestion.
-- Change question-points-position paramet to question-points-position.
-- Include documentation.
+- Change question-points-position parameter to question-points-position.
+- Include online documentation.
 - Use paper by default.
 - Indenting subquestion.
 - Include support for dutch language.
@@ -101,8 +98,8 @@ To use this package, simply add the following code to your document:
 
 ### v0.3.2
 
-- Change show-student-data to show-student-data parameter.
-- Change language to language parameter.
+- Change show-studen-data to show-student-data parameter.
+- Change languaje to language parameter.
 
 ### v0.3.1
 
@@ -113,7 +110,7 @@ To use this package, simply add the following code to your document:
 - Include parameter question-text-parameters.
 - Show solution.
 - Expand documentation.
-- Possibility of establish question-points-position to none.
+- Possibility of establishing question-point-position to none.
 - Bug fix show watermark.
 
 ### v0.2.0
