@@ -388,7 +388,7 @@
                 #school.at("name", default : none) \
               ] 
               #exam-info.at("academic-period", default: none)  \ 
-              #exam-info.academic-level
+              #exam-info.at("academic-level", default: none)
             ], 
             align(center + top)[
               // #exam-info.number #exam-info.content \

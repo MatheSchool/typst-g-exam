@@ -30,7 +30,7 @@
 /// - exam-info: Information of exam.
 ///   - academic-period (none, content, str): Academic period.
 ///   - academic-level (none, content, str): Academic level.
-///   - academic-subject (none, content, str): Academic subname.
+///   - academic-subject (none, content, str): Academic subject.
 ///   - number (none, content, str): Number of exam.
 ///   - content (none, content, str): Content of exam.
 ///   - model (none, content, str): Model of exam.
