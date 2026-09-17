@@ -17,6 +17,7 @@ words:
   - spacex
   - strfmt
   - subquestion
+  - subquestions
   - trunc
   - typst
 ignoreWords: []

@@ -7,7 +7,7 @@ This template provides a way to generate exams. You can create questions and sub
 - Scoreboard.
 - Scoring by questions and subquestions.
 - Student information, on the first page or on all odd pages.
-- Question and subcuestion.
+- Question and subquestion.
 - Show solutions and clarifications
 - List of clarifications.
 - Teacher's Watermark
@@ -16,7 +16,7 @@ This template provides a way to generate exams. You can create questions and sub
 
 ## Usage 
 
-For information, see the [online docucumentation](https://matheschool.github.io/typst-g-exam/). 
+For information, see the [online documentation](https://matheschool.github.io/typst-g-exam/). 
 
 To use this package, simply add the following code to your document:
 
