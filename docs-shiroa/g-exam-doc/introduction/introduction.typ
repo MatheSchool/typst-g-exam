@@ -66,7 +66,7 @@ To begin with, we can show this small example in which the school information, e
   outer-height: 950pt,
   attributes: (
     src: "../assets/introduction.pdf",
-    style: "height:100%",
+    style: "height:80%",
     scrolling: "no",
     border: "0",
     width: "100%",
