@@ -13,5 +13,7 @@ words:
   - subquestion
   - trunc
   - typst
+  - spacex
+  - pagebreak
 ignoreWords: []
 import: []
