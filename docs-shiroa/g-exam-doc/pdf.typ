@@ -1,4 +1,4 @@
-#import "@preview/shiroa:0.3.1": *
+#import "@preview/shiroa:0.4.0": *
 
 #import "/docs-shiroa/g-exam-doc/book.typ"
 #let ebook = book
