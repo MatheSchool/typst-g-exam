@@ -50,7 +50,7 @@
 // #get-book-meta()
 
 re-export page template
-#import "/docs-shiroa/template/pages.typ": project, heading-reference
+#import "../template/gh-pages.typ": project, heading-reference
 #let book-page = project
 #let cross-link = cross-link
 #let heading-reference = heading-reference

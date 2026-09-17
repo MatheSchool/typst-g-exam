@@ -1,5 +1,5 @@
 #import "@preview/shiroa:0.4.0": *
-#import "../template/ebook.typ" : part-style, project
+#import "gh-pages.typ": part-style, project
 
 #let _page-project = project
 

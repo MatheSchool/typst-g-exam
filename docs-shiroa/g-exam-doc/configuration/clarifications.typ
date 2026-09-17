@@ -1,5 +1,5 @@
-#import "mod.typ": *
-#import "../../../src/lib.typ": *
+#import "../book.typ": book-page, cross-link
+// #import "../../../src/lib.typ": *
 
 #show: book-page.with(title: "Clarifications")
 

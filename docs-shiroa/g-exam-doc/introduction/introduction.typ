@@ -1,4 +1,4 @@
-#import "/docs-shiroa/g-exam-doc/book.typ": book-page, media
+#import "../book.typ": book-page, media
 
 #show: book-page.with(title: "Introduction")
 

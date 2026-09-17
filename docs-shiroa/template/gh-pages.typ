@@ -1,6 +1,6 @@
 // This is important for shiroa to produce a responsive layout
 // and multiple targets.
-#import "@preview/shiroa:0.4.0": *
+#import "@preview/shiroa:0.4.0": (
   get-page-width, is-html-target, is-pdf-target, is-web-target, plain-text, shiroa-sys-target, templates,
 )
 #import templates: *
@@ -16,7 +16,7 @@
 #let is-html-target = is-html-target()
 #let is-pdf-target = is-pdf-target()
 #let is-web-target = is-web-target()
-#let sys-is-html-target = ("target" in dictionary(std))
+#let sys-is-html-target = ("html" in dictionary(std))
 
 // Theme (Colors)
 #let themes = theme-box-styles-from(toml("theme-style.toml"), read: it => read(it))
@@ -120,14 +120,24 @@
     web-theme: web-theme,
   )
 
-  show: template-rules.with(
-    book-meta: include "../g-exam-doc/book.typ",
+  let template-args = arguments(
+    include "../g-exam-doc/book.typ",
     title: title,
     description: description,
     plain-body: plain-body,
     extra-assets: (extra-css,),
-    ..common,
   )
+
+  // Applies a theme.
+  show: if web-theme == "starlight" {
+    import "@preview/shiroa-starlight:0.4.0": starlight
+    starlight.with(..template-args)
+  } else if web-theme == "mdbook" {
+    import "@preview/shiroa-mdbook:0.4.0": mdbook
+    mdbook.with(..template-args)
+  } else {
+    panic("Unknown web theme: " + web-theme)
+  }
 
   // Set main text
   set text(
