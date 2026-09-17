@@ -2,6 +2,7 @@ name: g-exam::gh_pages
 on:
   push:
     paths: 
+      - '.github\workflows\gh_pages.yaml'
       - 'docs-shiroa/**'
       - 'examples/**'
 
