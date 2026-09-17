@@ -37,21 +37,21 @@
 - Corrections in English texts. 
 - Draft label.
 
-== v0.3.2
+= v0.3.2
 - Change show-studen-data to show-student-data parameter.
 - Change languaje to language parameter.
 
-== v0.3.1
+= v0.3.1
 - Corrections in French.
 
-== v0.3.0
+= v0.3.0
 - Include parameter question-text-parameters.
 - Show solution.
 - Expand documentation.
 - Possibility of establish question-points-position to none.
 - Bug fix show watermark.
 
-== v0.2.0
+= v0.2.0
 - Control the size of the logo image.
 - Convert to template
 - Allow true and false values in show-student-data.
@@ -59,8 +59,8 @@
 - Widen margin points.
 - Show solution.
 
-== v0.1.1
+= v0.1.1
 - Fix loading image.
 
-== v0.1.0
+= v0.1.0
 - Initial version submitted to typst/packages.
