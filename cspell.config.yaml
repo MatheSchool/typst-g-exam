@@ -6,14 +6,15 @@ dictionaries:
   - en
 words:
   - colbreak
+  - emph
   - euclid
+  - pagebreak
   - renderizamos
   - renderizar
+  - spacex
   - strfmt
   - subquestion
   - trunc
   - typst
-  - spacex
-  - pagebreak
 ignoreWords: []
 import: []

@@ -9,18 +9,20 @@
 #import "sugar.typ": *
 #import "pagination.typ": *
 #import "decorator.typ": *
+#import "header.typ": *
+#import "grade-table.typ": *
 
 /// Template for creating an exam.
 ///
 /// \ 
-/// **Exaple**
+/// **Example**
 /// ``` 
 /// #show: exam.with()
 /// ```
 ///  
 ///  \
 /// 
-/// - author: Infomation of author of exam.
+/// - author: Information of author of exam.
 ///   - name (string, content): Name of author of exam.
 ///   - email (string): E-mail of author of exam.
 ///   - watermark (string): Watermark with information about the author of the document.

@@ -6,7 +6,7 @@
 /// ``` #solution(
 ///    alternative-content: v(1fr)
 ///  )[
-///  I know the demostration, but there's no room on the margin. For any clarification ask Andrew Whilst.
+///  I know the demonstration, but there's no room on the margin. For any clarification ask Andrew Whilst.
 /// ]```
 ///
 /// - alternative-content (string, content): Alternate content when the question solution is not displayed.

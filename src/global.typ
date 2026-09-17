@@ -12,7 +12,6 @@
 
 #let __g-solution-color-state = state("g-solution-color", rgb("#0038A7"))
 
-
 #let __g-default-localization = (
     grade-table-question: "Question",
     grade-table-total: "Total",
