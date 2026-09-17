@@ -2,8 +2,8 @@
 
 #show: book-page.with(title: "Changelog")
 
-= v0.4.4
-- New result for marck the result.
+= v0.4.5
+- New result for mark the result.
 - Show solution.
 - Pagination.
 
@@ -29,7 +29,7 @@
 - Change g-exam for exam.
 - Change g-question and g-subquestion for question and subquestion.
 - Change point parameter to points in question and subquestion.
-- Change question-points-position paramet to question-points-position.
+- Change question-points-position parameter to question-points-position.
 - Include documentation.
 - Use paper by default.
 - Indenting subquestion.
@@ -48,7 +48,7 @@
 - Include parameter question-text-parameters.
 - Show solution.
 - Expand documentation.
-- Possibility of estrablecer question-points-position to none.
+- Possibility of establish question-points-position to none.
 - Bug fix show watermark.
 
 == v0.2.0
